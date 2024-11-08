@@ -1,0 +1,2684 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 103,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 26,
+      "panels": [],
+      "title": "Service Stability",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 0,
+        "y": 1
+      },
+      "id": 59,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\">\n  <h3 class=\"title\">\n    {{Title}}\n  </h3>\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 200,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": ".container {\r\n  top: 50%;\r\n  left: 50%;\r\n  width: 100%;\r\n  height: 100%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  background-color: #383b3e;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  color: #ffffff;\r\n  font-weight: bold;\r\n  font-size: 1.875em;\r\n  text-align: 'center';\r\n  font-family: monospace;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Title",
+                "type": "string",
+                "values": [
+                  "Region Availability"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Dashboard Sections"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "transparent": true,
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 4,
+        "y": 1
+      },
+      "id": 60,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\">\n  <h3 class=\"title\">\n    {{Title}}\n  </h3>\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 200,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": ".container {\r\n  top: 50%;\r\n  left: 50%;\r\n  width: 100%;\r\n  height: 100%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  background-color: #383b3e;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  color: #ffffff;\r\n  font-weight: bold;\r\n  font-size: 1.875em;\r\n  text-align: 'center';\r\n  font-family: monospace;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Title",
+                "type": "string",
+                "values": [
+                  "Brand Availability"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Dashboard Sections"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "transparent": true,
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 8,
+        "y": 1
+      },
+      "id": 61,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\">\n  <h3 class=\"title\">\n    {{Title}}\n  </h3>\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 200,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": ".container {\r\n  top: 50%;\r\n  left: 50%;\r\n  width: 100%;\r\n  height: 100%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  background-color: #383b3e;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  color: #ffffff;\r\n  font-weight: bold;\r\n  font-size: 1.875em;\r\n  text-align: 'center';\r\n  font-family: monospace;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Title",
+                "type": "string",
+                "values": [
+                  "Channel Availability"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Dashboard Sections"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "transparent": true,
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 12,
+        "y": 1
+      },
+      "id": 62,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\">\n  <h3 class=\"title\">\n    {{Title}}\n  </h3>\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 200,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": "& {\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\n.container {\r\n  top: 50%;\r\n  left: 50%;\r\n  width: 100%;\r\n  height: 100%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  background-color: #383b3e;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  color: #ffffff;\r\n  font-weight: bold;\r\n  font-size: 1.875em;\r\n  text-align: 'center';\r\n  font-family: monospace;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Title",
+                "type": "string",
+                "values": [
+                  "Service Management KPIs"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Dashboard Sections"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "transparent": true,
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 0,
+        "y": 3
+      },
+      "id": 1,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/^Field 1$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-78571",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+          },
+          "range": "sla!C2",
+          "refId": "A",
+          "spreadsheet": "1Bzi2V-0KWkJPXooeARAKSyF_1Rw-2_E-5-BnJQJ1o4s",
+          "useTimeFilter": false
+        }
+      ],
+      "title": "East",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 2,
+        "y": 3
+      },
+      "id": 28,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/^Field 1$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-78571",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+          },
+          "range": "sla!C3",
+          "refId": "A",
+          "spreadsheet": "1Bzi2V-0KWkJPXooeARAKSyF_1Rw-2_E-5-BnJQJ1o4s",
+          "useTimeFilter": false
+        }
+      ],
+      "title": "Central",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "e2d81ee2-f871-4bb3-8629-cd6d7c030825"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 4,
+        "y": 3
+      },
+      "id": 16,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/^Field 1$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-78571",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "e2d81ee2-f871-4bb3-8629-cd6d7c030825"
+          },
+          "range": "sla!C4",
+          "refId": "A",
+          "spreadsheet": "1Bzi2V-0KWkJPXooeARAKSyF_1Rw-2_E-5-BnJQJ1o4s",
+          "useTimeFilter": false
+        }
+      ],
+      "title": "Brand 1",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 6,
+        "y": 3
+      },
+      "id": 17,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/^Field 1$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-78571",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+          },
+          "range": "sla!C5",
+          "refId": "A",
+          "spreadsheet": "1Bzi2V-0KWkJPXooeARAKSyF_1Rw-2_E-5-BnJQJ1o4s",
+          "useTimeFilter": false
+        }
+      ],
+      "title": "Brand 2",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 90
+              },
+              {
+                "color": "green",
+                "value": 99
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 8,
+        "y": 3
+      },
+      "id": 18,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/^Field 1$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-78571",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+          },
+          "range": "sla!C6",
+          "refId": "A",
+          "spreadsheet": "1Bzi2V-0KWkJPXooeARAKSyF_1Rw-2_E-5-BnJQJ1o4s",
+          "useTimeFilter": false
+        }
+      ],
+      "title": "Online",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 10,
+        "y": 3
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/^Field 1$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-78571",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+          },
+          "range": "sla!C7",
+          "refId": "A",
+          "spreadsheet": "1Bzi2V-0KWkJPXooeARAKSyF_1Rw-2_E-5-BnJQJ1o4s",
+          "useTimeFilter": false
+        }
+      ],
+      "title": "Mobile",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 12,
+        "y": 3
+      },
+      "id": 25,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-78571",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+          },
+          "range": "incidents!A1:11",
+          "refId": "A",
+          "spreadsheet": "1Bzi2V-0KWkJPXooeARAKSyF_1Rw-2_E-5-BnJQJ1o4s"
+        }
+      ],
+      "title": "Incidents",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "m"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 16,
+        "y": 3
+      },
+      "id": 21,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/^Field 1$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-78571",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+          },
+          "range": "sla!C8",
+          "refId": "A",
+          "spreadsheet": "1Bzi2V-0KWkJPXooeARAKSyF_1Rw-2_E-5-BnJQJ1o4s",
+          "useTimeFilter": false
+        }
+      ],
+      "title": "MTTR",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "Down": {
+                  "color": "red",
+                  "index": 1
+                },
+                "Up": {
+                  "color": "green",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 18,
+        "y": 3
+      },
+      "id": 45,
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "never",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0-78571",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time",
+                "type": "time",
+                "values": [
+                  1701237600832,
+                  1701711000000,
+                  1701711600000
+                ]
+              },
+              {
+                "config": {},
+                "name": "State",
+                "type": "string",
+                "values": [
+                  "Up",
+                  "Down",
+                  "Up"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Outage Timeline"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Outage Record",
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 5
+              },
+              {
+                "color": "yellow",
+                "value": 10
+              },
+              {
+                "color": "red",
+                "value": 15
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 22,
+        "y": 3
+      },
+      "id": 46,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/^Field 1$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-78571",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+          },
+          "range": "sla!C9",
+          "refId": "A",
+          "spreadsheet": "1Bzi2V-0KWkJPXooeARAKSyF_1Rw-2_E-5-BnJQJ1o4s"
+        }
+      ],
+      "title": "Fraud Detection Rate",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
+      "id": 27,
+      "panels": [],
+      "title": "Platform Health",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 2
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 3,
+        "x": 0,
+        "y": 9
+      },
+      "id": 51,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\" style=\"background-color: {{statusColor}}\">\r\n  <h1 class=\"title\">Application</h1>\r\n  <img class=\"image\" src={{svg}} />\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 364,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "status",
+        "styles": ".container {\r\n  height: 180px;\r\n  width: 100%;\r\n  top: 50%;\r\n  left: 50%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  font-size: 30px;\r\n  color: white;\r\n}\r\n\r\n.image {\r\n  width: 150px;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Application",
+                "type": "string",
+                "values": [
+                  "1"
+                ]
+              },
+              {
+                "config": {},
+                "name": "svg",
+                "type": "string",
+                "values": [
+                  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEyMyA5MiIgd2lkdGg9IjEyMyIgaGVpZ2h0PSI5MiI+Cgk8dGl0bGU+d2ViLWNvZGUtaWNvbi1zdmc8L3RpdGxlPgoJPGRlZnM+CgkJPGltYWdlICB3aWR0aD0iMTIzIiBoZWlnaHQ9IjkyIiBpZD0iaW1nMSIgaHJlZj0iZGF0YTppbWFnZS9wbmc7YmFzZTY0LGlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFIc0FBQUJjQ0FNQUFBQjVzRHJEQUFBQUFYTlNSMElCMmNrc2Z3QUFBYVJRVEZSRkFBQUEvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vZVpTUkp3QUFBSXgwVWs1VEFDWjl4disvY2hzZDBib1JTL2txOVE0RDU4aEFKSmhqNFp6QjNEZ1VIMlkwSVhZdkpZSEVvd0V5a2tYN0MySHpCQUtOdFJPYmd6QnRXUVZIR0tnak42QUdxejlTOTM5TVhmRjZTYjFJWlE4WEZReFZFSlZxNWJnSU5WZHBXeW5lczFvOVBNOFcyZ2xVWUk5UWpOUWdNd3F4TVVyOTQ4c1NsbXpOaWF3MmFFTzJpdWsrVWVDcHd3ZEc3M1NONmwxeEFBQURia2xFUVZSNG5PMmErVnZUTUJqSEE3eWdNQVlNbU1oZ3VrMGRCYm5HN1p4TTBJbDRNT1FRRDBEd0FDOHVSY0Q3Qm85LzJqWHR4bEs2TnVtYTl2R2gzMS8yZkplMzcyYzVsaVpwRVJKVlVGZ0UxcW00NUFoSzYyaXBoV0JKWlM0SlhXNDVPU1YzaFlpdXNBTU5VRm1Ga0tmYUhqYlVJRlJyRXhyQWk0N1p4cTVEeDIxajF5UGIwT0F6bGQzUTZEOXhNdU9LQXY1Z0tPUEtUdmxQbnlHaXcyYXl5enppZjlZcnV5WkJkTTJ5YThGVHlWbGU3TlkyYWE1cXg2NmpVM0pTemFzamt1dml4TzZXcCtnZTdIclRFeloyZmJMcjU4UWVrUE5Ic0RzbnV5aDI1NG5mWlQ2N1ZNNGZ3KzZDN0FheFM5Yzd6b2tOTVNsL24rVGszcitJalh0SWN0MjgyTDVvOXNnZXhvUHRrdXg2OFdDN25CMXVLaHNTVjBhdTd0ZHM5TnIxdWhzWlZ4MjZPUlltb3MxbHM4bGhIMHAyUEdtdHhyUFlmbVN0aEN6MkxSdlpkdGJiYVhPSGJSWGI2VytIcmFVSkYyRmpRM213R2NmYUpBUkluNGdiWnpQVmU4b0hTamJBZE5RQ2R1ZHQ4WUlEYkhDUENKelp3cVFiMU5rQU0vUU5iNFR0YlpEWE8ycHNnRHRWM05oM216SnJyWHRFd2YzTTk3TVJMbXhoRHZZVklJb205d3RtQXFvWDU4ZWVmd0EwYklBRmlvWm5ZZy8xQWxDeUFSWjFSendMKzJHQ3pBNUJvdmlSb3ZUeEV3YTI5cncyN2xQa0xuWXBJcnhMaW9oUUp6VmJxOTdMOVlxOFMvTXFVYldqWkpEN3FRbnN1RnVCZnFiZW05SG5pcmlhWk41c1JYVmU1SjYzcTBKa2JOaGM5a3Z0TzBaUG1CdDdaVldUTEtvOHdZVzlzcVpMVGlreWx1REE3cWRCcHpUSGdRMWQ2eFRrMkFhbnNUYXJOMWxHcC9tTjg2VlhXbVRQNjBwengva3dBWWVaNXB6NUZqZkowRkRlYkZUd2hreTUwS1lhbGxuU3lOcmExc2hKZlIvejdKQlpOOXM5QjJLUzAyUU12TlhLeUhJUERiNGpFM2NvN3RCdDd4WGtEeHB6T1NNYm9ZK0tSMWtCb2xTeGR2RHB6bjlzYXliaEV5Mjc4ck51TXVhMW91dExGaURYT2hYZ3EvYXF3Umdib2JWdnV2VXVpbEZsTXJBM2lBeG9zenUrMCtVeHRpZmE5bW13cVpyYk9CdWhINjA1K3Z1bmx6NkowZjMzK3E0YWV6UEhNazZmelhidXNMcDNvTTM3ZmpGbHlPZk1ZNDZzOSs5Qnh1di8xN01lTTluT3VlTGhZanY5N2JBdFlPT3pDcjJ6R1M3c1hiUW5mdER1TWMzU2hBZ3RSSXZpeHhiVENYVGVFdkNMYTQwb0NUYnBUMnAzVTJJVHUxeHNnUjM5T0E3Nkt6Vi9pdzNva25UZnIxbjVWcTZvamV3ZDIvS1VsWklmYWYwREJYMzZOZm83WFBvQUFBQUFTVVZPUks1Q1lJST0iLz4KCTwvZGVmcz4KCTxzdHlsZT4KCTwvc3R5bGU+Cgk8ZyBpZD0iTGF5ZXIiPgoJCTx1c2UgaWQ9IkxheWVyIDEiIGhyZWY9IiNpbWcxIiB4PSIwIiB5PSIwIi8+Cgk8L2c+Cjwvc3ZnPg=="
+                ]
+              },
+              {
+                "config": {},
+                "name": "status",
+                "type": "number",
+                "values": [
+                  3
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Application"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "number",
+                "targetField": "current status"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 2
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 3,
+        "x": 3,
+        "y": 9
+      },
+      "id": 50,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\" style=\"background-color: {{statusColor}}\">\r\n  <h1 class=\"title\">Infrastructure</h1>\r\n  <img class=\"image\" src={{svg}} />\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 364,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "status",
+        "styles": ".container {\r\n  height: 180px;\r\n  width: 100%;\r\n  top: 50%;\r\n  left: 50%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  font-size: 30px;\r\n  color: white;\r\n}\r\n\r\n.image {\r\n  width: 150px;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Infrastructure",
+                "type": "string",
+                "values": [
+                  "1"
+                ]
+              },
+              {
+                "config": {},
+                "name": "svg",
+                "type": "string",
+                "values": [
+                  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEyMCA5MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI5MCI+Cgk8dGl0bGU+TmV3IFByb2plY3Q8L3RpdGxlPgoJPGRlZnM+CgkJPGltYWdlICB3aWR0aD0iODciIGhlaWdodD0iOTAiIGlkPSJpbWcxIiBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUZjQUFBQmFDQU1BQUFENmlEcUFBQUFBQVhOU1IwSUIyY2tzZndBQUFsaFFURlJGQUFBQS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy9McngyN0FBQUFNaDBVazVUQUM2Ui84RkFCUTdXNkVSUmlnR3E4QU9yc1Y5b3JYdkw1R1BOZW1za25zbDViTWpQdE5YcjAvWGlUVnJsZ0FvWHpwMXRobmdIU09rblBSckV0UThKc3pwVjFDWEhMUUE1MGN6OW8wRXdSLzVjUlhMYStlK1dONHhRMXpLODd0M2grdHYwNHpWZHcrZDlDekdDNEdBQ0lNVTJHY3ArTkl1cEhqeS9WMWpmY2FRUXR5aC9UTkErSXcwY3doTzlqMGJzaHhXVDk3bENWUFBZOXBpRDJaSXJER2Y3SHhnc3VoWlBZWFM0cjJLaWxPMHpwUWlWV2E0R1ppbnhqazc0Z2JzUk93UjFxQkxTM2xPQzU0VElBQUFEOTBsRVFWUjRuTzJZWjFjVFFSU0dKeTZDTFNFYVFRUkJRWXFpeEM0V1FLTVlzY1NJaVZKRXBDaFlzWUNpQ0NwR0JDdWlXTUNDWXU5ZHhJSmkvVnZ1M2hsU2RqUHNMaG5PZ1hONFA5Mjc4L0prZHRyZUFTR0VOSU00aHZJYjdJOUFBVU5ZWWpsdTZERE1IYzRXeTNFakFLdlZzZVlHQWxjL2tqV1gwdzV3dlhGSEdReUcwU1FPNHVQZ01UZ080ZU94b1Qzbmh2R1pQNG5IOFhGNEJJN0hDNnRHelZ1SnVCUGN1SkZ1M0NpdjNJblJNYTRrTmpwdUVoUHU1SGorNFpTaE9KbWFZRVJvMm5URjNCbDA3a3k5WUo0VkM4bnNPUUpvYmlJRDdqellVL09qSU5GQXNtQWhoU3VaTjhMMU5tOUdRRTFMZ2lRWmtwUkZEUHE3R0ZDbUpaRGdBMnpwUktYY2J1WXRkWmtaYVplbjRXUkYvQnhrVG81d052ckFYYmxxdFdYTktKSlkwOVphMHRldFpNSGxsNnd0MEpYWWJldGRXREYzZzhWaXlTQnhKaDluNFZuaHN2bDRZNDZZMjQxRTNFMDJteTJYeE92NWVEUFpRbmw4bkYvUWN5NHpEWEN4OEhkK0EydHNJZVp1WWMwTncxeTB0U2pXTjVDOTJPWlM2TGJ0aEt2ZnNWUG5wa0pzMWlrUjNqbTdNbmU3dEtZRWVSZXBmeWl0bnRvRDFyMzdsSGo3UG5mL2JuZVZZcTVCaWNxazQzdWdpNm8vcU9aTWtWZjVJY3c5ekpUS0gvbXpQY2FUbmJJQlc4TCtmREREOFBhZjg2eWZjMm4xYnlueXJmNE43Z3ZjaWlPbXl0S3VwT3FvcVRLVHlwMkFsTmQ5eDQ0TDUwcTFIWktnRXdMSVlXZkF4YWZMeVJwSVRrRlM2N3phK01EMXFIL3JJR0ZTLzU0R2xPVU1KTFdRbkQxSDRhcTVaNFVKZjZzL2owdktCT0d5Z1M3VU0raHZ3Y1Y1RFpwTFpLWXVOMTVwMEZ5OTVtejBnY3R4YVJYWFhVbGl4ZlVtVitZVHR4dUp1RVVPaDJPRVc5eWNqK042UHI1eHMrZGNaaHJnWXNIM3pSd2hiMVFuVXYrT2xuZXEweTNNRFlpUnQ2cFIybTNNUlMxM1BHcmFRdHlzb3Y2dHozRTltUlUvVVA4cTRWN3VKVzV2OWZkdUwzR3ZLZUsyWW02R2NtNS9XdzhzdWZmdVczZzl3RndodER5a2VrdWcvUkZZNHg0TGNhMmU1bzFNRlM3TzVIc05sK2l4Vks0UjJrUEFpdS9kRVMwMGI1bnpQNWRkZWtMbHRrak9zYWNCTksvREoyNWpjdS8wVjVhYi8wejNMRmVPVzRjTmdROTBJLzJzWHNiQjVLWnlLT09tUGpjaTR4ME1mbUdpYVN1MFcxKzJJcTBtOWE0UTF4aWNqY1BEa2VSMVhqMFhmczc4dWxEUzRrVnYzZ3JtcGU5RWp3dmVTN2pXRHgveGk3UXB3QmFSZytGVG5JaGJLZUcyZnlZRDlPV3JQTGVzQVh1M0o4bjJ0Nm1aY0xQeTVMbmZ5SDZzcTVibGNoM2ZzZGNoaitXR3BJTlZtMUVsNGtySGdXdHZBKytQWWdWY3JxTlQ4TjdYV1NYOTliSitzenBSNXhScytFbGR2MlJmL1BxTnpQdDNRZWkrZm45NzQzSk5mN3FLZWxrdVB4Wi9TYURtZktCejZ5UmpRdC9IYXJpK25UdHF1UFJ4ZVA4bVNhUi9WRzZLMkpwMHcralcvQi9GV1VhSjlxS3Ztd0FBQUFCSlJVNUVya0pnZ2c9PSIvPgoJPC9kZWZzPgoJPHN0eWxlPgoJPC9zdHlsZT4KCTx1c2UgaWQ9IkxheWVyIDUiIGhyZWY9IiNpbWcxIiB4PSIxNyIgeT0iMCIvPgo8L3N2Zz4="
+                ]
+              },
+              {
+                "config": {},
+                "name": "status",
+                "type": "number",
+                "values": [
+                  2
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Application"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 2
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 2,
+        "x": 6,
+        "y": 9
+      },
+      "id": 54,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\" style=\"background-color: {{statusColor}}\">\r\n  <h1 class=\"title\">Database</h1>\r\n  <img class=\"image\" src={{svg}} />\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 364,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "status",
+        "styles": ".container {\r\n  height: 180px;\r\n  width: 100%;\r\n  top: 50%;\r\n  left: 50%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  font-size: 30px;\r\n  color: white;\r\n}\r\n\r\n.image {\r\n  width: 150px;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Database",
+                "type": "string",
+                "values": [
+                  "1"
+                ]
+              },
+              {
+                "config": {},
+                "name": "svg",
+                "type": "string",
+                "values": [
+                  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEyMCA5MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI5MCI+Cgk8dGl0bGU+TmV3IFByb2plY3Q8L3RpdGxlPgoJPGRlZnM+CgkJPGltYWdlICB3aWR0aD0iNzciIGhlaWdodD0iOTAiIGlkPSJpbWcxIiBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUUwQUFBQmFDQU1BQUFES0JDdWhBQUFBQVhOU1IwSUIyY2tzZndBQUF0TlFURlJGQUFBQS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLzRpeklwZ0FBQVBGMFVrNVRBQUFKSzFWWFhXVnNlNG1odk56Mm00ZDhiV1JiVENFS0F5K1BxclBWLzh1MGR4MENSSjZzd3ZIbHVKY2JGMHAwdS83QVFSa1Vkc0gwNjhONkRIOUpBU05mME5SaVZzMzlwMXd6cTdJbUxpcksvSzRPa0pIZzVEb2dwRkg1K21kNFB6WVFVQ1RPYWQ3ak9RUnF5ZG1PUlRSZUdzeUZHS2oxSWdhdjU3QVZ5T2tGaUQwbG1kRmFCM0JEcGV5MU8rYTVRSDVIYjc4OEQ0WnVDMC9IOHBvbjAwNjJDRDdvZ3pnY0RlS1NIckhHOCtyWW1PNHN2dDJpTFZMNzRSOFcrSGx5bE5jUllGbW0yb0FUV1BmV0tiMU5jNFN0aTk5eGZjWFBOV2dTblNoSVlWVFNqV3VnTUZPVzdicXBrMGFWaW5VM2d1dEF1YUVBQUFZa1NVUkJWSGljclpqL1EwMW5ITWVmZXpzVjA3Y3B1amw2bE1OTjZqWnlHMVp6SXRkV0IwMjJpaEEzb2t0SUxvcm1GcnFSNUR1bFRNdFdLRjhtWHhlMmFTeGpaQ3VMWVdQcysreFAySFBPUGFmT3ZmZmM3K2Y5MnozbmVWNzNPYy96Zk42ZnovTUFZRUVTcVJ1R3VYdDQ5dW43V2o4dmJ4OXZMMSsvMS92N0I3aGpBd1lHU2l4MUVwWXNhQkErT0JnS3ltZElDQjQ2VkdZdmloZzJYQjQyUWhqRktueWtQQ0xTSmxDaWlIcGoxR2lySUo2aVBjWW9yWHgwekp0ang5bUxZalQrcmRnNFM3QzNIU0p4bWtBS29PSW5UbklLQm1IQ1pLbnB6S3Vtdk9Na0RNTFI3eVlTZkZnUzVUVEtvS25UZW1IVFI3a0lnM0M0a29NbHYrY3lETTVJbVc2QUtieGRoeUdGSzJqWXpQZEZnVUg0QWIyMGZWSkZvcVdsQXpCTGhFbGpOUnVBakRtaTBlYVNZSjVvTUFpVklGTkUybnhSYVF2QVJCRnBhcEExVnpUWU9CSXNYQ1FhRGUwUWtMMVlKTmlTSEVUVFpJdEVXMnBJTzh0RWdlWFNxSVhJM2tTWU9zYVJOR0M1UkR5M1hBRVdyNlJUb3NwQ1lyZFBjM0x6Nk05Y2xRL2dhaTJUWmZKZHlESnI4dWdzUS9aSHRMV0RtS1ZZNTNRR0RHWXpZSG9hb3FHbExUQllPbGJvK1BldTM1REVacGVpRHlGRDI0aXhEM1J1L2drT3NieUxTOWlSZ0UyYm9ZRUd0NVJ5NlVzL3Y4ekxibGEweDlhZXZEZHdXemxIZzNCN0JTL3YyNjY0ZGxRYVYxd0ZPOGZUanprYVhMSkxDWGhBN1c0c1lNOWVRVkpFZGdDMmI3OVJxVER0d0Vab1JFTTZDTXhFVm1uWDVWU1hSUnlxR1ZLYlBhQWlYbEVnVUJESmVneVhUNFBCL2hXRWVXUHJJZzhIOUNiM2ZQQVIveXZTNUVjY3FwQTF5ZFFXWHZkODRHRXlMVFYxRTFjb1ByYk5KRmZWbDFhYUZMWFZvUDZvMlR5bmZ1S0pmUm9uVkRKeUpIM0RCUGRpODlocEJMcEN3WlU3VmtmaHg3RnBWVExqVVdxcVRtUkY0RlJUODBtQlBwV29RWnhZVmMycE1RQTBBdTFwY1dobjlDUlFvVHp6bVJpdzhyTkFEVnBpQU1nNjV6THI1UGtMZ0pTRHRSZFJ2Q1c1Yk9YejFBQ3NSTEZ3S1JRdGhUVDJzZ3VvOWR1Q0VPUHpaWFJrQmJmU2ExODI5b3F6c0lTcmFwcHd6UkNuWHpUU08xS2hjaElXNnNac3hlUTBOdXBuRzM3TE1qWi82U0RwWEQvV0dMODZtTnZqSWNIWERYRkVYbWdiN0FETHJ6U0pqVC9pYXpvNE9FZTZ3WGs1RVlUbFZkcUZ1cG1IS1RrRGk5dTFGa0srdnhVZSthWW5HaVhTOXZOVVUwdnFMU0hLdDN0RHFPVzNkYnpnVmNTeXVZN25sdVB1Yk9WN0phbVBXZkFkNXA3bmVmZWViMlZxemFLTyszM0wvQk5WR0hhMktORElYc2lBc1J6Q3lIdFJaclhzUWhZazQ5ZHIrZUNPRWU3N0gwcUs3SFp6TWpKcW5sSHZPck1xZXYxZWVlZFFuVTBTSUpMNlVsMG10d0FZMlBSQWFLb3ZkN1puL0ZnVUtETnpkQWtoVlo3RjJqS0Z6bzFYZElDOFZ5NkVnOUNuWlJmS25CaFdrZHdReWFoaFUzbzFoclYxSCtnUTdnQmIwTDg5ZkdUaEphdndoT1l1UnMwUDBxeWV5Y3AzazZBQWtFT3M0K3pWTlJBSkRnUHcweFF4WUpzSlhSYllKd1d5eHlMQWZHK0RESGRRL0FSVllQb3VGMW5qbHhMSUxaK0M0cCszb3FVWUd1c1NiRklVWXZ5Qzlsc3hoTXhHeWdsekh2YU1EdHo1RUQ0RmZoQlNSVXpFZVRRN2RTaFBlLzRyNmwzVm5VdlQwTml1eUEybTBQRGlwY09zMDkzcFRJMTU0RGYwUTBYVGtDYXcxMVNOVjBmZXNCZDBhZEdhOWhpbWw5NXRBL1BrS1V2TExlVThLL0lKL3JzZHVYOUdjTXI1eDZ6YkVLby9vQkVOMXR4UDRpSmNvaDZHUGNPdG9jci9UTHpvcHVIYTM2NnRnUnpOcjZmTm9Xb3QzOXFJL2FxWE9JNVQ4cFJDZ3pya0ZQNDh0cjVWejIvVldoM2QreTk4R3J3VkptODFjeUNTME9nTWtoR2tpVUZKdEozUlByd3hsNENiUnQrd2ZZL1U3c0pYb3I1ZnQ5R290eHE0bTgxS1V5SVdKRlRKOTRxVXpzSUN6SzhUVXdHSUZ6S1EzQTBVL3RkRElhSkVFOS9uRVRWWThDcXJETDBQM1NIMHhxRHlSNTNYL0s4YjVMa244MjlCMStma1JWL254WjJ4MXNRQlpUT0RueVZLb1FwcjJZMlRjOHgxVm5pVW5wdlpkTmRwSmIxYm1sU0Z1OFk2ZGRWby9ZdUtmV3ozc2FSem1UTk45aEdoNnVjczdKK1ZRanM4d3luV2NVdEZVS3RmaUdPa3kwM1VDU3RoSGFqNjEyN1UwZWVKci9SV3c1bmVMZ1U1K0ZRYmQyZ0pkZFIvWnQ1bFNlVCtlblFFRFJNODNZem9Tc0h4RjBwYll6SWw2cld2TUt4OWN2L01RUjFiWUdwaDdlcTczWlBiTUd4M3BNYktUUDBQK1hhVW51MHhKenNBQUFBQVNVVk9SSzVDWUlJPSIvPgoJPC9kZWZzPgoJPHN0eWxlPgoJPC9zdHlsZT4KCTx1c2UgaWQ9IkxheWVyIDMiIGhyZWY9IiNpbWcxIiB4PSIyMiIgeT0iMCIvPgo8L3N2Zz4="
+                ]
+              },
+              {
+                "config": {},
+                "name": "status",
+                "type": "number",
+                "values": [
+                  1
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Platform Health"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 2
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 2,
+        "x": 8,
+        "y": 9
+      },
+      "id": 53,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\" style=\"background-color: {{statusColor}}\">\r\n  <h1 class=\"title\">Network</h1>\r\n  <img class=\"image\" src={{svg}} />\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 364,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "status",
+        "styles": ".container {\r\n  height: 180px;\r\n  width: 100%;\r\n  top: 50%;\r\n  left: 50%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  font-size: 30px;\r\n  color: white;\r\n}\r\n\r\n.image {\r\n  width: 150px;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Network",
+                "type": "string",
+                "values": [
+                  "1"
+                ]
+              },
+              {
+                "config": {},
+                "name": "svg",
+                "type": "string",
+                "values": [
+                  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEyMCA5MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI5MCI+Cgk8dGl0bGU+TmV3IFByb2plY3Q8L3RpdGxlPgoJPGRlZnM+CgkJPGltYWdlICB3aWR0aD0iMTE1IiBoZWlnaHQ9IjkwIiBpZD0iaW1nMSIgaHJlZj0iZGF0YTppbWFnZS9wbmc7YmFzZTY0LGlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFITUFBQUJhQ0FNQUFBQzhQcGtxQUFBQUFYTlNSMElCMmNrc2Z3QUFBTDFRVEZSRkFBQUEvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL1B6OC8vLy8vLy8vLy8vLy8vLy8vZjM5Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL0wwWGtvQUFBQUQ5MFVrNVRBRVgvMDNseEo2cGZFNFhha0pabHhzL3BlNWRDVlVRT0FReGUxdTUxR0VPMTlOMXM0SFRrZlFJbE5oM0gwbTAxbVpNNnRQVmd0eGtGUHM0d3llOUpBcUdIc0FBQUFONUpSRUZVZUp6dDJyY1Nna0FVaFdIQWdKaEZ3WndEWUVETTJmZC9MRVU3dlpYRFpVYzlwLzJMYjdiYjJWbEo4aWNyMUNKUmlYRXgwbFFVbURCaHdvUUpFeVpNbURCaGZxa1pWNmtsTkU0elNhYVV6R21xZEVzTE1ETXdZY0lNeGN6bTdzc1hRalYxQWVjc3dvUUo4d2ROcldTOHp5eFhHTTFxclU2a1JyUEZhTFk3WGFyMVRFYXpQNkNqd1dnT1J6Qmh3dnhCMHhKZ2ZueW5odmxYcHUyTVgrZllyT1prU3BTWk8rYzBEYnA1TUdIQ2hBa1RKa3lZd1pzTEFhYnJ0K1ZxSGF6cFBmOFVicWl6YlBXZDMvWUg2dUhrYUQzZWgwNW5vbDI4NncybzQwM0I5enJZd2dBQUFBQkpSVTVFcmtKZ2dnPT0iLz4KCTwvZGVmcz4KCTxzdHlsZT4KCTwvc3R5bGU+Cgk8dXNlIGlkPSJMYXllciAxIiBocmVmPSIjaW1nMSIgeD0iMCIgeT0iMCIvPgo8L3N2Zz4="
+                ]
+              },
+              {
+                "config": {},
+                "name": "status",
+                "type": "number",
+                "values": [
+                  1
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Platform Health"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 2
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 2,
+        "x": 10,
+        "y": 9
+      },
+      "id": 52,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\" style=\"background-color: {{statusColor}}\">\r\n  <h1 class=\"title\">Security</h1>\r\n  <img class=\"image\" src={{svg}} />\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 364,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "status",
+        "styles": ".container {\r\n  height: 180px;\r\n  width: 100%;\r\n  top: 50%;\r\n  left: 50%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  font-size: 30px;\r\n  color: white;\r\n}\r\n\r\n.image {\r\n  width: 150px;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Security",
+                "type": "string",
+                "values": [
+                  "1"
+                ]
+              },
+              {
+                "config": {},
+                "name": "svg",
+                "type": "string",
+                "values": [
+                  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEyMCA5MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI5MCI+Cgk8dGl0bGU+TmV3IFByb2plY3Q8L3RpdGxlPgoJPGRlZnM+CgkJPGltYWdlICB3aWR0aD0iODIiIGhlaWdodD0iOTAiIGlkPSJpbWcxIiBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUZJQUFBQmFDQU1BQUFBY29mSEVBQUFBQVhOU1IwSUIyY2tzZndBQUFtMVFURlJGQUFBQS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vRWtoVnhBQUFBTTkwVWs1VEFENmk5clp5TFFkSjJ2L3J6MjRPWTNVTFVyaXBiQjhsN3UzSWR4QVlyL3JZQ1M1MitPL1NaaHdCSjdQK3hrd01RM2pqMldFMUF5SkliZHU5WWgwQ0Y0V3R6UEwxbjBaVlJ5QXFXNGpzZ1UvdzhjclUzL1A1cXAxVVJEYzVYRFRsNU1XbjRQMDYwN2R4T0UzMzUxNGFydlFHVWNQcCs3VVNzSVRSTTVSWGlwTWJsN1NaTmdTYVpic1Jvd3FQeXdBVGFiN1dIdHhvQlR6SGtkVkxadzgvL0JXVkRZdUNvU0dZMEVxeHExcFRDSGxBUXJMaG0wNjhmWDh4M212cWtFVmt1Y1NzRm9ZamU2WXZlaXdaZ0QwazR3aFkyUUFBQkJ0SlJFRlVlSnp0MkdkRDAwQVlCL0FIUWFFbkZoVVZBVmtPcExWSUhTd1ZVRkNyWUhHQUZFUVFrYnBCNmtKeG94VzFRRjA0VVhIZ0ZzVzlCKzc1bWJ5MHhhNWNjcGYwaFMvNHYySGM4ZVBTWEpMbkNRQlYvUHI0Qi9UdFJ6ZVhLb0ZCQ29SUS8rQUJTcCtSSWNISUZzWEFRVDd4bElORDBiOE1HVHBNdmhnV01CeTVKRHdpY29ROE1DcmFIM2trSm5hb2RDOXU1S2pSbmlDWE1mRmpFMVJTUUpWNlhLeUdUMFJJbzBrY3o3eWprclFUSnZKelBaa1VQems1aWRwTFNVMUxueUlNMnRDcDA3UVpORjVtMXZRWjJUbmlJSmVaNGRHejByeUoyYm81WVhOems3VTZuTHg1WStnc2wrUWdmYjV1Zm02bUM3a0FMUXhlVkZBWXptdzVzeGdWRlVRYURNVURTNWFVTGkwckJ4bVVhNVloVkZSUmtMMDhNYmJTVjZSTGVzbGVzcGVVVE1iN252UzUyRXYrNTZURVRUUjFCV21rQ3RJcEg3QnVVUmhCdVpJd3RncUNKSkFLTGE0ZkFnaURxMEhITGlJamZsaXZJUTNxSkpBcnVHSlFxeUNUYTljeGl1dXJjYzI2SnBZNHJvT2FEYlZNWWs1ZUlKZzI2b25qbTBvaEpYOHppN2hsYXgyQWVodDV3dllvQUFPTGlPcDM0T0p6NTB6eWhGMjRQdDdOVXEzdFVZTnFiNlRBQkUwSlBuZGgrK2pGQm56VVdmdkpIeVRlRGdjd2FUNUlMWEpiUExOUlNFU0hEbk1WNWhGYXNSQzNVWllRNFRrR1c5RmF3ai9ZMU96eGkrYThGckFlRlZ3alFnZnQxZmt4dnJIam1YRFU3UXBKUEdBQ2E0TXdpTkFKZTIzTnV5Vm1BRmdiVHpwL1h0d2FCNmZFcjE1SGk3Vy9pRzlRRFdBNmZhYm5KLyt6dU1uMVN4UVR6ems2QVA3L1BlVjhDa0Jxc2YyenE4aFhRbURwSk5GRk5qcElZd1cvYVZTQ3FxN1Y5bjNiQlRCZkZMZ01IYmswMkVHMlgrYWZFTDNyQ3RqUFNJTVZvS2JQQWxHeUlMZW45N2xLbUZFN0JGUEtDZUhYOEJjcjZTN3VrcGlPbGg3eU9uRnYzTURZRlMyMzJCdmlJcnA1M3RtaWtXZnR0bSswakNZSzBYSHAySE9MM0NuZk5nYmlnNzlESTZLN0xxUTVtenl2K1I1MFZndmNJSjNaWW5IdGQ5dThYbUU0czVCcWhUajMzVnJvQjB4UEMvN291OXpJdUlmeXlhMGU3NlhLSDhrbUg3aUxrUEpZcmhoeHlvT0VKMDlsa3M4OFJUZ2NJbksvRnNuemRpK3lKVVAwWmlnVXhRdSs5MXRzTllKSEREd2dMa3RrblBTWGFsNFN5a1RlaVpFeitoVy9DSFdQaDR2L05WOWV2N2xBSU1FbzhlT3NuRXNTd2Z4V2t1aGZLdlEyVTZ5WTRJdituUUFJTUtpVm5VeTNDSktxVkZJN1E4ejdHa0VSUi9laGlnVmMxOUV1SmtMbmFhWjFkaFAydUh2VXhKYkdLem5qUHRLSURLZTl0dnNXblFpV3NaVEgvdW16aVpJRTJMdU40aW1yYit1a0JuRXl2b2lLOWEzQys5RXpxaWl4aXFXKzJzb2tjZ2tLRlJLL2ZtTUdjVmRRUTY3MXU1dllsMmlMS1psdzVybldVMm9TT3J5M2FOWE43Y1FiTGswc2FaL2NRWTNtKzQ4NE9TS1huL01pL2kwd0p1QlhuVnlQaS9sM2cvM3creGRXL3ZFRnlNWFN0VzhpVWhnR0xLVzZYUDRDZG1KN3lmV0J3c2NBQUFBQVNVVk9SSzVDWUlJPSIvPgoJPC9kZWZzPgoJPHN0eWxlPgoJPC9zdHlsZT4KCTx1c2UgaWQ9IkxheWVyIDIiIGhyZWY9IiNpbWcxIiB4PSIxOSIgeT0iMCIvPgo8L3N2Zz4="
+                ]
+              },
+              {
+                "config": {},
+                "name": "status",
+                "type": "number",
+                "values": [
+                  1
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Platform Health"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "transparent",
+            "mode": "fixed"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "mode": "basic",
+              "type": "color-background"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Severity"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 110
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "1": {
+                        "color": "green",
+                        "index": 0,
+                        "text": "OK"
+                      },
+                      "2": {
+                        "color": "orange",
+                        "index": 1,
+                        "text": "Warning"
+                      },
+                      "3": {
+                        "color": "red",
+                        "index": 2,
+                        "text": "Critical"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Active Incidents"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 135
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Change (last 3 days)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 80
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Support Group"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 206
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Service Name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 133
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Level 2/3 Dashboard",
+                    "url": "/d/fdpet7urxbfgge?orgId=1&var-service_name=${__data.fields[\"Service Name\"]}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 43,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": [
+            "Health"
+          ],
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Severity"
+          }
+        ]
+      },
+      "pluginVersion": "11.4.0-78571",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+          },
+          "range": "services!A1:G8",
+          "refId": "A",
+          "spreadsheet": "1Bzi2V-0KWkJPXooeARAKSyF_1Rw-2_E-5-BnJQJ1o4s"
+        }
+      ],
+      "title": "eBanking Services Health",
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 35,
+      "panels": [],
+      "title": "Online Banking Key Health Indicators",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 3,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "displayName": "Active Users",
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 0,
+        "y": 18
+      },
+      "id": 40,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0-78571",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "title": "Number of Active Users",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana",
+        "uid": "grafana"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed+area"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 7,
+        "y": 18
+      },
+      "id": 63,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "11.4.0-78571",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "title": "Client Errors (4xx)",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "200": "Splunk 200",
+              "400": "Splunk 400",
+              "percentage_400_errors": "Splunk"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana",
+        "uid": "grafana"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed+area"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 12,
+        "y": 18
+      },
+      "id": 64,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "11.4.0-78571",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "title": "System Errors (5xx)",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "200": "Splunk 200",
+              "400": "Splunk 400",
+              "percentage_400_errors": "Splunk",
+              "percentage_500_errors": "Splunk"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana",
+        "uid": "grafana"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 3,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "displayName": "Response Time",
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1000
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 17,
+        "y": 18
+      },
+      "id": 41,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0-78571",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "title": "Response Time",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 26
+      },
+      "id": 44,
+      "panels": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "transparent",
+                "mode": "fixed"
+              },
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "mode": "basic",
+                  "type": "color-background"
+                },
+                "filterable": true,
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "priority"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 215
+                  },
+                  {
+                    "id": "mappings",
+                    "value": [
+                      {
+                        "options": {
+                          "pattern": "1.*",
+                          "result": {
+                            "color": "red",
+                            "index": 0
+                          }
+                        },
+                        "type": "regex"
+                      },
+                      {
+                        "options": {
+                          "pattern": "2.*",
+                          "result": {
+                            "color": "orange",
+                            "index": 1
+                          }
+                        },
+                        "type": "regex"
+                      },
+                      {
+                        "options": {
+                          "pattern": "3.*",
+                          "result": {
+                            "color": "yellow",
+                            "index": 2
+                          }
+                        },
+                        "type": "regex"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "custom.cellOptions",
+                    "value": {
+                      "applyToRow": false,
+                      "mode": "gradient",
+                      "type": "color-background"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Active Incidents"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 71
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Change (last 3 days)"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 80
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Support Group"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 206
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "priority"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 135
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "category"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 116
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "opened_at"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 178
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Number"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 240
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "severity"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 101
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 27
+          },
+          "id": 48,
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": [
+                "Health"
+              ],
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true,
+            "sortBy": []
+          },
+          "pluginVersion": "11.2.0-72125",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-servicenow-datasource",
+                "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+              },
+              "displayValue": "all",
+              "fields": [
+                {
+                  "aggregates": [],
+                  "name": "number"
+                },
+                {
+                  "aggregates": [],
+                  "name": "opened_at"
+                },
+                {
+                  "aggregates": [],
+                  "name": "priority"
+                },
+                {
+                  "aggregates": [],
+                  "name": "severity"
+                },
+                {
+                  "aggregates": [],
+                  "name": "category"
+                },
+                {
+                  "aggregates": [],
+                  "name": "cmdb_ci.name"
+                },
+                {
+                  "aggregates": [],
+                  "name": "short_description"
+                }
+              ],
+              "filters": [
+                {
+                  "conjunction": "and"
+                }
+              ],
+              "groupBy": [],
+              "limit": 25,
+              "queryType": "TableAPI",
+              "refId": "A",
+              "sort": [
+                {
+                  "field": "opened_at",
+                  "order": "desc"
+                },
+                {}
+              ],
+              "stats": [],
+              "table": "incident",
+              "timeField": "ignore_time"
+            }
+          ],
+          "title": "Incidents",
+          "type": "table"
+        },
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "transparent",
+                "mode": "fixed"
+              },
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "mode": "basic",
+                  "type": "color-background"
+                },
+                "filterable": true,
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Severity"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 215
+                  },
+                  {
+                    "id": "mappings",
+                    "value": [
+                      {
+                        "options": {
+                          "1": {
+                            "color": "yellow",
+                            "index": 0,
+                            "text": "1"
+                          },
+                          "2": {
+                            "color": "red",
+                            "index": 1,
+                            "text": "2"
+                          },
+                          "3": {
+                            "color": "red",
+                            "index": 2,
+                            "text": "3"
+                          }
+                        },
+                        "type": "value"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Active Incidents"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 71
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Change (last 3 days)"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 80
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Support Group"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 206
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 27
+          },
+          "id": 49,
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": [
+                "Health"
+              ],
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true,
+            "sortBy": []
+          },
+          "pluginVersion": "11.2.0-72125",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-servicenow-datasource",
+                "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+              },
+              "displayValue": "all",
+              "fields": [
+                {
+                  "aggregates": [],
+                  "name": "number"
+                },
+                {
+                  "aggregates": [],
+                  "name": "work_end"
+                },
+                {
+                  "aggregates": [],
+                  "name": "category"
+                },
+                {
+                  "aggregates": [],
+                  "name": "state"
+                },
+                {
+                  "aggregates": [],
+                  "name": "cmdb_ci.name"
+                },
+                {
+                  "aggregates": [],
+                  "name": "short_description"
+                }
+              ],
+              "filters": [
+                {
+                  "conjunction": "and"
+                }
+              ],
+              "groupBy": [],
+              "limit": 25,
+              "queryType": "TableAPI",
+              "refId": "A",
+              "sort": [
+                {
+                  "field": "number",
+                  "order": "desc"
+                },
+                {}
+              ],
+              "stats": [],
+              "table": "change_request",
+              "timeField": "ignore_time"
+            }
+          ],
+          "title": "Change Records",
+          "type": "table"
+        }
+      ],
+      "title": "Online Banking Incidents and Change",
+      "type": "row"
+    }
+  ],
+  "preload": false,
+  "refresh": "",
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "L1 Operations",
+  "uid": "ddpesypte7jeof",
+  "version": 10,
+  "weekStart": ""
+}
