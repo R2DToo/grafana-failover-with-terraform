@@ -11,7 +11,7 @@ provider "grafana" {
   alias = "stack"
 
   url  = "https://nfletcher.grafana.net/"
-  auth = "glsa_ge9iuIWBKnLntjXf0KBEl3lXkBocMDIr_a89bbd3b"
+  auth = "<SERVICE_ACCOUNT_TOKEN>"
 }
 
 // Terraform Master Folder
