@@ -2,7 +2,17 @@
 
 To use this utility, you must use the terraform.exe file to perform on your specified Grafana Instance.
 
-First, you must have the URL of the Grafana Instance and a token created from a Service Account.
+Before you begin, you must have the URL of the Grafana Instance and a token created from a Service Account.
+
+The Service Account permissions will include:
+```
+Admin
+Plugins:Application Plugins Access
+Plugins:Plugin Writer
+Plugins:Plugin Maintainer
+Dashboards:Creator
+Folders:Creator
+```
 
 First, you must initialize the Terraform project:
 
