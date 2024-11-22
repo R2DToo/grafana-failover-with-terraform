@@ -1,8 +1,9 @@
 const axios = require('axios');
 const fs = require('fs');
+const path = require('path');
 
 const API_HOST = 'https://optimiz.grafana.net';
-const API_KEY = '<SERVICE_ACCOUNT_TOKEN>';
+const API_KEY = '<SERVICE_ACCOUNT_KEY>';
 let folders = [];
 
 async function getRootFolders() {
@@ -20,13 +21,13 @@ async function getRootFolders() {
       folders.push({
         id: response.data[folder].id,
         uid: response.data[folder].uid,
+        type: "folder",
         title: response.data[folder].title,
         folders: childResponse[0],
         dashboards: childResponse[1]
       })
     }
     await getRootDashboards();
-    console.log(JSON.stringify(folders, null, 2));
   } catch (error) {
     console.error('Error fetching folders:', error.message);
   }
@@ -66,7 +67,6 @@ async function getChildFolders(folderUID) {
           type: "dashboard",
           title: response.data[folder].title
         });
-        await getDashboardDetails(response.data[folder].uid);
       }
     }
   } catch (error) {
@@ -95,14 +95,13 @@ async function getRootDashboards() {
         type: "dashboard",
         title: filtered[item].title
       });
-      await getDashboardDetails(filtered[item].uid);
     }
   } catch (error) {
     console.error('Error fetching dashboards:', error.message);
   }
 }
 
-async function getDashboardDetails(dashboardUID) {
+async function getDashboardDetails(dashboardUID, folderPath) {
   try {
     const response = await axios.get(`${API_HOST}/api/dashboards/uid/${dashboardUID}`, {
       headers: {
@@ -114,8 +113,11 @@ async function getDashboardDetails(dashboardUID) {
 
     let dashboard = JSON.stringify(response.data.dashboard, null, 2);
     let title = response.data.dashboard.title;
+    title = title.replace(/\//g, "-");
 
-    fs.writeFile(`dashboards/${title}.json`, dashboard, (err) => {
+    const filePath = path.join(folderPath, `${title}.json`);
+
+    fs.writeFile(filePath, dashboard, (err) => {
       if (err) {
         console.error("Error writing to file:", err);
       } else {
@@ -127,4 +129,70 @@ async function getDashboardDetails(dashboardUID) {
   }
 }
 
-getRootFolders();
+async function setupDashboardRepo() {
+  const root = path.join(__dirname, 'dashboards');
+
+  clearFolder(root);
+  console.log(JSON.stringify(folders, null, 2));
+  for(let item in folders) {
+    if (folders[item].type === "folder")
+    {
+      const folderPath = path.join(root, `${folders[item].title}`);
+
+      await fs.mkdirSync(folderPath);
+      await setupChildDashboardRepo(folders[item], folderPath);
+    }
+    else if (folders[item].type === "dashboard")
+    {
+      await getDashboardDetails(folders[item].uid, root);
+    }
+  }
+}
+
+function clearFolder(folderPath) {
+  try {
+    if (fs.existsSync(folderPath)) {
+      // Read all files and subfolders in the directory
+      const files = fs.readdirSync(folderPath);
+
+      // Iterate and delete each file or folder
+      files.forEach((file) => {
+        const filePath = path.join(folderPath, file);
+        const stats = fs.lstatSync(filePath);
+
+        if (stats.isDirectory()) {
+          // Recursively remove subdirectories
+          clearFolder(filePath);
+          fs.rmdirSync(filePath); // Remove the directory
+        } else {
+          fs.unlinkSync(filePath); // Remove the file
+        }
+      });
+      console.log(`Cleared all contents of folder: ${folderPath}`);
+    } else {
+      console.log(`Folder does not exist: ${folderPath}`);
+    }
+  } catch (err) {
+    console.error(`Error clearing folder: ${err.message}`);
+  }
+}
+
+async function setupChildDashboardRepo(parentFolder, parentFolderPath) {
+  for (let folder in parentFolder.folders) {
+    const folderPath = path.join(parentFolderPath, `${parentFolder.folders[folder].title}`);
+
+    await fs.mkdirSync(folderPath);
+    await setupChildDashboardRepo(parentFolder.folders[folder], folderPath);
+  }
+
+  for (let dashboard in parentFolder.dashboards) {
+    await getDashboardDetails(parentFolder.dashboards[dashboard].uid, parentFolderPath);
+  }
+}
+
+async function main() {
+  await getRootFolders();
+  await setupDashboardRepo();
+}
+
+main();
