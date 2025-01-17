@@ -1,0 +1,2535 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 128,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none",
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 2,
+        "x": 0,
+        "y": 0
+      },
+      "id": 7,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "editorMode": "code",
+          "expr": "{eventType=\"Machine\",job=~\"${KafkaJob}\",siteName=~\"${SiteName}\",deliveryGroupName=~\"${DeliveryGroup}\",machineName=~\"${MachineName}\"} | json machineId = \"machineId\" | machineId != \"\"",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Total Machines",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "source": "labels"
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "eventType": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "machineId": {
+                "aggregations": [
+                  "distinctCount"
+                ],
+                "operation": "aggregate"
+              },
+              "userId": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": [],
+          "unit": "none",
+          "unitScale": true
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "\r\n       Failed\r\n      "
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "\r\n       Other\r\n      "
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#a8a8a8",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "\r\n       Unregistered\r\n      "
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "\r\n       Active\r\n      "
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "\r\n       Ready for Use\r\n      "
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "\r\n       Maintenance\r\n      "
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#565656",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 2,
+        "y": 0
+      },
+      "id": 40,
+      "options": {
+        "displayLabels": [
+          "name"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "pieType": "donut",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "editorMode": "code",
+          "expr": "{eventType=\"Machine\",job=~\"${KafkaJob}\",siteName=~\"${SiteName}\",deliveryGroupName=~\"${DeliveryGroup}\",machineName=~\"${MachineName}\"} | json machineId = \"machineId\", machineName=\"machineName\", machinePowerState = \"machinePowerState\", machineActualStatus=\"machineActualStatus\", status=\"status\", isMaintenanceMode=\"isMaintenanceMode\", isUnregistered=\"isUnregistered\", activeSessionCount=\"activeSessionCount\" | machineId != \"\"\r\n| label_format \r\n    finalState = `\r\n      {{ if eq .status \"1\" }} Unregistered\r\n      {{ else if eq .status \"4\" }} Failed\r\n      {{ else if or (eq .status \"3\") (and (eq .status \"5\") (gt .isMaintenanceMode \"0\")) }} Maintenance\r\n      {{ else if and (eq .status \"2\") (gt .activeSessionCount \"0\") }} Active\r\n      {{ else if or (and (eq .status \"5\") (eq .isMaintenanceMode \"0\")) (and (eq .status \"2\") (eq .activeSessionCount \"0\")) }} Ready for Use\r\n      {{ else }} Other\r\n      {{end}}`",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Machine count by state",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "keepTime": false,
+            "replace": false,
+            "source": "labels"
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "deliveryGroupName": {
+                "aggregations": []
+              },
+              "eventType": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "finalState": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "isMaintenanceMode": {
+                "aggregations": [
+                  "last"
+                ]
+              },
+              "isMaintenanceModeLabel": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "isUnregistered": {
+                "aggregations": [
+                  "last"
+                ]
+              },
+              "isUnregisteredLabel": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "machineActualStatus": {
+                "aggregations": [
+                  "last"
+                ]
+              },
+              "machineActualStatusLabel": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "machineId": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "machineName": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "machinePowerState": {
+                "aggregations": [
+                  "last"
+                ]
+              },
+              "machinePowerStateLabel": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "sessionKey": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "sessionState": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "state": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "status": {
+                "aggregations": [
+                  "last"
+                ]
+              },
+              "statusLabel": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              }
+            }
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "deliveryGroupName": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "eventType": {
+                "aggregations": []
+              },
+              "finalState": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "finalState (last)": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "machineId": {
+                "aggregations": [
+                  "distinctCount"
+                ],
+                "operation": "aggregate"
+              },
+              "sessionKey": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "aggregate"
+              },
+              "sessionState (last)": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "state (last)": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "statusLabel (last)": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        },
+        {
+          "disabled": true,
+          "id": "groupingToMatrix",
+          "options": {
+            "valueField": "machineId (distinctCount)"
+          }
+        },
+        {
+          "disabled": true,
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "machineId (distinctCount)"
+              }
+            ]
+          }
+        },
+        {
+          "disabled": true,
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "eventType\\finalState (last)": false
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "finalState (last)": "State",
+              "machineId (distinctCount)": "Machines"
+            }
+          }
+        }
+      ],
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-green",
+            "mode": "fixed"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none",
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 7,
+        "y": 0
+      },
+      "id": 21,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.7,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "horizontal",
+        "showValue": "always",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "os",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 100
+      },
+      "pluginVersion": "10.4.0-65875",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "editorMode": "code",
+          "expr": "{eventType=\"Machine\",job=~\"${KafkaJob}\",siteName=~\"${SiteName}\",deliveryGroupName=~\"${DeliveryGroup}\",machineName=~\"${MachineName}\"} | json machineId = \"machineId\", operatingSystem = \"operatingSystem\" | machineId != \"\" | label_format os=`\r\n    {{ if eq .operatingSystem \"\"}} Unknown\r\n    {{ else }} {{.operatingSystem}}\r\n    {{end}}`",
+          "hide": false,
+          "legendFormat": "",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Machine count by OS",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "keepTime": false,
+            "replace": false,
+            "source": "labels"
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "country": {
+                "aggregations": []
+              },
+              "endpointOS": {
+                "aggregations": []
+              },
+              "machineId": {
+                "aggregations": [
+                  "distinctCount"
+                ],
+                "operation": "aggregate"
+              },
+              "os": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "protocol": {
+                "aggregations": []
+              },
+              "sessionKey": {
+                "aggregations": [
+                  "distinctCount"
+                ],
+                "operation": "aggregate"
+              },
+              "sessionState": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "state": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              }
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "country": "Country",
+              "endpointOS": "Endpoint OS",
+              "machineId (distinctCount)": "Machines",
+              "os": "Machine OS",
+              "protocol": "Protocol",
+              "sessionKey (count)": "Sessions",
+              "sessionKey (distinctCount)": "Sessions",
+              "sessionState (last)": "State",
+              "state (last)": "State"
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "Machines"
+              }
+            ]
+          }
+        },
+        {
+          "id": "limit",
+          "options": {}
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-green",
+            "mode": "fixed"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none",
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 14,
+        "y": 0
+      },
+      "id": 34,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.7,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "Provisioning Type",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "10.4.0-65875",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "editorMode": "code",
+          "expr": "{eventType=\"Machine\",job=~\"${KafkaJob}\",siteName=~\"${SiteName}\",deliveryGroupName=~\"${DeliveryGroup}\",machineName=~\"${MachineName}\"} | json machineId = \"machineId\", machineName=\"machineName\", machineProvisioningType = \"machineProvisioningType\" | machineId != \"\"\r\n| label_format \r\n    provType = `\r\n      {{ if eq .machineProvisioningType \"0\" }} Unknown\r\n      {{ else if eq .machineProvisioningType \"1\" }} MCS\r\n      {{ else if eq .machineProvisioningType \"2\" }} PVS\r\n      {{ else if eq .machineProvisioningType \"3\" }} Manual\r\n      {{ else }} Unknown\r\n      {{end}}`",
+          "hide": false,
+          "legendFormat": "",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Machine count by Provisioning type",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "keepTime": false,
+            "replace": false,
+            "source": "labels"
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "country": {
+                "aggregations": []
+              },
+              "endpointOS": {
+                "aggregations": []
+              },
+              "machineId": {
+                "aggregations": [
+                  "distinctCount"
+                ],
+                "operation": "aggregate"
+              },
+              "os": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "protocol": {
+                "aggregations": []
+              },
+              "provType": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "sessionKey": {
+                "aggregations": [
+                  "distinctCount"
+                ],
+                "operation": "aggregate"
+              },
+              "sessionState": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "state": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "version": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "country": "Country",
+              "endpointOS": "Endpoint OS",
+              "machineId (distinctCount)": "Machines",
+              "os": "Machine OS",
+              "protocol": "Protocol",
+              "provType": "Provisioning Type",
+              "sessionKey (count)": "Sessions",
+              "sessionKey (distinctCount)": "Sessions",
+              "sessionState (last)": "State",
+              "state (last)": "State",
+              "version": "Agent Version"
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "Machines"
+              }
+            ]
+          }
+        },
+        {
+          "id": "limit",
+          "options": {}
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-green",
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none",
+          "unitScale": true
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "\r\n       Failed\r\n      "
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "\r\n       Other\r\n      "
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#a8a8a8",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "\r\n       Unregistered\r\n      "
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "\r\n       Active\r\n      "
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "\r\n       Ready for Use\r\n      "
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "\r\n       Maintenance\r\n      "
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#565656",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 14,
+        "x": 0,
+        "y": 8
+      },
+      "id": 32,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.7,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "vertical",
+        "showValue": "never",
+        "stacking": "normal",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 15,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "10.4.0-65875",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "editorMode": "code",
+          "expr": "{eventType=\"Machine\",job=~\"${KafkaJob}\",siteName=~\"${SiteName}\",deliveryGroupName=~\"${DeliveryGroup}\",machineName=~\"${MachineName}\"} | json machineId = \"machineId\", machineName=\"machineName\", machinePowerState = \"machinePowerState\", machineActualStatus=\"machineActualStatus\", status=\"status\", isMaintenanceMode=\"isMaintenanceMode\", isUnregistered=\"isUnregistered\", activeSessionCount=\"activeSessionCount\" | machineId != \"\"\r\n| label_format \r\n    finalState = `\r\n      {{ if eq .status \"1\" }} Unregistered\r\n      {{ else if eq .status \"4\" }} Failed\r\n      {{ else if or (eq .status \"3\") (and (eq .status \"5\") (gt .isMaintenanceMode \"0\")) }} Maintenance\r\n      {{ else if and (eq .status \"2\") (gt .activeSessionCount \"0\") }} Active\r\n      {{ else if or (and (eq .status \"5\") (eq .isMaintenanceMode \"0\")) (and (eq .status \"2\") (eq .activeSessionCount \"0\")) }} Ready for Use\r\n      {{ else }} Other\r\n      {{end}}`",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Machine count by state",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "keepTime": false,
+            "replace": false,
+            "source": "labels"
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "deliveryGroupName": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "finalState": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "isMaintenanceMode": {
+                "aggregations": [
+                  "last"
+                ]
+              },
+              "isMaintenanceModeLabel": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "isUnregistered": {
+                "aggregations": [
+                  "last"
+                ]
+              },
+              "isUnregisteredLabel": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "machineActualStatus": {
+                "aggregations": [
+                  "last"
+                ]
+              },
+              "machineActualStatusLabel": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "machineId": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "machineName": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "machinePowerState": {
+                "aggregations": [
+                  "last"
+                ]
+              },
+              "machinePowerStateLabel": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "sessionKey": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "sessionState": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "state": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "status": {
+                "aggregations": [
+                  "last"
+                ]
+              },
+              "statusLabel": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              }
+            }
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "deliveryGroupName": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "finalState": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "finalState (last)": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "machineId": {
+                "aggregations": [
+                  "distinctCount"
+                ],
+                "operation": "aggregate"
+              },
+              "sessionKey": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "aggregate"
+              },
+              "sessionState (last)": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "state (last)": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "statusLabel (last)": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        },
+        {
+          "id": "groupingToMatrix",
+          "options": {
+            "columnField": "finalState (last)",
+            "rowField": "deliveryGroupName",
+            "valueField": "machineId (distinctCount)"
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "deliveryGroupName\\finalState (last)"
+              }
+            ]
+          }
+        },
+        {
+          "disabled": true,
+          "id": "limit",
+          "options": {
+            "limitField": 15
+          }
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-green",
+            "mode": "fixed"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none",
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 6,
+        "x": 14,
+        "y": 8
+      },
+      "id": 33,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.7,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "horizontal",
+        "showValue": "always",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "Agent Version",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 100
+      },
+      "pluginVersion": "10.4.0-65875",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "editorMode": "code",
+          "expr": "{eventType=\"Machine\",job=~\"${KafkaJob}\",siteName=~\"${SiteName}\",deliveryGroupName=~\"${DeliveryGroup}\",machineName=~\"${MachineName}\"} | json machineId = \"machineId\", agentVersion = \"agentVersion\" | machineId != \"\" | label_format version=`\r\n    {{ if eq .agentVersion \"\"}} Unknown\r\n    {{ else }} {{.agentVersion}}\r\n    {{end}}`",
+          "hide": false,
+          "legendFormat": "",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Machine count by Agent Version",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "keepTime": false,
+            "replace": false,
+            "source": "labels"
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "country": {
+                "aggregations": []
+              },
+              "endpointOS": {
+                "aggregations": []
+              },
+              "machineId": {
+                "aggregations": [
+                  "distinctCount"
+                ],
+                "operation": "aggregate"
+              },
+              "os": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "protocol": {
+                "aggregations": []
+              },
+              "sessionKey": {
+                "aggregations": [
+                  "distinctCount"
+                ],
+                "operation": "aggregate"
+              },
+              "sessionState": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "state": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "version": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "country": "Country",
+              "endpointOS": "Endpoint OS",
+              "machineId (distinctCount)": "Machines",
+              "os": "Machine OS",
+              "protocol": "Protocol",
+              "sessionKey (count)": "Sessions",
+              "sessionKey (distinctCount)": "Sessions",
+              "sessionState (last)": "State",
+              "state (last)": "State",
+              "version": "Agent Version"
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "Machines"
+              }
+            ]
+          }
+        },
+        {
+          "id": "limit",
+          "options": {}
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none",
+          "unitScale": true
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "\r\n       Failed\r\n      "
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "\r\n       Other\r\n      "
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#a8a8a8",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "\r\n       Unregistered\r\n      "
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "\r\n       Active\r\n      "
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "\r\n       Ready for Use\r\n      "
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "\r\n       Maintenance\r\n      "
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#565656",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 20,
+        "x": 0,
+        "y": 19
+      },
+      "id": 41,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "Delivery Group"
+          }
+        ]
+      },
+      "pluginVersion": "10.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "editorMode": "code",
+          "expr": "{eventType=\"Machine\",job=~\"${KafkaJob}\",siteName=~\"${SiteName}\",deliveryGroupName=~\"${DeliveryGroup}\",machineName=~\"${MachineName}\"} | json machineId = \"machineId\", machineName=\"machineName\", machinePowerState = \"machinePowerState\", machineActualStatus=\"machineActualStatus\", status=\"status\", isMaintenanceMode=\"isMaintenanceMode\", isUnregistered=\"isUnregistered\", activeSessionCount=\"activeSessionCount\", operatingSystem=\"operatingSystem\", agentVersion=\"agentVersion\", activeSessionCount=\"activeSessionCount\" | machineId != \"\"\r\n| label_format \r\n    finalState = `\r\n      {{ if eq .status \"1\" }} Unregistered\r\n      {{ else if eq .status \"4\" }} Failed\r\n      {{ else if or (eq .status \"3\") (and (eq .status \"5\") (gt .isMaintenanceMode \"0\")) }} Maintenance\r\n      {{ else if and (eq .status \"2\") (gt .activeSessionCount \"0\") }} Active\r\n      {{ else if or (and (eq .status \"5\") (eq .isMaintenanceMode \"0\")) (and (eq .status \"2\") (eq .activeSessionCount \"0\")) }} Ready for Use\r\n      {{ else }} Other\r\n      {{end}}`",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Machine states",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "keepTime": false,
+            "replace": false,
+            "source": "labels"
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "activeSessionCount": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "agentVersion": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "deliveryGroupName": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "finalState": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "isMaintenanceMode": {
+                "aggregations": [
+                  "last"
+                ]
+              },
+              "isMaintenanceModeLabel": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "isUnregistered": {
+                "aggregations": [
+                  "last"
+                ]
+              },
+              "isUnregisteredLabel": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "machineActualStatus": {
+                "aggregations": [
+                  "last"
+                ]
+              },
+              "machineActualStatusLabel": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "machineIP": {
+                "aggregations": []
+              },
+              "machineId": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "machineName": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "machinePowerState": {
+                "aggregations": [
+                  "last"
+                ]
+              },
+              "machinePowerStateLabel": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "operatingSystem": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "sessionKey": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "sessionState": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "siteName": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "state": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "status": {
+                "aggregations": [
+                  "last"
+                ]
+              },
+              "statusLabel": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              }
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "machineId": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "activeSessionCount (last)": 7,
+              "agentVersion": 5,
+              "deliveryGroupName": 1,
+              "finalState (last)": 6,
+              "machineId": 2,
+              "machineName": 3,
+              "operatingSystem": 4,
+              "siteName": 0
+            },
+            "renameByName": {
+              "activeSessionCount (last)": "Active Sessions",
+              "agentVersion": "Agent Version",
+              "deliveryGroupName": "Delivery Group",
+              "finalState (last)": "State",
+              "machineName": "Machine",
+              "operatingSystem": "OS"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent",
+          "unitScale": true
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Max CPU Utilization"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Average CPU Utilization"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 11,
+        "x": 0,
+        "y": 27
+      },
+      "id": 25,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "editorMode": "code",
+          "expr": "max(quantile_over_time(0.95, {eventType=\"Machine\",job=~\"${KafkaJob}\",siteName=~\"${SiteName}\",deliveryGroupName=~\"${DeliveryGroup}\",machineName=~\"${MachineName}\"} | json percentCpu = \"percentCpu\" | percentCpu > 0 | unwrap percentCpu [5m]))",
+          "legendFormat": "Max CPU Utilization",
+          "queryType": "range",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "editorMode": "code",
+          "expr": "avg(avg_over_time({eventType=\"Machine\",job=~\"${KafkaJob}\",siteName=~\"${SiteName}\",deliveryGroupName=~\"${DeliveryGroup}\",machineName=~\"${MachineName}\"} | json percentCpu = \"percentCpu\" | percentCpu > 0 | unwrap percentCpu [5m]))",
+          "hide": false,
+          "legendFormat": "Average CPU Utilization",
+          "queryType": "range",
+          "refId": "B"
+        }
+      ],
+      "title": "Max / Avg CPU Utilization",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": 100,
+            "axisSoftMin": 0,
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent",
+          "unitScale": true
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Max CPU Utilization"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Avg CPU Utilization"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 9,
+        "x": 11,
+        "y": 27
+      },
+      "id": 39,
+      "maxDataPoints": 60,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "deliveryGroupName",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "10.3.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "editorMode": "code",
+          "expr": "max by (deliveryGroupName) (quantile_over_time(0.95, {eventType=\"Machine\",job=~\"${KafkaJob}\",siteName=~\"${SiteName}\",deliveryGroupName=~\"${DeliveryGroup}\",machineName=~\"${MachineName}\"} | json percentCpu = \"percentCpu\" | percentCpu != \"\" | unwrap percentCpu [$__range]) by (deliveryGroupName))",
+          "legendFormat": "{{deliveryGroupName}}",
+          "queryType": "range",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "editorMode": "code",
+          "expr": "avg by (deliveryGroupName) (avg_over_time({eventType=\"Machine\",job=~\"${KafkaJob}\",siteName=~\"${SiteName}\",deliveryGroupName=~\"${DeliveryGroup}\",machineName=~\"${MachineName}\"} | json percentCpu = \"percentCpu\" | percentCpu != \"\" | unwrap percentCpu [$__range]) by (deliveryGroupName))",
+          "hide": false,
+          "legendFormat": "{{deliveryGroupName}}",
+          "queryType": "range",
+          "refId": "B"
+        }
+      ],
+      "title": "Max / Avg CPU Utilization",
+      "transformations": [
+        {
+          "id": "labelsToFields",
+          "options": {
+            "mode": "columns"
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Value": {
+                "aggregations": [
+                  "max",
+                  "mean"
+                ],
+                "operation": "aggregate"
+              },
+              "deliveryGroupName": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        },
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Value (max)": {
+                "aggregations": [
+                  "max"
+                ],
+                "operation": "aggregate"
+              },
+              "Value (mean)": {
+                "aggregations": [
+                  "min"
+                ],
+                "operation": "aggregate"
+              },
+              "deliveryGroupName": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Value (max) (max)": "Max CPU Utilization",
+              "Value (mean) (min)": "Avg CPU Utilization",
+              "deliveryGroupName": ""
+            }
+          }
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent",
+          "unitScale": true
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Max Memory Consumption"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Avg  Memory Consumption"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 11,
+        "x": 0,
+        "y": 36
+      },
+      "id": 38,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "editorMode": "code",
+          "expr": "max(quantile_over_time(0.95, {eventType=\"Machine\",job=~\"${KafkaJob}\",siteName=~\"${SiteName}\",deliveryGroupName=~\"${DeliveryGroup}\",machineName=~\"${MachineName}\"} \r\n| json usedMemory = \"usedMemory\", totalMemory=\"totalMemory\" \r\n| usedMemory != \"\" and totalMemory!=\"\" and usedMemory != \"0.0\" and totalMemory!=\"0.0\"\r\n| label_format \r\nmemoryConsumption = `{{divf .usedMemory .totalMemory 0.01 }}`\r\n| unwrap memoryConsumption [5m]))",
+          "legendFormat": "Max Memory Consumption",
+          "queryType": "range",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "editorMode": "code",
+          "expr": "avg(avg_over_time({eventType=\"Machine\",job=~\"${KafkaJob}\",siteName=~\"${SiteName}\",deliveryGroupName=~\"${DeliveryGroup}\",machineName=~\"${MachineName}\"} \r\n| json usedMemory = \"usedMemory\", totalMemory=\"totalMemory\" \r\n| usedMemory != \"\" and totalMemory!=\"\" and usedMemory != \"0.0\" and totalMemory!=\"0.0\"\r\n| label_format \r\nmemoryConsumption = `{{divf .usedMemory .totalMemory 0.01 }}`\r\n| unwrap memoryConsumption [5m]))",
+          "hide": false,
+          "legendFormat": "Avg  Memory Consumption",
+          "queryType": "range",
+          "refId": "B"
+        }
+      ],
+      "title": "Max / Avg Memory Consumption",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent",
+          "unitScale": true
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Max CPU Utilization"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Average CPU Utilization"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Memory Consumption (max)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Memory Consumption (mean)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 9,
+        "x": 11,
+        "y": 36
+      },
+      "id": 36,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "editorMode": "code",
+          "expr": "{eventType=\"Machine\",job=~\"${KafkaJob}\",siteName=~\"${SiteName}\",deliveryGroupName=~\"${DeliveryGroup}\",machineName=~\"${MachineName}\"} | json usedMemory = \"usedMemory\", totalMemory=\"totalMemory\" | usedMemory != \"\" and totalMemory!=\"\"",
+          "legendFormat": "Max CPU Utilization",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Max / Avg Memory Consumption",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "source": "labels"
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "number",
+                "targetField": "totalMemory"
+              },
+              {
+                "destinationType": "number",
+                "targetField": "usedMemory"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Memory Consumption",
+            "binary": {
+              "left": "usedMemory",
+              "operator": "/",
+              "right": "totalMemory"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Memory Consumption": {
+                "aggregations": [
+                  "max",
+                  "mean"
+                ],
+                "operation": "aggregate"
+              },
+              "deliveryGroupName": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        }
+      ],
+      "type": "barchart"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {},
+        "datasource": {
+          "type": "loki",
+          "uid": "grafanacloud-logs"
+        },
+        "definition": "",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Job Name",
+        "multi": false,
+        "name": "KafkaJob",
+        "options": [],
+        "query": {
+          "label": "job",
+          "refId": "LokiVariableQueryEditor-VariableQuery",
+          "stream": "",
+          "type": 1
+        },
+        "refresh": 2,
+        "regex": "^kafka_casp.*$",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "loki",
+          "uid": "grafanacloud-logs"
+        },
+        "definition": "",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Site",
+        "multi": true,
+        "name": "SiteName",
+        "options": [],
+        "query": {
+          "label": "siteName",
+          "refId": "LokiVariableQueryEditor-VariableQuery",
+          "stream": "{job=\"$KafkaJob\"}",
+          "type": 1
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "loki",
+          "uid": "grafanacloud-logs"
+        },
+        "definition": "",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Delivery Group",
+        "multi": true,
+        "name": "DeliveryGroup",
+        "options": [],
+        "query": {
+          "label": "deliveryGroupName",
+          "refId": "LokiVariableQueryEditor-VariableQuery",
+          "stream": "{job=\"$KafkaJob\", siteName=\"$SiteName\"}",
+          "type": 1
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "allValue": ".+",
+        "current": {},
+        "datasource": {
+          "type": "loki",
+          "uid": "grafanacloud-logs"
+        },
+        "definition": "",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Machine",
+        "multi": true,
+        "name": "MachineName",
+        "options": [],
+        "query": {
+          "label": "machineName",
+          "refId": "LokiVariableQueryEditor-VariableQuery",
+          "stream": "{job=\"$KafkaJob\", siteName=\"$SiteName\", deliveryGroupName=~\"$DeliveryGroup\"}",
+          "type": 1
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-12h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Infrastructure Metrics",
+  "uid": "ddbyfxf04fs3kf",
+  "version": 1,
+  "weekStart": ""
+}

@@ -1,0 +1,388 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 285,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "ibm-mq-integration"
+      ],
+      "targetBlank": false,
+      "title": "Other IBM MQ dashboards",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${prometheus_datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "yellow",
+                  "index": 0,
+                  "text": "Inactive"
+                },
+                "1": {
+                  "color": "dark-red",
+                  "index": 1,
+                  "text": "Binding"
+                },
+                "2": {
+                  "color": "dark-purple",
+                  "index": 2,
+                  "text": "Starting"
+                },
+                "3": {
+                  "color": "green",
+                  "index": 3,
+                  "text": "Running"
+                },
+                "4": {
+                  "color": "light-blue",
+                  "index": 4,
+                  "text": "Stopping"
+                },
+                "5": {
+                  "color": "dark-red",
+                  "index": 5,
+                  "text": "Retrying"
+                },
+                "6": {
+                  "color": "dark-blue",
+                  "index": 6,
+                  "text": "Stopped"
+                },
+                "7": {
+                  "color": "super-light-purple",
+                  "index": 7,
+                  "text": "Requesting"
+                },
+                "8": {
+                  "color": "orange",
+                  "index": 8,
+                  "text": "Paused"
+                },
+                "9": {
+                  "color": "dark-purple",
+                  "index": 9,
+                  "text": "Initializing"
+                },
+                "13": {
+                  "color": "super-light-purple",
+                  "index": 10,
+                  "text": "Switching"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 19,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.1.4",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "ibmmq_channel_status{env=~\"$Env\", instance=~\"$Instance\", mq_cluster=~\"$mq_cluster\"} == $status",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "$status Channels",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Value": "Status"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {},
+        "hide": 0,
+        "includeAll": false,
+        "label": "Data Source",
+        "multi": false,
+        "name": "prometheus_datasource",
+        "options": [],
+        "query": "prometheus",
+        "refresh": 1,
+        "regex": "(?!grafanacloud-usage|grafanacloud-ml-metrics).+",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "grafanacloud-prom"
+        },
+        "definition": "label_values(ibmmq_qmgr_uptime,env)",
+        "description": "Environment",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Env",
+        "multi": false,
+        "name": "Env",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(ibmmq_qmgr_uptime,env)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "allValue": ".+",
+        "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "grafanacloud-prom"
+        },
+        "definition": "",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Job",
+        "multi": true,
+        "name": "job",
+        "options": [],
+        "query": "label_values(ibmmq_qmgr_commit_count,job)",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "grafanacloud-prom"
+        },
+        "definition": "label_values(ibmmq_qmgr_commit_count{env=~\"$Env\"},mq_cluster)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "MQ cluster",
+        "multi": false,
+        "name": "mq_cluster",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(ibmmq_qmgr_commit_count{env=~\"$Env\"},mq_cluster)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "grafanacloud-prom"
+        },
+        "definition": "label_values(ibmmq_qmgr_uptime{env=~\"$Env\"},instance)",
+        "description": "Instance",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Instance",
+        "multi": false,
+        "name": "Instance",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(ibmmq_qmgr_uptime{env=~\"$Env\"},instance)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "Running",
+          "value": "3"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "status",
+        "options": [
+          {
+            "selected": false,
+            "text": "Inactive",
+            "value": "0"
+          },
+          {
+            "selected": false,
+            "text": "Binding",
+            "value": "1"
+          },
+          {
+            "selected": false,
+            "text": "Starting",
+            "value": "2"
+          },
+          {
+            "selected": true,
+            "text": "Running",
+            "value": "3"
+          },
+          {
+            "selected": false,
+            "text": "Stopping",
+            "value": "4"
+          },
+          {
+            "selected": false,
+            "text": "Retrying",
+            "value": "5"
+          },
+          {
+            "selected": false,
+            "text": "Stopped",
+            "value": "6"
+          },
+          {
+            "selected": false,
+            "text": "Requesting",
+            "value": "7"
+          },
+          {
+            "selected": false,
+            "text": "Paused",
+            "value": "8"
+          },
+          {
+            "selected": false,
+            "text": "Initializing",
+            "value": "9"
+          },
+          {
+            "selected": false,
+            "text": "Switching",
+            "value": "13"
+          }
+        ],
+        "query": "Inactive : 0, Binding : 1, Starting : 2, Running : 3, Stopping : 4, Retrying : 5, Stopped : 6, Requesting : 7, Paused : 8, Initializing : 9, Switching : 13",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "default",
+  "title": "IBM MQ Channel Status Drilldown",
+  "uid": "adwssroswmtq8a",
+  "version": 1,
+  "weekStart": ""
+}

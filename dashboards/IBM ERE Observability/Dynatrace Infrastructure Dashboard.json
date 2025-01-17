@@ -1,0 +1,2947 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 2,
+  "id": 114,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "cdpvd1h7xfdoga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-purple",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "hideTimeOverride": true,
+      "id": 15,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-72343",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "metric": {
+            "aggregations": [
+              {
+                "name": "auto",
+                "params": []
+              }
+            ],
+            "alias": "",
+            "cleanSelector": "(builtin:host.availability.state:filter(eq(\"dt.entity.host\",HOST-419BD5B2D56387BD)):auto:sort(value(sum,descending)):splitBy(\"availability.state\")/builtin:host.availability.state:filter(eq(\"dt.entity.host\",HOST-419BD5B2D56387BD)):auto:sort(value(sum,descending)):splitBy()*100):setUnit(Percent)",
+            "displayName": "Host availability",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "builtin:host.availability.state",
+            "selector": "(builtin:host.availability.state:filter(eq(\"dt.entity.host\",HOST-419BD5B2D56387BD)):auto:sort(value(sum,descending)):splitBy(\"availability.state\")/builtin:host.availability.state:filter(eq(\"dt.entity.host\",HOST-419BD5B2D56387BD)):auto:sort(value(sum,descending)):splitBy()*100):setUnit(Percent)",
+            "transformations": [],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.14.7"
+        }
+      ],
+      "timeShift": "2m",
+      "title": "Availability",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "time",
+            "mode": "outer"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "(builtin:host.availability.state: { availability.state=unmonitored_agent_upgrade }": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "(builtin:host.availability.state: { availability.state=unmonitored_agent_upgrade }": "",
+              "(builtin:host.availability.state: { availability.state=up }": "Canada1"
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "cdpvd1h7xfdoga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-purple",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "hideTimeOverride": true,
+      "id": 16,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-72343",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "metric": {
+            "aggregations": [
+              {
+                "name": "auto",
+                "params": []
+              }
+            ],
+            "alias": "",
+            "cleanSelector": "(builtin:host.availability.state:filter(eq(\"dt.entity.host\",HOST-5895A6D460C3A8A0)):auto:sort(value(sum,descending)):splitBy(\"availability.state\")/builtin:host.availability.state:filter(eq(\"dt.entity.host\",HOST-5895A6D460C3A8A0)):auto:sort(value(sum,descending)):splitBy()*100):setUnit(Percent)",
+            "displayName": "Host availability",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "builtin:host.availability.state",
+            "selector": "(builtin:host.availability.state:filter(eq(\"dt.entity.host\",HOST-5895A6D460C3A8A0)):auto:sort(value(sum,descending)):splitBy(\"availability.state\")/builtin:host.availability.state:filter(eq(\"dt.entity.host\",HOST-5895A6D460C3A8A0)):auto:sort(value(sum,descending)):splitBy()*100):setUnit(Percent)",
+            "transformations": [],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.14.7"
+        }
+      ],
+      "timeShift": "2m",
+      "title": "Availability",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "time",
+            "mode": "outer"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "(builtin:host.availability.state: { availability.state=unmonitored_agent_upgrade }": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "(builtin:host.availability.state: { availability.state=up }": "US1"
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "cdpvd1h7xfdoga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-purple",
+            "mode": "fixed"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 60,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 0,
+        "y": 4
+      },
+      "hideTimeOverride": true,
+      "id": 14,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "metric": {
+            "aggregations": [
+              {
+                "name": "auto",
+                "params": []
+              }
+            ],
+            "alias": "",
+            "cleanSelector": "(builtin:host.availability.state:filter(eq(\"dt.entity.host\",HOST-5895A6D460C3A8A0)):auto:sort(value(sum,descending)):splitBy(\"availability.state\")/builtin:host.availability.state:filter(eq(\"dt.entity.host\",HOST-5895A6D460C3A8A0)):auto:sort(value(sum,descending)):splitBy()*100):setUnit(Percent)",
+            "displayName": "Host availability",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "builtin:host.availability.state",
+            "selector": "(builtin:host.availability.state:filter(eq(\"dt.entity.host\",HOST-5895A6D460C3A8A0)):auto:sort(value(sum,descending)):splitBy(\"availability.state\")/builtin:host.availability.state:filter(eq(\"dt.entity.host\",HOST-5895A6D460C3A8A0)):auto:sort(value(sum,descending)):splitBy()*100):setUnit(Percent)",
+            "transformations": [],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.14.7"
+        }
+      ],
+      "timeShift": "2m",
+      "title": "Availability",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "time",
+            "mode": "outer"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "(builtin:host.availability.state: { availability.state=unmonitored_agent_upgrade }": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "(builtin:host.availability.state: { availability.state=up }": "Canada1"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "cdpvd1h7xfdoga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-purple",
+            "mode": "fixed"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 60,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 12,
+        "y": 4
+      },
+      "hideTimeOverride": true,
+      "id": 13,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "metric": {
+            "aggregations": [
+              {
+                "name": "auto",
+                "params": []
+              }
+            ],
+            "alias": "",
+            "cleanSelector": "(builtin:host.availability.state:filter(eq(\"dt.entity.host\",HOST-5895A6D460C3A8A0)):auto:sort(value(sum,descending)):splitBy(\"availability.state\")/builtin:host.availability.state:filter(eq(\"dt.entity.host\",HOST-5895A6D460C3A8A0)):auto:sort(value(sum,descending)):splitBy()*100):setUnit(Percent)",
+            "displayName": "Host availability",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "builtin:host.availability.state",
+            "selector": "(builtin:host.availability.state:filter(eq(\"dt.entity.host\",HOST-5895A6D460C3A8A0)):auto:sort(value(sum,descending)):splitBy(\"availability.state\")/builtin:host.availability.state:filter(eq(\"dt.entity.host\",HOST-5895A6D460C3A8A0)):auto:sort(value(sum,descending)):splitBy()*100):setUnit(Percent)",
+            "transformations": [],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.14.7"
+        }
+      ],
+      "timeShift": "2m",
+      "title": "Availability",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "time",
+            "mode": "outer"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "(builtin:host.availability.state: { availability.state=unmonitored_agent_upgrade }": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "(builtin:host.availability.state: { availability.state=up }": "US1"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "cdpvd1h7xfdoga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 37,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "hideTimeOverride": true,
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": true,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "Canada1-$name",
+            "cleanSelector": "",
+            "displayName": "CPU idle",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "braden-zorin-MS-7C79",
+                    "name": "HOST-419BD5B2D56387BD",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.cpu.idle",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "A",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "Canada1-$name",
+            "cleanSelector": "",
+            "displayName": "CPU I/O wait",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "braden-zorin-MS-7C79",
+                    "name": "HOST-419BD5B2D56387BD",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.cpu.iowait",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "B",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "Canada1-$name",
+            "cleanSelector": "",
+            "displayName": "CPU user",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "braden-zorin-MS-7C79",
+                    "name": "HOST-419BD5B2D56387BD",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.cpu.user",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "C",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "Canada1-$name",
+            "cleanSelector": "",
+            "displayName": "CPU system",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "braden-zorin-MS-7C79",
+                    "name": "HOST-419BD5B2D56387BD",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.cpu.system",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "D",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "Canada1-$name",
+            "cleanSelector": "",
+            "displayName": "CPU steal",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "braden-zorin-MS-7C79",
+                    "name": "HOST-419BD5B2D56387BD",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.cpu.steal",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "E",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "Canada1-$name",
+            "cleanSelector": "",
+            "displayName": "CPU other",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "braden-zorin-MS-7C79",
+                    "name": "HOST-419BD5B2D56387BD",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.cpu.other",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "F",
+          "version": "3.14.7"
+        }
+      ],
+      "timeShift": "2m",
+      "title": "CPU Usage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "cdpvd1h7xfdoga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 37,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "hideTimeOverride": true,
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": true,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "US1-$name",
+            "cleanSelector": "",
+            "displayName": "CPU idle",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "mediavault.local",
+                    "name": "HOST-5895A6D460C3A8A0",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.cpu.idle",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "A",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "US1-$name",
+            "cleanSelector": "",
+            "displayName": "CPU I/O wait",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "mediavault.local",
+                    "name": "HOST-5895A6D460C3A8A0",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.cpu.iowait",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "B",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "US1-$name",
+            "cleanSelector": "",
+            "displayName": "CPU user",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "mediavault.local",
+                    "name": "HOST-5895A6D460C3A8A0",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.cpu.user",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "C",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "US1-$name",
+            "cleanSelector": "",
+            "displayName": "CPU system",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "mediavault.local",
+                    "name": "HOST-5895A6D460C3A8A0",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.cpu.system",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "D",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "US1-$name",
+            "cleanSelector": "",
+            "displayName": "CPU steal",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "mediavault.local",
+                    "name": "HOST-5895A6D460C3A8A0",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.cpu.steal",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "E",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "US1-$name",
+            "cleanSelector": "",
+            "displayName": "CPU other",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "mediavault.local",
+                    "name": "HOST-5895A6D460C3A8A0",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.cpu.other",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "F",
+          "version": "3.14.7"
+        }
+      ],
+      "timeShift": "2m",
+      "title": "CPU Usage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "cdpvd1h7xfdoga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Canada1-builtin:host.mem.total"
+            },
+            "properties": [
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    10,
+                    10
+                  ],
+                  "fill": "dash"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.showPoints",
+                "value": "never"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 15
+      },
+      "hideTimeOverride": true,
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "value",
+                "params": []
+              }
+            ],
+            "alias": "Canada1-$name",
+            "cleanSelector": "",
+            "displayName": "Memory total",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "braden-zorin-MS-7C79",
+                    "name": "HOST-419BD5B2D56387BD",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.mem.total",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "A",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "Canada1-$name",
+            "cleanSelector": "",
+            "displayName": "Memory reclaimable",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "braden-zorin-MS-7C79",
+                    "name": "HOST-419BD5B2D56387BD",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.mem.recl",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "B",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "Canada1-$name",
+            "cleanSelector": "",
+            "displayName": "Memory used",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "braden-zorin-MS-7C79",
+                    "name": "HOST-419BD5B2D56387BD",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.mem.used",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "C",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "Canada1-$name",
+            "cleanSelector": "",
+            "displayName": "Kernel memory",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "braden-zorin-MS-7C79",
+                    "name": "HOST-419BD5B2D56387BD",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.mem.kernel",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "D",
+          "version": "3.14.7"
+        }
+      ],
+      "timeShift": "2m",
+      "title": "Memory Usage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "cdpvd1h7xfdoga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "US1-builtin:host.mem.total"
+            },
+            "properties": [
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    10,
+                    10
+                  ],
+                  "fill": "dash"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.showPoints",
+                "value": "never"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 15
+      },
+      "hideTimeOverride": true,
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "value",
+                "params": []
+              }
+            ],
+            "alias": "US1-$name",
+            "cleanSelector": "",
+            "displayName": "Memory total",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "mediavault.local",
+                    "name": "HOST-5895A6D460C3A8A0",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.mem.total",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "A",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "US1-$name",
+            "cleanSelector": "",
+            "displayName": "Memory reclaimable",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "mediavault.local",
+                    "name": "HOST-5895A6D460C3A8A0",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.mem.recl",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "B",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "US1-$name",
+            "cleanSelector": "",
+            "displayName": "Memory used",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "mediavault.local",
+                    "name": "HOST-5895A6D460C3A8A0",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.mem.used",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "C",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "US1-$name",
+            "cleanSelector": "",
+            "displayName": "Kernel memory",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "mediavault.local",
+                    "name": "HOST-5895A6D460C3A8A0",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.mem.kernel",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "D",
+          "version": "3.14.7"
+        }
+      ],
+      "timeShift": "2m",
+      "title": "Memory Usage",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "",
+            "binary": {
+              "left": "mediavault.local",
+              "operator": "/",
+              "right": "1000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "include": [
+                "builtin:containers.cpu.usageMilliCores:avg { Container=draft_card-prototype-272_sp64000-instance1-1, dt.entity.container_group_instance=CONTAINER_GROUP_INSTANCE-DA4B09FA319510FD, dt.entity.container_group_instance.name=ip-safer-payments-docker-local.artifactory.swg-devops.com/card-prototype:2.7.2 }"
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "mediavault.local": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "cdpvd1h7xfdoga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 22
+      },
+      "hideTimeOverride": true,
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "Canada1-$name",
+            "cleanSelector": "",
+            "displayName": "Traffic in",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "braden-zorin-MS-7C79",
+                    "name": "HOST-419BD5B2D56387BD",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.net.nic.trafficIn",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "A",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "Canada1-$name",
+            "cleanSelector": "",
+            "displayName": "Traffic out",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "braden-zorin-MS-7C79",
+                    "name": "HOST-419BD5B2D56387BD",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.net.nic.trafficOut",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "B",
+          "version": "3.14.7"
+        }
+      ],
+      "timeShift": "2m",
+      "title": "Network Traffic",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "cdpvd1h7xfdoga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "binbps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 22
+      },
+      "hideTimeOverride": true,
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "US1-$name",
+            "cleanSelector": "",
+            "displayName": "Traffic in",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "mediavault.local",
+                    "name": "HOST-5895A6D460C3A8A0",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.net.nic.trafficIn",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "A",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "US1-$name",
+            "cleanSelector": "",
+            "displayName": "Traffic out",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "mediavault.local",
+                    "name": "HOST-5895A6D460C3A8A0",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.net.nic.trafficOut",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "B",
+          "version": "3.14.7"
+        }
+      ],
+      "timeShift": "2m",
+      "title": "Network Traffic",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "cdpvd1h7xfdoga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Canada1-builtin:host.cpu.load15m"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Canada1-builtin:host.cpu.load5m"
+            },
+            "properties": [
+              {
+                "id": "custom.drawStyle",
+                "value": "bars"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Canada1-builtin:host.cpu.load"
+            },
+            "properties": [
+              {
+                "id": "custom.fillOpacity",
+                "value": 24
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 29
+      },
+      "hideTimeOverride": true,
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "Canada1-$name",
+            "cleanSelector": "",
+            "displayName": "System load",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "braden-zorin-MS-7C79",
+                    "name": "HOST-419BD5B2D56387BD",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.cpu.load",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "A",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "Canada1-$name",
+            "cleanSelector": "",
+            "displayName": "System load5m",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "braden-zorin-MS-7C79",
+                    "name": "HOST-419BD5B2D56387BD",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.cpu.load5m",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "B",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "Canada1-$name",
+            "cleanSelector": "",
+            "displayName": "System load15m",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "braden-zorin-MS-7C79",
+                    "name": "HOST-419BD5B2D56387BD",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.cpu.load15m",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "C",
+          "version": "3.14.7"
+        }
+      ],
+      "timeShift": "2m",
+      "title": "System Load",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "cdpvd1h7xfdoga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "US1-builtin:host.cpu.load15m"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "US1-builtin:host.cpu.load5m"
+            },
+            "properties": [
+              {
+                "id": "custom.drawStyle",
+                "value": "bars"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "US1-builtin:host.cpu.load"
+            },
+            "properties": [
+              {
+                "id": "custom.fillOpacity",
+                "value": 24
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 29
+      },
+      "hideTimeOverride": true,
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "US1-$name",
+            "cleanSelector": "",
+            "displayName": "System load",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "mediavault.local",
+                    "name": "HOST-5895A6D460C3A8A0",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.cpu.load",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "A",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "US1-$name",
+            "cleanSelector": "",
+            "displayName": "System load5m",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "mediavault.local",
+                    "name": "HOST-5895A6D460C3A8A0",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.cpu.load5m",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "B",
+          "version": "3.14.7"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "cdpvd1h7xfdoga"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "US1-$name",
+            "cleanSelector": "",
+            "displayName": "System load15m",
+            "filters": {
+              "conjunction": "NONE",
+              "filters": [
+                {
+                  "conjunction": "OR",
+                  "key": {
+                    "displayName": "Host",
+                    "name": "dt.entity.host",
+                    "type": "HOST"
+                  },
+                  "op": "=",
+                  "value": {
+                    "displayName": "mediavault.local",
+                    "name": "HOST-5895A6D460C3A8A0",
+                    "type": "values"
+                  }
+                }
+              ]
+            },
+            "name": "builtin:host.cpu.load15m",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "metric",
+          "refId": "C",
+          "version": "3.14.7"
+        }
+      ],
+      "timeShift": "2m",
+      "title": "System Load",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Dynatrace Infrastructure Dashboard",
+  "uid": "ddpvfgzr5i2v4a",
+  "version": 21,
+  "weekStart": ""
+}

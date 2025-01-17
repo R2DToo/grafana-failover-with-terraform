@@ -1,0 +1,523 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 15,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "dashboard",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Level 1",
+      "tooltip": "",
+      "type": "link",
+      "url": "/d/de432c10-0f7d-4b2b-aa9f-f26274a7aa41?orgId=1"
+    },
+    {
+      "asDropdown": false,
+      "icon": "dashboard",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Level 3",
+      "tooltip": "",
+      "type": "link",
+      "url": "/d/d09b1269-69a6-467e-8270-cc55810c0ceb?orgId=1"
+    }
+  ],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.3.0-63516",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "opened_at"
+            },
+            {
+              "aggregates": [],
+              "name": "closed_at"
+            },
+            {
+              "aggregates": [],
+              "name": "active"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "active",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Task",
+                "element": "active",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=boolean",
+                  "value": "boolean"
+                },
+                "label": "Active",
+                "name": "task",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Active",
+                "table": "task",
+                "value": "active"
+              },
+              "op": "=",
+              "type": "boolean",
+              "value": "True"
+            },
+            {
+              "conjunction": "and",
+              "field": "closed_at",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Task",
+                "element": "closed_at",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=glide_date_time",
+                  "value": "glide_date_time"
+                },
+                "label": "Closed",
+                "name": "task",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Closed",
+                "table": "task",
+                "value": "closed_at"
+              },
+              "op": "RELATIVELT",
+              "type": "glide_date_time",
+              "value": "@hour@ago@1"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 2000,
+          "queryType": "TableAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "incident",
+          "timeField": "ignore_time"
+        }
+      ],
+      "title": "ServiceNow Incident MTTR",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Maintenance Duration",
+            "binary": {
+              "left": "closed_at",
+              "operator": "-",
+              "right": "opened_at"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Maintenance Duration": {
+                "aggregations": [
+                  "sum",
+                  "count"
+                ],
+                "operation": "aggregate"
+              },
+              "active": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "MTTR",
+            "binary": {
+              "left": "Maintenance Duration (sum)",
+              "operator": "/",
+              "right": "Maintenance Duration (count)"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "d1b2014b-bf80-4401-8869-44c41c73ac48"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "µs"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "d1b2014b-bf80-4401-8869-44c41c73ac48"
+          },
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "",
+            "cleanSelector": "builtin:service.response.server:percentile(90.0)",
+            "displayName": "Server side response time",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "builtin:service.response.server",
+            "selector": "builtin:service.response.server:percentile(90.0)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.11.3"
+        }
+      ],
+      "title": "Response Time 90th Percentile",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 2,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "10.3.0-63516",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "state"
+            },
+            {
+              "aggregates": [],
+              "name": "number"
+            },
+            {
+              "aggregates": [],
+              "name": "category"
+            },
+            {
+              "aggregates": [],
+              "name": "priority"
+            },
+            {
+              "aggregates": [],
+              "name": "urgency"
+            },
+            {
+              "aggregates": [],
+              "name": "escalation"
+            },
+            {
+              "aggregates": [],
+              "name": "impact"
+            },
+            {
+              "aggregates": [],
+              "name": "risk"
+            },
+            {
+              "aggregates": [],
+              "name": "assigned_to.name"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "choice": "3",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Task",
+                "element": "state",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=integer",
+                  "value": "integer"
+                },
+                "label": "State",
+                "name": "task",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "State",
+                "table": "task",
+                "value": "state"
+              },
+              "op": "NOT IN",
+              "type": "integer",
+              "value": "3,4,7"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "queryType": "TableAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "change_request",
+          "timeField": "ignore_time"
+        }
+      ],
+      "title": "ServiceNow Change Requests",
+      "type": "table"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Executive",
+  "uid": "ad603b87-6283-45e2-b02c-0df88a23eb91",
+  "version": 6,
+  "weekStart": ""
+}

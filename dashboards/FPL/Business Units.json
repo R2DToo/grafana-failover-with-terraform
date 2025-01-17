@@ -1,0 +1,328 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 125,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Application Services Drilldown",
+              "url": "/d/edu4kz23b8qo0b?var-business_unit=${__field.name}"
+            }
+          ],
+          "mappings": [
+            {
+              "options": {
+                "1": {
+                  "color": "red",
+                  "index": 0,
+                  "text": "Critical"
+                },
+                "2": {
+                  "color": "orange",
+                  "index": 1,
+                  "text": "Major"
+                },
+                "3": {
+                  "color": "yellow",
+                  "index": 2,
+                  "text": "Minor"
+                },
+                "4": {
+                  "color": "blue",
+                  "index": 3,
+                  "text": "Warning"
+                },
+                "5": {
+                  "color": "green",
+                  "index": 4,
+                  "text": "OK"
+                },
+                "6": {
+                  "color": "green",
+                  "index": 5,
+                  "text": "Clear"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "match": "null+nan",
+                "result": {
+                  "color": "green",
+                  "index": 6,
+                  "text": "OK"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-73830",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "name"
+            },
+            {
+              "aggregates": [],
+              "name": "sys_id"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and"
+            }
+          ],
+          "groupBy": [],
+          "hide": false,
+          "limit": 20,
+          "queryType": "TableAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "business_unit",
+          "timeField": "ignore_time"
+        },
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "false",
+          "fields": [
+            {
+              "aggregates": [
+                "min"
+              ],
+              "name": "severity"
+            },
+            {
+              "aggregates": [
+                "min"
+              ],
+              "name": "business_service.business_unit"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "business_service.business_unit",
+              "op": "ISNOTEMPTY",
+              "value": "ISNOTEMPTY"
+            },
+            {
+              "conjunction": "and",
+              "field": "vt_end",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_impact_status",
+                "element": "vt_end",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=glide_date_time",
+                  "value": "glide_date_time"
+                },
+                "label": "Valid Time End",
+                "name": "em_impact_status",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Valid Time End",
+                "table": "em_impact_status",
+                "value": "vt_end"
+              },
+              "op": ">",
+              "type": "glide_date_time",
+              "value": "2025-08-31"
+            },
+            {}
+          ],
+          "groupBy": [
+            "business_service.name"
+          ],
+          "hide": false,
+          "limit": 25,
+          "queryType": "TableAPI",
+          "refId": "B",
+          "sort": [
+            {}
+          ],
+          "stats": [
+            "min"
+          ],
+          "table": "em_impact_status",
+          "timeField": "ignore_time"
+        }
+      ],
+      "title": "",
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "B"
+          },
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "business_service.business_unit": "sys_id",
+              "business_service.sys_id": "sys_id"
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "sys_id",
+            "mode": "outerTabular"
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "number",
+                "targetField": "severity B"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "name A": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "severity B": {
+                "aggregations": [
+                  "min"
+                ],
+                "operation": "aggregate"
+              },
+              "sys_id": {
+                "aggregations": []
+              }
+            }
+          }
+        },
+        {
+          "id": "rowsToFields",
+          "options": {
+            "mappings": [
+              {
+                "fieldName": "name",
+                "handlerKey": "field.name"
+              },
+              {
+                "fieldName": "severity B (min)",
+                "handlerKey": "field.value"
+              }
+            ]
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "stat"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Business Units",
+  "uid": "ddu4bzlmf0hkwa",
+  "version": 15,
+  "weekStart": ""
+}

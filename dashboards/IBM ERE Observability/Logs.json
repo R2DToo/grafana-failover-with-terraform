@@ -1,0 +1,790 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 98,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "edp6k7im7mha8e"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": 3600000,
+            "lineInterpolation": "stepBefore",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.1.0-71799",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "edp6k7im7mha8e"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "isEvents": false,
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "namespace": "",
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"ibm_sp\" source=\"*audit_event_log*\" \"investigation_case\" \"created\"\n| rex field=_raw \"(?<date>\\d{4}-\\d{2}-\\d{2}_\\d{2}-\\d{2})\" \n| stats count by date",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "Investigation Cases Created Over Time",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "date"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "edp6k7im7mha8e"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "11.1.0-71799",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "edp6k7im7mha8e"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "isEvents": false,
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "namespace": "",
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"ibm_sp\" source=\"*audit_event_log*\" \"Login successful\"\n| stats count by host\n| rename count as \"Number of Logins\"\n| sort - \"Number of Logins\"",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "Logins per SP Instance",
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "edp6k7im7mha8e"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 1,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.1.0-71799",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "edp6k7im7mha8e"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "isEvents": false,
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "namespace": "",
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"ibm_sp\" source=\"*audit_event_log*\" \"investigation_case\" \"created\"\n| rex field=_raw \"(?<date>\\d{4}-\\d{2}-\\d{2})\" \n| stats count by date",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "Investigation Cases Created per Day",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "date"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "edp6k7im7mha8e"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 6,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.1.0-71799",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "edp6k7im7mha8e"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "isEvents": false,
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "namespace": "",
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"ibm_sp\" source=\"*audit_event_log*\" \"Login successful\"\n| rex field=_raw \"IP: (?<ip_address>\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})\"\n| stats count by ip_address\n| rename count as \"Number of Logins\"\n| sort - \"Number of Logins\"",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "Logins by IP",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "date"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "edp6k7im7mha8e"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 16
+      },
+      "id": 4,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": false,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": false,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "pluginVersion": "11.1.0-71799",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "edp6k7im7mha8e"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "isEvents": false,
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "namespace": "",
+          "options": {
+            "cont": true,
+            "limit": 500,
+            "partial": true
+          },
+          "query": "index=\"ibm_sp\" source=\"*audit_event_log*\"",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "Audit Events",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "ibm_sp"
+                  }
+                },
+                "fieldName": "_si"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "logs"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "edp6k7im7mha8e"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "id": 2,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": false,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": false,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "pluginVersion": "11.1.0-71799",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "edp6k7im7mha8e"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "isEvents": false,
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "namespace": "",
+          "options": {
+            "cont": true,
+            "limit": 500,
+            "partial": true
+          },
+          "query": "index=\"ibm_sp\" source=\"*system_event*\"",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "System Events",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "ibm_sp"
+                  }
+                },
+                "fieldName": "_si"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "logs"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "edp6k7im7mha8e"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 32
+      },
+      "id": 3,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": false,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": false,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "pluginVersion": "11.1.0-71799",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "edp6k7im7mha8e"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "isEvents": false,
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "namespace": "",
+          "options": {
+            "cont": true,
+            "limit": 500,
+            "partial": true
+          },
+          "query": "index=\"ibm_sp\" source=\"*backtraces*\"",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "Back Traces",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "ibm_sp"
+                  }
+                },
+                "fieldName": "_si"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "logs"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "2024-06-13T05:00:00.000Z",
+    "to": "2024-06-28T04:59:59.000Z"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Logs",
+  "uid": "cdp6o3164ptz4a",
+  "version": 6,
+  "weekStart": ""
+}

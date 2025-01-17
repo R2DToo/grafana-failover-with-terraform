@@ -1,0 +1,529 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 304,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "ce1yc0vwmt79ca"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "STLD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "REVD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RJCT"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MSTL"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MREV"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "interval": "15m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0-78678",
+      "targets": [
+        {
+          "alias": "Entity 1",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "min": 1,
+          "noise": 6,
+          "refId": "A",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "spread": 3
+        },
+        {
+          "alias": "Entity 2",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "min": 1,
+          "noise": 6,
+          "refId": "B",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "spread": 3
+        },
+        {
+          "alias": "Entity 3",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "min": 1,
+          "noise": 6,
+          "refId": "C",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "spread": 3
+        },
+        {
+          "alias": "Entity 4",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "min": 1,
+          "noise": 6,
+          "refId": "D",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "spread": 3
+        }
+      ],
+      "title": "Transaction Volume by Sending Entity",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "pattern": "(time|${query0:regex})"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "ce1yc0vwmt79ca"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 40,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "STLD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "REVD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RJCT"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MSTL"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MREV"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 2,
+      "interval": "15m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0-78678",
+      "targets": [
+        {
+          "alias": "STLD",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "labels": "",
+          "min": 1,
+          "noise": 6,
+          "refId": "A",
+          "scenarioId": "random_walk",
+          "seriesCount": 1
+        },
+        {
+          "alias": "REVD",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "labels": "",
+          "min": 1,
+          "refId": "B",
+          "scenarioId": "random_walk",
+          "seriesCount": 1
+        },
+        {
+          "alias": "RJCT",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "labels": "",
+          "min": 1,
+          "refId": "C",
+          "scenarioId": "random_walk",
+          "seriesCount": 1
+        },
+        {
+          "alias": "MSTL",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "labels": "",
+          "min": 1,
+          "refId": "D",
+          "scenarioId": "random_walk",
+          "seriesCount": 1
+        },
+        {
+          "alias": "MREV",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "labels": "",
+          "min": 1,
+          "refId": "E",
+          "scenarioId": "random_walk",
+          "seriesCount": 1
+        }
+      ],
+      "title": "Sending Transaction Volume by Status",
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "refresh": "15m",
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "Entity 1",
+          "value": "Entity 1"
+        },
+        "includeAll": true,
+        "name": "query0",
+        "options": [
+          {
+            "selected": true,
+            "text": "Entity 1",
+            "value": "Entity 1"
+          },
+          {
+            "selected": false,
+            "text": "Entity 2",
+            "value": "Entity 2"
+          },
+          {
+            "selected": false,
+            "text": "Entity 3",
+            "value": "Entity 3"
+          },
+          {
+            "selected": false,
+            "text": "Entity 4",
+            "value": "Entity 4"
+          }
+        ],
+        "query": "Entity 1,Entity 2,Entity 3,Entity 4",
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Mock Panels - BAM 6 - Widget 5/6 - Option 2",
+  "uid": "be3uiiceton40f",
+  "version": 7,
+  "weekStart": ""
+}

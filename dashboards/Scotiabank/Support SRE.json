@@ -1,0 +1,3115 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 401,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 7,
+      "panels": [],
+      "title": "Transaction Management",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 16,
+        "x": 4,
+        "y": 1
+      },
+      "id": 1,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": true,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "transparent"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "dark-green"
+            }
+          },
+          "constraint": {
+            "horizontal": "left",
+            "vertical": "top"
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "green"
+                },
+                "image": {
+                  "field": "EFH Value",
+                  "fixed": "",
+                  "mode": "field"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                },
+                "radius": 10
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 20,
+                "text": {
+                  "field": "EFH Title",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "connections": [
+                {
+                  "color": {
+                    "fixed": "rgb(204, 204, 220)"
+                  },
+                  "path": "straight",
+                  "size": {
+                    "fixed": 2,
+                    "max": 10,
+                    "min": 1
+                  },
+                  "source": {
+                    "x": 0.9999997965494791,
+                    "y": 0
+                  },
+                  "sourceOriginal": {
+                    "x": 250.99998474121094,
+                    "y": 125.99998474121094
+                  },
+                  "target": {
+                    "x": -0.9973331705729167,
+                    "y": -0.00800048828125
+                  },
+                  "targetName": "Element 2",
+                  "targetOriginal": {
+                    "x": 302.1999969482422,
+                    "y": 126.19999694824219
+                  }
+                }
+              ],
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "EFH",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 50,
+                "left": 149,
+                "top": 20,
+                "width": 150
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "orange"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                },
+                "radius": 10
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 20,
+                "text": {
+                  "field": "PHUB IP Title",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "connections": [
+                {
+                  "color": {
+                    "fixed": "rgb(204, 204, 220)"
+                  },
+                  "path": "straight",
+                  "size": {
+                    "fixed": 2,
+                    "max": 10,
+                    "min": 1
+                  },
+                  "source": {
+                    "x": 1.0000002034505209,
+                    "y": 0
+                  },
+                  "sourceOriginal": {
+                    "x": 452,
+                    "y": 125.99998474121094
+                  },
+                  "target": {
+                    "x": -0.9839998372395833,
+                    "y": -0.00800048828125
+                  },
+                  "targetName": "Element 3",
+                  "targetOriginal": {
+                    "x": 504.1999969482422,
+                    "y": 126.19999694824219
+                  }
+                }
+              ],
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "Element 2",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 50,
+                "left": 350,
+                "top": 20,
+                "width": 150
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "PHUB EFT Title",
+                  "fixed": "orange"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                },
+                "radius": 10
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 20,
+                "text": {
+                  "field": "PHUB EFT Title",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "connections": [
+                {
+                  "color": {
+                    "fixed": "rgb(204, 204, 220)"
+                  },
+                  "path": "straight",
+                  "size": {
+                    "fixed": 2,
+                    "max": 10,
+                    "min": 1
+                  },
+                  "source": {
+                    "x": 1.0000002034505209,
+                    "y": 0
+                  },
+                  "sourceOriginal": {
+                    "x": 653,
+                    "y": 125.99998474121094
+                  },
+                  "target": {
+                    "x": -0.9973331705729167,
+                    "y": 0.03199951171875
+                  },
+                  "targetName": "Element 4",
+                  "targetOriginal": {
+                    "x": 704.1999969482422,
+                    "y": 125.19999694824219
+                  }
+                }
+              ],
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "Element 3",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 50,
+                "left": 551,
+                "top": 20,
+                "width": 150
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "PHUB CPS Title",
+                  "fixed": "orange"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                },
+                "radius": 10
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 20,
+                "text": {
+                  "field": "PHUB CPS Title",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "connections": [
+                {
+                  "color": {
+                    "fixed": "rgb(204, 204, 220)"
+                  },
+                  "path": "straight",
+                  "size": {
+                    "fixed": 2,
+                    "max": 10,
+                    "min": 1
+                  },
+                  "source": {
+                    "x": 1.0000002034505209,
+                    "y": 0
+                  },
+                  "sourceOriginal": {
+                    "x": 854,
+                    "y": 125.99998474121094
+                  },
+                  "target": {
+                    "x": -0.9973331705729167,
+                    "y": -0.00800048828125
+                  },
+                  "targetName": "Element 5",
+                  "targetOriginal": {
+                    "x": 905.1999969482422,
+                    "y": 126.19999694824219
+                  }
+                }
+              ],
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "Element 4",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 50,
+                "left": 752,
+                "top": 20,
+                "width": 150
+              },
+              "type": "metric-value"
+            },
+            {
+              "background": {
+                "color": {
+                  "field": "EFT DB Title",
+                  "fixed": "orange"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                },
+                "radius": 10
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 20,
+                "text": {
+                  "field": "EFT DB Title",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "Element 5",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 50,
+                "left": 953,
+                "top": 20,
+                "width": 150
+              },
+              "type": "metric-value"
+            }
+          ],
+          "name": "Element 1734542779450",
+          "oneClickMode": "off",
+          "placement": {
+            "height": 100,
+            "left": 0,
+            "rotation": 0,
+            "top": 0,
+            "width": 100
+          },
+          "type": "frame"
+        },
+        "showAdvancedTypes": true
+      },
+      "pluginVersion": "11.5.0-80207",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "EFH Title",
+                "type": "string",
+                "values": [
+                  "EFH"
+                ]
+              },
+              {
+                "config": {},
+                "name": "PHUB IP Title",
+                "type": "string",
+                "values": [
+                  "PHUB IP"
+                ]
+              },
+              {
+                "config": {},
+                "name": "PHUB EFT Title",
+                "type": "string",
+                "values": [
+                  "PHUB EFT"
+                ]
+              },
+              {
+                "config": {},
+                "name": "PHUB CPS Title",
+                "type": "string",
+                "values": [
+                  "PHUB CPS"
+                ]
+              },
+              {
+                "config": {},
+                "name": "EFT DB Title",
+                "type": "string",
+                "values": [
+                  "EFT DB"
+                ]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Transaction Flow Overview",
+      "transparent": true,
+      "type": "canvas"
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "ce1yc0vwmt79ca"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 5
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80207",
+      "targets": [
+        {
+          "alias": "EFH",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "max": 30,
+          "min": 15,
+          "refId": "A",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "spread": 1.5,
+          "startValue": 15
+        }
+      ],
+      "title": "File Processing Time",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "ce1yc0vwmt79ca"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 6
+              },
+              {
+                "color": "red",
+                "value": 10
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 5
+      },
+      "id": 3,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.5.0-80207",
+      "targets": [
+        {
+          "csvContent": "Stage, Queue Depth\r\nPHUB IP, 5\r\nPHUB EFT, 2\r\nPHUB CPS, 10",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Queue Depth",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "ce1yc0vwmt79ca"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 13
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80207",
+      "targets": [
+        {
+          "alias": "EFH",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "max": 40,
+          "min": 20,
+          "refId": "A",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "startValue": 30
+        },
+        {
+          "alias": "PHUB IP",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "max": 80,
+          "min": 70,
+          "refId": "B",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "startValue": 80
+        },
+        {
+          "alias": "PHUB EFT",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "max": 45,
+          "min": 40,
+          "refId": "C",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "startValue": 40
+        },
+        {
+          "alias": "PHUB CPS",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "max": 70,
+          "min": 50,
+          "refId": "D",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "startValue": 70
+        },
+        {
+          "alias": "EFT DB",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "max": 30,
+          "min": 15,
+          "refId": "E",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "startValue": 20
+        }
+      ],
+      "title": "Processing Time by Stage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "ce1yc0vwmt79ca"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": [
+            {
+              "options": {
+                "75": {
+                  "color": "red",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 21
+      },
+      "id": 5,
+      "options": {
+        "displayLabels": [],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80207",
+      "targets": [
+        {
+          "csvContent": "Log Type,value\r\nSuccess,25\r\nFailure,75",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "Transaction Success and Failure Rates",
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "ce1yc0vwmt79ca"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 21
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80207",
+      "targets": [
+        {
+          "alias": "Participant 1",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "max": 15,
+          "min": 2,
+          "noise": 0,
+          "refId": "A",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "spread": 1,
+          "startValue": 5
+        }
+      ],
+      "title": "Transaction Volume by Sending Participants",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 29
+      },
+      "id": 8,
+      "panels": [],
+      "title": "Service Stability",
+      "type": "row"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 30
+      },
+      "id": 18,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<table style=\"width:100%; height:100%;border:0px solid black;\">\n     <td style=\"text-align: center;vertical-align: middle;border:0px solid black; \">\n       <span style=\"font-size:25px\"><b>Service Management KPIs</b></span><br \\>\n     </td>\n</table>",
+        "mode": "html"
+      },
+      "pluginVersion": "11.5.0-80207",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 3,
+        "x": 0,
+        "y": 32
+      },
+      "id": 9,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.0-80207",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Availability",
+                "type": "string",
+                "values": [
+                  "100"
+                ]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Availability",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 3,
+        "x": 3,
+        "y": 32
+      },
+      "id": 10,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/.*/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.0-80207",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Availability",
+                "type": "string",
+                "values": [
+                  "0"
+                ]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Error Rate",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "ce1yc0vwmt79ca"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 3,
+        "x": 6,
+        "y": 32
+      },
+      "id": 11,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^Response Time$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.0-80207",
+      "targets": [
+        {
+          "alias": "Response Time",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "max": 30,
+          "min": 1,
+          "refId": "A",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "startValue": 20
+        }
+      ],
+      "title": "Response Time",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "ce1yc0vwmt79ca"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "purple",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 3,
+        "x": 9,
+        "y": 32
+      },
+      "id": 12,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^Response Time$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.0-80207",
+      "targets": [
+        {
+          "alias": "Response Time",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "max": 100000,
+          "min": 20,
+          "refId": "A",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "startValue": 100000
+        }
+      ],
+      "title": "# of Transactions",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "purple",
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 1
+              },
+              {
+                "color": "#EAB839",
+                "value": 2
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 9,
+        "x": 12,
+        "y": 32
+      },
+      "id": 15,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^Num of Incidents$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.0-80207",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Stage",
+                "type": "string",
+                "values": [
+                  "P1",
+                  "P2",
+                  "P3"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Num of Incidents",
+                "type": "number",
+                "values": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Incidents",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "Down": {
+                  "color": "red",
+                  "index": 1
+                },
+                "Up": {
+                  "color": "green",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 3,
+        "x": 21,
+        "y": 32
+      },
+      "id": 14,
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "never",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80207",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time",
+                "type": "time",
+                "values": [
+                  1734465600000,
+                  1734465660000,
+                  1734465680000,
+                  1734458400000
+                ]
+              },
+              {
+                "config": {},
+                "name": "State",
+                "type": "string",
+                "values": [
+                  "Up",
+                  "Down",
+                  "Up",
+                  "Up"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Outage Timeline"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Outage Record",
+      "type": "state-timeline"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 38
+      },
+      "id": 16,
+      "panels": [],
+      "title": "Platform Health",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "# Active Alerts"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "applyToRow": false,
+                  "mode": "gradient",
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "green",
+                        "index": 0
+                      },
+                      "1": {
+                        "color": "orange",
+                        "index": 1
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 0,
+        "y": 39
+      },
+      "id": 17,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.5.0-80207",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Name",
+                "type": "string",
+                "values": [
+                  "credit-transfer-api",
+                  "data-service-api",
+                  "data-warehouse-service-api",
+                  "generate-report-api",
+                  "save-report-api",
+                  "payment-status-enquiry-api",
+                  "payment-recovery-api",
+                  "exchange-api",
+                  "auto-payment-api"
+                ]
+              },
+              {
+                "config": {},
+                "name": "last_discovered",
+                "type": "string",
+                "values": [
+                  "2024-12-17 14:00:00.000",
+                  "2024-12-17 14:00:00.000",
+                  "2024-12-17 14:00:00.000",
+                  "2024-12-17 14:00:00.000",
+                  "2024-12-17 14:00:00.000",
+                  "2024-12-17 14:00:00.000",
+                  "2024-12-17 14:00:00.000",
+                  "2024-12-17 14:00:00.000",
+                  "2024-12-17 14:00:00.000"
+                ]
+              },
+              {
+                "config": {},
+                "name": "# Active Alerts",
+                "type": "number",
+                "values": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Services Health",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "Name"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "Down": {
+                  "color": "red",
+                  "index": 1
+                },
+                "Up": {
+                  "color": "green",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 12,
+        "y": 39
+      },
+      "id": 19,
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "never",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80207",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time",
+                "type": "time",
+                "values": [
+                  1734458400000,
+                  1734465000000,
+                  1734465300000,
+                  1734465600000
+                ]
+              },
+              {
+                "config": {},
+                "name": "auto-payment-api",
+                "type": "string",
+                "values": [
+                  "Up",
+                  "Down",
+                  "Down",
+                  "Down"
+                ]
+              },
+              {
+                "config": {},
+                "name": "credit-transfer-api",
+                "type": "string",
+                "values": [
+                  "Up",
+                  "Down",
+                  "Up",
+                  "Up"
+                ]
+              },
+              {
+                "config": {},
+                "name": "data-service-api",
+                "type": "string",
+                "values": [
+                  "Down",
+                  "Up",
+                  "Up",
+                  "Up"
+                ]
+              },
+              {
+                "config": {},
+                "name": "data-warehouse-service-api",
+                "type": "string",
+                "values": [
+                  "Up",
+                  "Down",
+                  "Up",
+                  "Up"
+                ]
+              },
+              {
+                "config": {},
+                "name": "exchange-api",
+                "type": "string",
+                "values": [
+                  "Up",
+                  "Up",
+                  "Up",
+                  "Up"
+                ]
+              },
+              {
+                "config": {},
+                "name": "generate-report-api",
+                "type": "string",
+                "values": [
+                  "Up",
+                  "Down",
+                  "Up",
+                  "Up"
+                ]
+              },
+              {
+                "config": {},
+                "name": "payment-recovery-api",
+                "type": "string",
+                "values": [
+                  "Up",
+                  "Up",
+                  "Up",
+                  "Up"
+                ]
+              },
+              {
+                "config": {},
+                "name": "payment-status-enquiry-api",
+                "type": "string",
+                "values": [
+                  "Down",
+                  "Up",
+                  "Down",
+                  "Up"
+                ]
+              },
+              {
+                "config": {},
+                "name": "save-report-api",
+                "type": "string",
+                "values": [
+                  "Up",
+                  "Up",
+                  "Up",
+                  "Up"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Outage Timeline"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Service Outages",
+      "type": "state-timeline"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 50
+      },
+      "id": 21,
+      "panels": [],
+      "title": "Platform Key Health Indicators",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [
+            {
+              "options": {
+                "Down": {
+                  "color": "red",
+                  "index": 1
+                },
+                "Up": {
+                  "color": "green",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "si:cores"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 5,
+        "x": 0,
+        "y": 51
+      },
+      "id": 22,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80207",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time",
+                "type": "time",
+                "values": [
+                  1734458400000,
+                  1734465000000,
+                  1734465300000,
+                  1734465600000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [
+                  0,
+                  2,
+                  2,
+                  0
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Usage"
+          },
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time",
+                "type": "time",
+                "values": [
+                  1734458400000,
+                  1734465000000,
+                  1734465300000,
+                  1734465600000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [
+                  1,
+                  3,
+                  2,
+                  1
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Throttling"
+          },
+          "hide": false,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time",
+                "type": "time",
+                "values": [
+                  1734458400000,
+                  1734465000000,
+                  1734465300000,
+                  1734465600000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [
+                  10,
+                  10,
+                  9,
+                  11
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Requests"
+          },
+          "hide": false,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time",
+                "type": "time",
+                "values": [
+                  1734458400000,
+                  1734465000000,
+                  1734465300000,
+                  1734465600000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [
+                  100,
+                  100,
+                  100,
+                  100
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Limits"
+          },
+          "hide": false,
+          "refId": "D"
+        }
+      ],
+      "title": "CPU",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [
+            {
+              "options": {
+                "Down": {
+                  "color": "red",
+                  "index": 1
+                },
+                "Up": {
+                  "color": "green",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 5,
+        "x": 5,
+        "y": 51
+      },
+      "id": 23,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80207",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time",
+                "type": "time",
+                "values": [
+                  1734458400000,
+                  1734465000000,
+                  1734465300000,
+                  1734465600000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [
+                  25000000000,
+                  25000000000,
+                  2000000000,
+                  15000000000
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Usage"
+          },
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time",
+                "type": "time",
+                "values": [
+                  1734458400000,
+                  1734465000000,
+                  1734465300000,
+                  1734465600000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [
+                  32000000000,
+                  33000000000,
+                  32000000000,
+                  30000000000
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Requests"
+          },
+          "hide": false,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time",
+                "type": "time",
+                "values": [
+                  1734458400000,
+                  1734465000000,
+                  1734465300000,
+                  1734465600000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [
+                  96000000000,
+                  100000000000,
+                  100000000000,
+                  96000000000
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Limits"
+          },
+          "hide": false,
+          "refId": "C"
+        }
+      ],
+      "title": "Memory",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [
+            {
+              "options": {
+                "Down": {
+                  "color": "red",
+                  "index": 1
+                },
+                "Up": {
+                  "color": "green",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 6,
+        "x": 10,
+        "y": 51
+      },
+      "id": 24,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "normal",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 100
+      },
+      "pluginVersion": "11.5.0-80207",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time",
+                "type": "time",
+                "values": [
+                  1734458400000,
+                  1734465000000,
+                  1734465300000,
+                  1734465600000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [
+                  39,
+                  40,
+                  43,
+                  37
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Desired Pods"
+          },
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time",
+                "type": "time",
+                "values": [
+                  1734458400000,
+                  1734465000000,
+                  1734465300000,
+                  1734465600000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [
+                  45,
+                  47,
+                  44,
+                  40
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Running Pods"
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "Pods",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [
+            {
+              "options": {
+                "Down": {
+                  "color": "red",
+                  "index": 1
+                },
+                "Up": {
+                  "color": "green",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 51
+      },
+      "id": 25,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80207",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time",
+                "type": "time",
+                "values": [
+                  1734458400000,
+                  1734465000000,
+                  1734465300000,
+                  1734465600000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [
+                  100,
+                  100,
+                  99,
+                  98
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "EFT DB"
+          },
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time",
+                "type": "time",
+                "values": [
+                  1734458400000,
+                  1734465000000,
+                  1734465300000,
+                  1734465600000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [
+                  100,
+                  95,
+                  100,
+                  92
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "PHUB IP DB"
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "Database Availability",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 25
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "PHUB CPS"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 60
+      },
+      "id": 26,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "normal",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 100
+      },
+      "pluginVersion": "11.5.0-80207",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time",
+                "type": "time",
+                "values": [
+                  1734458400000,
+                  1734458460000,
+                  1734458520000,
+                  1734458580000,
+                  1734458640000,
+                  1734458700000,
+                  1734458760000,
+                  1734458820000,
+                  1734458880000,
+                  1734458940000,
+                  1734459000000,
+                  1734459060000,
+                  1734459120000,
+                  1734459180000,
+                  1734459240000,
+                  1734459300000,
+                  1734459360000,
+                  1734459420000,
+                  1734459480000,
+                  1734459540000,
+                  1734459600000,
+                  1734459660000,
+                  1734459720000,
+                  1734459780000,
+                  1734459840000,
+                  1734459900000,
+                  1734459960000,
+                  1734460020000,
+                  1734460080000,
+                  1734460140000,
+                  1734460200000
+                ]
+              },
+              {
+                "config": {},
+                "name": "EFH",
+                "type": "number",
+                "values": [
+                  4,
+                  3,
+                  4,
+                  10,
+                  2,
+                  3,
+                  5,
+                  6,
+                  5,
+                  4,
+                  3,
+                  3,
+                  3,
+                  4,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  8,
+                  7,
+                  5,
+                  4,
+                  4,
+                  3,
+                  2,
+                  2,
+                  4,
+                  5,
+                  5,
+                  4
+                ]
+              },
+              {
+                "config": {},
+                "name": "PHUB IP",
+                "type": "number",
+                "values": [
+                  2,
+                  2,
+                  4,
+                  4,
+                  2,
+                  4,
+                  5,
+                  1,
+                  1,
+                  2,
+                  3,
+                  4,
+                  4,
+                  5,
+                  5,
+                  6,
+                  7,
+                  6,
+                  5,
+                  6,
+                  7,
+                  7,
+                  6,
+                  6,
+                  5,
+                  5,
+                  4,
+                  4,
+                  3,
+                  3,
+                  6
+                ]
+              },
+              {
+                "config": {},
+                "name": "PHUB EFT",
+                "type": "number",
+                "values": [
+                  3,
+                  4,
+                  3,
+                  3,
+                  1,
+                  3,
+                  3,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  5,
+                  3,
+                  2,
+                  1,
+                  1,
+                  1,
+                  2,
+                  3,
+                  4,
+                  3,
+                  2,
+                  2,
+                  2,
+                  3,
+                  3,
+                  4,
+                  5,
+                  4
+                ]
+              },
+              {
+                "config": {},
+                "name": "PHUB FTM Base",
+                "type": "number",
+                "values": [
+                  1,
+                  2,
+                  3,
+                  3,
+                  4,
+                  4,
+                  5,
+                  6,
+                  6,
+                  5,
+                  5,
+                  4,
+                  4,
+                  3,
+                  3,
+                  2,
+                  2,
+                  2,
+                  2,
+                  3,
+                  3,
+                  4,
+                  4,
+                  5,
+                  7,
+                  8,
+                  7,
+                  6,
+                  5,
+                  4,
+                  3
+                ]
+              },
+              {
+                "config": {},
+                "name": "PHUB CPS",
+                "type": "number",
+                "values": [
+                  2,
+                  1,
+                  2,
+                  2,
+                  4,
+                  2,
+                  2,
+                  3,
+                  3,
+                  4,
+                  5,
+                  4,
+                  5,
+                  6,
+                  6,
+                  7,
+                  8,
+                  7,
+                  6,
+                  5,
+                  4,
+                  3,
+                  3,
+                  2,
+                  4,
+                  5,
+                  6,
+                  6,
+                  5,
+                  5,
+                  4
+                ]
+              },
+              {
+                "config": {},
+                "name": "PHUB EFT Risk",
+                "type": "number",
+                "values": [
+                  2,
+                  2,
+                  3,
+                  3,
+                  3,
+                  4,
+                  4,
+                  5,
+                  5,
+                  5,
+                  6,
+                  6,
+                  6,
+                  7,
+                  7,
+                  6,
+                  6,
+                  5,
+                  4,
+                  4,
+                  3,
+                  3,
+                  3,
+                  2,
+                  2,
+                  2,
+                  3,
+                  3,
+                  3,
+                  3,
+                  2
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "EFT Transactions"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Average File/Transaction Processing Time (End-to-End)",
+      "type": "barchart"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Support SRE",
+  "uid": "fe7b7s8mrghkwc",
+  "version": 23,
+  "weekStart": ""
+}

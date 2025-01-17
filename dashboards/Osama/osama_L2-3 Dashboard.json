@@ -1,0 +1,2948 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 18,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 8,
+      "panels": [
+        {
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "d1b2014b-bf80-4401-8869-44c41c73ac48"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "type": "auto"
+                },
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byType",
+                  "options": "time"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 165
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Status"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 89
+                  },
+                  {
+                    "id": "custom.cellOptions",
+                    "value": {
+                      "type": "color-background"
+                    }
+                  },
+                  {
+                    "id": "mappings",
+                    "value": [
+                      {
+                        "options": {
+                          "CLOSED": {
+                            "color": "green",
+                            "index": 1
+                          },
+                          "OPEN": {
+                            "color": "red",
+                            "index": 0
+                          }
+                        },
+                        "type": "value"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "RankedEvent.AnnotationDescription"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 703
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 1
+          },
+          "id": 14,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Drilldown to Dynatrace Problems",
+              "url": "https://xfg66301.apps.dynatrace.com/ui/apps/dynatrace.classic.problems/ui/problems"
+            }
+          ],
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true,
+            "sortBy": []
+          },
+          "pluginVersion": "11.1.0-70958",
+          "targets": [
+            {
+              "active": "problem",
+              "datasource": {
+                "type": "grafana-dynatrace-datasource",
+                "uid": "d1b2014b-bf80-4401-8869-44c41c73ac48"
+              },
+              "metric": {
+                "aggregations": [],
+                "alias": "",
+                "cleanSelector": "",
+                "displayName": "",
+                "filters": {
+                  "conjunction": "AND",
+                  "filters": []
+                },
+                "name": "Select...",
+                "selector": "",
+                "transformations": [
+                  {
+                    "name": "names",
+                    "params": []
+                  }
+                ],
+                "zones": []
+              },
+              "mode": "builder",
+              "problem": {
+                "expandDetails": true,
+                "impact": "",
+                "severity": "",
+                "status": "OPEN",
+                "tags": []
+              },
+              "refId": "A",
+              "version": "3.11.3"
+            }
+          ],
+          "title": "Dynatrace Problems",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {},
+                "includeByName": {},
+                "indexByName": {
+                  "AffectedCounts.APPLICATION": 9,
+                  "AffectedCounts.ENVIRONMENT": 10,
+                  "AffectedCounts.INFRASTRUCTURE": 11,
+                  "AffectedCounts.SERVICE": 12,
+                  "CommentCount": 13,
+                  "DisplayName": 1,
+                  "EndTime": 4,
+                  "HasRootCause": 6,
+                  "ID": 0,
+                  "ImpactLevel": 7,
+                  "RankedEvent.ActiveMaintenanceWindows.Description": 25,
+                  "RankedEvent.ActiveMaintenanceWindows.ID": 26,
+                  "RankedEvent.ActiveMaintenanceWindows.Name": 27,
+                  "RankedEvent.AffectedPrivateSyntheticLocations": 28,
+                  "RankedEvent.AffectedRequestsPerMinute": 29,
+                  "RankedEvent.AffectedSyntheticActions": 30,
+                  "RankedEvent.AffectedSyntheticLocations": 31,
+                  "RankedEvent.AffectedUserActionsPerMinute": 32,
+                  "RankedEvent.AnnotationDescription": 2,
+                  "RankedEvent.AnnotationType": 33,
+                  "RankedEvent.Artifact": 34,
+                  "RankedEvent.Browser": 35,
+                  "RankedEvent.CIBackLink": 36,
+                  "RankedEvent.CPULimitInMHZ": 37,
+                  "RankedEvent.CPULoad": 38,
+                  "RankedEvent.Changed": 39,
+                  "RankedEvent.CorrelationID": 40,
+                  "RankedEvent.CustomProperties.Key": 41,
+                  "RankedEvent.CustomProperties.Value": 42,
+                  "RankedEvent.DeploymentName": 43,
+                  "RankedEvent.DeploymentParamAdded": 44,
+                  "RankedEvent.DeploymentParamRemoved": 45,
+                  "RankedEvent.DeploymentProject": 46,
+                  "RankedEvent.DeploymentVersion": 47,
+                  "RankedEvent.EffectiveEntity": 48,
+                  "RankedEvent.EndTime": 49,
+                  "RankedEvent.EntityID": 50,
+                  "RankedEvent.EntityName": 51,
+                  "RankedEvent.EventType": 52,
+                  "RankedEvent.GeoLocation": 53,
+                  "RankedEvent.ISClusterWide": 54,
+                  "RankedEvent.ISRootCause": 55,
+                  "RankedEvent.ImpactLevel": 56,
+                  "RankedEvent.MinimumProcessGroupInstanceCountThreshold": 57,
+                  "RankedEvent.MobileAppVersion": 58,
+                  "RankedEvent.OperatingSystem": 59,
+                  "RankedEvent.Original": 60,
+                  "RankedEvent.Percentile": 61,
+                  "RankedEvent.ReferenceResponseTime50thPercentile": 62,
+                  "RankedEvent.ReferenceResponseTime90thPercentile": 63,
+                  "RankedEvent.RemediationAction": 64,
+                  "RankedEvent.ResourceID": 65,
+                  "RankedEvent.ResourceName": 66,
+                  "RankedEvent.Service": 67,
+                  "RankedEvent.ServiceMethod": 68,
+                  "RankedEvent.ServiceMethodGroup": 69,
+                  "RankedEvent.Severities.Context": 70,
+                  "RankedEvent.Severities.Unit": 71,
+                  "RankedEvent.Severities.Value": 72,
+                  "RankedEvent.SeverityLevel": 73,
+                  "RankedEvent.Source": 74,
+                  "RankedEvent.StartTime": 75,
+                  "RankedEvent.Status": 76,
+                  "RankedEvent.SyntheticErrorType": 77,
+                  "RankedEvent.UserAction": 78,
+                  "RankedEvent.UserDefined50thPercentileThreshold": 79,
+                  "RankedEvent.UserDefined90thPercentileThreshold": 80,
+                  "RankedEvent.UserDefinedFailureRateThreshold": 81,
+                  "RankedImpact.EntityID": 14,
+                  "RankedImpact.EntityName": 15,
+                  "RankedImpact.EventType": 16,
+                  "RankedImpact.ImpactLevel": 17,
+                  "RankedImpact.SeverityLevel": 18,
+                  "RecoveredCounts.APPLICATION": 19,
+                  "RecoveredCounts.ENVIRONMENT": 20,
+                  "RecoveredCounts.INFRASTRUCTURE": 21,
+                  "RecoveredCounts.SERVICE": 22,
+                  "SeverityLevel": 8,
+                  "StartTime": 3,
+                  "Status": 5,
+                  "TagsOfAffectedEntities.Context": 23,
+                  "TagsOfAffectedEntities.Tag": 24
+                },
+                "renameByName": {}
+              }
+            }
+          ],
+          "type": "table"
+        },
+        {
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "transparent",
+                "mode": "fixed"
+              },
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "mode": "basic",
+                  "type": "color-background"
+                },
+                "filterable": true,
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Severity"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 97
+                  },
+                  {
+                    "id": "mappings",
+                    "value": [
+                      {
+                        "options": {
+                          "1": {
+                            "color": "yellow",
+                            "index": 0,
+                            "text": "1"
+                          },
+                          "2": {
+                            "color": "red",
+                            "index": 1,
+                            "text": "2"
+                          },
+                          "3": {
+                            "color": "red",
+                            "index": 2,
+                            "text": "3"
+                          }
+                        },
+                        "type": "value"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Active Incidents"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 71
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Change (last 3 days)"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 80
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Support Group"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 206
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Priority"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 85
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Category"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 116
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Opned at"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 173
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Number"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 133
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 9
+          },
+          "id": 12,
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": [
+                "Health"
+              ],
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true,
+            "sortBy": []
+          },
+          "pluginVersion": "11.1.0-70958",
+          "targets": [
+            {
+              "cacheDurationSeconds": 300,
+              "datasource": {
+                "type": "grafana-googlesheets-datasource",
+                "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+              },
+              "range": "incidents-table!A1:G8",
+              "refId": "A",
+              "spreadsheet": "1Bzi2V-0KWkJPXooeARAKSyF_1Rw-2_E-5-BnJQJ1o4s"
+            }
+          ],
+          "title": "ServiceNow Incidents",
+          "type": "table"
+        },
+        {
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "transparent",
+                "mode": "fixed"
+              },
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "mode": "basic",
+                  "type": "color-background"
+                },
+                "filterable": true,
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Severity"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 215
+                  },
+                  {
+                    "id": "mappings",
+                    "value": [
+                      {
+                        "options": {
+                          "1": {
+                            "color": "yellow",
+                            "index": 0,
+                            "text": "1"
+                          },
+                          "2": {
+                            "color": "red",
+                            "index": 1,
+                            "text": "2"
+                          },
+                          "3": {
+                            "color": "red",
+                            "index": 2,
+                            "text": "3"
+                          }
+                        },
+                        "type": "value"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Active Incidents"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 71
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Change (last 3 days)"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 80
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Support Group"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 206
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 9
+          },
+          "id": 13,
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": [
+                "Health"
+              ],
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true,
+            "sortBy": []
+          },
+          "pluginVersion": "11.1.0-70958",
+          "targets": [
+            {
+              "cacheDurationSeconds": 300,
+              "datasource": {
+                "type": "grafana-googlesheets-datasource",
+                "uid": "cbcdf189-3e9d-4dd4-9016-41362501e7ab"
+              },
+              "range": "change!A1:G8",
+              "refId": "A",
+              "spreadsheet": "1Bzi2V-0KWkJPXooeARAKSyF_1Rw-2_E-5-BnJQJ1o4s"
+            }
+          ],
+          "title": "ServiceNow Change Records (last 3 days)",
+          "type": "table"
+        }
+      ],
+      "title": "Dynatrace Problems (ServiceNow - incidents and change) ",
+      "type": "row"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 6,
+      "panels": [],
+      "title": "KPIs",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "grafana",
+        "uid": "grafana"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed+area"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 6,
+        "x": 0,
+        "y": 2
+      },
+      "id": 27,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "title": "Client Error Rate",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "200": "Splunk 200",
+              "400": "Splunk 400",
+              "percentage_400_errors": "Splunk"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana",
+        "uid": "grafana"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed+area"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 6,
+        "x": 6,
+        "y": 2
+      },
+      "id": 28,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "title": "System Errors",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "200": "Splunk 200",
+              "400": "Splunk 400",
+              "percentage_400_errors": "Splunk",
+              "percentage_500_errors": "Splunk"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana",
+        "uid": "grafana"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 6,
+        "x": 12,
+        "y": 2
+      },
+      "id": 29,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "title": "Request Response Error Rate (Splunk)",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "200": "Splunk 200",
+              "400": "Splunk 400",
+              "percentage_400_errors": "400",
+              "percentage_500_errors": "500"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana",
+        "uid": "grafana"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 6,
+        "x": 18,
+        "y": 2
+      },
+      "id": 30,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "title": "Gateway Error Rate (Splunk)",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "200": "Splunk 200",
+              "400": "Splunk 400",
+              "percentage_400_errors": "400",
+              "percentage_500_errors": "500"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana",
+        "uid": "grafana"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "µs"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 6,
+        "x": 0,
+        "y": 13
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "title": "Response Time (Dynatrace)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 6,
+        "x": 6,
+        "y": 13
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "title": "Service Level Availability (Dynatrce) ",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "id": 5,
+      "panels": [
+        {
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 0,
+            "y": 25
+          },
+          "id": 17,
+          "options": {
+            "displayLabels": [],
+            "legend": {
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "values": [
+                "value",
+                "percent"
+              ]
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "/.*/",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "targets": [
+            {
+              "binOptions": {},
+              "datasource": {
+                "type": "grafana-splunk-datasource",
+                "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+              },
+              "displayMode": "detect",
+              "index": "select index",
+              "metricAggs": [
+                {
+                  "alias": "",
+                  "field": "select field",
+                  "func": "avg"
+                }
+              ],
+              "options": {
+                "cont": true,
+                "partial": true
+              },
+              "query": "index=\"ebnk_audit\"| top limit=20 status",
+              "rawQuery": true,
+              "refId": "A",
+              "sourcetype": "select sourcetype",
+              "splitByFields": [],
+              "tcOptions": {
+                "nullstr": "",
+                "otherstr": "",
+                "span": "auto",
+                "usenull": false,
+                "useother": true
+              },
+              "whereClause": {
+                "value": ""
+              }
+            }
+          ],
+          "title": "Splunk Audit Index",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "_tc": true,
+                  "percent": true
+                },
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {}
+              }
+            },
+            {
+              "id": "rowsToFields",
+              "options": {
+                "mappings": [
+                  {
+                    "fieldName": "statuscode",
+                    "handlerKey": "field.name"
+                  },
+                  {
+                    "fieldName": "count",
+                    "handlerKey": "field.value"
+                  },
+                  {
+                    "fieldName": "status",
+                    "handlerKey": "field.name"
+                  }
+                ]
+              }
+            }
+          ],
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 5,
+            "x": 6,
+            "y": 25
+          },
+          "id": 16,
+          "options": {
+            "displayLabels": [],
+            "legend": {
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "values": [
+                "value",
+                "percent"
+              ]
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "/.*/",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "targets": [
+            {
+              "binOptions": {},
+              "datasource": {
+                "type": "grafana-splunk-datasource",
+                "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+              },
+              "displayMode": "detect",
+              "index": "select index",
+              "metricAggs": [
+                {
+                  "alias": "",
+                  "field": "select field",
+                  "func": "avg"
+                }
+              ],
+              "options": {
+                "cont": true,
+                "partial": true
+              },
+              "query": "index=\"ebnk_gateway\"| top limit=20 statuscode",
+              "rawQuery": true,
+              "refId": "A",
+              "sourcetype": "select sourcetype",
+              "splitByFields": [],
+              "tcOptions": {
+                "nullstr": "",
+                "otherstr": "",
+                "span": "auto",
+                "usenull": false,
+                "useother": true
+              },
+              "whereClause": {
+                "value": ""
+              }
+            }
+          ],
+          "title": "Splunk Gateway Index",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "_tc": true,
+                  "percent": true
+                },
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {}
+              }
+            },
+            {
+              "id": "rowsToFields",
+              "options": {
+                "mappings": [
+                  {
+                    "fieldName": "statuscode",
+                    "handlerKey": "field.name"
+                  },
+                  {
+                    "fieldName": "count",
+                    "handlerKey": "field.value"
+                  }
+                ]
+              }
+            }
+          ],
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 5,
+            "x": 11,
+            "y": 25
+          },
+          "id": 21,
+          "options": {
+            "displayLabels": [],
+            "legend": {
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "values": [
+                "value",
+                "percent"
+              ]
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "/.*/",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "targets": [
+            {
+              "binOptions": {},
+              "datasource": {
+                "type": "grafana-splunk-datasource",
+                "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+              },
+              "displayMode": "detect",
+              "index": "select index",
+              "metricAggs": [
+                {
+                  "alias": "",
+                  "field": "select field",
+                  "func": "avg"
+                }
+              ],
+              "options": {
+                "cont": true,
+                "partial": true
+              },
+              "query": "index=\"ebnk_module_request_response\"| top limit=20 status",
+              "rawQuery": true,
+              "refId": "A",
+              "sourcetype": "select sourcetype",
+              "splitByFields": [],
+              "tcOptions": {
+                "nullstr": "",
+                "otherstr": "",
+                "span": "auto",
+                "usenull": false,
+                "useother": true
+              },
+              "whereClause": {
+                "value": ""
+              }
+            }
+          ],
+          "title": "Splunk Module Request Response Index",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "_tc": true,
+                  "percent": true
+                },
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {}
+              }
+            },
+            {
+              "id": "rowsToFields",
+              "options": {
+                "mappings": [
+                  {
+                    "fieldName": "statuscode",
+                    "handlerKey": "field.name"
+                  },
+                  {
+                    "fieldName": "count",
+                    "handlerKey": "field.value"
+                  },
+                  {
+                    "fieldName": "status",
+                    "handlerKey": "field.name"
+                  }
+                ]
+              }
+            }
+          ],
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Mixed --"
+          },
+          "description": "Custom Codes",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 8,
+            "x": 16,
+            "y": 25
+          },
+          "id": 22,
+          "options": {
+            "displayLabels": [],
+            "legend": {
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "values": [
+                "value",
+                "percent"
+              ]
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "targets": [
+            {
+              "binOptions": {},
+              "datasource": {
+                "type": "grafana-splunk-datasource",
+                "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+              },
+              "displayMode": "detect",
+              "index": "select index",
+              "metricAggs": [
+                {
+                  "alias": "",
+                  "field": "select field",
+                  "func": "avg"
+                }
+              ],
+              "options": {
+                "cont": true,
+                "partial": true
+              },
+              "query": "index=\"ebnk_module_request_response\"| top limit=20 customstatus",
+              "rawQuery": true,
+              "refId": "A",
+              "sourcetype": "select sourcetype",
+              "splitByFields": [],
+              "tcOptions": {
+                "nullstr": "",
+                "otherstr": "",
+                "span": "auto",
+                "usenull": false,
+                "useother": true
+              },
+              "whereClause": {
+                "value": ""
+              }
+            },
+            {
+              "datasource": {
+                "type": "marcusolsson-static-datasource",
+                "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+              },
+              "frame": {
+                "fields": [
+                  {
+                    "config": {},
+                    "name": "customstatus",
+                    "type": "number",
+                    "values": [
+                      123,
+                      345,
+                      567
+                    ]
+                  },
+                  {
+                    "config": {},
+                    "name": "message",
+                    "type": "string",
+                    "values": [
+                      "Request Successful",
+                      "Fraud Activity Error",
+                      "User Submitted Incorrect OTVC"
+                    ]
+                  }
+                ],
+                "meta": {},
+                "name": "Custom Codes Table"
+              },
+              "hide": false,
+              "refId": "B"
+            }
+          ],
+          "title": "Splunk Module Request Response Index",
+          "transformations": [
+            {
+              "id": "filterFieldsByName",
+              "options": {
+                "include": {
+                  "names": [
+                    "customstatus",
+                    "count",
+                    "Custom Codes Table customstatus",
+                    "Custom Codes Table message"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "merge",
+              "options": {}
+            },
+            {
+              "id": "rowsToFields",
+              "options": {
+                "mappings": [
+                  {
+                    "fieldName": "count",
+                    "handlerKey": "field.value"
+                  },
+                  {
+                    "fieldName": "message",
+                    "handlerKey": "field.label"
+                  },
+                  {
+                    "fieldName": "customstatus",
+                    "handlerKey": "field.name"
+                  }
+                ]
+              }
+            }
+          ],
+          "type": "piechart"
+        }
+      ],
+      "title": "Status Codes from Splunk  (Pie charts)",
+      "type": "row"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 25
+      },
+      "id": 10,
+      "panels": [],
+      "title": "Platform KPIs (Db response, JVM, F5,..etc)",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 6,
+        "x": 0,
+        "y": 26
+      },
+      "id": 23,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "title": "F5 Response Time",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 6,
+        "x": 6,
+        "y": 26
+      },
+      "id": 26,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "title": "Database Response Time",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 6,
+        "x": 12,
+        "y": 26
+      },
+      "id": 24,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "title": "JVM Heap Utilization %",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decmbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 6,
+        "x": 18,
+        "y": 26
+      },
+      "id": 25,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "queryType": "randomWalk",
+          "refId": "A"
+        }
+      ],
+      "title": "JVM Heap Usage",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 37
+      },
+      "id": 9,
+      "panels": [
+        {
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "type": "auto"
+                },
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "linecount"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 85
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "_raw"
+                },
+                "properties": [
+                  {
+                    "id": "custom.inspect",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "_time"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 170
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 46
+          },
+          "id": 18,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Drilldown to Splunk Logs",
+              "url": "http://20.200.125.187:8000/en-US/app/search/search?q=search index=\"ebnk_audit\" \"${transaction_id}\" \"${card_number}\" \"${splunk_search}\"&sid=1701284691.451&display.page.search.mode=smart&dispatch.sample_ratio=1&workload_pool=&earliest=-24h@h&latest=now"
+            }
+          ],
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true,
+            "sortBy": []
+          },
+          "pluginVersion": "11.1.0-70958",
+          "targets": [
+            {
+              "binOptions": {},
+              "datasource": {
+                "type": "grafana-splunk-datasource",
+                "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+              },
+              "displayMode": "detect",
+              "index": "select index",
+              "metricAggs": [
+                {
+                  "alias": "",
+                  "field": "select field",
+                  "func": "avg"
+                }
+              ],
+              "options": {
+                "cont": true,
+                "partial": true
+              },
+              "query": "index=\"ebnk_audit\" \"$transaction_id\" \"$card_number\" \"$splunk_search\"",
+              "rawQuery": true,
+              "refId": "A",
+              "sourcetype": "select sourcetype",
+              "splitByFields": [],
+              "tcOptions": {
+                "nullstr": "",
+                "otherstr": "",
+                "span": "auto",
+                "usenull": false,
+                "useother": true
+              },
+              "whereClause": {
+                "value": ""
+              }
+            }
+          ],
+          "title": "ebnk_audit",
+          "transformations": [
+            {
+              "id": "filterByValue",
+              "options": {
+                "filters": [
+                  {
+                    "config": {
+                      "id": "equal",
+                      "options": {
+                        "value": "ebnk_audit"
+                      }
+                    },
+                    "fieldName": "_si"
+                  }
+                ],
+                "match": "any",
+                "type": "include"
+              }
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "_bkt": true,
+                  "_cd": true,
+                  "_indextime": true,
+                  "_serial": true,
+                  "_si": true,
+                  "_sourcetype": true,
+                  "host": true,
+                  "index": true,
+                  "linecount": true,
+                  "source": true,
+                  "sourcetype": true,
+                  "splunk_server": true
+                },
+                "includeByName": {},
+                "indexByName": {
+                  "_bkt": 2,
+                  "_cd": 0,
+                  "_indextime": 1,
+                  "_raw": 7,
+                  "_serial": 3,
+                  "_si": 4,
+                  "_sourcetype": 5,
+                  "_time": 6,
+                  "host": 8,
+                  "index": 9,
+                  "linecount": 10,
+                  "source": 11,
+                  "sourcetype": 12,
+                  "splunk_server": 13
+                },
+                "renameByName": {}
+              }
+            }
+          ],
+          "type": "table"
+        },
+        {
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "type": "auto"
+                },
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "linecount"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 85
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "_raw"
+                },
+                "properties": [
+                  {
+                    "id": "custom.inspect",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "_time"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 170
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 24,
+            "x": 0,
+            "y": 54
+          },
+          "id": 19,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Drilldown to Splunk Logs",
+              "url": "http://20.200.125.187:8000/en-US/app/search/search?q=search index=\"ebnk_gateway\" \"${transaction_id}\" \"${card_number}\" \"${splunk_search}\"&sid=1701284691.451&display.page.search.mode=smart&dispatch.sample_ratio=1&workload_pool=&earliest=-24h@h&latest=now"
+            }
+          ],
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true,
+            "sortBy": []
+          },
+          "pluginVersion": "11.1.0-70958",
+          "targets": [
+            {
+              "binOptions": {},
+              "datasource": {
+                "type": "grafana-splunk-datasource",
+                "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+              },
+              "displayMode": "detect",
+              "index": "select index",
+              "metricAggs": [
+                {
+                  "alias": "",
+                  "field": "select field",
+                  "func": "avg"
+                }
+              ],
+              "options": {
+                "cont": true,
+                "partial": true
+              },
+              "query": "index=\"ebnk_gateway\" \"$transaction_id\" \"$card_number\" \"$splunk_search\"",
+              "rawQuery": true,
+              "refId": "A",
+              "sourcetype": "select sourcetype",
+              "splitByFields": [],
+              "tcOptions": {
+                "nullstr": "",
+                "otherstr": "",
+                "span": "auto",
+                "usenull": false,
+                "useother": true
+              },
+              "whereClause": {
+                "value": ""
+              }
+            }
+          ],
+          "title": "ebnk_gateway",
+          "transformations": [
+            {
+              "id": "filterByValue",
+              "options": {
+                "filters": [
+                  {
+                    "config": {
+                      "id": "equal",
+                      "options": {
+                        "value": "ebnk_gateway"
+                      }
+                    },
+                    "fieldName": "_si"
+                  }
+                ],
+                "match": "any",
+                "type": "include"
+              }
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "_bkt": true,
+                  "_cd": true,
+                  "_indextime": true,
+                  "_serial": true,
+                  "_si": true,
+                  "_sourcetype": true,
+                  "host": true,
+                  "index": true,
+                  "linecount": true,
+                  "source": true,
+                  "sourcetype": true,
+                  "splunk_server": true
+                },
+                "includeByName": {},
+                "indexByName": {
+                  "_bkt": 2,
+                  "_cd": 0,
+                  "_indextime": 1,
+                  "_raw": 7,
+                  "_serial": 3,
+                  "_si": 4,
+                  "_sourcetype": 5,
+                  "_time": 6,
+                  "host": 8,
+                  "index": 9,
+                  "linecount": 10,
+                  "source": 11,
+                  "sourcetype": 12,
+                  "splunk_server": 13
+                },
+                "renameByName": {}
+              }
+            }
+          ],
+          "type": "table"
+        },
+        {
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "type": "auto"
+                },
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "linecount"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 85
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "_raw"
+                },
+                "properties": [
+                  {
+                    "id": "custom.inspect",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "_time"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 170
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 24,
+            "x": 0,
+            "y": 63
+          },
+          "id": 20,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Drilldown to Splunk Logs",
+              "url": "http://20.200.125.187:8000/en-US/app/search/search?q=search index=\"ebnk_module_request_response\" \"${transaction_id}\" \"${card_number}\" \"${splunk_search}\"&sid=1701284691.451&display.page.search.mode=smart&dispatch.sample_ratio=1&workload_pool=&earliest=-24h@h&latest=now"
+            }
+          ],
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true,
+            "sortBy": []
+          },
+          "pluginVersion": "11.1.0-70958",
+          "targets": [
+            {
+              "binOptions": {},
+              "datasource": {
+                "type": "grafana-splunk-datasource",
+                "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+              },
+              "displayMode": "detect",
+              "index": "select index",
+              "metricAggs": [
+                {
+                  "alias": "",
+                  "field": "select field",
+                  "func": "avg"
+                }
+              ],
+              "options": {
+                "cont": true,
+                "partial": true
+              },
+              "query": "index=\"ebnk_module_request_response\" \"$transaction_id\" \"$card_number\" \"$splunk_search\"",
+              "rawQuery": true,
+              "refId": "A",
+              "sourcetype": "select sourcetype",
+              "splitByFields": [],
+              "tcOptions": {
+                "nullstr": "",
+                "otherstr": "",
+                "span": "auto",
+                "usenull": false,
+                "useother": true
+              },
+              "whereClause": {
+                "value": ""
+              }
+            }
+          ],
+          "title": "ebnk_module_request_response",
+          "transformations": [
+            {
+              "id": "filterByValue",
+              "options": {
+                "filters": [
+                  {
+                    "config": {
+                      "id": "equal",
+                      "options": {
+                        "value": "ebnk_module_request_response"
+                      }
+                    },
+                    "fieldName": "_si"
+                  }
+                ],
+                "match": "any",
+                "type": "include"
+              }
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "_bkt": true,
+                  "_cd": true,
+                  "_indextime": true,
+                  "_serial": true,
+                  "_si": true,
+                  "_sourcetype": true,
+                  "host": true,
+                  "index": true,
+                  "linecount": true,
+                  "source": true,
+                  "sourcetype": true,
+                  "splunk_server": true
+                },
+                "includeByName": {},
+                "indexByName": {
+                  "_bkt": 2,
+                  "_cd": 0,
+                  "_indextime": 1,
+                  "_raw": 7,
+                  "_serial": 3,
+                  "_si": 4,
+                  "_sourcetype": 5,
+                  "_time": 6,
+                  "host": 8,
+                  "index": 9,
+                  "linecount": 10,
+                  "source": 11,
+                  "sourcetype": 12,
+                  "splunk_server": 13
+                },
+                "renameByName": {}
+              }
+            }
+          ],
+          "type": "table"
+        }
+      ],
+      "title": "Splunk Logs (audit file, request/response. gateway)",
+      "type": "row"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": "OTVC",
+          "value": "OTVC"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Service Name",
+        "multi": false,
+        "name": "service_name",
+        "options": [
+          {
+            "selected": false,
+            "text": "Move Money",
+            "value": "Move Money"
+          },
+          {
+            "selected": false,
+            "text": "Signon",
+            "value": "Signon"
+          },
+          {
+            "selected": false,
+            "text": "SSO",
+            "value": "SSO"
+          },
+          {
+            "selected": false,
+            "text": "Accounts",
+            "value": "Accounts"
+          },
+          {
+            "selected": true,
+            "text": "OTVC",
+            "value": "OTVC"
+          },
+          {
+            "selected": false,
+            "text": "Preferences",
+            "value": "Preferences"
+          },
+          {
+            "selected": false,
+            "text": "Database",
+            "value": "Database"
+          },
+          {
+            "selected": false,
+            "text": "Profiles",
+            "value": "Profiles"
+          }
+        ],
+        "query": "Move Money,Signon,SSO,,Accounts,OTVC,Preferences,Database,Profiles",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {},
+        "hide": 0,
+        "label": "Transaction ID",
+        "name": "transaction_id",
+        "options": [],
+        "query": "",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {},
+        "hide": 0,
+        "label": "Card Number",
+        "name": "card_number",
+        "options": [],
+        "query": "",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "",
+          "value": ""
+        },
+        "hide": 0,
+        "label": "Splunk Search",
+        "name": "splunk_search",
+        "options": [
+          {
+            "selected": false,
+            "text": "",
+            "value": ""
+          }
+        ],
+        "query": "",
+        "skipUrlSync": false,
+        "type": "textbox"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "timeRangeUpdatedDuringEditOrView": false,
+  "timepicker": {},
+  "timezone": "",
+  "title": "osama_L2/3 Dashboard",
+  "uid": "f5b3815f-0c5c-440f-b855-b160743cd68c",
+  "version": 50,
+  "weekStart": ""
+}

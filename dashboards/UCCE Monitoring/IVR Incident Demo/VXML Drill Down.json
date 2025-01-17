@@ -1,0 +1,2323 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 292,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 20,
+      "panels": [],
+      "title": "ServiceNow Alerts",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fe2gphzf3r4sgb"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "left",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Source"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 185
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CI"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 180
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Description"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 402
+              },
+              {
+                "id": "custom.align",
+                "value": "auto"
+              },
+              {
+                "id": "custom.inspect",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Number"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 167
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Severity"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "basic",
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "Critical": {
+                        "color": "orange",
+                        "index": 0
+                      },
+                      "High": {
+                        "color": "red",
+                        "index": 1
+                      },
+                      "Moderate": {
+                        "color": "light-yellow",
+                        "index": 2
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "State"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "Active": {
+                        "color": "blue",
+                        "index": 2
+                      },
+                      "Closed": {
+                        "color": "yellow",
+                        "index": 1
+                      },
+                      "Reopen": {
+                        "color": "green",
+                        "index": 0
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 1
+      },
+      "id": 19,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fe2gphzf3r4sgb"
+          },
+          "refId": "A",
+          "spreadsheet": "1ZEMR7_jBSSAj50_PqLZ5XSQMMziDP7o_YpZ83Pr7fFU"
+        }
+      ],
+      "title": "Alerts",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "cmdb_ci": "CI",
+              "count": "Count",
+              "description": "Description",
+              "event_count": "Event Count",
+              "filters": "Filters",
+              "host.hostname": "Host.hostname",
+              "node": "Node",
+              "number": "Number",
+              "severity": "Severity",
+              "source": "Source",
+              "state": "State",
+              "sys_update": "System Update",
+              "url.path": "URL.path"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "State"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "New": {
+                        "color": "green",
+                        "index": 0
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.width",
+                "value": 118
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Priority"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "Moderate": {
+                        "color": "super-light-yellow",
+                        "index": 0
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Urgency"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "3 - Low": {
+                        "color": "light-green",
+                        "index": 0
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Risk"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "basic",
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "High": {
+                        "color": "orange",
+                        "index": 0
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.width",
+                "value": 134
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Active"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 122
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Category"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 215
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Description"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 332
+              },
+              {
+                "id": "custom.align",
+                "value": "left"
+              },
+              {
+                "id": "custom.inspect",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Impact"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 265
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Change"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 163
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 1
+      },
+      "id": 18,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "State",
+                "type": "string",
+                "values": [
+                  "New"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Active",
+                "type": "string",
+                "values": [
+                  "True"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Change",
+                "type": "string",
+                "values": [
+                  "CHG0030002"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Category",
+                "type": "string",
+                "values": [
+                  "Other"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Priority",
+                "type": "string",
+                "values": [
+                  "Moderate"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Urgency",
+                "type": "string",
+                "values": [
+                  "3 - Low"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Escalation",
+                "type": "string",
+                "values": [
+                  "Normal"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Impact",
+                "type": "string",
+                "values": [
+                  "1 - High"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Risk",
+                "type": "string",
+                "values": [
+                  "High"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Description",
+                "type": "string",
+                "values": [
+                  "Implement configuration update to route IVR application traffic through a designated single media server for optimized resource allocation."
+                ]
+              },
+              {
+                "config": {},
+                "name": "Assigned To",
+                "type": "string",
+                "values": [
+                  ""
+                ]
+              },
+              {
+                "config": {},
+                "name": "Start Date",
+                "type": "time",
+                "values": [
+                  null
+                ]
+              },
+              {
+                "config": {},
+                "name": "End Date",
+                "type": "time",
+                "values": [
+                  null
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "change_request"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Change Requests",
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
+      "id": 15,
+      "panels": [],
+      "title": "KPIs",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 31
+              },
+              {
+                "color": "red",
+                "value": 60
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 9
+      },
+      "id": 7,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time In Queue",
+                "type": "number",
+                "values": [
+                  45
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "name"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Average Time in Queue",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 3.1
+              },
+              {
+                "color": "red",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 9,
+        "x": 3,
+        "y": 9
+      },
+      "id": 27,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Application Name",
+                "type": "string",
+                "values": [
+                  "IVR Menus",
+                  "Self-Service Applications",
+                  "Speech Recognition",
+                  "Outbound Notifications",
+                  "Call Routing",
+                  "Surveys and Feedback",
+                  "Payment Processing",
+                  "Dynamic Script Management",
+                  "Natural Language Processing",
+                  "Call Recording and Monitoring"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Average Duration",
+                "type": "number",
+                "values": [
+                  2.9,
+                  3.3,
+                  3.8,
+                  3,
+                  4,
+                  2.7,
+                  3.6,
+                  3.1,
+                  3.4,
+                  3.2
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "name"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Application Duration (s)",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "VXML-PROD-02 · Application Name": true,
+              "VXML-PROD-03 · Application Name": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "VXML-PROD-01 · Application Name": "Application Name",
+              "VXML-PROD-01 · Errors": ""
+            }
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true,
+          "values": [
+            "value",
+            "percent"
+          ]
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "asc"
+        }
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "application",
+                "type": "string",
+                "values": [
+                  "IVR Menus",
+                  "Self-Service Applications",
+                  "Speech Recognition",
+                  "Outbound Notifications",
+                  "Call Routing",
+                  "Surveys and Feedback",
+                  "Payment Processing",
+                  "Dynamic Script Management",
+                  "Natural Language Processing",
+                  "Call Recording and Monitoring"
+                ]
+              },
+              {
+                "config": {},
+                "name": "error count",
+                "type": "number",
+                "values": [
+                  45,
+                  38,
+                  52,
+                  30,
+                  60,
+                  28,
+                  47,
+                  35,
+                  25,
+                  40
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "name"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "All Applications With Errors",
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 2.1
+              },
+              {
+                "color": "red",
+                "value": 4
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 12
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time In Queue",
+                "type": "number",
+                "values": [
+                  3.2
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "name"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Average IVR Response Time",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 75
+              },
+              {
+                "color": "green",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 15
+      },
+      "id": 9,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time In Queue",
+                "type": "number",
+                "values": [
+                  75
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "name"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Call Completion Rate",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed+area"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 51
+              },
+              {
+                "color": "red",
+                "value": 76
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 6,
+        "x": 0,
+        "y": 18
+      },
+      "id": 21,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000,
+                  1727231760000,
+                  1727231820000,
+                  1727231880000
+                ]
+              },
+              {
+                "config": {},
+                "name": "CPU Load",
+                "type": "number",
+                "values": [
+                  45,
+                  46,
+                  45,
+                  44
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "VXML-PROD-01"
+          },
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000,
+                  1727231760000,
+                  1727231820000,
+                  1727231880000
+                ]
+              },
+              {
+                "config": {},
+                "name": "CPU Load",
+                "type": "number",
+                "values": [
+                  48,
+                  49,
+                  50,
+                  47
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "VXML-PROD-02"
+          },
+          "hide": false,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000,
+                  1727231760000,
+                  1727231820000,
+                  1727231880000
+                ]
+              },
+              {
+                "config": {},
+                "name": "CPU Load",
+                "type": "number",
+                "values": [
+                  50,
+                  73,
+                  82,
+                  95
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "VXML-PROD-03"
+          },
+          "hide": false,
+          "refId": "C"
+        }
+      ],
+      "title": "CPU Load %",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed+area"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 61
+              },
+              {
+                "color": "red",
+                "value": 86
+              }
+            ]
+          },
+          "unit": "decmbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 6,
+        "x": 6,
+        "y": 18
+      },
+      "id": 22,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000,
+                  1727231760000,
+                  1727231820000,
+                  1727231880000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Memory Usage",
+                "type": "number",
+                "values": [
+                  900,
+                  950,
+                  970,
+                  919
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "VXML-PROD-01"
+          },
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000,
+                  1727231760000,
+                  1727231820000,
+                  1727231880000
+                ]
+              },
+              {
+                "config": {},
+                "name": "CPU Load",
+                "type": "number",
+                "values": [
+                  850,
+                  870,
+                  860,
+                  845
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "VXML-PROD-02"
+          },
+          "hide": false,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000,
+                  1727231760000,
+                  1727231820000,
+                  1727231880000
+                ]
+              },
+              {
+                "config": {},
+                "name": "CPU Load",
+                "type": "number",
+                "values": [
+                  920,
+                  1100,
+                  1300,
+                  1600
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "VXML-PROD-03"
+          },
+          "hide": false,
+          "refId": "C"
+        }
+      ],
+      "title": "Memory Usage (MB)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed+area"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 201
+              },
+              {
+                "color": "red",
+                "value": 351
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 6,
+        "x": 12,
+        "y": 18
+      },
+      "id": 24,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000,
+                  1727231760000,
+                  1727231820000,
+                  1727231880000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Response Time",
+                "type": "number",
+                "values": [
+                  150,
+                  155,
+                  165,
+                  152
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "VXML-PROD-01"
+          },
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000,
+                  1727231760000,
+                  1727231820000,
+                  1727231880000
+                ]
+              },
+              {
+                "config": {},
+                "name": "CPU Load",
+                "type": "number",
+                "values": [
+                  140,
+                  145,
+                  152,
+                  140
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "VXML-PROD-02"
+          },
+          "hide": false,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000,
+                  1727231760000,
+                  1727231820000,
+                  1727231880000
+                ]
+              },
+              {
+                "config": {},
+                "name": "CPU Load",
+                "type": "number",
+                "values": [
+                  130,
+                  240,
+                  350,
+                  450
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "VXML-PROD-03"
+          },
+          "hide": false,
+          "refId": "C"
+        }
+      ],
+      "title": "Response Time (ms)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "scaleDistribution": {
+              "type": "linear"
+            }
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 6,
+        "x": 18,
+        "y": 18
+      },
+      "id": 23,
+      "options": {
+        "calculate": false,
+        "cellGap": 1,
+        "color": {
+          "exponent": 0.5,
+          "fill": "dark-orange",
+          "mode": "scheme",
+          "reverse": false,
+          "scale": "exponential",
+          "scheme": "Oranges",
+          "steps": 70
+        },
+        "exemplars": {
+          "color": "rgba(255,0,255,0.7)"
+        },
+        "filterValues": {
+          "le": 1e-9
+        },
+        "legend": {
+          "show": true
+        },
+        "rowsFrame": {
+          "layout": "auto"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "showColorScale": false,
+          "yHistogram": false
+        },
+        "yAxis": {
+          "axisPlacement": "left",
+          "reverse": true
+        }
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000,
+                  1727231760000,
+                  1727231820000,
+                  1727231880000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Sessions",
+                "type": "number",
+                "values": [
+                  20,
+                  35,
+                  50,
+                  65
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "VXML-PROD-01"
+          },
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000,
+                  1727231760000,
+                  1727231820000,
+                  1727231880000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Sessions",
+                "type": "number",
+                "values": [
+                  25,
+                  32,
+                  45,
+                  69
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "VXML-PROD-02"
+          },
+          "hide": false,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000,
+                  1727231760000,
+                  1727231820000,
+                  1727231880000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Sessions",
+                "type": "number",
+                "values": [
+                  30,
+                  42,
+                  60,
+                  70
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "VXML-PROD-03"
+          },
+          "hide": false,
+          "refId": "C"
+        }
+      ],
+      "title": "Sessions",
+      "type": "heatmap"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 8,
+        "x": 0,
+        "y": 27
+      },
+      "id": 26,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Application Name",
+                "type": "string",
+                "values": [
+                  "IVR Menus",
+                  "Self-Service Applications",
+                  "Speech Recognition",
+                  "Outbound Notifications",
+                  "Call Routing",
+                  "Surveys and Feedback",
+                  "Payment Processing",
+                  "Dynamic Script Management",
+                  "Natural Language Processing",
+                  "Call Recording and Monitoring"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Errors",
+                "type": "number",
+                "values": [
+                  18,
+                  12,
+                  20,
+                  10,
+                  22,
+                  10,
+                  20,
+                  12,
+                  8,
+                  15
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "VXML-PROD-01"
+          },
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Application Name",
+                "type": "string",
+                "values": [
+                  "IVR Menus",
+                  "Self-Service Applications",
+                  "Speech Recognition",
+                  "Outbound Notifications",
+                  "Call Routing",
+                  "Surveys and Feedback",
+                  "Payment Processing",
+                  "Dynamic Script Management",
+                  "Natural Language Processing",
+                  "Call Recording and Monitoring"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Errors",
+                "type": "number",
+                "values": [
+                  15,
+                  14,
+                  18,
+                  12,
+                  18,
+                  8,
+                  15,
+                  15,
+                  10,
+                  12
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "VXML-PROD-02"
+          },
+          "hide": false,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Application Name",
+                "type": "string",
+                "values": [
+                  "IVR Menus",
+                  "Self-Service Applications",
+                  "Speech Recognition",
+                  "Outbound Notifications",
+                  "Call Routing",
+                  "Surveys and Feedback",
+                  "Payment Processing",
+                  "Dynamic Script Management",
+                  "Natural Language Processing",
+                  "Call Recording and Monitoring"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Errors",
+                "type": "number",
+                "values": [
+                  12,
+                  12,
+                  14,
+                  8,
+                  20,
+                  10,
+                  12,
+                  8,
+                  7,
+                  13
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "VXML-PROD-03"
+          },
+          "hide": false,
+          "refId": "C"
+        }
+      ],
+      "title": "Error Counts",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "VXML-PROD-02 · Application Name": true,
+              "VXML-PROD-03 · Application Name": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "VXML-PROD-01 · Application Name": "Application Name",
+              "VXML-PROD-01 · Errors": ""
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 8,
+        "x": 8,
+        "y": 27
+      },
+      "id": 3,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": true,
+        "showCommonLabels": false,
+        "showLabels": true,
+        "showTime": true,
+        "sortOrder": "Descending",
+        "wrapLogMessage": true
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Call ID",
+                "type": "number",
+                "values": [
+                  95,
+                  96,
+                  97,
+                  98,
+                  99
+                ]
+              },
+              {
+                "config": {},
+                "name": "IP Address",
+                "type": "string",
+                "values": [
+                  "192.168.15.102",
+                  "10.0.0.54\t",
+                  "172.16.254.23",
+                  "198.51.100.87",
+                  "203.0.113.45"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Phone Number",
+                "type": "string",
+                "values": [
+                  "416-555-1234",
+                  "204-555-6789",
+                  "587-555-4321",
+                  "613-555-5678",
+                  "905-555-9876"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1726454100000,
+                  1726454100000,
+                  1726454100000,
+                  1726454100000,
+                  1726454100000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Call Duration",
+                "type": "string",
+                "values": [
+                  "45",
+                  "30",
+                  "42",
+                  "55",
+                  "28"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Status",
+                "type": "string",
+                "values": [
+                  "Successful",
+                  "Successful",
+                  "Successful",
+                  "Successful",
+                  "Successful"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Message",
+                "type": "string",
+                "values": [
+                  "Call connected to 416-555-1234 from IP 192.168.15.102. Caller navigated IVR options successfully and was transferred to an agent. Total call duration was 45 seconds. Call Outcome: \"Thank you for calling Phone Banking.\"",
+                  "Caller from IP 10.0.0.54 reached 204-555-6789. Successfully completed self-service IVR process before ending the call. Duration was 2 minutes and 30 seconds. Call Outcome: \"Thank you for calling Phone Banking.\"",
+                  "Incoming call from IP 172.16.254.23 connected to 587-555-4321. Customer completed transaction successfully in 42 seconds. Call Outcome: \"Thank you for calling Phone Banking.\"",
+                  "Successful call to 613-555-5678 from IP 198.51.100.87. Caller received requested information using automated menu in 55 seconds. Call Outcome: \"Thank you for calling Phone Banking.\"",
+                  "Call from IP 203.0.113.45 to +1-905-555-9876 completed successfully. User interacted with multiple IVR prompts and reached an agent, call duration was 28 seconds. Call Outcome: \"Thank you for calling Phone Banking.\""
+                ]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Activity Logs",
+      "type": "logs"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fe2gphzf3r4sgb"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 8,
+        "x": 16,
+        "y": 27
+      },
+      "id": 4,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": true,
+        "showCommonLabels": false,
+        "showLabels": true,
+        "showTime": true,
+        "sortOrder": "Ascending",
+        "wrapLogMessage": true
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fe2gphzf3r4sgb"
+          },
+          "range": "A1:H35",
+          "refId": "A",
+          "spreadsheet": "1vY1Zx-G3K2admGbGSW4ZvvuTDvXwPksvbaRxf1qEIy8"
+        }
+      ],
+      "title": "Error Logs",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {
+              "Application Name": 5,
+              "Call ID": 4,
+              "Duration (seconds)": 7,
+              "Error Message": 0,
+              "IP Address": 2,
+              "Phone Number": 3,
+              "Status": 1,
+              "Timestamp": 6
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "logs"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "2024-09-25T02:35:00.000Z",
+    "to": "2024-09-25T02:38:00.000Z"
+  },
+  "timepicker": {},
+  "timezone": "America/Winnipeg",
+  "title": "VXML Drill Down",
+  "uid": "ee2jti7udup6od",
+  "version": 48,
+  "weekStart": ""
+}

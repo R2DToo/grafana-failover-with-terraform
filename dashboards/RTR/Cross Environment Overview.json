@@ -1,0 +1,2949 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 398,
+  "links": [],
+  "panels": [
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 6,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<table style=\"width:100%; height:100%;border:0px solid black;\">\n     <td style=\"text-align: center;vertical-align: middle;border:0px solid black; \">\n       <span style=\"font-size:25px\"><b>DEV1</b></span><br \\>\n     </td>\n</table>",
+        "mode": "html"
+      },
+      "pluginVersion": "11.5.0-80050",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 6,
+        "x": 6,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<table style=\"width:100%; height:100%;border:0px solid black;\">\n     <td style=\"text-align: center;vertical-align: middle;border:0px solid black; \">\n       <span style=\"font-size:25px\"><b>DEV2</b></span><br \\>\n     </td>\n</table>",
+        "mode": "html"
+      },
+      "pluginVersion": "11.5.0-80050",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 6,
+        "x": 12,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<table style=\"width:100%; height:100%;border:0px solid black;\">\n     <td style=\"text-align: center;vertical-align: middle;border:0px solid black; \">\n       <span style=\"font-size:25px\"><b>SIT1</b></span><br \\>\n     </td>\n</table>",
+        "mode": "html"
+      },
+      "pluginVersion": "11.5.0-80050",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 6,
+        "x": 18,
+        "y": 0
+      },
+      "id": 5,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<table style=\"width:100%; height:100%;border:0px solid black;\">\n     <td style=\"text-align: center;vertical-align: middle;border:0px solid black; \">\n       <span style=\"font-size:25px\"><b>SIT2</b></span><br \\>\n     </td>\n</table>",
+        "mode": "html"
+      },
+      "pluginVersion": "11.5.0-80050",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ee60ymozjn6kgc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 0,
+        "y": 2
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "Usage",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.cpu_usage:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Throttled",
+            "cleanSelector": "builtin:kubernetes.workload.cpu_usage:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.cpu_throttled:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Requests",
+            "cleanSelector": "builtin:kubernetes.workload.cpu_throttled:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.requests_cpu:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "C",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Limit",
+            "cleanSelector": "builtin:kubernetes.workload.limits_cpu:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.limits_cpu:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "D",
+          "version": "3.21.0"
+        }
+      ],
+      "title": "CPU",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ee60ymozjn6kgc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 6,
+        "y": 2
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "Usage",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.cpu_usage:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev2~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Throttled",
+            "cleanSelector": "builtin:kubernetes.workload.cpu_usage:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.cpu_throttled:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev2~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Requests",
+            "cleanSelector": "builtin:kubernetes.workload.cpu_throttled:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.requests_cpu:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev2~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "C",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Limit",
+            "cleanSelector": "builtin:kubernetes.workload.limits_cpu:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev2~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.limits_cpu:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev2~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "D",
+          "version": "3.21.0"
+        }
+      ],
+      "title": "CPU",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ee60ymozjn6kgc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 12,
+        "y": 2
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "Usage",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.cpu_usage:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Throttled",
+            "cleanSelector": "builtin:kubernetes.workload.cpu_usage:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.cpu_throttled:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Requests",
+            "cleanSelector": "builtin:kubernetes.workload.cpu_throttled:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.requests_cpu:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "C",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Limit",
+            "cleanSelector": "builtin:kubernetes.workload.limits_cpu:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.limits_cpu:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "D",
+          "version": "3.21.0"
+        }
+      ],
+      "title": "CPU",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ee60ymozjn6kgc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 18,
+        "y": 2
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "Usage",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.cpu_usage:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit2~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Throttled",
+            "cleanSelector": "builtin:kubernetes.workload.cpu_usage:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.cpu_throttled:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit2~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Requests",
+            "cleanSelector": "builtin:kubernetes.workload.cpu_throttled:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.requests_cpu:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit2~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "C",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Limit",
+            "cleanSelector": "builtin:kubernetes.workload.limits_cpu:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit2~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.limits_cpu:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit2~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "D",
+          "version": "3.21.0"
+        }
+      ],
+      "title": "CPU",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ee60ymozjn6kgc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 0,
+        "y": 8
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "Usage",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.memory_working_set:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Requests",
+            "cleanSelector": "builtin:kubernetes.workload.cpu_usage:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.requests_memory:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Limit",
+            "cleanSelector": "builtin:kubernetes.workload.cpu_throttled:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.limits_memory:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "C",
+          "version": "3.21.0"
+        }
+      ],
+      "title": "Memory",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ee60ymozjn6kgc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 6,
+        "y": 8
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "Usage",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.memory_working_set:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev2~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Requests",
+            "cleanSelector": "builtin:kubernetes.workload.cpu_usage:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.requests_memory:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev2~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Limit",
+            "cleanSelector": "builtin:kubernetes.workload.limits_memory:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev2~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.limits_memory:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev2~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "C",
+          "version": "3.21.0"
+        }
+      ],
+      "title": "Memory",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ee60ymozjn6kgc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 12,
+        "y": 8
+      },
+      "id": 13,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "Usage",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.memory_working_set:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit1~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Requests",
+            "cleanSelector": "builtin:kubernetes.workload.cpu_usage:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.requests_memory:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit1~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Limit",
+            "cleanSelector": "builtin:kubernetes.workload.limits_memory:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev2~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.limits_memory:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit1~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "C",
+          "version": "3.21.0"
+        }
+      ],
+      "title": "Memory",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ee60ymozjn6kgc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 18,
+        "y": 8
+      },
+      "id": 14,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "Usage",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.memory_working_set:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit2~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Requests",
+            "cleanSelector": "builtin:kubernetes.workload.cpu_usage:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.requests_memory:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit2~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Limit",
+            "cleanSelector": "builtin:kubernetes.workload.limits_memory:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit1~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.limits_memory:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit2~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "C",
+          "version": "3.21.0"
+        }
+      ],
+      "title": "Memory",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ee60ymozjn6kgc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 0,
+        "y": 14
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Available",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.persistentvolumeclaim.available:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"dev1~\")\"))):splitBy()",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Capacity",
+            "cleanSelector": "builtin:kubernetes.persistentvolumeclaim.available:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"dev1~\")\"))):splitBy()",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.persistentvolumeclaim.capacity:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"dev1~\")\"))):splitBy()",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Used",
+            "cleanSelector": "builtin:kubernetes.persistentvolumeclaim.used:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"dev1~\")\"))):splitBy()",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.persistentvolumeclaim.used:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"dev1~\")\"))):splitBy()",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "C",
+          "version": "3.21.0"
+        }
+      ],
+      "title": "Storage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ee60ymozjn6kgc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 6,
+        "y": 14
+      },
+      "id": 15,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Available",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.persistentvolumeclaim.available:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"dev2~\")\"))):splitBy()",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Capacity",
+            "cleanSelector": "builtin:kubernetes.persistentvolumeclaim.available:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"dev1~\")\"))):splitBy()",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.persistentvolumeclaim.capacity:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"dev2~\")\"))):splitBy()",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Used",
+            "cleanSelector": "builtin:kubernetes.persistentvolumeclaim.used:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"dev1~\")\"))):splitBy()",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.persistentvolumeclaim.used:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"dev2~\")\"))):splitBy()",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "C",
+          "version": "3.21.0"
+        }
+      ],
+      "title": "Storage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ee60ymozjn6kgc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 12,
+        "y": 14
+      },
+      "id": 16,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Available",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.persistentvolumeclaim.available:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"sit1~\")\"))):splitBy()",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Capacity",
+            "cleanSelector": "builtin:kubernetes.persistentvolumeclaim.available:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"dev1~\")\"))):splitBy()",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.persistentvolumeclaim.capacity:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"sit1~\")\"))):splitBy()",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Used",
+            "cleanSelector": "builtin:kubernetes.persistentvolumeclaim.used:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"dev2~\")\"))):splitBy()",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.persistentvolumeclaim.used:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"sit1~\")\"))):splitBy()",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "C",
+          "version": "3.21.0"
+        }
+      ],
+      "title": "Storage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ee60ymozjn6kgc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 18,
+        "y": 14
+      },
+      "id": 17,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Available",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.persistentvolumeclaim.available:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"sit2~\")\"))):splitBy()",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Capacity",
+            "cleanSelector": "builtin:kubernetes.persistentvolumeclaim.available:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"dev1~\")\"))):splitBy()",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.persistentvolumeclaim.capacity:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"sit2~\")\"))):splitBy()",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Used",
+            "cleanSelector": "builtin:kubernetes.persistentvolumeclaim.used:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"sit1~\")\"))):splitBy()",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.persistentvolumeclaim.used:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"sit2~\")\"))):splitBy()",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "C",
+          "version": "3.21.0"
+        }
+      ],
+      "title": "Storage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ee60ymozjn6kgc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 0,
+        "y": 20
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Desired",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.pods_desired:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Running",
+            "cleanSelector": "builtin:kubernetes.persistentvolumeclaim.available:filter(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"dev1~\")\"))):splitBy()",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.pods:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):filter(and(or(not(existsKey(pod_status)),ne(pod_status,Terminating)),eq(pod_phase,Running))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.21.0"
+        }
+      ],
+      "title": "Pods",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ee60ymozjn6kgc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 6,
+        "y": 20
+      },
+      "id": 18,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Desired",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.pods_desired:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev2~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Running",
+            "cleanSelector": "builtin:kubernetes.pods:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1~\"))\")))):filter(and(or(not(existsKey(pod_status)),ne(pod_status,Terminating)),eq(pod_phase,Running))):splitBy():sum:timeshift(-2m)",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.pods:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev2~\"))\")))):filter(and(or(not(existsKey(pod_status)),ne(pod_status,Terminating)),eq(pod_phase,Running))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.21.0"
+        }
+      ],
+      "title": "Pods",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ee60ymozjn6kgc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 12,
+        "y": 20
+      },
+      "id": 19,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Desired",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.pods_desired:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit1~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Running",
+            "cleanSelector": "builtin:kubernetes.pods:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev2~\"))\")))):filter(and(or(not(existsKey(pod_status)),ne(pod_status,Terminating)),eq(pod_phase,Running))):splitBy():sum:timeshift(-2m)",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.pods:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit1~\"))\")))):filter(and(or(not(existsKey(pod_status)),ne(pod_status,Terminating)),eq(pod_phase,Running))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.21.0"
+        }
+      ],
+      "title": "Pods",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ee60ymozjn6kgc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 18,
+        "y": 20
+      },
+      "id": 20,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-80050",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Desired",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.pods_desired:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit2~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.0"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ee60ymozjn6kgc"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Running",
+            "cleanSelector": "builtin:kubernetes.pods:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev2~\"))\")))):filter(and(or(not(existsKey(pod_status)),ne(pod_status,Terminating)),eq(pod_phase,Running))):splitBy():sum:timeshift(-2m)",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.pods:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"sit2~\"))\")))):filter(and(or(not(existsKey(pod_status)),ne(pod_status,Terminating)),eq(pod_phase,Running))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.21.0"
+        }
+      ],
+      "title": "Pods",
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Cross Environment Overview",
+  "uid": "ce77et5fee96od",
+  "version": 6,
+  "weekStart": ""
+}

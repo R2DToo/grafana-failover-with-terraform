@@ -1,0 +1,449 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 131,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "severity"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "Clear": {
+                        "color": "green",
+                        "index": 5
+                      },
+                      "Critical": {
+                        "color": "red",
+                        "index": 0
+                      },
+                      "Major": {
+                        "color": "orange",
+                        "index": 1
+                      },
+                      "Minor": {
+                        "color": "yellow",
+                        "index": 2
+                      },
+                      "OK": {
+                        "color": "green",
+                        "index": 4
+                      },
+                      "Warning": {
+                        "color": "blue",
+                        "index": 3
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "basic",
+                  "type": "color-background"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 18,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0-73830",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "number"
+            },
+            {
+              "aggregates": [],
+              "name": "source"
+            },
+            {
+              "aggregates": [],
+              "name": "description"
+            },
+            {
+              "aggregates": [],
+              "name": "severity"
+            },
+            {
+              "aggregates": [],
+              "name": "metric_name"
+            },
+            {
+              "aggregates": [],
+              "name": "resource"
+            },
+            {
+              "aggregates": [],
+              "name": "type.name"
+            },
+            {
+              "aggregates": [],
+              "name": "cmdb_ci.name"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "cmdb_ci.sys_id",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Cmdb_ci",
+                "element": "sys_id",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=GUID",
+                  "value": "GUID"
+                },
+                "label": "Configuration item -> sys_id",
+                "name": "cmdb_ci",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "",
+                "table": "cmdb_ci",
+                "value": "cmdb_ci.sys_id"
+              },
+              "op": "=",
+              "type": "GUID",
+              "value": "$application_service_sys_id"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "queryType": "TableAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "em_alert",
+          "timeField": "ignore_time"
+        }
+      ],
+      "title": "Alerts",
+      "type": "table"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "PG Service 2",
+          "value": "PG Service 2"
+        },
+        "datasource": {
+          "type": "grafana-servicenow-datasource",
+          "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+        },
+        "definition": "",
+        "name": "application_service",
+        "options": [],
+        "query": {
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "name"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "service_classification",
+              "fieldDesc": {
+                "choice": "1",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Cmdb_ci_service",
+                "element": "service_classification",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Service classification",
+                "name": "cmdb_ci_service",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Service classification",
+                "table": "cmdb_ci_service",
+                "value": "service_classification"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "Application Service"
+            },
+            {
+              "conjunction": "and",
+              "field": "business_unit.sys_id",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Business_unit",
+                "element": "sys_id",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=GUID",
+                  "value": "GUID"
+                },
+                "label": "Business Unit -> sys_id",
+                "name": "business_unit",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "",
+                "table": "business_unit",
+                "value": "business_unit.sys_id"
+              },
+              "op": "ISNOTEMPTY",
+              "type": "GUID",
+              "value": "ISNOTEMPTY"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "queryType": "TableAPI",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "cmdb_ci_service",
+          "timeField": "ignore_time"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "958363d81bb78e90ba4d15c61a4bcb11",
+          "value": "958363d81bb78e90ba4d15c61a4bcb11"
+        },
+        "datasource": {
+          "type": "grafana-servicenow-datasource",
+          "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+        },
+        "definition": "",
+        "hide": 2,
+        "name": "application_service_sys_id",
+        "options": [],
+        "query": {
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "sys_id"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "service_classification",
+              "fieldDesc": {
+                "choice": "1",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Cmdb_ci_service",
+                "element": "service_classification",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Service classification",
+                "name": "cmdb_ci_service",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Service classification",
+                "table": "cmdb_ci_service",
+                "value": "service_classification"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "Application Service"
+            },
+            {
+              "conjunction": "and",
+              "field": "business_unit.sys_id",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Business_unit",
+                "element": "sys_id",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=GUID",
+                  "value": "GUID"
+                },
+                "label": "Business Unit -> sys_id",
+                "name": "business_unit",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "",
+                "table": "business_unit",
+                "value": "business_unit.sys_id"
+              },
+              "op": "ISNOTEMPTY",
+              "type": "GUID",
+              "value": "ISNOTEMPTY"
+            },
+            {
+              "conjunction": "and",
+              "field": "name",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Cmdb_ci_service",
+                "element": "name",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "name",
+                "name": "cmdb_ci_service",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "",
+                "table": "cmdb_ci_service",
+                "value": "name"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "$application_service"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "queryType": "TableAPI",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "cmdb_ci_service",
+          "timeField": "ignore_time"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Application Service Alerts",
+  "uid": "bdu5l10dw8hs0d",
+  "version": 8,
+  "weekStart": ""
+}

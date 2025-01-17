@@ -1,0 +1,3727 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 325,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 26,
+      "panels": [],
+      "title": "Service Stability",
+      "type": "row"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 66,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<table style=\"width:100%; height:100%;border:0px solid black;\">\n     <td style=\"text-align: center;vertical-align: middle;border:0px solid black; \">\n       <span style=\"font-size:25px\"><b>Service Management KPIs</b></span><br \\>\n     </td>\n</table>",
+        "mode": "html"
+      },
+      "pluginVersion": "11.4.0-79828",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ddumfa0w4t7nkd"
+      },
+      "description": "Success rate of requests",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 0.95
+              },
+              {
+                "color": "green",
+                "value": 0.99
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 0,
+        "y": 3
+      },
+      "id": 1,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/^Availability$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79828",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ddumfa0w4t7nkd"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:service.requestCount.server:filter(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\"))\"))):splitBy():sum",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.19.2"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ddumfa0w4t7nkd"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "builtin:service.errors.server.count:filter(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-exch~\"))\"))):splitBy():sum",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:service.errors.server.count:filter(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\"))\"))):splitBy():sum",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.19.2"
+        }
+      ],
+      "title": "Availability",
+      "transformations": [
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "reduceFields",
+            "reducers": [
+              "lastNotNull"
+            ]
+          }
+        },
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Error Percentage",
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "builtin:service.errors.server.count: {  }"
+                }
+              },
+              "operator": "/",
+              "right": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "builtin:service.requestCount.server: {  }"
+                }
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Availability",
+            "binary": {
+              "left": {
+                "fixed": "1"
+              },
+              "operator": "-",
+              "right": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Error Percentage"
+                }
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 0.01
+              },
+              {
+                "color": "#EAB839",
+                "value": 0.05
+              },
+              {
+                "color": "#6ED0E0",
+                "value": 10.05
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 3,
+        "y": 3
+      },
+      "id": 16,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/^Error Percentage$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79828",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 1,
+          "refId": "A",
+          "withTransforms": true
+        }
+      ],
+      "title": "Error Rate",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ddumfa0w4t7nkd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "µs"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 6,
+        "y": 3
+      },
+      "id": 28,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^builtin:service\\.response\\.server:median \\{  \\}$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79828",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ddumfa0w4t7nkd"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "builtin:service.response.server:filter(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"exch~\"))\"))):splitBy():median",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:service.response.server:filter(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-exch~\"))\"))):splitBy():median",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.19.2"
+        }
+      ],
+      "title": "Response Time",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ddumfa0w4t7nkd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "light-purple",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 9,
+        "y": 3
+      },
+      "id": 71,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79828",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ddumfa0w4t7nkd"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "builtin:service.requestCount.server:filter(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-exch~\"))\"))):splitBy():sum",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:service.requestCount.server:filter(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-exch~\"))\"))):splitBy():sum",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.19.2"
+        }
+      ],
+      "title": "# of Transactions",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "ae4jvxm2gdqm8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "noValue": "No Active Incidents",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "P1"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "P2"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "P3"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "P4"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "P5"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 8,
+        "x": 12,
+        "y": 3
+      },
+      "id": 74,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79828",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "ae4jvxm2gdqm8c"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [
+                "count"
+              ],
+              "name": "task"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "number",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Task",
+                "element": "number",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Number",
+                "name": "task",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Number",
+                "table": "task",
+                "value": "number"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "INC0010021"
+            },
+            {}
+          ],
+          "groupBy": [
+            "priority"
+          ],
+          "limit": 25,
+          "queryType": "AggregateAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "incident",
+          "timeField": "ignore_time"
+        }
+      ],
+      "title": "Incidents",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "count (.*) - .*",
+            "renamePattern": "P$1"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "Down": {
+                  "color": "red",
+                  "index": 1
+                },
+                "Up": {
+                  "color": "green",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 20,
+        "y": 3
+      },
+      "id": 73,
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "never",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0-79828",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time",
+                "type": "time",
+                "values": [
+                  1732910400000,
+                  1732910460000,
+                  1732910480000,
+                  1732989600000
+                ]
+              },
+              {
+                "config": {},
+                "name": "State",
+                "type": "string",
+                "values": [
+                  "Up",
+                  "Down",
+                  "Up",
+                  "Up"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Outage Timeline"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Outage Record",
+      "type": "state-timeline"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
+      "id": 27,
+      "panels": [],
+      "title": "Platform Health",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "ae4jvxm2gdqm8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "id": 72,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": true,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "transparent"
+            },
+            "image": {
+              "field": "",
+              "fixed": "",
+              "mode": "fixed"
+            },
+            "size": "contain"
+          },
+          "border": {
+            "color": {
+              "fixed": "green"
+            },
+            "width": 0
+          },
+          "constraint": {
+            "horizontal": "left",
+            "vertical": "top"
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "text"
+                },
+                "size": 14,
+                "text": {
+                  "fixed": "API Services"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "ApplicationLabel",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 50,
+                "left": 64,
+                "top": 35,
+                "width": 100
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "text"
+                },
+                "size": 14,
+                "text": {
+                  "fixed": "Kong API Gateway"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "KongApiGatewayLabel",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 50,
+                "left": 354,
+                "top": 35,
+                "width": 99.984375
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "text"
+                },
+                "size": 14,
+                "text": {
+                  "fixed": "Middleware (AMQ)"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "MIddlewareLabel",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 50,
+                "left": 499,
+                "top": 35,
+                "width": 99.96875
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "text"
+                },
+                "size": 14,
+                "text": {
+                  "fixed": "Enterprise DB"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "Element 5",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 50,
+                "left": 644,
+                "top": 35,
+                "width": 99.984375
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "fill": {
+                  "fixed": "green"
+                },
+                "path": {
+                  "fixed": "img/icons/unicons/cloud-computing.svg",
+                  "mode": "fixed"
+                }
+              },
+              "connections": [],
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "KongApiGateway",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 90,
+                "left": 359,
+                "top": 85,
+                "width": 90
+              },
+              "type": "icon"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "fill": {
+                  "field": "count",
+                  "fixed": "#D9D9D9"
+                },
+                "path": {
+                  "fixed": "img/icons/unicons/cloud-database-tree.svg",
+                  "mode": "fixed"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "app",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 90,
+                "left": 69,
+                "top": 85,
+                "width": 90
+              },
+              "type": "icon"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "fill": {
+                  "fixed": "green"
+                },
+                "path": {
+                  "fixed": "img/icons/unicons/processor.svg",
+                  "mode": "fixed"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "Middleware",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 90,
+                "left": 504,
+                "top": 85,
+                "width": 90
+              },
+              "type": "icon"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "fill": {
+                  "fixed": "green"
+                },
+                "path": {
+                  "fixed": "img/icons/unicons/browser.svg",
+                  "mode": "fixed"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "Element 8",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 90,
+                "left": 214,
+                "top": 85,
+                "width": 90
+              },
+              "type": "icon"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "text"
+                },
+                "size": 14,
+                "text": {
+                  "fixed": "Web Portals"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "Element 9",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 50,
+                "left": 209,
+                "top": 35,
+                "width": 100
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "text"
+                },
+                "size": 14,
+                "text": {
+                  "fixed": "Cockroach DB"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "Element 12",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 50,
+                "left": 789,
+                "top": 35,
+                "width": 99.984375
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "fill": {
+                  "fixed": "green"
+                },
+                "path": {
+                  "fixed": "img/icons/unicons/database.svg",
+                  "mode": "fixed"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "Element 11",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 90,
+                "left": 649,
+                "top": 85,
+                "width": 90
+              },
+              "type": "icon"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "fill": {
+                  "fixed": "green"
+                },
+                "path": {
+                  "fixed": "img/icons/unicons/database.svg",
+                  "mode": "fixed"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "links": [],
+              "name": "Element 13",
+              "oneClickMode": "off",
+              "placement": {
+                "height": 90,
+                "left": 794,
+                "top": 85,
+                "width": 90
+              },
+              "type": "icon"
+            }
+          ],
+          "name": "Element 1732131808580",
+          "oneClickMode": "off",
+          "placement": {
+            "height": 100,
+            "left": 0,
+            "rotation": 0,
+            "top": 0,
+            "width": 100
+          },
+          "type": "frame"
+        },
+        "showAdvancedTypes": false
+      },
+      "pluginVersion": "11.4.0-79828",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "ae4jvxm2gdqm8c"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [
+                "count"
+              ],
+              "name": ""
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "description",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "description",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Description",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Description",
+                "table": "em_alert",
+                "value": "description"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "Heartbeat Outbound Failed"
+            },
+            {
+              "conjunction": "and",
+              "field": "source",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "source",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Source",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Source",
+                "table": "em_alert",
+                "value": "source"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "RTR Exchange dev1"
+            },
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "choice": "1",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "state",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=choice",
+                  "value": "choice"
+                },
+                "label": "State",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "State",
+                "table": "em_alert",
+                "value": "state"
+              },
+              "op": "IN",
+              "type": "choice",
+              "value": "Open,Reopen"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "queryType": "AggregateAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "em_alert",
+          "timeField": "ignore_time"
+        }
+      ],
+      "title": "RTR Exchange Components",
+      "type": "canvas"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "ae4jvxm2gdqm8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "transparent",
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Severity"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 110
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "1": {
+                        "color": "green",
+                        "index": 0,
+                        "text": "OK"
+                      },
+                      "2": {
+                        "color": "orange",
+                        "index": 1,
+                        "text": "Warning"
+                      },
+                      "3": {
+                        "color": "red",
+                        "index": 2,
+                        "text": "Critical"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Active Incidents"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 135
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Change (last 3 days)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 80
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Support Group"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 206
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Name"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Level 2 Drilldown",
+                    "url": "/d/fe51tv3h1x2ioc?${__url_time_range}&var-pod=${__data.fields.Name}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "# Active Alerts"
+            },
+            "properties": [
+              {
+                "id": "noValue",
+                "value": "0"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "applyToRow": false,
+                  "mode": "basic",
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 200
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "last_discovered"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 230
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 43,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": [
+            "Health"
+          ],
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 1,
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "Name"
+          }
+        ]
+      },
+      "pluginVersion": "11.4.0-79828",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "ae4jvxm2gdqm8c"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "name"
+            },
+            {
+              "aggregates": [],
+              "name": "last_discovered"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "sys_id",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Cmdb_ci_docker_container",
+                "element": "sys_id",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=GUID",
+                  "value": "GUID"
+                },
+                "label": "sys_id",
+                "name": "cmdb_ci_docker_container",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "",
+                "table": "cmdb_ci_docker_container",
+                "value": "sys_id"
+              },
+              "op": "IN",
+              "type": "GUID",
+              "value": "$containers"
+            },
+            {}
+          ],
+          "groupBy": [
+            "node"
+          ],
+          "hide": false,
+          "limit": 200,
+          "queryType": "TableAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "cmdb_ci_docker_container",
+          "timeField": "ignore_time"
+        },
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "ae4jvxm2gdqm8c"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [
+                "count"
+              ],
+              "name": "em_alert"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "choice": "1",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "state",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=choice",
+                  "value": "choice"
+                },
+                "label": "State",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "State",
+                "table": "em_alert",
+                "value": "state"
+              },
+              "op": "IN",
+              "type": "choice",
+              "value": "Open,Reopen"
+            },
+            {
+              "conjunction": "and",
+              "field": "node",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "node",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Node",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Node",
+                "table": "em_alert",
+                "value": "node"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "rtr-heartbeat-outbound-api-dev1"
+            },
+            {}
+          ],
+          "groupBy": [
+            "node"
+          ],
+          "hide": false,
+          "limit": 25,
+          "queryType": "AggregateAPI",
+          "refId": "B",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "em_alert",
+          "timeField": "ignore_time"
+        }
+      ],
+      "title": "Services Health",
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "B"
+          },
+          "id": "renameByRegex",
+          "options": {
+            "regex": "count (.*)",
+            "renamePattern": "$1"
+          },
+          "topic": "series"
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "B"
+          },
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "lastNotNull"
+            ]
+          },
+          "topic": "series"
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "A"
+          },
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "name": "Field"
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "Field",
+            "mode": "outerTabular"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "last_discovered A"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "sys_class_name A": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Field": "Name",
+              "Last *": "# Active Alerts",
+              "last_discovered A": "last_discovered"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 35,
+      "panels": [],
+      "title": "Platform Key Health Indicators",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ddumfa0w4t7nkd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "si:cores"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 0,
+        "y": 18
+      },
+      "id": 63,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "11.4.0-79828",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ddumfa0w4t7nkd"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "Usage",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.cpu_usage:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1-rtr-exch~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.19.2"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ddumfa0w4t7nkd"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Throttling",
+            "cleanSelector": "builtin:kubernetes.workload.cpu_usage:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1-rtr-exch~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.cpu_throttled:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1-rtr-exch~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.19.2"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ddumfa0w4t7nkd"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Requests",
+            "cleanSelector": "builtin:kubernetes.workload.cpu_throttled:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1-rtr-exch~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.requests_cpu:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1-rtr-exch~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "C",
+          "version": "3.19.2"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ddumfa0w4t7nkd"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Limits",
+            "cleanSelector": "builtin:kubernetes.workload.requests_cpu:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1-rtr-exch~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.limits_cpu:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1-rtr-exch~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "D",
+          "version": "3.19.2"
+        }
+      ],
+      "title": "CPU",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "time",
+            "mode": "outer"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ddumfa0w4t7nkd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 5,
+        "y": 18
+      },
+      "id": 70,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "11.4.0-79828",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ddumfa0w4t7nkd"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "Usage",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.memory_working_set:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1-rtr-exch~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.19.2"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ddumfa0w4t7nkd"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Requests",
+            "cleanSelector": "builtin:kubernetes.workload.cpu_throttled:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1-rtr-exch~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.requests_memory:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1-rtr-exch~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "C",
+          "version": "3.19.2"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ddumfa0w4t7nkd"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Limits",
+            "cleanSelector": "builtin:kubernetes.workload.limits_cpu:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1-rtr-exch~\"))\")))):splitBy():sum:timeshift(-2m) / 1000",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.limits_memory:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1-rtr-exch~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "D",
+          "version": "3.19.2"
+        }
+      ],
+      "title": "Memory",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "time",
+            "mode": "outer"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ddumfa0w4t7nkd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Desired Pods"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Running Pods"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 10,
+        "y": 18
+      },
+      "id": 40,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.6,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 100
+      },
+      "pluginVersion": "11.4.0-79828",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ddumfa0w4t7nkd"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "Desired Pods",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.pods_desired:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"${env}-rtr-exch~\"))\")))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ddumfa0w4t7nkd"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Running Pods",
+            "cleanSelector": "builtin:kubernetes.pods:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"dev1-rtr-exch~\"))\")))):filter(and(or(not(existsKey(pod_status)),ne(pod_status,Terminating)),eq(pod_phase,Running))):splitBy():sum:timeshift(-2m)",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.pods:filter(or(in(\"dt.entity.cloud_application\",entitySelector(\"type(CLOUD_APPLICATION),  toRelationships.IS_NAMESPACE_OF_CA(type(CLOUD_APPLICATION_NAMESPACE),entityName.contains(~\"${env}-rtr-exch~\"))\")))):filter(and(or(not(existsKey(pod_status)),ne(pod_status,Terminating)),eq(pod_phase,Running))):splitBy():sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B"
+        }
+      ],
+      "title": "Pods",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "time",
+            "mode": "outer"
+          }
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "ddumfa0w4t7nkd"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 3,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 17,
+        "y": 18
+      },
+      "id": 41,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0-79828",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ddumfa0w4t7nkd"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "Enterprise DB",
+            "cleanSelector": "1 - (builtin:service.dbconnections.failure:filter(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),entityName.equals(~\"${env}_exch_ods~\")\"))):splitBy() / builtin:service.dbconnections.total:filter(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),entityName.equals(~\"${env}_exch_ods~\")\"))):splitBy())",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "1 - (builtin:service.dbconnections.failure:filter(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),entityName.equals(~\"${env}_exch_ods~\")\"))):splitBy() / builtin:service.dbconnections.total:filter(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),entityName.equals(~\"${env}_exch_ods~\")\"))):splitBy())",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.19.2"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "ddumfa0w4t7nkd"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Cockroach DB",
+            "cleanSelector": "1 - (builtin:service.dbconnections.failure:filter(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),entityName.equals(~\"${env}_exch_ods~\")\"))):splitBy() / builtin:service.dbconnections.total:filter(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),entityName.equals(~\"${env}_exch_ods~\")\"))):splitBy())",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "1 - (builtin:service.dbconnections.failure:filter(eq(\"dt.entity.service\",SERVICE-658CFB4935EE2F97)):splitBy() / builtin:service.dbconnections.total:filter(eq(\"dt.entity.service\",SERVICE-658CFB4935EE2F97)):splitBy())",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.19.2"
+        }
+      ],
+      "title": "Database Availability",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "time",
+            "mode": "outer"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 26
+      },
+      "id": 44,
+      "panels": [],
+      "title": "Incidents & Changes",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "ae4jvxm2gdqm8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sys_id"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "number"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Open in ServiceNow",
+                    "url": "https://optimizincdemo3.service-now.com/now/nav/ui/classic/params/target/em_alert.do%3Fsys_id%3D${__data.fields.sys_id}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 27
+      },
+      "id": 75,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.4.0-79828",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "ae4jvxm2gdqm8c"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "number"
+            },
+            {
+              "aggregates": [],
+              "name": "severity"
+            },
+            {
+              "aggregates": [],
+              "name": "state"
+            },
+            {
+              "aggregates": [],
+              "name": "description"
+            },
+            {
+              "aggregates": [],
+              "name": "node"
+            },
+            {
+              "aggregates": [],
+              "name": "source"
+            },
+            {
+              "aggregates": [],
+              "name": "sys_created_on"
+            },
+            {
+              "aggregates": [],
+              "name": "sys_updated_on"
+            },
+            {
+              "aggregates": [],
+              "name": "sys_id"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "choice": "1",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "state",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=choice",
+                  "value": "choice"
+                },
+                "label": "State",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "State",
+                "table": "em_alert",
+                "value": "state"
+              },
+              "op": "IN",
+              "type": "choice",
+              "value": "Open,Reopen"
+            },
+            {
+              "conjunction": "and",
+              "field": "source",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "source",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Source",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Source",
+                "table": "em_alert",
+                "value": "source"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "RTR Exchange dev1"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 100,
+          "queryType": "TableAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "em_alert",
+          "timeField": "ignore_time"
+        }
+      ],
+      "title": "Alerts",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "ae4jvxm2gdqm8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "transparent",
+            "mode": "fixed"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "mode": "basic",
+              "type": "color-background"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "priority"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 215
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "pattern": "1.*",
+                      "result": {
+                        "color": "red",
+                        "index": 0
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": "2.*",
+                      "result": {
+                        "color": "orange",
+                        "index": 1
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": "3.*",
+                      "result": {
+                        "color": "yellow",
+                        "index": 2
+                      }
+                    },
+                    "type": "regex"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "applyToRow": false,
+                  "mode": "gradient",
+                  "type": "color-background"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Support Group"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 206
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "priority"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 135
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "category"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 116
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "opened_at"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 178
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "severity"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 101
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sys_id"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "number"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Open in ServiceNow",
+                    "url": "https://optimizincdemo3.service-now.com/now/nav/ui/classic/params/target/incident.do%3Fsys_id%3D${__data.fields.sys_id}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 35
+      },
+      "id": 65,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": [
+            "Health"
+          ],
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.4.0-79828",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "ae4jvxm2gdqm8c"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "number"
+            },
+            {
+              "aggregates": [],
+              "name": "opened_at"
+            },
+            {
+              "aggregates": [],
+              "name": "priority"
+            },
+            {
+              "aggregates": [],
+              "name": "severity"
+            },
+            {
+              "aggregates": [],
+              "name": "category"
+            },
+            {
+              "aggregates": [],
+              "name": "cmdb_ci.name"
+            },
+            {
+              "aggregates": [],
+              "name": "short_description"
+            },
+            {
+              "aggregates": [],
+              "name": "sys_updated_on"
+            },
+            {
+              "aggregates": [],
+              "name": "incident_state"
+            },
+            {
+              "aggregates": [],
+              "name": "sys_id"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "number",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Task",
+                "element": "number",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Number",
+                "name": "task",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Number",
+                "table": "task",
+                "value": "number"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "INC0010021"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "queryType": "TableAPI",
+          "refId": "A",
+          "sort": [
+            {
+              "field": "opened_at",
+              "order": "desc"
+            },
+            {}
+          ],
+          "stats": [],
+          "table": "incident",
+          "timeField": "ignore_time"
+        }
+      ],
+      "title": "Incidents",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "ae4jvxm2gdqm8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "transparent",
+            "mode": "fixed"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "mode": "basic",
+              "type": "color-background"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sys_id"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "number"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Open in ServiceNow",
+                    "url": "https://optimizincdemo3.service-now.com/now/nav/ui/classic/params/target/change_request.do%3Fsys_id%3D${__data.fields.sys_id}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 35
+      },
+      "id": 49,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": [
+            "Health"
+          ],
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.4.0-79828",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "ae4jvxm2gdqm8c"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "number"
+            },
+            {
+              "aggregates": [],
+              "name": "work_end"
+            },
+            {
+              "aggregates": [],
+              "name": "category"
+            },
+            {
+              "aggregates": [],
+              "name": "state"
+            },
+            {
+              "aggregates": [],
+              "name": "cmdb_ci.name"
+            },
+            {
+              "aggregates": [],
+              "name": "short_description"
+            },
+            {
+              "aggregates": [],
+              "name": "sys_id"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "choice": "3",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Task",
+                "element": "state",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=integer",
+                  "value": "integer"
+                },
+                "label": "State",
+                "name": "task",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "State",
+                "table": "task",
+                "value": "state"
+              },
+              "op": "NOT IN",
+              "type": "integer",
+              "value": ",4,7"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "queryType": "TableAPI",
+          "refId": "A",
+          "sort": [
+            {
+              "field": "number",
+              "order": "desc"
+            },
+            {}
+          ],
+          "stats": [],
+          "table": "change_request",
+          "timeField": "ignore_time"
+        }
+      ],
+      "title": "Change Records",
+      "type": "table"
+    }
+  ],
+  "preload": false,
+  "refresh": "",
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "dev1",
+          "value": "dev1"
+        },
+        "label": "Environment",
+        "name": "env",
+        "options": [
+          {
+            "selected": false,
+            "text": "Production",
+            "value": "prod"
+          },
+          {
+            "selected": false,
+            "text": "SIT",
+            "value": "sit"
+          },
+          {
+            "selected": true,
+            "text": "Development 1",
+            "value": "dev1"
+          },
+          {
+            "selected": false,
+            "text": "Development 2",
+            "value": "dev2"
+          }
+        ],
+        "query": "Production : prod, SIT : sit, Development 1 : dev1, Development 2 : dev2",
+        "type": "custom"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-servicenow-datasource",
+          "uid": "ae4jvxm2gdqm8c"
+        },
+        "definition": "",
+        "hide": 2,
+        "includeAll": true,
+        "multi": true,
+        "name": "namespaces",
+        "options": [],
+        "query": {
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "sys_id"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "name",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Cmdb_ci_kubernetes_namespace",
+                "element": "name",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "name",
+                "name": "cmdb_ci_kubernetes_namespace",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "",
+                "table": "cmdb_ci_kubernetes_namespace",
+                "value": "name"
+              },
+              "op": "LIKE",
+              "type": "string",
+              "value": "${env}-rtr-exch"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 50,
+          "queryType": "TableAPI",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "cmdb_ci_kubernetes_namespace",
+          "timeField": "ignore_time"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-servicenow-datasource",
+          "uid": "ae4jvxm2gdqm8c"
+        },
+        "definition": "",
+        "hide": 2,
+        "includeAll": true,
+        "multi": true,
+        "name": "statefulAndReplicaSets",
+        "options": [],
+        "query": {
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "child.sys_id"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "parent.sys_id",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Cmdb_ci",
+                "element": "sys_id",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=GUID",
+                  "value": "GUID"
+                },
+                "label": "Parent -> sys_id",
+                "name": "cmdb_ci",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "",
+                "table": "cmdb_ci",
+                "value": "parent.sys_id"
+              },
+              "op": "IN",
+              "type": "GUID",
+              "value": "$namespaces"
+            },
+            {
+              "conjunction": "and",
+              "field": "child.sys_class_name",
+              "fieldDesc": {
+                "choice": "3",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Cmdb_ci",
+                "element": "sys_class_name",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=sys_class_name",
+                  "value": "sys_class_name"
+                },
+                "label": "Child -> Class",
+                "name": "cmdb_ci",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Class",
+                "table": "cmdb_ci",
+                "value": "child.sys_class_name"
+              },
+              "op": "IN",
+              "type": "sys_class_name",
+              "value": "cmdb_ci_kubernetes_statefulset,cmdb_ci_kubernetes_replicaset"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 200,
+          "queryType": "TableAPI",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "cmdb_rel_ci",
+          "timeField": "ignore_time"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-servicenow-datasource",
+          "uid": "ae4jvxm2gdqm8c"
+        },
+        "definition": "",
+        "hide": 2,
+        "includeAll": true,
+        "multi": true,
+        "name": "pods",
+        "options": [],
+        "query": {
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "child.sys_id"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "parent.sys_id",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Cmdb_ci",
+                "element": "sys_id",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=GUID",
+                  "value": "GUID"
+                },
+                "label": "Parent -> sys_id",
+                "name": "cmdb_ci",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "",
+                "table": "cmdb_ci",
+                "value": "parent.sys_id"
+              },
+              "op": "IN",
+              "type": "GUID",
+              "value": "$statefulAndReplicaSets"
+            },
+            {
+              "conjunction": "and",
+              "field": "child.sys_class_name",
+              "fieldDesc": {
+                "choice": "3",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Cmdb_ci",
+                "element": "sys_class_name",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=sys_class_name",
+                  "value": "sys_class_name"
+                },
+                "label": "Child -> Class",
+                "name": "cmdb_ci",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Class",
+                "table": "cmdb_ci",
+                "value": "child.sys_class_name"
+              },
+              "op": "IN",
+              "type": "sys_class_name",
+              "value": "cmdb_ci_kubernetes_pod"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 200,
+          "queryType": "TableAPI",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "cmdb_rel_ci",
+          "timeField": "ignore_time"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-servicenow-datasource",
+          "uid": "ae4jvxm2gdqm8c"
+        },
+        "definition": "",
+        "hide": 2,
+        "includeAll": true,
+        "multi": true,
+        "name": "containers",
+        "options": [],
+        "query": {
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "child.sys_id"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "parent.sys_id",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Cmdb_ci",
+                "element": "sys_id",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=GUID",
+                  "value": "GUID"
+                },
+                "label": "Parent -> sys_id",
+                "name": "cmdb_ci",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "",
+                "table": "cmdb_ci",
+                "value": "parent.sys_id"
+              },
+              "op": "IN",
+              "type": "GUID",
+              "value": "$pods"
+            },
+            {
+              "conjunction": "and",
+              "field": "child.sys_class_name",
+              "fieldDesc": {
+                "choice": "3",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Cmdb_ci",
+                "element": "sys_class_name",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=sys_class_name",
+                  "value": "sys_class_name"
+                },
+                "label": "Child -> Class",
+                "name": "cmdb_ci",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Class",
+                "table": "cmdb_ci",
+                "value": "child.sys_class_name"
+              },
+              "op": "IN",
+              "type": "sys_class_name",
+              "value": "cmdb_ci_docker_container"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 200,
+          "queryType": "TableAPI",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "cmdb_rel_ci",
+          "timeField": "ignore_time"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "America/Winnipeg",
+  "title": "RTR Exchange L1",
+  "uid": "fe51qtfb2sa2oe",
+  "version": 40,
+  "weekStart": ""
+}

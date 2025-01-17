@@ -1,0 +1,1080 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 13,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "dashboard",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Level 1",
+      "tooltip": "",
+      "type": "link",
+      "url": "/d/de432c10-0f7d-4b2b-aa9f-f26274a7aa41?orgId=1"
+    },
+    {
+      "asDropdown": false,
+      "icon": "dashboard",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Executive",
+      "tooltip": "",
+      "type": "link",
+      "url": "d/ad603b87-6283-45e2-b02c-0df88a23eb91?orgId=1"
+    }
+  ],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": []
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "200"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 5,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "10.3.0-63516",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "(index=* OR index=_*) (sourcetype=\"Demo Logging App\")  | rename status AS RootObject.status | fields \"RootObject.status\" | stats dedup_splitvals=t count AS \"Count\"  by RootObject.status | sort limit=0 RootObject.status | fields - _span  | rename RootObject.status AS status  | fillnull \"Count\" | fields status, \"Count\"",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "Splunk # of Requests by Status",
+      "transformations": [
+        {
+          "id": "rowsToFields",
+          "options": {
+            "mappings": [
+              {
+                "fieldName": "Count",
+                "handlerKey": "field.value"
+              },
+              {
+                "fieldName": "status",
+                "handlerKey": "field.name"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "d1b2014b-bf80-4401-8869-44c41c73ac48"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 5,
+        "x": 5,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "d1b2014b-bf80-4401-8869-44c41c73ac48"
+          },
+          "metric": {
+            "aggregations": [
+              {
+                "name": "value",
+                "params": []
+              }
+            ],
+            "alias": "200",
+            "cleanSelector": "",
+            "displayName": "Number of calls without  any errors",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "builtin:service.errors.total.successCount",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "refId": "A",
+          "version": "3.11.3"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "d1b2014b-bf80-4401-8869-44c41c73ac48"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "value",
+                "params": []
+              }
+            ],
+            "alias": "4xx",
+            "cleanSelector": "",
+            "displayName": "Number of HTTP 4xx errors",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "builtin:service.errors.fourxx.count",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "refId": "B",
+          "version": "3.11.3"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "d1b2014b-bf80-4401-8869-44c41c73ac48"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [
+              {
+                "name": "value",
+                "params": []
+              }
+            ],
+            "alias": "5xx",
+            "cleanSelector": "",
+            "displayName": "Number of HTTP 5xx errors",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "builtin:service.errors.fivexx.count",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "refId": "C",
+          "version": "3.11.3"
+        }
+      ],
+      "title": "Dynatrace # of Requests by Status",
+      "transformations": [
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "labelsToFields": false,
+            "mode": "seriesToRows",
+            "reducers": [
+              "sum"
+            ]
+          }
+        },
+        {
+          "id": "rowsToFields",
+          "options": {
+            "mappings": [
+              {
+                "fieldName": "Field",
+                "handlerKey": "field.name"
+              },
+              {
+                "fieldName": "Total",
+                "handlerKey": "field.value"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "d1b2014b-bf80-4401-8869-44c41c73ac48"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 5,
+        "x": 10,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^Count$/",
+          "values": false
+        },
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.3.0-63516",
+      "targets": [
+        {
+          "active": "problem",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "d1b2014b-bf80-4401-8869-44c41c73ac48"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "problem": {
+            "expandDetails": false,
+            "impact": "",
+            "severity": "",
+            "status": "OPEN",
+            "tags": []
+          },
+          "refId": "A",
+          "version": "3.11.3"
+        }
+      ],
+      "title": "Dynatrace Open Problems",
+      "transformations": [
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "seriesToRows",
+            "reducers": [
+              "count"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "d1b2014b-bf80-4401-8869-44c41c73ac48"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ID"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 85
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "HasRootCause"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 118
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 9,
+        "x": 15,
+        "y": 0
+      },
+      "id": 7,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "10.3.0-63516",
+      "targets": [
+        {
+          "active": "problem",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "d1b2014b-bf80-4401-8869-44c41c73ac48"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "problem": {
+            "expandDetails": true,
+            "impact": "",
+            "severity": "",
+            "status": "",
+            "tags": []
+          },
+          "refId": "A",
+          "version": "3.11.3"
+        }
+      ],
+      "title": "Dynatrace Problems",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {
+              "AffectedCounts.APPLICATION": 9,
+              "AffectedCounts.ENVIRONMENT": 10,
+              "AffectedCounts.INFRASTRUCTURE": 11,
+              "AffectedCounts.SERVICE": 12,
+              "CommentCount": 8,
+              "DisplayName": 1,
+              "EndTime": 7,
+              "HasRootCause": 5,
+              "ID": 0,
+              "ImpactLevel": 4,
+              "RankedImpact.EntityID": 13,
+              "RankedImpact.EntityName": 14,
+              "RankedImpact.EventType": 15,
+              "RankedImpact.ImpactLevel": 16,
+              "RankedImpact.SeverityLevel": 17,
+              "RecoveredCounts.APPLICATION": 18,
+              "RecoveredCounts.ENVIRONMENT": 19,
+              "RecoveredCounts.INFRASTRUCTURE": 20,
+              "RecoveredCounts.SERVICE": 21,
+              "SeverityLevel": 3,
+              "StartTime": 6,
+              "Status": 2,
+              "TagsOfAffectedEntities.Context": 22,
+              "TagsOfAffectedEntities.Tag": 23
+            },
+            "renameByName": {
+              "AffectedCounts.APPLICATION": "AC.Application",
+              "AffectedCounts.ENVIRONMENT": "AC.Environment",
+              "AffectedCounts.INFRASTRUCTURE": "AC.Infrastructure",
+              "AffectedCounts.SERVICE": "AC.Service",
+              "CommentCount": "",
+              "RankedImpact.EntityID": "RI.EntityID",
+              "RankedImpact.EntityName": "RI.EntityName",
+              "RankedImpact.EventType": "RI.EventType",
+              "RankedImpact.ImpactLevel": "RI.ImpactLevel",
+              "RankedImpact.SeverityLevel": "RI.SeverityLevel",
+              "RecoveredCounts.APPLICATION": "RC.Application",
+              "RecoveredCounts.ENVIRONMENT": "RC.Environment",
+              "RecoveredCounts.INFRASTRUCTURE": "RC.Infrastructure",
+              "RecoveredCounts.SERVICE": "RC.Service",
+              "TagsOfAffectedEntities.Context": "TOAE.Context",
+              "TagsOfAffectedEntities.Tag": "TOAE.Tag"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "_raw"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 300
+              },
+              {
+                "id": "custom.inspect",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 8,
+        "x": 0,
+        "y": 7
+      },
+      "id": 4,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Open in Splunk",
+          "url": "http://20.200.125.187:8000/en-US/app/search/search?q=search index=* ${splunkSearch}&display.page.search.mode=smart&dispatch.sample_ratio=1&workload_pool=&earliest=rt-6h&latest=rtnow&sid=rt_1700854465.133"
+        }
+      ],
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "10.3.0-63516",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=* $splunkSearch",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "Index #1",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "main"
+                  }
+                },
+                "fieldName": "_si"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "_raw"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 300
+              },
+              {
+                "id": "custom.inspect",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 8,
+        "x": 8,
+        "y": 7
+      },
+      "id": 5,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Open in Splunk",
+          "url": "http://20.200.125.187:8000/en-US/app/search/search?q=search sourcetype=\"Demo Logging App\" ${splunkSearch}&display.page.search.mode=smart&dispatch.sample_ratio=1&workload_pool=&earliest=rt-6h&latest=rtnow&sid=rt_1700854465.133"
+        }
+      ],
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "10.3.0-63516",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "sourcetype=\"Demo Logging App\" $splunkSearch",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "Index #2",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "main"
+                  }
+                },
+                "fieldName": "_si"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "_raw"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 300
+              },
+              {
+                "id": "custom.inspect",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 8,
+        "x": 16,
+        "y": 7
+      },
+      "id": 6,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Open in Splunk",
+          "url": "http://20.200.125.187:8000/en-US/app/search/search?q=search ${splunkSearch}&display.page.search.mode=smart&dispatch.sample_ratio=1&workload_pool=&earliest=rt-6h&latest=rtnow&sid=rt_1700854465.133"
+        }
+      ],
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "10.3.0-63516",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "$splunkSearch",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "Index #3",
+      "type": "table"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "200",
+          "value": "200"
+        },
+        "hide": 0,
+        "label": "Splunk Search",
+        "name": "splunkSearch",
+        "options": [
+          {
+            "selected": true,
+            "text": "200",
+            "value": "200"
+          }
+        ],
+        "query": "",
+        "skipUrlSync": false,
+        "type": "textbox"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Level 3",
+  "uid": "d09b1269-69a6-467e-8270-cc55810c0ceb",
+  "version": 20,
+  "weekStart": ""
+}

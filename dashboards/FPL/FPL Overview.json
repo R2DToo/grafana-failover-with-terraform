@@ -1,0 +1,438 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "A place to create panels for experimentation ",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 157,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"header\">\r\n  {{#each (split Header ',')}}\r\n    <div class=\"arrow-pointer\"><p class=\"header-text\">{{ this }}</p></div>\r\n  {{/each}}\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 200,
+          "language": "markdown"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": ".header {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n  height: 60px;\r\n  background: #7eb4e2;\r\n}\r\n\r\n.arrow-pointer {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n  height: 50px;\r\n  background: #32557f;\r\n  position: relative;\r\n  margin: auto;\r\n  margin-right: 25px;\r\n\r\n  &:after {\r\n    content: '';\r\n    position: absolute;\r\n    left: 0;\r\n    bottom: 0;\r\n    width: 0;\r\n    height: 0;\r\n    border-left: 25px solid #7eb4e2;\r\n    border-top: 25px solid transparent;\r\n    border-bottom: 25px solid transparent;\r\n  }\r\n\r\n  &:before {\r\n    content: '';\r\n    position: absolute;\r\n    right: -25px;\r\n    bottom: 0;\r\n    width: 0;\r\n    height: 0;\r\n    border-left: 25px solid #32557f;\r\n    border-top: 25px solid transparent;\r\n    border-bottom: 25px solid transparent;\r\n  }\r\n}\r\n\r\n.header-text {\r\n  font-size: x-large;\r\n  padding: 0;\r\n  margin: auto;\r\n  padding-left: 25px;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Header",
+                "type": "string",
+                "values": [
+                  "$header"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Tables"
+          },
+          "hide": false,
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "transparent": true,
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 3
+      },
+      "id": 6,
+      "maxPerRow": 4,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"body\">\r\n  <div class=\"{{ \"service.severity\" }}-box\">\r\n    <a href=\"https://servicenow.nexteraenergy.com/now/sow/service-map/{{ \"service.sys_id\" }}/params/root-node/{{ \"service.sys_id\" }}/selected-node-sysid/{{ \"service.sys_id\" }}/selected-node-class/cmdb_ci_service/levels/5\" target=\"_blank\" rel=\"noopener noreferrer\"><p class=\"item-text\">{{ \"service.name\" }}</p></a>\r\n  </div>\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 200,
+          "language": "markdown"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": ".header {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n  height: 60px;\r\n  background: #7eb4e2;\r\n}\r\n\r\n.arrow-pointer {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n  height: 50px;\r\n  background: #32557f;\r\n  position: relative;\r\n  margin: auto;\r\n  margin-right: 25px;\r\n\r\n  &:after {\r\n    content: '';\r\n    position: absolute;\r\n    left: 0;\r\n    bottom: 0;\r\n    width: 0;\r\n    height: 0;\r\n    border-left: 25px solid #7eb4e2;\r\n    border-top: 25px solid transparent;\r\n    border-bottom: 25px solid transparent;\r\n  }\r\n\r\n  &:before {\r\n    content: '';\r\n    position: absolute;\r\n    right: -25px;\r\n    bottom: 0;\r\n    width: 0;\r\n    height: 0;\r\n    border-left: 25px solid #32557f;\r\n    border-top: 25px solid transparent;\r\n    border-bottom: 25px solid transparent;\r\n  }\r\n}\r\n\r\n.header-text {\r\n  padding: 0;\r\n  margin: auto;\r\n  padding-left: 25px;\r\n}\r\n\r\n.body {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  background: #7eb4e2;\r\n  padding: 5px;\r\n  margin: 0;\r\n  width: 100%;\r\n}\r\n\r\n.OK-box {\r\n  flex: 1 0 15%;\r\n  height: 6vh;\r\n  width: 100%;\r\n  background: green;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.Warning-box {\r\n  flex: 1 0 15%;\r\n  height: 6vh;\r\n  background: blue;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.Minor-box {\r\n  flex: 1 0 15%;\r\n  height: 6vh;\r\n  background: yellow;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.Major-box {\r\n  flex: 1 0 15%;\r\n  height: 6vh;\r\n  background: orange;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.Critical-box {\r\n  flex: 1 0 15%;\r\n  height: 6vh;\r\n  background: red;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.item-text {\r\n  font-size: medium;\r\n  padding: 0;\r\n  margin: auto;\r\n  text-align: center;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "repeat": "item",
+      "repeatDirection": "h",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "service.name"
+            },
+            {
+              "aggregates": [],
+              "name": "service.severity"
+            },
+            {
+              "aggregates": [],
+              "name": "service.sys_id"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "service.name",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Cmdb_ci_service_auto",
+                "element": "name",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Application Service -> name",
+                "name": "cmdb_ci_service_auto",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "",
+                "table": "cmdb_ci_service_auto",
+                "value": "service.name"
+              },
+              "op": "IN",
+              "type": "string",
+              "value": "$item"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "hide": false,
+          "limit": 25,
+          "queryType": "TableAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "sa_service_group_member",
+          "timeField": "ignore_time"
+        }
+      ],
+      "title": "",
+      "transparent": true,
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 21,
+        "w": 24,
+        "x": 0,
+        "y": 6
+      },
+      "id": 3,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"header\">\r\n  {{#each (split Header ',')}}\r\n    <div class=\"arrow-pointer\"><p class=\"header-text\">{{ this }}</p></div>\r\n  {{/each}}\r\n</div>\r\n<div class=\"body\">\r\n  {{#each (split Body '|')}}\r\n    {{#each (split this '*')}}\r\n      {{#if @first}}\r\n        <div class=\"{{ this }}\">\r\n      {{else}}\r\n        <p class=\"item-text\">{{this}}</p>\r\n      {{/if}}\r\n    {{/each}}\r\n    </div>\r\n  {{/each}}\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 200,
+          "language": "markdown"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": ".header {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n  height: 60px;\r\n  background: #7eb4e2;\r\n}\r\n\r\n.arrow-pointer {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n  height: 50px;\r\n  background: #32557f;\r\n  position: relative;\r\n  margin: auto;\r\n  margin-right: 25px;\r\n\r\n  &:after {\r\n    content: '';\r\n    position: absolute;\r\n    left: 0;\r\n    bottom: 0;\r\n    width: 0;\r\n    height: 0;\r\n    border-left: 25px solid #7eb4e2;\r\n    border-top: 25px solid transparent;\r\n    border-bottom: 25px solid transparent;\r\n  }\r\n\r\n  &:before {\r\n    content: '';\r\n    position: absolute;\r\n    right: -25px;\r\n    bottom: 0;\r\n    width: 0;\r\n    height: 0;\r\n    border-left: 25px solid #32557f;\r\n    border-top: 25px solid transparent;\r\n    border-bottom: 25px solid transparent;\r\n  }\r\n}\r\n\r\n.header-text {\r\n  padding: 0;\r\n  margin: auto;\r\n  padding-left: 25px;\r\n}\r\n\r\n.body {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  background: #7eb4e2;\r\n  padding: 0;\r\n  margin: 0;\r\n}\r\n\r\n.grey-box {\r\n  margin: 5px;\r\n  flex: 1 0 15%;\r\n  height: 6vh;\r\n  background: grey;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.double-grey-box {\r\n  margin: 5px;\r\n  flex: 2 0 31%;\r\n  height: 6vh;\r\n  background: grey;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.green-box {\r\n  margin: 5px;\r\n  flex: 1 0 15%;\r\n  height: 6vh;\r\n  background: green;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.double-green-box {\r\n  margin: 5px;\r\n  flex: 2 0 30%;\r\n  height: 6vh;\r\n  background: green;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.red-box {\r\n  margin: 5px;\r\n  flex: 1 0 15%;\r\n  height: 6vh;\r\n  background: red;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.double-red-box {\r\n  margin: 5px;\r\n  flex: 2 0 30%;\r\n  height: 6vh;\r\n  background: red;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.item-text {\r\n  padding: 0;\r\n  margin: auto;\r\n  text-align: center;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Header",
+                "type": "string",
+                "values": [
+                  "Generation & Energy Trading, Power Delivery (Transmission & Distribution), Customer Service",
+                  "Shared Services",
+                  "Enterprise Services"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Body",
+                "type": "string",
+                "values": [
+                  "grey-box*Generation Mgmt.|green-box*Contract Mgmt.|green-box*PD Asset & Work Mgmt.|green-box*Field Force Mgmt.|green-box*Customer Billing|green-box*CRM|green-box*Fuel Mgmt.|green-box*Risk Mgmt.|green-box*Outage Mgmt.|grey-box*Network Mgmt.|green-box*Customer Care/Call Center/IVR|green-box*Field Operations|green-box*Shift Ops. Mgmt.|green-box*Scheduling|grey-box*GIS|grey-box*Storm Mgmt.|green-box*Energy Efficiency/DSM|grey-box*Customer Information Mgmt. (CIS)|green-box*Plant Ops. & Maintenance|grey-box*Settlement|grey-box*EMS/SCADA|double-grey-box*Smart Grid/AMI|green-box*Revenue Recovery|green-box*Asset & Work Mgmt.|green-box*Grid Operation|grey-box*Engineering Design|grey-box*Power Dispatch|grey-box*Customer Self Service|grey-box*Safety Advocacy Services",
+                  "grey-box*Corporate Services (Legal Audit)|green-box*Financial Mgmt. (Tax, Accounting)|green-box*Human Resource (Admin, Payroll)|grey-box*Health, Safety, Evn. Mgmt.|red-box*Learning & Development|grey-box*Marketing & Communications",
+                  "grey-box*Mobility|grey-box*Enterprise Architecture/SOA|green-box*Analytics & Reporting|grey-box*Big Data/DWH|green-box*SAP|green-box*IT IS"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Tables"
+          },
+          "hide": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Business Processes",
+      "type": "marcusolsson-dynamictext-panel"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "All",
+          "value": "All"
+        },
+        "datasource": {
+          "type": "grafana-servicenow-datasource",
+          "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+        },
+        "definition": "",
+        "includeAll": false,
+        "label": "Table Header",
+        "name": "header",
+        "options": [],
+        "query": {
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "name"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and"
+            }
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "queryType": "TableAPI",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "cmdb_ci_service_group",
+          "timeField": "ignore_time"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "/Home/Index - BUSINESS_TRANSACTION-se-demo-east.demo.appdynamics.com:8090-106844",
+          "value": "/Home/Index - BUSINESS_TRANSACTION-se-demo-east.demo.appdynamics.com:8090-106844"
+        },
+        "datasource": {
+          "type": "grafana-servicenow-datasource",
+          "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+        },
+        "definition": "",
+        "description": "",
+        "hide": 2,
+        "includeAll": true,
+        "label": "Item",
+        "name": "item",
+        "options": [],
+        "query": {
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "service.name"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "service_group.name",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Cmdb_ci_service_auto",
+                "element": "name",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Application Service -> name",
+                "name": "cmdb_ci_service_auto",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "",
+                "table": "cmdb_ci_service_auto",
+                "value": "service.name"
+              },
+              "op": "IN",
+              "type": "string",
+              "value": "$header"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 40,
+          "queryType": "TableAPI",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "sa_service_group_member",
+          "timeField": "ignore_time"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      }
+    ]
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "FPL Overview",
+  "uid": "fduwlu4d6jsaoe",
+  "version": 33,
+  "weekStart": ""
+}

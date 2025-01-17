@@ -1,0 +1,1343 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 14,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "dashboard",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Level 3",
+      "tooltip": "",
+      "type": "link",
+      "url": "/d/d09b1269-69a6-467e-8270-cc55810c0ceb?orgId=1"
+    },
+    {
+      "asDropdown": false,
+      "icon": "dashboard",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Executive",
+      "tooltip": "",
+      "type": "link",
+      "url": "d/ad603b87-6283-45e2-b02c-0df88a23eb91?orgId=1"
+    }
+  ],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 13,
+      "panels": [],
+      "title": "Health",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "CRITICAL": {
+                  "color": "red",
+                  "index": 4
+                },
+                "MAJOR": {
+                  "color": "orange",
+                  "index": 3
+                },
+                "MINOR": {
+                  "color": "yellow",
+                  "index": 2
+                },
+                "OK": {
+                  "color": "green",
+                  "index": 0
+                },
+                "WARNING": {
+                  "color": "blue",
+                  "index": 1
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 0,
+        "y": 1
+      },
+      "id": 5,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.3.0-63516",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Health",
+                "type": "string",
+                "values": [
+                  "OK"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "A"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Application Health",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "CRITICAL": {
+                  "color": "red",
+                  "index": 4
+                },
+                "MAJOR": {
+                  "color": "orange",
+                  "index": 3
+                },
+                "MINOR": {
+                  "color": "yellow",
+                  "index": 2
+                },
+                "OK": {
+                  "color": "green",
+                  "index": 0
+                },
+                "WARNING": {
+                  "color": "blue",
+                  "index": 1
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 6,
+        "y": 1
+      },
+      "id": 10,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.3.0-63516",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Health",
+                "type": "string",
+                "values": [
+                  "WARNING"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "A"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Server Health",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "CRITICAL": {
+                  "color": "red",
+                  "index": 4
+                },
+                "MAJOR": {
+                  "color": "orange",
+                  "index": 3
+                },
+                "MINOR": {
+                  "color": "yellow",
+                  "index": 2
+                },
+                "OK": {
+                  "color": "green",
+                  "index": 0
+                },
+                "WARNING": {
+                  "color": "blue",
+                  "index": 1
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 12,
+        "y": 1
+      },
+      "id": 11,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.3.0-63516",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Health",
+                "type": "string",
+                "values": [
+                  "MAJOR"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "A"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Network Health",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "CRITICAL": {
+                  "color": "red",
+                  "index": 4
+                },
+                "MAJOR": {
+                  "color": "orange",
+                  "index": 3
+                },
+                "MINOR": {
+                  "color": "yellow",
+                  "index": 2
+                },
+                "OK": {
+                  "color": "green",
+                  "index": 0
+                },
+                "WARNING": {
+                  "color": "blue",
+                  "index": 1
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 18,
+        "y": 1
+      },
+      "id": 12,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.3.0-63516",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Health",
+                "type": "string",
+                "values": [
+                  "CRITICAL"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "A"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Database Health",
+      "type": "stat"
+    },
+    {
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 6
+      },
+      "id": 15,
+      "title": "KPIs",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 0.05
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 8,
+        "x": 0,
+        "y": 7
+      },
+      "id": 9,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.3.0-63516",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "f4551bd4-36db-4ec7-87a3-1538d36830da"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "isEvents": false,
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "sourcetype=\"Demo Logging App\" | stats count(host) by status",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "Splunk Average Error %",
+      "transformations": [
+        {
+          "id": "rowsToFields",
+          "options": {
+            "mappings": [
+              {
+                "fieldName": "status",
+                "handlerKey": "field.name"
+              },
+              {
+                "fieldName": "count(host)",
+                "handlerKey": "field.value"
+              }
+            ]
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Total Errors",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "404",
+                "500"
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Total Calls",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "200",
+                "404",
+                "500"
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Error Percentage",
+            "binary": {
+              "left": "Total Errors",
+              "operator": "/",
+              "right": "Total Calls"
+            },
+            "mode": "binary",
+            "reduce": {
+              "include": [
+                "200"
+              ],
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "d1b2014b-bf80-4401-8869-44c41c73ac48"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 8,
+        "x": 8,
+        "y": 7
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.3.0-63516",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "d1b2014b-bf80-4401-8869-44c41c73ac48"
+          },
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "",
+            "cleanSelector": "builtin:service.errors.server.rate:fold",
+            "displayName": "Failure rate (server side  errors)",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "builtin:service.errors.server.rate",
+            "selector": "builtin:service.errors.server.rate:fold",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.11.3"
+        }
+      ],
+      "title": "Dynatrace Average Error %",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "d1b2014b-bf80-4401-8869-44c41c73ac48"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "µs"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 8,
+        "x": 16,
+        "y": 7
+      },
+      "id": 17,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.3.0-63516",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "d1b2014b-bf80-4401-8869-44c41c73ac48"
+          },
+          "metric": {
+            "aggregations": [
+              {
+                "name": "avg",
+                "params": []
+              }
+            ],
+            "alias": "",
+            "cleanSelector": "builtin:service.response.server:percentile(90.0):fold(avg)",
+            "displayName": "Server side response time",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "builtin:service.response.server",
+            "selector": "builtin:service.response.server:percentile(90.0):fold(avg)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.11.3"
+        }
+      ],
+      "title": "Average Response Time 90th Percentile",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 12
+      },
+      "id": 14,
+      "panels": [],
+      "title": "Alerts & Problems",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 0,
+        "y": 13
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.3.0-63516",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [
+                "count"
+              ],
+              "name": "em_alert"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "choice": "1",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "state",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=choice",
+                  "value": "choice"
+                },
+                "label": "State",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "State",
+                "table": "em_alert",
+                "value": "state"
+              },
+              "op": "!=",
+              "type": "choice",
+              "value": "Closed"
+            },
+            {}
+          ],
+          "groupBy": [
+            "state"
+          ],
+          "limit": 25,
+          "queryType": "AggregateAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [
+            "count"
+          ],
+          "table": "em_alert",
+          "timeField": "sys_created_on"
+        }
+      ],
+      "title": "ServiceNow Active Alerts",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "d1b2014b-bf80-4401-8869-44c41c73ac48"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 12,
+        "y": 13
+      },
+      "id": 1,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.3.0-63516",
+      "targets": [
+        {
+          "active": "problem",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "d1b2014b-bf80-4401-8869-44c41c73ac48"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "problem": {
+            "expandDetails": false,
+            "impact": "",
+            "severity": "",
+            "status": "OPEN",
+            "tags": []
+          },
+          "refId": "A",
+          "version": "3.11.3"
+        }
+      ],
+      "title": "Dynatrace Open Problems",
+      "transformations": [
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "ID": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "aggregate"
+              },
+              "Status": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 18
+      },
+      "id": 18,
+      "panels": [],
+      "title": "Incidents",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 0,
+        "y": 19
+      },
+      "id": 3,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.3.0-63516",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [
+                "count"
+              ]
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "active",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Task",
+                "element": "active",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=boolean",
+                  "value": "boolean"
+                },
+                "label": "Active",
+                "name": "task",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Active",
+                "table": "task",
+                "value": "active"
+              },
+              "op": "=",
+              "type": "boolean",
+              "value": "True"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "queryType": "AggregateAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [
+            "count"
+          ],
+          "table": "incident",
+          "timeField": "sys_created_on"
+        }
+      ],
+      "title": "ServiceNow Active Incidents",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 19,
+        "x": 5,
+        "y": 19
+      },
+      "id": 19,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "10.3.0-63516",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "number"
+            },
+            {
+              "aggregates": [],
+              "name": "severity"
+            },
+            {
+              "aggregates": [],
+              "name": "state"
+            },
+            {
+              "aggregates": [],
+              "name": "category"
+            },
+            {
+              "aggregates": [],
+              "name": "caller_id.name"
+            },
+            {
+              "aggregates": [],
+              "name": "cmdb_ci.name"
+            },
+            {
+              "aggregates": [],
+              "name": "cmdb_ci.sys_class_name"
+            },
+            {
+              "aggregates": [],
+              "name": "description"
+            },
+            {
+              "aggregates": [],
+              "name": "opened_by.name"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "active",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Task",
+                "element": "active",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=boolean",
+                  "value": "boolean"
+                },
+                "label": "Active",
+                "name": "task",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Active",
+                "table": "task",
+                "value": "active"
+              },
+              "op": "=",
+              "type": "boolean",
+              "value": "True"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 200,
+          "queryType": "TableAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "incident",
+          "timeField": "sys_created_on"
+        }
+      ],
+      "title": "ServiceNow Active Incidents Table",
+      "type": "table"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Level 1",
+  "uid": "de432c10-0f7d-4b2b-aa9f-f26274a7aa41",
+  "version": 18,
+  "weekStart": ""
+}

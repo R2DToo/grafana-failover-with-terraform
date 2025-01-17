@@ -1,0 +1,1787 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      },
+      {
+        "datasource": {
+          "type": "fetzerch-sunandmoon-datasource",
+          "uid": "ddrygzboex3wga"
+        },
+        "enable": true,
+        "hide": false,
+        "iconColor": "orange",
+        "name": "Sunrise / Sunset",
+        "target": {
+          "refId": "Anno",
+          "target": [
+            "sunrise",
+            "sunsetStart"
+          ]
+        }
+      },
+      {
+        "datasource": {
+          "type": "fetzerch-sunandmoon-datasource",
+          "uid": "ddrygzboex3wga"
+        },
+        "enable": true,
+        "hide": false,
+        "iconColor": "dark-blue",
+        "name": "Moonrise / Moonset",
+        "target": {
+          "refId": "Anno",
+          "target": [
+            "moonrise",
+            "moonset"
+          ]
+        }
+      },
+      {
+        "datasource": {
+          "type": "fetzerch-sunandmoon-datasource",
+          "uid": "ddrygzboex3wga"
+        },
+        "enable": false,
+        "hide": false,
+        "iconColor": "green",
+        "mappings": {},
+        "name": "Golden Hour",
+        "target": {
+          "refId": "Anno",
+          "target": [
+            "goldenHour"
+          ]
+        }
+      },
+      {
+        "datasource": {
+          "type": "fetzerch-sunandmoon-datasource",
+          "uid": "ddrygzboex3wga"
+        },
+        "enable": false,
+        "hide": false,
+        "iconColor": "super-light-blue",
+        "name": "Noon / Midnight",
+        "target": {
+          "refId": "Anno",
+          "target": [
+            "noon",
+            "midnight"
+          ]
+        }
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 119,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 15
+              },
+              {
+                "color": "green",
+                "value": 16
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "11.2.0-73830",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "Altitude",
+          "target": [
+            "sun_altitude"
+          ]
+        },
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "hide": false,
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "Azimuth",
+          "target": [
+            "sun_azimuth"
+          ]
+        }
+      ],
+      "title": "Current Sun Position",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Sun altitude · Time": true,
+              "Sun azimuth · Time": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Sun altitude": 0,
+              "Sun altitude · Time": 2,
+              "Sun azimuth": 1,
+              "Sun azimuth · Time": 3
+            },
+            "renameByName": {
+              "Sun altitude": "Sun Altitude",
+              "Sun azimuth": "Sun Azimuth",
+              "Sun azimuth · Time": ""
+            }
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 15
+              },
+              {
+                "color": "green",
+                "value": 16
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 5,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "11.2.0-73830",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "Altitude",
+          "target": [
+            "moon_altitude"
+          ]
+        },
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "hide": false,
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "Azimuth",
+          "target": [
+            "moon_azimuth"
+          ]
+        }
+      ],
+      "title": "Current Moon Position",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Moon altitude · Time": false,
+              "Moon azimuth · Time": false,
+              "Sun altitude · Time": true,
+              "Sun azimuth · Time": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Moon altitude": 0,
+              "Moon altitude · Time": 2,
+              "Moon azimuth": 1,
+              "Moon azimuth · Time": 3
+            },
+            "renameByName": {
+              "Moon altitude": "Moon Altitude",
+              "Moon azimuth": "Moon Azimuth",
+              "Moon azimuth · Time": "",
+              "Sun altitude": "Sun Altitude",
+              "Sun azimuth": "Sun Azimuth",
+              "Sun azimuth · Time": ""
+            }
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "light-red",
+                "value": 6
+              },
+              {
+                "color": "light-orange",
+                "value": 12
+              },
+              {
+                "color": "light-yellow",
+                "value": 13
+              }
+            ]
+          },
+          "unit": "h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 10,
+        "y": 0
+      },
+      "id": 10,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-73830",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "A",
+          "target": [
+            "sunrise"
+          ]
+        },
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "hide": false,
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "B",
+          "target": [
+            "sunset"
+          ]
+        }
+      ],
+      "title": "Daylight Duration",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Sunrise · Tags": true,
+              "Sunrise · Text": true,
+              "Sunrise · Title": true,
+              "Sunset · Tags": true,
+              "Sunset · Text": true,
+              "Sunset · Title": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "Sunrise · Time"
+              }
+            ]
+          }
+        },
+        {
+          "id": "limit",
+          "options": {
+            "limitField": "1"
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Epoch Differences",
+            "binary": {
+              "left": "Sunset · Time",
+              "operator": "-",
+              "right": "Sunrise · Time"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "ms to s",
+            "binary": {
+              "left": "Epoch Differences",
+              "operator": "/",
+              "right": "1000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Daylight Duration H",
+            "binary": {
+              "left": "ms to s",
+              "operator": "/",
+              "right": "3600"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "fieldMinMax": false,
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "index": 0,
+                  "text": "🌑 New Moon"
+                },
+                "1": {
+                  "index": 4,
+                  "text": "🌕 Full Moon"
+                },
+                "0.25": {
+                  "index": 2,
+                  "text": "🌓 First Quarter"
+                },
+                "0.75": {
+                  "index": 6,
+                  "text": "🌗 Last Quarter"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "from": 0.01,
+                "result": {
+                  "index": 1,
+                  "text": "🌒 Waxing Crescent"
+                },
+                "to": 0.24
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 0.26,
+                "result": {
+                  "index": 3,
+                  "text": "🌔 Waxing Gibbous"
+                },
+                "to": 0.54
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 0.56,
+                "result": {
+                  "index": 5,
+                  "text": "🌖 Waning Gibbous"
+                },
+                "to": 0.74
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 0.76,
+                "result": {
+                  "index": 7,
+                  "text": "🌘 Waning Crescent"
+                },
+                "to": 0.99
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#757575",
+                "value": null
+              },
+              {
+                "color": "semi-dark-blue",
+                "value": 0.25
+              },
+              {
+                "color": "semi-dark-blue",
+                "value": 0.75
+              },
+              {
+                "color": "dark-blue",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 16,
+        "y": 0
+      },
+      "id": 13,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "titleSize": 12
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-73830",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "A",
+          "target": [
+            "moon_illumination"
+          ]
+        }
+      ],
+      "title": "Moon Phase",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "Time"
+              }
+            ]
+          }
+        },
+        {
+          "id": "limit",
+          "options": {
+            "limitField": "1"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "1": {
+                  "color": "blue",
+                  "index": 3
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "from": 0,
+                "result": {
+                  "color": "#808080",
+                  "index": 0
+                },
+                "to": 0.24
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 0.25,
+                "result": {
+                  "color": "light-blue",
+                  "index": 1
+                },
+                "to": 0.74
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 0.75,
+                "result": {
+                  "color": "light-blue",
+                  "index": 2
+                },
+                "to": 0.99
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 22,
+        "y": 0
+      },
+      "id": 12,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-73830",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "A",
+          "target": [
+            "moon_illumination"
+          ]
+        }
+      ],
+      "title": "Moon Phase Illumination",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "Time"
+              }
+            ]
+          }
+        },
+        {
+          "id": "limit",
+          "options": {
+            "limitField": "1"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Sun altitude"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Moon altitude"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Moon illumination"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 20,
+        "w": 16,
+        "x": 0,
+        "y": 5
+      },
+      "id": 14,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.2.0-73830",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "A",
+          "target": [
+            "sun_altitude"
+          ]
+        },
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "hide": false,
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "B",
+          "target": [
+            "moon_altitude"
+          ]
+        },
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "hide": false,
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "C",
+          "target": [
+            "moon_illumination"
+          ]
+        }
+      ],
+      "title": "Sun and Moon Trajectories",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "light-yellow",
+                "value": null
+              }
+            ]
+          },
+          "unit": "dateTimeAsLocal"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Sunrise · Text"
+            },
+            "properties": []
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 16,
+        "y": 5
+      },
+      "id": 3,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^Time$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-73830",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "hide": false,
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "A",
+          "target": [
+            "sunrise"
+          ]
+        }
+      ],
+      "title": "Sun Rise Time",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "Time Sunrise"
+              }
+            ]
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Tags": true,
+              "Text": true,
+              "Title": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "limit",
+          "options": {
+            "limitField": "1"
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "dateFormat": "YYYY-MM-DD",
+                "destinationType": "number",
+                "targetField": "Time"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 15
+              },
+              {
+                "color": "green",
+                "value": 16
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Sunrise · Time"
+            },
+            "properties": []
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 4,
+        "x": 20,
+        "y": 5
+      },
+      "id": 4,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 0,
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.2.0-73830",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "hide": false,
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "A",
+          "target": [
+            "sunrise"
+          ]
+        },
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "hide": false,
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "B",
+          "target": [
+            "sunsetStart"
+          ]
+        }
+      ],
+      "title": "Sun Rise and Set Times",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {
+            "frameNameLabel": "frame",
+            "frameNameMode": "field"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Sunrise · Tags": true,
+              "Sunrise · Text": true,
+              "Sunrise · Title": true,
+              "Sunset starts · Tags": true,
+              "Sunset starts · Text": true,
+              "Sunset starts · Time": false,
+              "Sunset starts · Title": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "light-orange",
+                "value": null
+              }
+            ]
+          },
+          "unit": "dateTimeAsLocal"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Sunrise · Text"
+            },
+            "properties": []
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 16,
+        "y": 10
+      },
+      "id": 6,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^Time$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-73830",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "hide": false,
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "A",
+          "target": [
+            "sunsetStart"
+          ]
+        }
+      ],
+      "title": "Sun Set Time",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "Time Sunrise"
+              }
+            ]
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Tags": true,
+              "Text": true,
+              "Title": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "limit",
+          "options": {
+            "limitField": "1"
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "dateFormat": "YYYY-MM-DD",
+                "destinationType": "number",
+                "targetField": "Time"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "light-blue",
+                "value": null
+              }
+            ]
+          },
+          "unit": "dateTimeAsLocal"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Sunrise · Text"
+            },
+            "properties": []
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 16,
+        "y": 15
+      },
+      "id": 7,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^Time$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-73830",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "hide": false,
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "A",
+          "target": [
+            "moonrise"
+          ]
+        }
+      ],
+      "title": "Moon Rise Time",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "Time Sunrise"
+              }
+            ]
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Tags": true,
+              "Text": true,
+              "Title": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "limit",
+          "options": {
+            "limitField": "1"
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "dateFormat": "YYYY-MM-DD",
+                "destinationType": "number",
+                "targetField": "Time"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 15
+              },
+              {
+                "color": "green",
+                "value": 16
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Sunrise · Text"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 249
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 4,
+        "x": 20,
+        "y": 15
+      },
+      "id": 9,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 0,
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.2.0-73830",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "hide": false,
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "A",
+          "target": [
+            "moonrise"
+          ]
+        },
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "hide": false,
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "B",
+          "target": [
+            "moonset"
+          ]
+        }
+      ],
+      "title": "Moon Rise and Set Times",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {
+            "frameNameLabel": "frame",
+            "frameNameMode": "field"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Moonrise · Tags": true,
+              "Moonrise · Text": true,
+              "Moonrise · Title": true,
+              "Moonset · Tags": true,
+              "Moonset · Text": true,
+              "Moonset · Title": true,
+              "Sunrise · Tags": true,
+              "Sunrise · Text": true,
+              "Sunrise · Title": true,
+              "Sunset starts · Tags": true,
+              "Sunset starts · Text": true,
+              "Sunset starts · Time": false,
+              "Sunset starts · Title": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Moonrise · Tags": 4,
+              "Moonrise · Text": 3,
+              "Moonrise · Time": 0,
+              "Moonrise · Title": 2,
+              "Moonset · Tags": 7,
+              "Moonset · Text": 6,
+              "Moonset · Time": 1,
+              "Moonset · Title": 5
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "super-light-blue",
+                "value": null
+              }
+            ]
+          },
+          "unit": "dateTimeAsLocal"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Sunrise · Text"
+            },
+            "properties": []
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 16,
+        "y": 20
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^Time$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-73830",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "hide": false,
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "A",
+          "target": [
+            "sunsetStart"
+          ]
+        }
+      ],
+      "title": "Moon Set Time",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "Time Sunrise"
+              }
+            ]
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Tags": true,
+              "Text": true,
+              "Title": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "limit",
+          "options": {
+            "limitField": "1"
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "dateFormat": "YYYY-MM-DD",
+                "destinationType": "number",
+                "targetField": "Time"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "stat"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 39,
+  "tags": [
+    "Learning",
+    "Beginner"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "49.895138",
+          "value": "49.895138"
+        },
+        "label": "Latitude",
+        "name": "latitude",
+        "options": [
+          {
+            "selected": true,
+            "text": "49.895138",
+            "value": "49.895138"
+          }
+        ],
+        "query": "49.895138",
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "text": "-97.138374",
+          "value": "-97.138374"
+        },
+        "label": "Longitude",
+        "name": "longitude",
+        "options": [
+          {
+            "selected": true,
+            "text": "-97.138374",
+            "value": "-97.138374"
+          }
+        ],
+        "query": "-97.138374",
+        "type": "textbox"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-2d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Task #1 - Following Requirements",
+  "uid": "ddryofv1zo3r4f",
+  "version": 15,
+  "weekStart": ""
+}

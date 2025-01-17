@@ -1,0 +1,1822 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 194,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 30
+              },
+              {
+                "color": "orange",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 0
+      },
+      "id": 18,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time In Queue",
+                "type": "number",
+                "values": [
+                  95
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "name"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Average Time in Queue",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 60
+              },
+              {
+                "color": "orange",
+                "value": 100
+              },
+              {
+                "color": "red",
+                "value": 120
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 9,
+        "x": 3,
+        "y": 0
+      },
+      "id": 17,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Application",
+                "type": "string",
+                "values": [
+                  "LinkAssist",
+                  "Call Guardian",
+                  "CallHandler",
+                  "SignalRouter",
+                  "VoiceLink",
+                  "VoiceAssistant",
+                  "VoiceControl"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Duration",
+                "type": "number",
+                "values": [
+                  238,
+                  120,
+                  175,
+                  234,
+                  100,
+                  127,
+                  62
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "name"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Application Duration Gauge (Seconds)",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": []
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 16,
+      "options": {
+        "legend": {
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true,
+          "values": [
+            "value",
+            "percent"
+          ]
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "asc"
+        }
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "application",
+                "type": "string",
+                "values": [
+                  "LinkAssist",
+                  "Call Guardian",
+                  "CallHandler",
+                  "SignalRouter",
+                  "VoiceLink",
+                  "VoiceAssistant",
+                  "VoiceControl"
+                ]
+              },
+              {
+                "config": {},
+                "name": "error count",
+                "type": "number",
+                "values": [
+                  98,
+                  120,
+                  175,
+                  85,
+                  100,
+                  110,
+                  150
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "name"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "All Applications With Errors",
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 400
+              },
+              {
+                "color": "orange",
+                "value": 800
+              },
+              {
+                "color": "red",
+                "value": 1200
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 3
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time In Queue",
+                "type": "number",
+                "values": [
+                  1200
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "name"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Average IVR Response Time",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 30
+              },
+              {
+                "color": "yellow",
+                "value": 60
+              },
+              {
+                "color": "green",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 6
+      },
+      "id": 20,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time In Queue",
+                "type": "number",
+                "values": [
+                  15
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "name"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Call Completion Rate",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fe2gphzf3r4sgb"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "thresholds",
+            "seriesBy": "min"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Number of Calls",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 15,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 4,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed+area"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 5
+              },
+              {
+                "color": "orange",
+                "value": 20
+              },
+              {
+                "color": "red",
+                "value": 30
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "id": 21,
+      "options": {
+        "legend": {
+          "calcs": [
+            "first",
+            "last",
+            "range",
+            "max",
+            "min",
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fe2gphzf3r4sgb"
+          },
+          "refId": "A",
+          "spreadsheet": "1vUCexPLdLKHF5XJ__9G7hoO0KYRM512ndkP_5HPiibY"
+        }
+      ],
+      "title": "Call Logger Counts",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Status": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Number of Calls": "Failed Calls"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-googlesheets-datasource",
+        "uid": "fe2gphzf3r4sgb"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 22,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fe2gphzf3r4sgb"
+          },
+          "refId": "A",
+          "spreadsheet": "13Gl0WXe_1Qq1nWjt3A3KIlZwIbDx2qoLUt21SOTqV2U"
+        }
+      ],
+      "title": "(IIS Beat) Invalid WAV Files Found By Host",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "count": "Count",
+              "filters": "Filters",
+              "host.hostname": "Host.hostname",
+              "url.path": "URL.path"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 8,
+        "x": 0,
+        "y": 19
+      },
+      "id": 23,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Application",
+                "type": "string",
+                "values": [
+                  "LinkAssist",
+                  "Call Guardian",
+                  "CallHandler",
+                  "SignalRouter",
+                  "VoiceLink",
+                  "VoiceAssistant",
+                  "VoiceControl"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Error Count",
+                "type": "number",
+                "values": [
+                  98,
+                  120,
+                  175,
+                  85,
+                  100,
+                  110,
+                  150
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "name"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Application Hard Failures ErrorLog",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 8,
+        "x": 8,
+        "y": 19
+      },
+      "id": 14,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": true,
+        "showCommonLabels": false,
+        "showLabels": true,
+        "showTime": true,
+        "sortOrder": "Descending",
+        "wrapLogMessage": true
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "editorMode": "builder",
+          "expr": "{filename=\"C:\\\\Users\\\\monta\\\\Downloads\\\\Logs\\\\activity_log.txt\"} | pattern `<ip>,<phone>,<id>,<app>,<date>,<status>,<duration>`",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Activity Logs",
+      "type": "logs"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 8,
+        "x": 16,
+        "y": 19
+      },
+      "id": 9,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": true,
+        "showCommonLabels": false,
+        "showLabels": true,
+        "showTime": true,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "editorMode": "builder",
+          "expr": "{filename=\"C:\\\\Users\\\\monta\\\\Downloads\\\\Logs\\\\error_log_v6.txt\"} | pattern `<ip>,<phone>,<id>,<app>,<date>,<error>`",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Error Logs",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {}
+        },
+        {
+          "id": "labelsToFields",
+          "options": {
+            "mode": "columns"
+          }
+        }
+      ],
+      "type": "logs"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 29
+      },
+      "id": 13,
+      "panels": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "orange",
+                    "value": 95
+                  },
+                  {
+                    "color": "red",
+                    "value": 100
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 11
+          },
+          "id": 10,
+          "options": {
+            "minVizHeight": 75,
+            "minVizWidth": 75,
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "mean"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true,
+            "sizing": "auto"
+          },
+          "pluginVersion": "11.4.0-77868",
+          "targets": [
+            {
+              "datasource": {
+                "type": "loki",
+                "uid": "grafanacloud-logs"
+              },
+              "editorMode": "builder",
+              "expr": "{filename=\"C:\\\\Users\\\\monta\\\\Downloads\\\\Logs\\\\activity_log_format.txt\"} | pattern `<ip>,<phone>,<id>,<app>,<date>,<status>,<duration>`",
+              "queryType": "range",
+              "refId": "A"
+            }
+          ],
+          "title": "Application Duration Gauge (Seconds)",
+          "transformations": [
+            {
+              "id": "extractFields",
+              "options": {
+                "format": "auto",
+                "keepTime": false,
+                "replace": true,
+                "source": "labels"
+              }
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "date": true,
+                  "duration": false,
+                  "filename": true,
+                  "id": true,
+                  "idk": true,
+                  "ip": true,
+                  "phone": true,
+                  "service_name": true,
+                  "status": true,
+                  "time": true
+                },
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {}
+              }
+            },
+            {
+              "id": "convertFieldType",
+              "options": {
+                "conversions": [
+                  {
+                    "destinationType": "number",
+                    "targetField": "duration"
+                  }
+                ],
+                "fields": {}
+              }
+            },
+            {
+              "disabled": true,
+              "id": "calculateField",
+              "options": {
+                "mode": "reduceRow",
+                "reduce": {
+                  "include": [
+                    "Duration"
+                  ],
+                  "reducer": "sum"
+                }
+              }
+            },
+            {
+              "id": "groupBy",
+              "options": {
+                "fields": {
+                  "Duration": {
+                    "aggregations": [
+                      "mean",
+                      "sum"
+                    ],
+                    "operation": "aggregate"
+                  },
+                  "Total": {
+                    "aggregations": [
+                      "sum"
+                    ],
+                    "operation": "aggregate"
+                  },
+                  "app": {
+                    "aggregations": [],
+                    "operation": "groupby"
+                  },
+                  "duration": {
+                    "aggregations": [
+                      "sum",
+                      "mean"
+                    ],
+                    "operation": "aggregate"
+                  },
+                  "uri": {
+                    "aggregations": [
+                      "sum",
+                      "mean"
+                    ],
+                    "operation": "aggregate"
+                  }
+                }
+              }
+            },
+            {
+              "id": "sortBy",
+              "options": {
+                "fields": {},
+                "sort": [
+                  {
+                    "desc": true,
+                    "field": "duration (sum)"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "limit",
+              "options": {
+                "limitField": "4"
+              }
+            }
+          ],
+          "type": "gauge"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": []
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 11
+          },
+          "id": 12,
+          "options": {
+            "displayLabels": [],
+            "legend": {
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "values": [
+                "value",
+                "percent"
+              ]
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "asc"
+            }
+          },
+          "pluginVersion": "11.4.0-77868",
+          "targets": [
+            {
+              "datasource": {
+                "type": "loki",
+                "uid": "grafanacloud-logs"
+              },
+              "editorMode": "code",
+              "expr": "{filename=\"C:\\\\Users\\\\monta\\\\Downloads\\\\Logs\\\\error_log_v6.txt\"} | pattern `<ip>,<phone>,<id>,<app>,<date>,<message>`",
+              "queryType": "range",
+              "refId": "A"
+            }
+          ],
+          "title": "All Applications With Errors",
+          "transformations": [
+            {
+              "id": "extractFields",
+              "options": {
+                "format": "auto",
+                "replace": true,
+                "source": "labels"
+              }
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "date": true,
+                  "detected_level": false,
+                  "filename": true,
+                  "id": true,
+                  "idk": true,
+                  "ip": true,
+                  "message": true,
+                  "phone": true,
+                  "service_name": true,
+                  "time": true
+                },
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {}
+              }
+            },
+            {
+              "id": "calculateField",
+              "options": {
+                "mode": "reduceRow",
+                "reduce": {
+                  "include": [
+                    "app"
+                  ],
+                  "reducer": "count"
+                }
+              }
+            },
+            {
+              "id": "groupBy",
+              "options": {
+                "fields": {
+                  "Count": {
+                    "aggregations": [
+                      "sum"
+                    ],
+                    "operation": "aggregate"
+                  },
+                  "app": {
+                    "aggregations": [],
+                    "operation": "groupby"
+                  }
+                }
+              }
+            },
+            {
+              "disabled": true,
+              "id": "limit",
+              "options": {
+                "limitField": "10"
+              }
+            }
+          ],
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "blue",
+                "mode": "fixed"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.5,
+                "drawStyle": "bars",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 10,
+                "pointSize": 9,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 21
+          },
+          "id": 11,
+          "options": {
+            "legend": {
+              "calcs": [
+                "min",
+                "max",
+                "range",
+                "sum",
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.4.0-77868",
+          "targets": [
+            {
+              "datasource": {
+                "type": "loki",
+                "uid": "grafanacloud-logs"
+              },
+              "editorMode": "builder",
+              "expr": "{filename=\"C:\\\\Users\\\\monta\\\\Downloads\\\\Logs\\\\activity_log_format.txt\"} | pattern `<ip>,<phone>,<id>,<app>,<date>,<status>,<duration>`",
+              "queryType": "range",
+              "refId": "A"
+            }
+          ],
+          "title": "Call Logger Counts",
+          "transformations": [
+            {
+              "id": "extractFields",
+              "options": {
+                "format": "auto",
+                "replace": true,
+                "source": "labels"
+              }
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "duration": true,
+                  "filename": true,
+                  "id": true,
+                  "idk": true,
+                  "ip": true,
+                  "output": true,
+                  "phone": true,
+                  "service_name": true,
+                  "status": true,
+                  "time": false,
+                  "uri": true
+                },
+                "includeByName": {},
+                "indexByName": {
+                  "app": 1,
+                  "date": 0,
+                  "duration": 2,
+                  "filename": 3,
+                  "id": 4,
+                  "ip": 5,
+                  "phone": 6,
+                  "service_name": 7,
+                  "status": 8
+                },
+                "renameByName": {
+                  "status": ""
+                }
+              }
+            },
+            {
+              "id": "convertFieldType",
+              "options": {
+                "conversions": [
+                  {
+                    "dateFormat": "MM/DD/YYYY HH:mm:ss",
+                    "destinationType": "time",
+                    "targetField": "date"
+                  }
+                ],
+                "fields": {}
+              }
+            },
+            {
+              "id": "calculateField",
+              "options": {
+                "mode": "reduceRow",
+                "reduce": {
+                  "include": [
+                    "app"
+                  ],
+                  "reducer": "count"
+                }
+              }
+            },
+            {
+              "id": "groupBy",
+              "options": {
+                "fields": {
+                  "Count": {
+                    "aggregations": [
+                      "sum"
+                    ],
+                    "operation": "aggregate"
+                  },
+                  "app": {
+                    "aggregations": []
+                  },
+                  "date": {
+                    "aggregations": [],
+                    "operation": "groupby"
+                  }
+                }
+              }
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "type": "auto"
+                },
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 21
+          },
+          "id": 5,
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true
+          },
+          "pluginVersion": "11.4.0-77868",
+          "targets": [
+            {
+              "datasource": {
+                "type": "marcusolsson-static-datasource",
+                "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+              },
+              "frame": {
+                "fields": [
+                  {
+                    "config": {},
+                    "name": "host.hostname",
+                    "type": "string",
+                    "values": [
+                      "db01",
+                      "db02",
+                      "db02",
+                      "cache01\t",
+                      "cache01\t",
+                      "cache02\t",
+                      "api01",
+                      "api02",
+                      "web01",
+                      "web02"
+                    ]
+                  },
+                  {
+                    "config": {},
+                    "name": "url.path",
+                    "type": "string",
+                    "values": [
+                      "/",
+                      "/api/v1/address\t",
+                      "/user/settings\t",
+                      "/login",
+                      "/api/v1/logout",
+                      "/2015/users/2/shipping_addresses",
+                      "/contact/form.jsp",
+                      "/random-php-script.php",
+                      "/address/update",
+                      "/login.jsp"
+                    ]
+                  },
+                  {
+                    "config": {},
+                    "name": "filters",
+                    "type": "string",
+                    "values": [
+                      "http.responses.status_code: 404",
+                      "http.responses.status_code: 500",
+                      "http.responses.status_code: 403",
+                      "http.responses.status_code: 404",
+                      "http.responses.status_code: 404",
+                      "http.responses.status_code: 403",
+                      "http.responses.status_code: 404",
+                      "http.responses.status_code: 403",
+                      "http.responses.status_code: 403",
+                      "http.responses.status_code: 404"
+                    ]
+                  },
+                  {
+                    "config": {},
+                    "name": "Count",
+                    "type": "number",
+                    "values": [
+                      0,
+                      67,
+                      67,
+                      100,
+                      100,
+                      34,
+                      87,
+                      46,
+                      23,
+                      43
+                    ]
+                  }
+                ],
+                "meta": {},
+                "name": "Simulated Data"
+              },
+              "refId": "A"
+            }
+          ],
+          "title": "(IIS Beat) Invalid WAV Files Found By Host",
+          "type": "table"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "type": "auto"
+                },
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Count (sum)"
+                },
+                "properties": [
+                  {
+                    "id": "custom.align",
+                    "value": "left"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 8,
+            "x": 0,
+            "y": 31
+          },
+          "id": 4,
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true
+          },
+          "pluginVersion": "11.4.0-77868",
+          "targets": [
+            {
+              "datasource": {
+                "type": "loki",
+                "uid": "grafanacloud-logs"
+              },
+              "editorMode": "code",
+              "expr": "{filename=\"C:\\\\Users\\\\monta\\\\Downloads\\\\Logs\\\\error_log_v6.txt\"} | pattern `<ip>,<phone>,<id>,<app>,<date>,<message>`",
+              "queryType": "range",
+              "refId": "A"
+            }
+          ],
+          "title": "Application Hard Failures ErrorLog",
+          "transformations": [
+            {
+              "id": "extractFields",
+              "options": {
+                "format": "auto",
+                "replace": true,
+                "source": "labels"
+              }
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "date": true,
+                  "detected_level": true,
+                  "filename": true,
+                  "id": true,
+                  "idk": true,
+                  "ip": true,
+                  "message": true,
+                  "phone": true,
+                  "service_name": true,
+                  "time": true
+                },
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {
+                  "app": "Application Name"
+                }
+              }
+            },
+            {
+              "id": "calculateField",
+              "options": {
+                "mode": "reduceRow",
+                "reduce": {
+                  "include": [
+                    "Application Name"
+                  ],
+                  "reducer": "count"
+                }
+              }
+            },
+            {
+              "id": "groupBy",
+              "options": {
+                "fields": {
+                  "Application Name": {
+                    "aggregations": [],
+                    "operation": "groupby"
+                  },
+                  "CVP_Application": {
+                    "aggregations": [],
+                    "operation": "groupby"
+                  },
+                  "Count": {
+                    "aggregations": [
+                      "sum"
+                    ],
+                    "operation": "aggregate"
+                  },
+                  "app": {
+                    "aggregations": [],
+                    "operation": "groupby"
+                  }
+                }
+              }
+            },
+            {
+              "id": "sortBy",
+              "options": {
+                "fields": {},
+                "sort": [
+                  {
+                    "desc": true,
+                    "field": "Count (sum)"
+                  }
+                ]
+              }
+            }
+          ],
+          "type": "table"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 8,
+            "x": 8,
+            "y": 31
+          },
+          "id": 7,
+          "options": {
+            "dedupStrategy": "none",
+            "enableLogDetails": true,
+            "prettifyLogMessage": true,
+            "showCommonLabels": false,
+            "showLabels": true,
+            "showTime": true,
+            "sortOrder": "Descending",
+            "wrapLogMessage": true
+          },
+          "pluginVersion": "11.4.0-77868",
+          "targets": [
+            {
+              "datasource": {
+                "type": "loki",
+                "uid": "grafanacloud-logs"
+              },
+              "editorMode": "builder",
+              "expr": "{filename=\"C:\\\\Users\\\\monta\\\\Downloads\\\\Logs\\\\activity_log.txt\"} | pattern `<ip>,<phone>,<id>,<app>,<date>,<status>,<duration>`",
+              "queryType": "range",
+              "refId": "A"
+            }
+          ],
+          "title": "Activity Logs",
+          "type": "logs"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 8,
+            "x": 16,
+            "y": 31
+          },
+          "id": 15,
+          "options": {
+            "dedupStrategy": "none",
+            "enableLogDetails": true,
+            "prettifyLogMessage": true,
+            "showCommonLabels": false,
+            "showLabels": true,
+            "showTime": true,
+            "sortOrder": "Descending",
+            "wrapLogMessage": false
+          },
+          "pluginVersion": "11.4.0-77868",
+          "targets": [
+            {
+              "datasource": {
+                "type": "loki",
+                "uid": "grafanacloud-logs"
+              },
+              "editorMode": "builder",
+              "expr": "{filename=\"C:\\\\Users\\\\monta\\\\Downloads\\\\Logs\\\\error_log_v6.txt\"} | pattern `<ip>,<phone>,<id>,<app>,<date>,<error>`",
+              "queryType": "range",
+              "refId": "A"
+            }
+          ],
+          "title": "Error Logs",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {}
+            },
+            {
+              "id": "labelsToFields",
+              "options": {
+                "mode": "columns"
+              }
+            }
+          ],
+          "type": "logs"
+        }
+      ],
+      "title": "Row title",
+      "type": "row"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 40,
+  "tags": [
+    "IVR"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "2024-09-24T09:17:22.913Z",
+    "to": "2024-10-31T20:58:58.995Z"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "CVP Dashboard",
+  "uid": "bdzsb2kihx1q8f",
+  "version": 46,
+  "weekStart": ""
+}

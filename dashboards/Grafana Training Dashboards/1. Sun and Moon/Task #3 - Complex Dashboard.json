@@ -1,0 +1,4869 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      },
+      {
+        "datasource": {
+          "type": "fetzerch-sunandmoon-datasource",
+          "uid": "ddrygzboex3wga"
+        },
+        "enable": true,
+        "hide": false,
+        "iconColor": "orange",
+        "name": "Sunrise / Sunset",
+        "target": {
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "Anno",
+          "target": [
+            "sunrise",
+            "sunsetStart"
+          ]
+        }
+      },
+      {
+        "datasource": {
+          "type": "fetzerch-sunandmoon-datasource",
+          "uid": "ddrygzboex3wga"
+        },
+        "enable": true,
+        "hide": false,
+        "iconColor": "semi-dark-blue",
+        "name": "Moonrise / Moonset",
+        "target": {
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "Anno",
+          "target": [
+            "moonrise",
+            "moonset"
+          ]
+        }
+      },
+      {
+        "datasource": {
+          "type": "fetzerch-sunandmoon-datasource",
+          "uid": "ddrygzboex3wga"
+        },
+        "enable": false,
+        "hide": false,
+        "iconColor": "light-orange",
+        "name": "Golden Hour",
+        "target": {
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "Anno",
+          "target": [
+            "goldenHour"
+          ]
+        }
+      },
+      {
+        "datasource": {
+          "type": "fetzerch-sunandmoon-datasource",
+          "uid": "ddrygzboex3wga"
+        },
+        "enable": false,
+        "hide": false,
+        "iconColor": "super-light-blue",
+        "name": "Noon / Midnight",
+        "target": {
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "Anno",
+          "target": [
+            "noon",
+            "midnight"
+          ]
+        }
+      },
+      {
+        "datasource": {
+          "type": "fetzerch-sunandmoon-datasource",
+          "uid": "ddrygzboex3wga"
+        },
+        "enable": false,
+        "hide": false,
+        "iconColor": "dark-orange",
+        "name": "Dusk",
+        "target": {
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "Anno",
+          "target": [
+            "dusk"
+          ]
+        }
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 120,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 3,
+      "panels": [],
+      "title": "Overview",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 0,
+        "y": 1
+      },
+      "id": 14,
+      "options": {
+        "afterRender": "",
+        "content": "<p class=\"responsive-text\">\n  Today's sun rises at <span class=\"highlight\">{{timeformat data.0.sunrise}}</span> and sets at <span class=\"highlight\">{{timeformat data.0.sunset}}</span>,\n  reaching a maximum altitude of <span class=\"highlight\">{{degreeformat data.0.sunalt}}</span>°. <br>\n</p>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 200,
+          "language": "markdown"
+        },
+        "editors": [
+          "helpers",
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "context.handlebars.registerHelper(\"timeformat\", function (time) {\r\n  console.log(\"TIME: \", time)\r\n  var date = new Date(time);\r\n  var options = { hour: 'numeric', minute: 'numeric', hour12: true };\r\n  return date.toLocaleTimeString('en-US', options);\r\n});\r\n\r\ncontext.handlebars.registerHelper(\"degreeformat\", function (altitude) {\r\n  var roundedAltitude = Math.round(altitude);\r\n  return roundedAltitude;\r\n});",
+        "renderMode": "allRows",
+        "styles": ".responsive-text {\r\n  font-size: calc(0.8em + 0.7vw);\r\n  word-wrap: break-word;\r\n  max-width: 100%;\r\n  line-height: 1.4;\r\n  color: rgb(252, 252, 149);\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "A",
+          "target": [
+            "sunrise",
+            "sunsetStart",
+            "sun_maximum_altitude"
+          ]
+        }
+      ],
+      "title": "Sun Summary",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {
+            "frameNameLabel": "frame",
+            "frameNameMode": "field"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Sunrise · Tags": true,
+              "Sunrise · Text": true,
+              "Sunrise · Title": true,
+              "Sunset starts · Tags": true,
+              "Sunset starts · Text": true,
+              "Sunset starts · Title": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Maximum sun altitude of the day": "sunalt",
+              "Maximum sun altitude of the day · Time": "",
+              "Sunrise · Time": "sunrise",
+              "Sunset starts · Time": "sunset",
+              "Sunset starts · Title": ""
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "sunset"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 16,
+        "w": 8,
+        "x": 8,
+        "y": 1
+      },
+      "id": 12,
+      "options": {
+        "basemap": {
+          "config": {
+            "server": "streets"
+          },
+          "name": "Layer 0",
+          "tooltip": true,
+          "type": "esri-xyz"
+        },
+        "controls": {
+          "mouseWheelZoom": true,
+          "showAttribution": true,
+          "showDebug": false,
+          "showMeasure": true,
+          "showScale": true,
+          "showZoom": true
+        },
+        "layers": [
+          {
+            "config": {
+              "nightColor": "#a7a6ba4D",
+              "show": "to",
+              "sun": true
+            },
+            "location": {
+              "mode": "auto"
+            },
+            "name": "Day & Night",
+            "tooltip": true,
+            "type": "dayNight"
+          },
+          {
+            "config": {
+              "showLegend": true,
+              "style": {
+                "color": {
+                  "fixed": "dark-red"
+                },
+                "opacity": 1,
+                "rotation": {
+                  "fixed": 0,
+                  "max": 360,
+                  "min": -360,
+                  "mode": "mod"
+                },
+                "size": {
+                  "fixed": 10,
+                  "max": 15,
+                  "min": 2
+                },
+                "symbol": {
+                  "fixed": "img/icons/marker/star.svg",
+                  "mode": "fixed"
+                },
+                "symbolAlign": {
+                  "horizontal": "center",
+                  "vertical": "center"
+                },
+                "text": {
+                  "field": "Value",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "textConfig": {
+                  "fontSize": 12,
+                  "offsetX": 0,
+                  "offsetY": 0,
+                  "textAlign": "center",
+                  "textBaseline": "middle"
+                }
+              }
+            },
+            "filterData": {
+              "id": "byRefId",
+              "options": "B"
+            },
+            "location": {
+              "lookup": "Location Latitude",
+              "mode": "auto"
+            },
+            "name": "Coordinate Location",
+            "tooltip": true,
+            "type": "markers"
+          }
+        ],
+        "tooltip": {
+          "mode": "details"
+        },
+        "view": {
+          "allLayers": true,
+          "id": "coords",
+          "lat": 26.605522,
+          "lon": 12.634245,
+          "zoom": 1.71
+        }
+      },
+      "pluginVersion": "11.2.0-74515",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Latitude",
+                "type": "string",
+                "values": [
+                  "$latitude"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Longitude",
+                "type": "string",
+                "values": [
+                  "$longitude"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Location"
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "Current Sunlight Map",
+      "type": "geomap"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 4,
+        "x": 16,
+        "y": 1
+      },
+      "id": 9,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 0,
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0-74515",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "A",
+          "target": [
+            "sunrise",
+            "sunsetStart"
+          ]
+        }
+      ],
+      "title": "Sun Rise and Set Times",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Sunrise · Tags": true,
+              "Sunrise · Text": true,
+              "Sunrise · Title": true,
+              "Sunset starts · Tags": true,
+              "Sunset starts · Text": true,
+              "Sunset starts · Title": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 4,
+        "x": 20,
+        "y": 1
+      },
+      "id": 8,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.2.0-74515",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "A",
+          "target": [
+            "moonrise",
+            "moonset"
+          ]
+        }
+      ],
+      "title": "Moon Rise and Set Times",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Moonrise · Tags": true,
+              "Moonrise · Text": true,
+              "Moonrise · Title": true,
+              "Moonset · Tags": true,
+              "Moonset · Text": true,
+              "Moonset · Title": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 0,
+        "y": 5
+      },
+      "id": 15,
+      "options": {
+        "afterRender": "",
+        "content": "<p class=\"responsive-text\">\n  The moon rises at <span class=\"highlight\">{{timeformat data.0.moonrise}}</span> and sets at <span class=\"highlight\">{{timeformat data.0.moonset}}</span>,\n  with <span class=\"highlight\">{{illumination data.0.moonill}}</span>% illumination.\n</p>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 200,
+          "language": "markdown"
+        },
+        "editors": [
+          "helpers",
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "context.handlebars.registerHelper(\"timeformat\", function (time) {\r\n  console.log(\"TIME: \", time)\r\n  var date = new Date(time);\r\n  var options = { hour: 'numeric', minute: 'numeric', hour12: true };\r\n  return date.toLocaleTimeString('en-US', options);\r\n});\r\n\r\ncontext.handlebars.registerHelper(\"illumination\", function (illumination) {\r\n  var percentage = illumination * 100;\r\n  var roundedPercentage = Math.round(percentage);\r\n  return roundedPercentage;\r\n});",
+        "renderMode": "allRows",
+        "styles": ".responsive-text {\r\n  font-size: calc(0.8em + 0.7vw);\r\n  word-wrap: break-word;\r\n  max-width: 100%;\r\n  line-height: 1.4;\r\n  color: rgb(149, 202, 252);\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "A",
+          "target": [
+            "moonrise",
+            "moonset",
+            "moon_illumination"
+          ]
+        }
+      ],
+      "title": "Moon Summary",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {
+            "frameNameLabel": "frame",
+            "frameNameMode": "field"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Sunrise · Tags": true,
+              "Sunrise · Text": true,
+              "Sunrise · Title": true,
+              "Sunset starts · Tags": true,
+              "Sunset starts · Text": true,
+              "Sunset starts · Title": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Maximum sun altitude of the day": "sunalt",
+              "Maximum sun altitude of the day · Time": "",
+              "Moon illumination": "moonill",
+              "Moonrise · Time": "moonrise",
+              "Moonset · Time": "moonset",
+              "Sunrise · Time": "sunrise",
+              "Sunset starts · Time": "sunset",
+              "Sunset starts · Title": ""
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "moonset"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "description": "This metric represents the highest point the sun reaches during the day, typically at solar noon. The altitude value indicates the angle of the sun above the horizon, where a higher value means the sun is higher in the sky.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "from": -90,
+                "result": {
+                  "color": "light-yellow",
+                  "index": 0
+                },
+                "to": 0
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 1,
+                "result": {
+                  "color": "yellow",
+                  "index": 1
+                },
+                "to": 45
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 46,
+                "result": {
+                  "color": "semi-dark-yellow",
+                  "index": 2
+                },
+                "to": 90
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 9
+      },
+      "id": 6,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-74515",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "A",
+          "target": [
+            "sun_maximum_altitude"
+          ]
+        }
+      ],
+      "title": "Maximum Sun Altitude",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "description": "The height of the moon in degrees, where negative values indicate the moon is below the horizon, and positive values indicate it is above.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "from": -90,
+                "result": {
+                  "color": "light-blue",
+                  "index": 0
+                },
+                "to": 0
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 1,
+                "result": {
+                  "color": "super-light-blue",
+                  "index": 1
+                },
+                "to": 90
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 9
+      },
+      "id": 10,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-74515",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "A",
+          "target": [
+            "moon_altitude"
+          ]
+        }
+      ],
+      "title": "Current Moon Position",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 3,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Sun altitude"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Moon altitude"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Moon illumination"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 9
+      },
+      "id": 31,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.2.0-74515",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "A",
+          "target": [
+            "sun_altitude"
+          ]
+        },
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "hide": false,
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "B",
+          "target": [
+            "moon_altitude"
+          ]
+        },
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "hide": false,
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "C",
+          "target": [
+            "moon_illumination"
+          ]
+        }
+      ],
+      "title": "Sun and Moon Trajectories",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "description": "The height of the sun in degrees, where negative values indicate the sun is below the horizon, and positive values indicate it is above.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "from": -90,
+                "result": {
+                  "color": "light-blue",
+                  "index": 0
+                },
+                "to": 0
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 1,
+                "result": {
+                  "color": "light-yellow",
+                  "index": 1
+                },
+                "to": 45
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 46,
+                "result": {
+                  "color": "light-red",
+                  "index": 2
+                },
+                "to": 90
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 13
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-74515",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "A",
+          "target": [
+            "sun_altitude"
+          ]
+        }
+      ],
+      "title": "Current Sun Position",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "default": false,
+        "type": "fetzerch-sunandmoon-datasource",
+        "uid": "ddrygzboex3wga"
+      },
+      "description": "Moon Illumination (Percentage of the moon illuminated by the sun)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "fieldMinMax": false,
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "#000000",
+                  "index": 0,
+                  "text": "🌑 New Moon"
+                },
+                "1": {
+                  "color": "#ffffff",
+                  "index": 4,
+                  "text": "🌕 Full Moon"
+                },
+                "0.50": {
+                  "color": "#585858",
+                  "index": 2,
+                  "text": "First or Last Quarter Mon"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "from": 0.01,
+                "result": {
+                  "color": "#9b9b9b",
+                  "index": 1,
+                  "text": "Crescent Moon"
+                },
+                "to": 0.49
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 0.51,
+                "result": {
+                  "color": "#d1d1d1",
+                  "index": 3,
+                  "text": "Gibbous Moon"
+                },
+                "to": 0.99
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Moon illumination"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "thresholds"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "#000000",
+                        "index": 0
+                      },
+                      "1": {
+                        "color": "#ffffff",
+                        "index": 4
+                      },
+                      "0.50": {
+                        "color": "#585858",
+                        "index": 2
+                      }
+                    },
+                    "type": "value"
+                  },
+                  {
+                    "options": {
+                      "from": 0.01,
+                      "result": {
+                        "color": "#9b9b9b",
+                        "index": 1
+                      },
+                      "to": 0.49
+                    },
+                    "type": "range"
+                  },
+                  {
+                    "options": {
+                      "from": 0.51,
+                      "result": {
+                        "color": "#d1d1d1",
+                        "index": 3
+                      },
+                      "to": 0.99
+                    },
+                    "type": "range"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Phase"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "#000000",
+                        "index": 0,
+                        "text": "🌑 New Moon"
+                      },
+                      "1": {
+                        "color": "#ffffff",
+                        "index": 4,
+                        "text": "🌕 Full Moon"
+                      },
+                      "0.50": {
+                        "color": "#585858",
+                        "index": 2,
+                        "text": "First or Last Quarter Moon"
+                      }
+                    },
+                    "type": "value"
+                  },
+                  {
+                    "options": {
+                      "from": 0.01,
+                      "result": {
+                        "color": "#9b9b9b",
+                        "index": 1,
+                        "text": "Crescent Moon"
+                      },
+                      "to": 0.49
+                    },
+                    "type": "range"
+                  },
+                  {
+                    "options": {
+                      "from": 0.51,
+                      "result": {
+                        "color": "#d1d1d1",
+                        "index": 3,
+                        "text": "Gibbous Moon"
+                      },
+                      "to": 0.99
+                    },
+                    "type": "range"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 13
+      },
+      "id": 5,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.2.0-74515",
+      "targets": [
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "latitude": "$latitude",
+          "longitude": "$longitude",
+          "refId": "A",
+          "target": [
+            "moon_illumination"
+          ]
+        }
+      ],
+      "title": "Current Moon Illumination",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Phase",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "Moon illumination"
+              ],
+              "reducer": "last"
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 2,
+      "panels": [
+        {
+          "datasource": {
+            "default": false,
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "light-yellow",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "dateTimeAsLocal"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Sunrise · Text"
+                },
+                "properties": []
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 0,
+            "y": 18
+          },
+          "id": 32,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [],
+              "fields": "/^Time$/",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "hide": false,
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "sunrise"
+              ]
+            }
+          ],
+          "title": "Sun Rise",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Tags": true,
+                  "Text": true,
+                  "Title": true
+                },
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {}
+              }
+            },
+            {
+              "id": "sortBy",
+              "options": {
+                "fields": {},
+                "sort": [
+                  {
+                    "desc": true,
+                    "field": "Time"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "limit",
+              "options": {
+                "limitField": "1"
+              }
+            },
+            {
+              "id": "convertFieldType",
+              "options": {
+                "conversions": [
+                  {
+                    "dateFormat": "YYYY-MM-DD",
+                    "destinationType": "number",
+                    "targetField": "Time"
+                  }
+                ],
+                "fields": {}
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "default": false,
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "light-orange",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "dateTimeAsLocal"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Sunrise · Text"
+                },
+                "properties": []
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 12,
+            "y": 18
+          },
+          "id": 34,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [],
+              "fields": "/^Time$/",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "hide": false,
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "sunset"
+              ]
+            }
+          ],
+          "title": "Sun Set",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Tags": true,
+                  "Text": true,
+                  "Title": true
+                },
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {}
+              }
+            },
+            {
+              "id": "sortBy",
+              "options": {
+                "fields": {},
+                "sort": [
+                  {
+                    "desc": true,
+                    "field": "Time"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "limit",
+              "options": {
+                "limitField": "1"
+              }
+            },
+            {
+              "id": "convertFieldType",
+              "options": {
+                "conversions": [
+                  {
+                    "dateFormat": "YYYY-MM-DD",
+                    "destinationType": "number",
+                    "targetField": "Time"
+                  }
+                ],
+                "fields": {}
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "default": false,
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "description": "This panel shows how high the sun is in the sky, with color gradients indicating different altitude ranges.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "blue",
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "from": -90,
+                    "result": {
+                      "color": "blue",
+                      "index": 0
+                    },
+                    "to": 0
+                  },
+                  "type": "range"
+                },
+                {
+                  "options": {
+                    "from": 1,
+                    "result": {
+                      "color": "light-yellow",
+                      "index": 1
+                    },
+                    "to": 45
+                  },
+                  "type": "range"
+                },
+                {
+                  "options": {
+                    "from": 46,
+                    "result": {
+                      "color": "light-red",
+                      "index": 2
+                    },
+                    "to": 90
+                  },
+                  "type": "range"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 0,
+            "y": 44
+          },
+          "id": 16,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "last"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "sun_altitude"
+              ]
+            }
+          ],
+          "title": "Sun Altitude",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "default": false,
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "description": "This graph provides a detailed view of the sun's altitude throughout the day.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "yellow",
+                "mode": "fixed"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 15,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 3,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "always",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 9,
+            "x": 3,
+            "y": 44
+          },
+          "id": 20,
+          "options": {
+            "legend": {
+              "calcs": [
+                "first",
+                "last",
+                "range",
+                "min",
+                "max"
+              ],
+              "displayMode": "table",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "datasource",
+                "uid": "-- Dashboard --"
+              },
+              "panelId": 16,
+              "refId": "A"
+            }
+          ],
+          "title": "Sun Trajectory Over the Day",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {},
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {
+                  "Sun altitude": "Sun Altitude"
+                }
+              }
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "default": false,
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "description": "This panel displays the total duration of daylight hours for the current day, calculated from sunrise to sunset, providing a quick overview of how long the sun is above the horizon.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "light-red",
+                    "value": 6
+                  },
+                  {
+                    "color": "light-orange",
+                    "value": 12
+                  },
+                  {
+                    "color": "light-yellow",
+                    "value": 13
+                  }
+                ]
+              },
+              "unit": "h"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 12,
+            "y": 44
+          },
+          "id": 24,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "last"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "sunrise"
+              ]
+            },
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "hide": false,
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "B",
+              "target": [
+                "sunset"
+              ]
+            }
+          ],
+          "title": "Daylight Duration",
+          "transformations": [
+            {
+              "id": "concatenate",
+              "options": {}
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Sunrise · Tags": true,
+                  "Sunrise · Text": true,
+                  "Sunrise · Title": true,
+                  "Sunset · Tags": true,
+                  "Sunset · Text": true,
+                  "Sunset · Title": true
+                },
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {}
+              }
+            },
+            {
+              "disabled": true,
+              "id": "limit",
+              "options": {
+                "limitField": "1"
+              }
+            },
+            {
+              "id": "calculateField",
+              "options": {
+                "alias": "Epoch Differences",
+                "binary": {
+                  "left": "Sunset · Time",
+                  "operator": "-",
+                  "right": "Sunrise · Time"
+                },
+                "mode": "binary",
+                "reduce": {
+                  "reducer": "sum"
+                },
+                "replaceFields": false
+              }
+            },
+            {
+              "id": "calculateField",
+              "options": {
+                "alias": "ms to s",
+                "binary": {
+                  "left": "Epoch Differences",
+                  "operator": "/",
+                  "right": "1000"
+                },
+                "mode": "binary",
+                "reduce": {
+                  "reducer": "sum"
+                },
+                "replaceFields": false
+              }
+            },
+            {
+              "id": "calculateField",
+              "options": {
+                "alias": "Daylight Duration H",
+                "binary": {
+                  "left": "ms to s",
+                  "operator": "/",
+                  "right": "3600"
+                },
+                "mode": "binary",
+                "reduce": {
+                  "reducer": "sum"
+                },
+                "replaceFields": true
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "default": false,
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "type": "auto"
+                },
+                "filterable": true,
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 9,
+            "x": 15,
+            "y": 44
+          },
+          "id": 23,
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "frameIndex": 0,
+            "showHeader": true
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "sunrise",
+                "sunriseEnd",
+                "sunsetStart",
+                "sunset"
+              ]
+            }
+          ],
+          "title": "Sun Rise and Set Times",
+          "transformations": [
+            {
+              "id": "concatenate",
+              "options": {}
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Sunrise ends · Tags": true,
+                  "Sunrise ends · Text": true,
+                  "Sunrise ends · Title": true,
+                  "Sunrise · Tags": true,
+                  "Sunrise · Text": true,
+                  "Sunrise · Title": true,
+                  "Sunset starts · Tags": true,
+                  "Sunset starts · Text": true,
+                  "Sunset starts · Title": true,
+                  "Sunset · Tags": true,
+                  "Sunset · Text": true,
+                  "Sunset · Title": true
+                },
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {}
+              }
+            },
+            {
+              "id": "sortBy",
+              "options": {
+                "fields": {},
+                "sort": [
+                  {
+                    "desc": true,
+                    "field": "Sunrise · Time"
+                  }
+                ]
+              }
+            }
+          ],
+          "type": "table"
+        },
+        {
+          "datasource": {
+            "default": false,
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "description": "This panel displays the sun's direction along the horizon, showing where the sun is positioned in terms of cardinal directions.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "from": -90,
+                    "result": {
+                      "color": "blue",
+                      "index": 0
+                    },
+                    "to": 0
+                  },
+                  "type": "range"
+                },
+                {
+                  "options": {
+                    "from": 1,
+                    "result": {
+                      "color": "light-yellow",
+                      "index": 1
+                    },
+                    "to": 45
+                  },
+                  "type": "range"
+                },
+                {
+                  "options": {
+                    "from": 46,
+                    "result": {
+                      "color": "light-red",
+                      "index": 2
+                    },
+                    "to": 90
+                  },
+                  "type": "range"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "light-yellow",
+                    "value": null
+                  },
+                  {
+                    "color": "yellow",
+                    "value": 91
+                  },
+                  {
+                    "color": "dark-yellow",
+                    "value": 271
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 0,
+            "y": 50
+          },
+          "id": 18,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "last"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "sun_azimuth"
+              ]
+            },
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "hide": false,
+              "refId": "B",
+              "target": []
+            }
+          ],
+          "title": "Sun Azimuth",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "default": false,
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "description": "This panel displays the sun's direction along the horizon, showing where the sun is positioned in terms of cardinal directions.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 15,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 3,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "yellow",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 9,
+            "x": 3,
+            "y": 50
+          },
+          "id": 19,
+          "options": {
+            "legend": {
+              "calcs": [
+                "first",
+                "last",
+                "range",
+                "min",
+                "max"
+              ],
+              "displayMode": "table",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "datasource",
+                "uid": "-- Dashboard --"
+              },
+              "panelId": 18,
+              "refId": "A"
+            }
+          ],
+          "title": "Sun Azimuth",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {},
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {
+                  "Sun azimuth": "Sun Azimuth"
+                }
+              }
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "default": false,
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "description": "This panel displays the current sun altitude, indicating how high the sun is above or below the horizon at any given time.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "light-blue",
+                    "value": null
+                  },
+                  {
+                    "color": "blue",
+                    "value": 1
+                  },
+                  {
+                    "color": "dark-blue",
+                    "value": 31
+                  },
+                  {
+                    "color": "#002153",
+                    "value": 61
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 12,
+            "y": 50
+          },
+          "id": 21,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "sun_maximum_altitude"
+              ]
+            }
+          ],
+          "title": "Maximum Sun Altitude of the Day",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "default": false,
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "description": "This panel displays the current sun altitude, indicating how high the sun is above or below the horizon at any given time.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 15,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 3,
+                "pointSize": 7,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "dark-yellow",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 9,
+            "x": 15,
+            "y": 50
+          },
+          "id": 22,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "hidden",
+              "placement": "right",
+              "showLegend": false
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "datasource",
+                "uid": "-- Dashboard --"
+              },
+              "panelId": 21,
+              "refId": "A"
+            }
+          ],
+          "title": "Maximum Sun Altitude of the Day",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "description": "Displays the duration of the sunrise period, showing how long it takes from when the top edge of the sun first appears on the horizon to when the bottom edge of the sun touches the horizon.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "from": 0,
+                    "result": {
+                      "color": "light-blue",
+                      "index": 0
+                    },
+                    "to": 180
+                  },
+                  "type": "range"
+                },
+                {
+                  "options": {
+                    "from": 181,
+                    "result": {
+                      "color": "blue",
+                      "index": 1
+                    },
+                    "to": 360
+                  },
+                  "type": "range"
+                },
+                {
+                  "options": {
+                    "from": 361,
+                    "result": {
+                      "color": "dark-blue",
+                      "index": 2
+                    },
+                    "to": 10000
+                  },
+                  "type": "range"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "s"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 0,
+            "y": 56
+          },
+          "id": 26,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "center",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "sunrise"
+              ]
+            },
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "hide": false,
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "B",
+              "target": [
+                "sunriseEnd"
+              ]
+            }
+          ],
+          "title": "Sunrise Duration",
+          "transformations": [
+            {
+              "id": "concatenate",
+              "options": {}
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Sunrise ends · Tags": true,
+                  "Sunrise ends · Text": true,
+                  "Sunrise ends · Title": true,
+                  "Sunrise · Tags": true,
+                  "Sunrise · Text": true,
+                  "Sunrise · Title": true
+                },
+                "includeByName": {},
+                "indexByName": {
+                  "Sunrise ends · Tags": 7,
+                  "Sunrise ends · Text": 6,
+                  "Sunrise ends · Time": 1,
+                  "Sunrise ends · Title": 5,
+                  "Sunrise · Tags": 4,
+                  "Sunrise · Text": 3,
+                  "Sunrise · Time": 0,
+                  "Sunrise · Title": 2
+                },
+                "renameByName": {}
+              }
+            },
+            {
+              "id": "calculateField",
+              "options": {
+                "alias": "Duration Calculation",
+                "binary": {
+                  "left": "Sunrise ends · Time",
+                  "operator": "-",
+                  "right": "Sunrise · Time"
+                },
+                "mode": "binary",
+                "reduce": {
+                  "reducer": "sum"
+                }
+              }
+            },
+            {
+              "id": "calculateField",
+              "options": {
+                "alias": "Duration",
+                "binary": {
+                  "left": "Duration Calculation",
+                  "operator": "/",
+                  "right": "1000"
+                },
+                "mode": "binary",
+                "reduce": {
+                  "reducer": "sum"
+                },
+                "replaceFields": true
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "description": "Displays the duration of the sunset period, showing how long it takes from when the bottom edge of the sun starts to touch the horizon to when the sun completely disappears below the horizon.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "light-orange",
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 15,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 3,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "light-orange",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 180
+                  },
+                  {
+                    "color": "dark-orange",
+                    "value": 360
+                  }
+                ]
+              },
+              "unit": "s"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 9,
+            "x": 3,
+            "y": 56
+          },
+          "id": 29,
+          "options": {
+            "legend": {
+              "calcs": [
+                "first",
+                "last",
+                "range",
+                "min",
+                "max"
+              ],
+              "displayMode": "table",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "datasource",
+                "uid": "-- Dashboard --"
+              },
+              "panelId": 28,
+              "refId": "A"
+            }
+          ],
+          "title": "Sunset Duration",
+          "transformations": [
+            {
+              "id": "concatenate",
+              "options": {}
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Sunrise ends · Tags": true,
+                  "Sunrise ends · Text": true,
+                  "Sunrise ends · Title": true,
+                  "Sunrise · Tags": true,
+                  "Sunrise · Text": true,
+                  "Sunrise · Title": true,
+                  "Sunset starts · Tags": true,
+                  "Sunset starts · Text": true,
+                  "Sunset starts · Title": true,
+                  "Sunset · Tags": true,
+                  "Sunset · Text": true,
+                  "Sunset · Title": true
+                },
+                "includeByName": {},
+                "indexByName": {
+                  "Sunrise ends · Tags": 7,
+                  "Sunrise ends · Text": 6,
+                  "Sunrise ends · Time": 1,
+                  "Sunrise ends · Title": 5,
+                  "Sunrise · Tags": 4,
+                  "Sunrise · Text": 3,
+                  "Sunrise · Time": 0,
+                  "Sunrise · Title": 2
+                },
+                "renameByName": {}
+              }
+            },
+            {
+              "id": "calculateField",
+              "options": {
+                "alias": "Duration Calculation",
+                "binary": {
+                  "left": "Sunset · Time",
+                  "operator": "-",
+                  "right": "Sunset starts · Time"
+                },
+                "mode": "binary",
+                "reduce": {
+                  "reducer": "sum"
+                }
+              }
+            },
+            {
+              "id": "calculateField",
+              "options": {
+                "alias": "Sunset Duration",
+                "binary": {
+                  "left": "Duration Calculation",
+                  "operator": "/",
+                  "right": "1000"
+                },
+                "mode": "binary",
+                "reduce": {
+                  "reducer": "sum"
+                },
+                "replaceFields": true
+              }
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "description": "This heatmap visualizes the sun's movement throughout the day by displaying changes in its altitude and azimuth.",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "scaleDistribution": {
+                  "type": "linear"
+                }
+              },
+              "fieldMinMax": false
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 12,
+            "w": 12,
+            "x": 12,
+            "y": 56
+          },
+          "id": 25,
+          "options": {
+            "calculate": false,
+            "cellGap": 0,
+            "color": {
+              "exponent": 0.5,
+              "fill": "dark-orange",
+              "min": 2,
+              "mode": "scheme",
+              "reverse": false,
+              "scale": "exponential",
+              "scheme": "Oranges",
+              "steps": 50
+            },
+            "exemplars": {
+              "color": "rgba(255,0,255,0.7)"
+            },
+            "filterValues": {
+              "le": 1e-9
+            },
+            "legend": {
+              "show": true
+            },
+            "rowsFrame": {
+              "layout": "auto"
+            },
+            "tooltip": {
+              "mode": "multi",
+              "showColorScale": false,
+              "yHistogram": false
+            },
+            "yAxis": {
+              "axisPlacement": "left",
+              "reverse": false
+            }
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "sun_altitude",
+                "sun_azimuth"
+              ]
+            }
+          ],
+          "title": "Sun Movement Throughout the Day",
+          "type": "heatmap"
+        },
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "description": "Displays the duration of the sunset period, showing how long it takes from when the bottom edge of the sun starts to touch the horizon to when the sun completely disappears below the horizon.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "from": 0,
+                    "result": {
+                      "color": "light-orange",
+                      "index": 0
+                    },
+                    "to": 180
+                  },
+                  "type": "range"
+                },
+                {
+                  "options": {
+                    "from": 181,
+                    "result": {
+                      "color": "orange",
+                      "index": 1
+                    },
+                    "to": 360
+                  },
+                  "type": "range"
+                },
+                {
+                  "options": {
+                    "from": 361,
+                    "result": {
+                      "color": "dark-orange",
+                      "index": 2
+                    },
+                    "to": 10000
+                  },
+                  "type": "range"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "s"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 0,
+            "y": 62
+          },
+          "id": 28,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "last"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "sunsetStart"
+              ]
+            },
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "hide": false,
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "B",
+              "target": [
+                "sunset"
+              ]
+            }
+          ],
+          "title": "Sunset Duration",
+          "transformations": [
+            {
+              "id": "concatenate",
+              "options": {}
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Sunrise ends · Tags": true,
+                  "Sunrise ends · Text": true,
+                  "Sunrise ends · Title": true,
+                  "Sunrise · Tags": true,
+                  "Sunrise · Text": true,
+                  "Sunrise · Title": true,
+                  "Sunset starts · Tags": true,
+                  "Sunset starts · Text": true,
+                  "Sunset starts · Title": true,
+                  "Sunset · Tags": true,
+                  "Sunset · Text": true,
+                  "Sunset · Title": true
+                },
+                "includeByName": {},
+                "indexByName": {
+                  "Sunrise ends · Tags": 7,
+                  "Sunrise ends · Text": 6,
+                  "Sunrise ends · Time": 1,
+                  "Sunrise ends · Title": 5,
+                  "Sunrise · Tags": 4,
+                  "Sunrise · Text": 3,
+                  "Sunrise · Time": 0,
+                  "Sunrise · Title": 2
+                },
+                "renameByName": {}
+              }
+            },
+            {
+              "id": "calculateField",
+              "options": {
+                "alias": "Duration Calculation",
+                "binary": {
+                  "left": "Sunset · Time",
+                  "operator": "-",
+                  "right": "Sunset starts · Time"
+                },
+                "mode": "binary",
+                "reduce": {
+                  "reducer": "sum"
+                }
+              }
+            },
+            {
+              "id": "calculateField",
+              "options": {
+                "alias": "Duration",
+                "binary": {
+                  "left": "Duration Calculation",
+                  "operator": "/",
+                  "right": "1000"
+                },
+                "mode": "binary",
+                "reduce": {
+                  "reducer": "sum"
+                },
+                "replaceFields": true
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "description": "Displays the duration of the sunrise period, showing how long it takes from when the top edge of the sun first appears on the horizon to when the bottom edge of the sun touches the horizon.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 15,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 3,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "from": 0,
+                    "result": {
+                      "color": "light-blue",
+                      "index": 0
+                    },
+                    "to": 180
+                  },
+                  "type": "range"
+                },
+                {
+                  "options": {
+                    "from": 181,
+                    "result": {
+                      "color": "blue",
+                      "index": 1
+                    },
+                    "to": 360
+                  },
+                  "type": "range"
+                },
+                {
+                  "options": {
+                    "from": 361,
+                    "result": {
+                      "color": "dark-blue",
+                      "index": 2
+                    },
+                    "to": 10000
+                  },
+                  "type": "range"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "light-blue",
+                    "value": null
+                  },
+                  {
+                    "color": "blue",
+                    "value": 180
+                  },
+                  {
+                    "color": "dark-blue",
+                    "value": 360
+                  }
+                ]
+              },
+              "unit": "s"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 9,
+            "x": 3,
+            "y": 62
+          },
+          "id": 27,
+          "options": {
+            "legend": {
+              "calcs": [
+                "first",
+                "last",
+                "range",
+                "min",
+                "max"
+              ],
+              "displayMode": "table",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "datasource",
+                "uid": "-- Dashboard --"
+              },
+              "panelId": 26,
+              "refId": "A"
+            }
+          ],
+          "title": "Sunrise Duration",
+          "transformations": [
+            {
+              "id": "concatenate",
+              "options": {}
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Sunrise ends · Tags": true,
+                  "Sunrise ends · Text": true,
+                  "Sunrise ends · Title": true,
+                  "Sunrise · Tags": true,
+                  "Sunrise · Text": true,
+                  "Sunrise · Title": true
+                },
+                "includeByName": {},
+                "indexByName": {
+                  "Sunrise ends · Tags": 7,
+                  "Sunrise ends · Text": 6,
+                  "Sunrise ends · Time": 1,
+                  "Sunrise ends · Title": 5,
+                  "Sunrise · Tags": 4,
+                  "Sunrise · Text": 3,
+                  "Sunrise · Time": 0,
+                  "Sunrise · Title": 2
+                },
+                "renameByName": {}
+              }
+            },
+            {
+              "id": "calculateField",
+              "options": {
+                "alias": "Duration Calculation",
+                "binary": {
+                  "left": "Sunrise ends · Time",
+                  "operator": "-",
+                  "right": "Sunrise · Time"
+                },
+                "mode": "binary",
+                "reduce": {
+                  "reducer": "sum"
+                }
+              }
+            },
+            {
+              "id": "calculateField",
+              "options": {
+                "alias": "Sunrise Duration",
+                "binary": {
+                  "left": "Duration Calculation",
+                  "operator": "/",
+                  "right": "1000"
+                },
+                "mode": "binary",
+                "reduce": {
+                  "reducer": "sum"
+                },
+                "replaceFields": true
+              }
+            }
+          ],
+          "type": "timeseries"
+        }
+      ],
+      "title": "Sun",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 18
+      },
+      "id": 1,
+      "panels": [
+        {
+          "datasource": {
+            "default": false,
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "light-blue",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "dateTimeAsLocal"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 12,
+            "x": 0,
+            "y": 19
+          },
+          "id": 35,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [],
+              "fields": "/^Time$/",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "hide": false,
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "moonrise"
+              ]
+            }
+          ],
+          "title": "Moon Rise",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Tags": true,
+                  "Text": true,
+                  "Title": true
+                },
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {}
+              }
+            },
+            {
+              "id": "sortBy",
+              "options": {
+                "fields": {},
+                "sort": [
+                  {
+                    "desc": true,
+                    "field": "Time"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "limit",
+              "options": {
+                "limitField": "1"
+              }
+            },
+            {
+              "id": "convertFieldType",
+              "options": {
+                "conversions": [
+                  {
+                    "dateFormat": "YYYY-MM-DD",
+                    "destinationType": "number",
+                    "targetField": "Time"
+                  }
+                ],
+                "fields": {}
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "default": false,
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "semi-dark-blue",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "dateTimeAsLocal"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 12,
+            "x": 12,
+            "y": 19
+          },
+          "id": 36,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [],
+              "fields": "/^Time$/",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "hide": false,
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "moonset"
+              ]
+            }
+          ],
+          "title": "Moon Set",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Tags": true,
+                  "Text": true,
+                  "Title": true
+                },
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {}
+              }
+            },
+            {
+              "id": "sortBy",
+              "options": {
+                "fields": {},
+                "sort": [
+                  {
+                    "desc": true,
+                    "field": "Time"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "limit",
+              "options": {
+                "limitField": "1"
+              }
+            },
+            {
+              "id": "convertFieldType",
+              "options": {
+                "conversions": [
+                  {
+                    "dateFormat": "YYYY-MM-DD",
+                    "destinationType": "number",
+                    "targetField": "Time"
+                  }
+                ],
+                "fields": {}
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "default": false,
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "fieldMinMax": false,
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "index": 0,
+                      "text": "🌑 New Moon"
+                    },
+                    "0.50": {
+                      "index": 2,
+                      "text": "First/Last Quarters"
+                    },
+                    "1.0": {
+                      "index": 4,
+                      "text": "🌕 Full Moon"
+                    }
+                  },
+                  "type": "value"
+                },
+                {
+                  "options": {
+                    "from": 0.01,
+                    "result": {
+                      "index": 1,
+                      "text": "🌒🌘 Waxing/Waning Crescent"
+                    },
+                    "to": 0.24
+                  },
+                  "type": "range"
+                },
+                {
+                  "options": {
+                    "from": 0.56,
+                    "result": {
+                      "index": 3,
+                      "text": "🌖🌔 Waning/Waxing  Gibbous"
+                    },
+                    "to": 0.74
+                  },
+                  "type": "range"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#757575",
+                    "value": null
+                  },
+                  {
+                    "color": "semi-dark-blue",
+                    "value": 0.25
+                  },
+                  {
+                    "color": "semi-dark-blue",
+                    "value": 0.75
+                  },
+                  {
+                    "color": "dark-blue",
+                    "value": 1
+                  }
+                ]
+              },
+              "unit": "percentunit"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 0,
+            "y": 23
+          },
+          "id": 50,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "center",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "text": {
+              "titleSize": 12
+            },
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "moon_illumination"
+              ]
+            }
+          ],
+          "title": "Moon Phase",
+          "transformations": [
+            {
+              "id": "sortBy",
+              "options": {
+                "fields": {},
+                "sort": [
+                  {
+                    "desc": true,
+                    "field": "Time"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "limit",
+              "options": {
+                "limitField": "1"
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "default": false,
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "description": "This panel shows the total duration of moonlight for the current day, calculated from moonrise to moonset, offering a quick summary of how long the moon is visible in the sky.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "light-blue",
+                    "value": 0
+                  },
+                  {
+                    "color": "blue",
+                    "value": 7
+                  },
+                  {
+                    "color": "dark-blue",
+                    "value": 13
+                  },
+                  {
+                    "color": "#010225",
+                    "value": 19
+                  }
+                ]
+              },
+              "unit": "h"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 3,
+            "x": 12,
+            "y": 23
+          },
+          "id": 42,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "last"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "moonrise"
+              ]
+            },
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "hide": false,
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "B",
+              "target": [
+                "moonset"
+              ]
+            }
+          ],
+          "title": "Moonlight Duration",
+          "transformations": [
+            {
+              "id": "concatenate",
+              "options": {}
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Moonrise · Tags": true,
+                  "Moonrise · Text": true,
+                  "Moonrise · Title": true,
+                  "Moonset · Tags": true,
+                  "Moonset · Text": true,
+                  "Moonset · Title": true,
+                  "Sunrise · Tags": true,
+                  "Sunrise · Text": true,
+                  "Sunrise · Title": true,
+                  "Sunset · Tags": true,
+                  "Sunset · Text": true,
+                  "Sunset · Title": true
+                },
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {}
+              }
+            },
+            {
+              "disabled": true,
+              "id": "limit",
+              "options": {
+                "limitField": "1"
+              }
+            },
+            {
+              "id": "calculateField",
+              "options": {
+                "alias": "Epoch Differences",
+                "binary": {
+                  "left": "Moonset · Time",
+                  "operator": "-",
+                  "right": "Moonrise · Time"
+                },
+                "mode": "binary",
+                "reduce": {
+                  "reducer": "sum"
+                },
+                "replaceFields": false
+              }
+            },
+            {
+              "id": "calculateField",
+              "options": {
+                "alias": "ms to s",
+                "binary": {
+                  "left": "Epoch Differences",
+                  "operator": "/",
+                  "right": "1000"
+                },
+                "mode": "binary",
+                "reduce": {
+                  "reducer": "sum"
+                },
+                "replaceFields": false
+              }
+            },
+            {
+              "id": "calculateField",
+              "options": {
+                "alias": "Moonlight Duration H",
+                "binary": {
+                  "left": "ms to s",
+                  "operator": "/",
+                  "right": "3600"
+                },
+                "mode": "binary",
+                "reduce": {
+                  "reducer": "sum"
+                },
+                "replaceFields": true
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "default": false,
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "type": "auto"
+                },
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 9,
+            "x": 15,
+            "y": 23
+          },
+          "id": 41,
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "frameIndex": 0,
+            "showHeader": true
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "hide": false,
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "B",
+              "target": [
+                "moonrise",
+                "moonset"
+              ]
+            }
+          ],
+          "title": "Moon Rise and Set Times",
+          "transformations": [
+            {
+              "id": "concatenate",
+              "options": {}
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Moonrise · Tags": true,
+                  "Moonrise · Text": true,
+                  "Moonrise · Title": true,
+                  "Moonset · Tags": true,
+                  "Moonset · Text": true,
+                  "Moonset · Title": true,
+                  "Sunrise ends · Tags": true,
+                  "Sunrise ends · Text": true,
+                  "Sunrise ends · Title": true,
+                  "Sunrise · Tags": true,
+                  "Sunrise · Text": true,
+                  "Sunrise · Title": true,
+                  "Sunset starts · Tags": true,
+                  "Sunset starts · Text": true,
+                  "Sunset starts · Title": true,
+                  "Sunset · Tags": true,
+                  "Sunset · Text": true,
+                  "Sunset · Title": true
+                },
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {}
+              }
+            },
+            {
+              "id": "sortBy",
+              "options": {
+                "fields": {},
+                "sort": [
+                  {
+                    "desc": true,
+                    "field": "Moonrise · Time"
+                  }
+                ]
+              }
+            }
+          ],
+          "type": "table"
+        },
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "description": "This panel displays the current altitude of the moon, showing how high it is above the horizon, with a gradient from blue to grey to indicate its position in the sky.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "light-blue",
+                    "value": null
+                  },
+                  {
+                    "color": "blue",
+                    "value": 1
+                  },
+                  {
+                    "color": "dark-blue",
+                    "value": 31
+                  },
+                  {
+                    "color": "#00084d",
+                    "value": 61
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 0,
+            "y": 28
+          },
+          "id": 37,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "moon_altitude"
+              ]
+            }
+          ],
+          "title": "Current Moon Altitude",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "description": "This panel displays the current altitude of the moon, showing how high it is above the horizon, with a gradient from blue to grey to indicate its position in the sky.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "blue",
+                "mode": "fixed"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 15,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 3,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 9,
+            "x": 3,
+            "y": 28
+          },
+          "id": 38,
+          "options": {
+            "legend": {
+              "calcs": [
+                "first",
+                "last",
+                "range",
+                "min",
+                "max"
+              ],
+              "displayMode": "table",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "datasource",
+                "uid": "-- Dashboard --"
+              },
+              "panelId": 37,
+              "refId": "A"
+            }
+          ],
+          "title": "Current Moon Altitude",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {},
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {
+                  "Moon altitude": "Moon Altitude"
+                }
+              }
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "description": "This panel displays the current percentage of the moon that is illuminated by the sun, providing a visual representation of the moon's phase from new moon to full moon.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#ababab",
+                    "value": null
+                  },
+                  {
+                    "color": "#818181",
+                    "value": 26
+                  },
+                  {
+                    "color": "#c6c6c6",
+                    "value": 51
+                  },
+                  {
+                    "color": "#ffffff",
+                    "value": 76
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 12,
+            "y": 28
+          },
+          "id": 47,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "last"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "moon_illumination"
+              ]
+            }
+          ],
+          "title": "Moon Illumination",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "description": "This panel displays the current percentage of the moon that is illuminated by the sun, providing a visual representation of the moon's phase from new moon to full moon.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "#d3d3d3",
+                "mode": "fixed"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 15,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 3,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#ababab",
+                    "value": null
+                  },
+                  {
+                    "color": "#818181",
+                    "value": 26
+                  },
+                  {
+                    "color": "#c6c6c6",
+                    "value": 51
+                  },
+                  {
+                    "color": "#ffffff",
+                    "value": 76
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 9,
+            "x": 15,
+            "y": 28
+          },
+          "id": 48,
+          "options": {
+            "legend": {
+              "calcs": [
+                "first",
+                "last",
+                "range",
+                "min",
+                "max"
+              ],
+              "displayMode": "table",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "moon_illumination"
+              ]
+            }
+          ],
+          "title": "Moon Illumination",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "description": "This panel displays the current azimuth of the moon, showing its direction along the horizon with a circular gradient to represent different compass directions.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "light-yellow",
+                    "value": null
+                  },
+                  {
+                    "color": "yellow",
+                    "value": 91
+                  },
+                  {
+                    "color": "orange",
+                    "value": 271
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 0,
+            "y": 34
+          },
+          "id": 39,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "moon_azimuth"
+              ]
+            }
+          ],
+          "title": "Current Moon Azimuth",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "description": "This panel displays the current azimuth of the moon, showing its direction along the horizon with a circular gradient to represent different compass directions.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "light-yellow",
+                "mode": "fixed"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 15,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 3,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 9,
+            "x": 3,
+            "y": 34
+          },
+          "id": 40,
+          "options": {
+            "legend": {
+              "calcs": [
+                "first",
+                "last",
+                "range",
+                "min",
+                "max"
+              ],
+              "displayMode": "table",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "datasource",
+                "uid": "-- Dashboard --"
+              },
+              "panelId": 39,
+              "refId": "A"
+            }
+          ],
+          "title": "Current Moon Azimuth",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {},
+                "includeByName": {},
+                "indexByName": {},
+                "renameByName": {
+                  "Moon azimuth": "Moon Azimuth"
+                }
+              }
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "description": "This panel displays the current distance to the moon in kilometers, using a color gradient to represent how close or far the moon is.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "light-blue",
+                    "value": null
+                  },
+                  {
+                    "color": "blue",
+                    "value": 360000
+                  },
+                  {
+                    "color": "dark-blue",
+                    "value": 370000
+                  }
+                ]
+              },
+              "unit": "lengthkm"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 12,
+            "y": 34
+          },
+          "id": 44,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "inverted",
+            "reduceOptions": {
+              "calcs": [
+                "last"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "moon_distance"
+              ]
+            }
+          ],
+          "title": "Moon Distance (hundred thousands)",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "fetzerch-sunandmoon-datasource",
+            "uid": "ddrygzboex3wga"
+          },
+          "description": "This panel displays the current distance to the moon in kilometers, using a color gradient to represent how close or far the moon is.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "light-blue",
+                "mode": "fixed"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 15,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 3,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "fieldMinMax": false,
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "light-blue",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "lengthkm"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 9,
+            "x": 15,
+            "y": 34
+          },
+          "id": 46,
+          "options": {
+            "legend": {
+              "calcs": [
+                "first",
+                "last",
+                "range",
+                "min",
+                "max"
+              ],
+              "displayMode": "table",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "11.2.0-74515",
+          "targets": [
+            {
+              "datasource": {
+                "type": "fetzerch-sunandmoon-datasource",
+                "uid": "ddrygzboex3wga"
+              },
+              "latitude": "$latitude",
+              "longitude": "$longitude",
+              "refId": "A",
+              "target": [
+                "moon_distance"
+              ]
+            }
+          ],
+          "title": "Moon Distance (hundred thousands)",
+          "type": "timeseries"
+        }
+      ],
+      "title": "Moon",
+      "type": "row"
+    }
+  ],
+  "preload": false,
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [
+    "Learning",
+    "Beginner"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "49.895138",
+          "value": "49.895138"
+        },
+        "label": "Latitude",
+        "name": "latitude",
+        "options": [
+          {
+            "selected": true,
+            "text": "49.895138",
+            "value": "49.895138"
+          }
+        ],
+        "query": "49.895138",
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "text": "-97.138374",
+          "value": "-97.138374"
+        },
+        "description": "",
+        "label": "Longitude",
+        "name": "longitude",
+        "options": [
+          {
+            "selected": true,
+            "text": "-97.138374",
+            "value": "-97.138374"
+          }
+        ],
+        "query": "-97.138374",
+        "type": "textbox"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-7d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Task #3 - Complex Dashboard",
+  "uid": "bds8gv0lij6yof",
+  "version": 77,
+  "weekStart": ""
+}

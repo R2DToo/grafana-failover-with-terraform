@@ -1,0 +1,3090 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 290,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "dashboard",
+      "includeVars": false,
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": true,
+      "title": "CUCM Drill Down",
+      "tooltip": "Drill Down Dashboards",
+      "type": "link",
+      "url": "https://optimiz.grafana.net/d/ee2hgjp41enlsc/cucm-drill-down?"
+    },
+    {
+      "asDropdown": false,
+      "icon": "dashboard",
+      "includeVars": false,
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": true,
+      "title": "CVP Drill Down",
+      "tooltip": "CVP Drill Down",
+      "type": "link",
+      "url": "https://optimiz.grafana.net/d/ee2jti7udup6od/cvp-drill-down?"
+    }
+  ],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 4,
+      "panels": [],
+      "title": "Service Stability",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 15,
+        "x": 0,
+        "y": 1
+      },
+      "id": 10,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\">\n  <h3 class=\"title\">\n    {{Title}}\n  </h3>\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 200,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": ".container {\r\n  top: 50%;\r\n  left: 50%;\r\n  width: 100%;\r\n  height: 100%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  background-color: #686d72;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  color: #ffffff;\r\n  font-weight: bold;\r\n  font-size: 1.875em;\r\n  text-align: 'center';\r\n  font-family: monospace;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Title",
+                "type": "string",
+                "values": [
+                  "Line of Business SLA"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Dashboard Sections"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "transparent": true,
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 9,
+        "x": 15,
+        "y": 1
+      },
+      "id": 15,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\">\n  <h3 class=\"title\">\n    {{Title}}\n  </h3>\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 200,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": ".container {\r\n  top: 50%;\r\n  left: 50%;\r\n  width: 100%;\r\n  height: 100%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  background-color: #686d72;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  color: #ffffff;\r\n  font-weight: bold;\r\n  font-size: 1.875em;\r\n  text-align: 'center';\r\n  font-family: monospace;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Title",
+                "type": "string",
+                "values": [
+                  "Incidents"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Dashboard Sections"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "transparent": true,
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 95
+              },
+              {
+                "color": "green",
+                "value": 97
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 0,
+        "y": 3
+      },
+      "id": 11,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Target SLA",
+                "type": "string",
+                "values": [
+                  "99.5"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Actual SLA",
+                "type": "string",
+                "values": [
+                  "92.7"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Test"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Phone Banking",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Actual SLA": "Actual SLA",
+              "Target SLA": "Target SLA"
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 96
+              },
+              {
+                "color": "green",
+                "value": 98
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 3,
+        "y": 3
+      },
+      "id": 12,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Target SLA",
+                "type": "string",
+                "values": [
+                  "99"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Actual SLA",
+                "type": "string",
+                "values": [
+                  "94.3"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Test"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Fraud Prevention",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Actual SLA": "Actual SLA",
+              "Target SLA": "Target SLA"
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 97
+              },
+              {
+                "color": "green",
+                "value": 98
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 6,
+        "y": 3
+      },
+      "id": 13,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Target SLA",
+                "type": "string",
+                "values": [
+                  "99"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Actual SLA",
+                "type": "string",
+                "values": [
+                  "95.8"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Test"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Credit Cards",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Actual SLA": "Actual SLA",
+              "Target SLA": "Target SLA"
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 95
+              },
+              {
+                "color": "green",
+                "value": 97
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 9,
+        "y": 3
+      },
+      "id": 14,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Target SLA",
+                "type": "string",
+                "values": [
+                  "98.5"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Actual SLA",
+                "type": "string",
+                "values": [
+                  "93.5"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Test"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Mortgage",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Actual SLA": "Actual SLA",
+              "Target SLA": "Target SLA"
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 95
+              },
+              {
+                "color": "green",
+                "value": 97
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 12,
+        "y": 3
+      },
+      "id": 16,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "/.*/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Target SLA",
+                "type": "string",
+                "values": [
+                  "98"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Actual SLA",
+                "type": "string",
+                "values": [
+                  "96.2"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Test"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Investing",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Actual SLA": "Actual SLA",
+              "Target SLA": "Target SLA"
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "min": 1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "P1"
+            },
+            "properties": [
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "#EAB839",
+                      "value": 2
+                    },
+                    {
+                      "color": "red",
+                      "value": 5
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "P2"
+            },
+            "properties": [
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "#EAB839",
+                      "value": 3
+                    },
+                    {
+                      "color": "red",
+                      "value": 6
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "P3"
+            },
+            "properties": [
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "#EAB839",
+                      "value": 4
+                    },
+                    {
+                      "color": "red",
+                      "value": 7
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 15,
+        "y": 3
+      },
+      "id": 17,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "P1",
+                "type": "number",
+                "values": [
+                  228
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Incidents"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Incidents",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "yellow",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 101
+              },
+              {
+                "color": "red",
+                "value": 500
+              },
+              {
+                "color": "dark-red",
+                "value": 510
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 20,
+        "y": 3
+      },
+      "id": 31,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "users",
+                "type": "number",
+                "values": [
+                  10,
+                  50,
+                  151,
+                  228,
+                  null,
+                  null
+                ]
+              },
+              {
+                "config": {},
+                "name": "timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000,
+                  1727231760000,
+                  1727231820000,
+                  1727231880000,
+                  1727231940000,
+                  1727232000000
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "impacted users"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Impacted Customers",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 1800
+              },
+              {
+                "color": "red",
+                "value": 3600
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 22,
+        "y": 3
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/^Field 1$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Field 1",
+                "type": "string",
+                "values": [
+                  "1400"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "MTTR"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "MTTR",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
+      "id": 3,
+      "panels": [],
+      "title": "Business Platform Health",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 2
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 0,
+        "y": 9
+      },
+      "id": 18,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "CUCM Drill Down Dashboard",
+          "url": "https://optimiz.grafana.net/d/ee2hgjp41enlsc/cucm-drill-down??from=2024-09-25T04:35:00.000Z&to=2024-09-25T08:04:00.000Z"
+        }
+      ],
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\" style=\"background-color: {{statusColor}}\">\r\n  <h1 class=\"title\">{{title}}</h1>\r\n  <!-- <img class=\"image\" src={{svg}} /> -->\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 364,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "status",
+        "styles": ".container {\r\n  height: 100%;\r\n  width: 100%;\r\n  top: 50%;\r\n  left: 50%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  font-size: 35px;\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.image {\r\n  width: 150px;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "svg",
+                "type": "string",
+                "values": [
+                  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEyMCA5MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI5MCI+Cgk8dGl0bGU+TmV3IFByb2plY3Q8L3RpdGxlPgoJPGRlZnM+CgkJPGltYWdlICB3aWR0aD0iODIiIGhlaWdodD0iOTAiIGlkPSJpbWcxIiBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUZJQUFBQmFDQU1BQUFBY29mSEVBQUFBQVhOU1IwSUIyY2tzZndBQUFtMVFURlJGQUFBQS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vRWtoVnhBQUFBTTkwVWs1VEFENmk5clp5TFFkSjJ2L3J6MjRPWTNVTFVyaXBiQjhsN3UzSWR4QVlyL3JZQ1M1MitPL1NaaHdCSjdQK3hrd01RM2pqMldFMUF5SkliZHU5WWgwQ0Y0V3R6UEwxbjBaVlJ5QXFXNGpzZ1UvdzhjclUzL1A1cXAxVVJEYzVYRFRsNU1XbjRQMDYwN2R4T0UzMzUxNGFydlFHVWNQcCs3VVNzSVRSTTVSWGlwTWJsN1NaTmdTYVpic1Jvd3FQeXdBVGFiN1dIdHhvQlR6SGtkVkxadzgvL0JXVkRZdUNvU0dZMEVxeHExcFRDSGxBUXJMaG0wNjhmWDh4M212cWtFVmt1Y1NzRm9ZamU2WXZlaXdaZ0QwazR3aFkyUUFBQkJ0SlJFRlVlSnp0MkdkRDAwQVlCL0FIUWFFbkZoVVZBVmtPcExWSUhTd1ZVRkNyWUhHQUZFUVFrYnBCNmtKeG94VzFRRjA0VVhIZ0ZzVzlCKzc1bWJ5MHhhNWNjcGYwaFMvNHYySGM4ZVBTWEpMbkNRQlYvUHI0Qi9UdFJ6ZVhLb0ZCQ29SUS8rQUJTcCtSSWNISUZzWEFRVDd4bElORDBiOE1HVHBNdmhnV01CeTVKRHdpY29ROE1DcmFIM2trSm5hb2RDOXU1S2pSbmlDWE1mRmpFMVJTUUpWNlhLeUdUMFJJbzBrY3o3eWprclFUSnZKelBaa1VQems1aWRwTFNVMUxueUlNMnRDcDA3UVpORjVtMXZRWjJUbmlJSmVaNGRHejByeUoyYm81WVhOems3VTZuTHg1WStnc2wrUWdmYjV1Zm02bUM3a0FMUXhlVkZBWXptdzVzeGdWRlVRYURNVURTNWFVTGkwckJ4bVVhNVloVkZSUmtMMDhNYmJTVjZSTGVzbGVzcGVVVE1iN252UzUyRXYrNTZURVRUUjFCV21rQ3RJcEg3QnVVUmhCdVpJd3RncUNKSkFLTGE0ZkFnaURxMEhITGlJamZsaXZJUTNxSkpBcnVHSlFxeUNUYTljeGl1dXJjYzI2SnBZNHJvT2FEYlZNWWs1ZUlKZzI2b25qbTBvaEpYOHppN2hsYXgyQWVodDV3dllvQUFPTGlPcDM0T0p6NTB6eWhGMjRQdDdOVXEzdFVZTnFiNlRBQkUwSlBuZGgrK2pGQm56VVdmdkpIeVRlRGdjd2FUNUlMWEpiUExOUlNFU0hEbk1WNWhGYXNSQzNVWllRNFRrR1c5RmF3ai9ZMU96eGkrYThGckFlRlZ3alFnZnQxZmt4dnJIam1YRFU3UXBKUEdBQ2E0TXdpTkFKZTIzTnV5Vm1BRmdiVHpwL1h0d2FCNmZFcjE1SGk3Vy9pRzlRRFdBNmZhYm5KLyt6dU1uMVN4UVR6ems2QVA3L1BlVjhDa0Jxc2YyenE4aFhRbURwSk5GRk5qcElZd1cvYVZTQ3FxN1Y5bjNiQlRCZkZMZ01IYmswMkVHMlgrYWZFTDNyQ3RqUFNJTVZvS2JQQWxHeUlMZW45N2xLbUZFN0JGUEtDZUhYOEJjcjZTN3VrcGlPbGg3eU9uRnYzTURZRlMyMzJCdmlJcnA1M3RtaWtXZnR0bSswakNZSzBYSHAySE9MM0NuZk5nYmlnNzlESTZLN0xxUTVtenl2K1I1MFZndmNJSjNaWW5IdGQ5dThYbUU0czVCcWhUajMzVnJvQjB4UEMvN291OXpJdUlmeXlhMGU3NlhLSDhrbUg3aUxrUEpZcmhoeHlvT0VKMDlsa3M4OFJUZ2NJbksvRnNuemRpK3lKVVAwWmlnVXhRdSs5MXRzTllKSEREd2dMa3RrblBTWGFsNFN5a1RlaVpFeitoVy9DSFdQaDR2L05WOWV2N2xBSU1FbzhlT3NuRXNTd2Z4V2t1aGZLdlEyVTZ5WTRJdituUUFJTUtpVm5VeTNDSktxVkZJN1E4ejdHa0VSUi9laGlnVmMxOUV1SmtMbmFhWjFkaFAydUh2VXhKYkdLem5qUHRLSURLZTl0dnNXblFpV3NaVEgvdW16aVpJRTJMdU40aW1yYit1a0JuRXl2b2lLOWEzQys5RXpxaWl4aXFXKzJzb2tjZ2tLRlJLL2ZtTUdjVmRRUTY3MXU1dllsMmlMS1psdzVybldVMm9TT3J5M2FOWE43Y1FiTGswc2FaL2NRWTNtKzQ4NE9TS1huL01pL2kwd0p1QlhuVnlQaS9sM2cvM3creGRXL3ZFRnlNWFN0VzhpVWhnR0xLVzZYUDRDZG1KN3lmV0J3c2NBQUFBQVNVVk9SSzVDWUlJPSIvPgoJPC9kZWZzPgoJPHN0eWxlPgoJPC9zdHlsZT4KCTx1c2UgaWQ9IkxheWVyIDIiIGhyZWY9IiNpbWcxIiB4PSIxOSIgeT0iMCIvPgo8L3N2Zz4="
+                ]
+              },
+              {
+                "config": {},
+                "name": "title",
+                "type": "string",
+                "values": [
+                  "Call Manager"
+                ]
+              },
+              {
+                "config": {},
+                "name": "status",
+                "type": "number",
+                "values": [
+                  3
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "UCCE Components"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 2
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 3,
+        "y": 9
+      },
+      "id": 20,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "CVP Drill Down",
+          "url": "https://optimiz.grafana.net/d/ee2jti7udup6od/cvp-drill-down?"
+        }
+      ],
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\" style=\"background-color: {{statusColor}}\">\r\n  <h1 class=\"title\">{{title}}</h1>\r\n  <!-- <img class=\"image\" src={{svg}} /> -->\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 364,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "status",
+        "styles": ".container {\r\n  height: 100%;\r\n  width: 100%;\r\n  top: 50%;\r\n  left: 50%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  font-size: 35px;\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.image {\r\n  width: 150px;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "svg",
+                "type": "string",
+                "values": [
+                  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEyMCA5MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI5MCI+Cgk8dGl0bGU+TmV3IFByb2plY3Q8L3RpdGxlPgoJPGRlZnM+CgkJPGltYWdlICB3aWR0aD0iODIiIGhlaWdodD0iOTAiIGlkPSJpbWcxIiBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUZJQUFBQmFDQU1BQUFBY29mSEVBQUFBQVhOU1IwSUIyY2tzZndBQUFtMVFURlJGQUFBQS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vRWtoVnhBQUFBTTkwVWs1VEFENmk5clp5TFFkSjJ2L3J6MjRPWTNVTFVyaXBiQjhsN3UzSWR4QVlyL3JZQ1M1MitPL1NaaHdCSjdQK3hrd01RM2pqMldFMUF5SkliZHU5WWgwQ0Y0V3R6UEwxbjBaVlJ5QXFXNGpzZ1UvdzhjclUzL1A1cXAxVVJEYzVYRFRsNU1XbjRQMDYwN2R4T0UzMzUxNGFydlFHVWNQcCs3VVNzSVRSTTVSWGlwTWJsN1NaTmdTYVpic1Jvd3FQeXdBVGFiN1dIdHhvQlR6SGtkVkxadzgvL0JXVkRZdUNvU0dZMEVxeHExcFRDSGxBUXJMaG0wNjhmWDh4M212cWtFVmt1Y1NzRm9ZamU2WXZlaXdaZ0QwazR3aFkyUUFBQkJ0SlJFRlVlSnp0MkdkRDAwQVlCL0FIUWFFbkZoVVZBVmtPcExWSUhTd1ZVRkNyWUhHQUZFUVFrYnBCNmtKeG94VzFRRjA0VVhIZ0ZzVzlCKzc1bWJ5MHhhNWNjcGYwaFMvNHYySGM4ZVBTWEpMbkNRQlYvUHI0Qi9UdFJ6ZVhLb0ZCQ29SUS8rQUJTcCtSSWNISUZzWEFRVDd4bElORDBiOE1HVHBNdmhnV01CeTVKRHdpY29ROE1DcmFIM2trSm5hb2RDOXU1S2pSbmlDWE1mRmpFMVJTUUpWNlhLeUdUMFJJbzBrY3o3eWprclFUSnZKelBaa1VQems1aWRwTFNVMUxueUlNMnRDcDA3UVpORjVtMXZRWjJUbmlJSmVaNGRHejByeUoyYm81WVhOems3VTZuTHg1WStnc2wrUWdmYjV1Zm02bUM3a0FMUXhlVkZBWXptdzVzeGdWRlVRYURNVURTNWFVTGkwckJ4bVVhNVloVkZSUmtMMDhNYmJTVjZSTGVzbGVzcGVVVE1iN252UzUyRXYrNTZURVRUUjFCV21rQ3RJcEg3QnVVUmhCdVpJd3RncUNKSkFLTGE0ZkFnaURxMEhITGlJamZsaXZJUTNxSkpBcnVHSlFxeUNUYTljeGl1dXJjYzI2SnBZNHJvT2FEYlZNWWs1ZUlKZzI2b25qbTBvaEpYOHppN2hsYXgyQWVodDV3dllvQUFPTGlPcDM0T0p6NTB6eWhGMjRQdDdOVXEzdFVZTnFiNlRBQkUwSlBuZGgrK2pGQm56VVdmdkpIeVRlRGdjd2FUNUlMWEpiUExOUlNFU0hEbk1WNWhGYXNSQzNVWllRNFRrR1c5RmF3ai9ZMU96eGkrYThGckFlRlZ3alFnZnQxZmt4dnJIam1YRFU3UXBKUEdBQ2E0TXdpTkFKZTIzTnV5Vm1BRmdiVHpwL1h0d2FCNmZFcjE1SGk3Vy9pRzlRRFdBNmZhYm5KLyt6dU1uMVN4UVR6ems2QVA3L1BlVjhDa0Jxc2YyenE4aFhRbURwSk5GRk5qcElZd1cvYVZTQ3FxN1Y5bjNiQlRCZkZMZ01IYmswMkVHMlgrYWZFTDNyQ3RqUFNJTVZvS2JQQWxHeUlMZW45N2xLbUZFN0JGUEtDZUhYOEJjcjZTN3VrcGlPbGg3eU9uRnYzTURZRlMyMzJCdmlJcnA1M3RtaWtXZnR0bSswakNZSzBYSHAySE9MM0NuZk5nYmlnNzlESTZLN0xxUTVtenl2K1I1MFZndmNJSjNaWW5IdGQ5dThYbUU0czVCcWhUajMzVnJvQjB4UEMvN291OXpJdUlmeXlhMGU3NlhLSDhrbUg3aUxrUEpZcmhoeHlvT0VKMDlsa3M4OFJUZ2NJbksvRnNuemRpK3lKVVAwWmlnVXhRdSs5MXRzTllKSEREd2dMa3RrblBTWGFsNFN5a1RlaVpFeitoVy9DSFdQaDR2L05WOWV2N2xBSU1FbzhlT3NuRXNTd2Z4V2t1aGZLdlEyVTZ5WTRJdituUUFJTUtpVm5VeTNDSktxVkZJN1E4ejdHa0VSUi9laGlnVmMxOUV1SmtMbmFhWjFkaFAydUh2VXhKYkdLem5qUHRLSURLZTl0dnNXblFpV3NaVEgvdW16aVpJRTJMdU40aW1yYit1a0JuRXl2b2lLOWEzQys5RXpxaWl4aXFXKzJzb2tjZ2tLRlJLL2ZtTUdjVmRRUTY3MXU1dllsMmlMS1psdzVybldVMm9TT3J5M2FOWE43Y1FiTGswc2FaL2NRWTNtKzQ4NE9TS1huL01pL2kwd0p1QlhuVnlQaS9sM2cvM3creGRXL3ZFRnlNWFN0VzhpVWhnR0xLVzZYUDRDZG1KN3lmV0J3c2NBQUFBQVNVVk9SSzVDWUlJPSIvPgoJPC9kZWZzPgoJPHN0eWxlPgoJPC9zdHlsZT4KCTx1c2UgaWQ9IkxheWVyIDIiIGhyZWY9IiNpbWcxIiB4PSIxOSIgeT0iMCIvPgo8L3N2Zz4="
+                ]
+              },
+              {
+                "config": {},
+                "name": "title",
+                "type": "string",
+                "values": [
+                  "VXML"
+                ]
+              },
+              {
+                "config": {},
+                "name": "status",
+                "type": "number",
+                "values": [
+                  3
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "UCCE Components"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 2
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 6,
+        "y": 9
+      },
+      "id": 19,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\" style=\"background-color: {{statusColor}}\">\r\n  <h1 class=\"title\">{{title}}</h1>\r\n  <!-- <img class=\"image\" src={{svg}} /> -->\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 364,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "status",
+        "styles": ".container {\r\n  height: 100%;\r\n  width: 100%;\r\n  top: 50%;\r\n  left: 50%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  font-size: 35px;\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.image {\r\n  width: 150px;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "svg",
+                "type": "string",
+                "values": [
+                  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEyMCA5MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI5MCI+Cgk8dGl0bGU+TmV3IFByb2plY3Q8L3RpdGxlPgoJPGRlZnM+CgkJPGltYWdlICB3aWR0aD0iODIiIGhlaWdodD0iOTAiIGlkPSJpbWcxIiBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUZJQUFBQmFDQU1BQUFBY29mSEVBQUFBQVhOU1IwSUIyY2tzZndBQUFtMVFURlJGQUFBQS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vRWtoVnhBQUFBTTkwVWs1VEFENmk5clp5TFFkSjJ2L3J6MjRPWTNVTFVyaXBiQjhsN3UzSWR4QVlyL3JZQ1M1MitPL1NaaHdCSjdQK3hrd01RM2pqMldFMUF5SkliZHU5WWgwQ0Y0V3R6UEwxbjBaVlJ5QXFXNGpzZ1UvdzhjclUzL1A1cXAxVVJEYzVYRFRsNU1XbjRQMDYwN2R4T0UzMzUxNGFydlFHVWNQcCs3VVNzSVRSTTVSWGlwTWJsN1NaTmdTYVpic1Jvd3FQeXdBVGFiN1dIdHhvQlR6SGtkVkxadzgvL0JXVkRZdUNvU0dZMEVxeHExcFRDSGxBUXJMaG0wNjhmWDh4M212cWtFVmt1Y1NzRm9ZamU2WXZlaXdaZ0QwazR3aFkyUUFBQkJ0SlJFRlVlSnp0MkdkRDAwQVlCL0FIUWFFbkZoVVZBVmtPcExWSUhTd1ZVRkNyWUhHQUZFUVFrYnBCNmtKeG94VzFRRjA0VVhIZ0ZzVzlCKzc1bWJ5MHhhNWNjcGYwaFMvNHYySGM4ZVBTWEpMbkNRQlYvUHI0Qi9UdFJ6ZVhLb0ZCQ29SUS8rQUJTcCtSSWNISUZzWEFRVDd4bElORDBiOE1HVHBNdmhnV01CeTVKRHdpY29ROE1DcmFIM2trSm5hb2RDOXU1S2pSbmlDWE1mRmpFMVJTUUpWNlhLeUdUMFJJbzBrY3o3eWprclFUSnZKelBaa1VQems1aWRwTFNVMUxueUlNMnRDcDA3UVpORjVtMXZRWjJUbmlJSmVaNGRHejByeUoyYm81WVhOems3VTZuTHg1WStnc2wrUWdmYjV1Zm02bUM3a0FMUXhlVkZBWXptdzVzeGdWRlVRYURNVURTNWFVTGkwckJ4bVVhNVloVkZSUmtMMDhNYmJTVjZSTGVzbGVzcGVVVE1iN252UzUyRXYrNTZURVRUUjFCV21rQ3RJcEg3QnVVUmhCdVpJd3RncUNKSkFLTGE0ZkFnaURxMEhITGlJamZsaXZJUTNxSkpBcnVHSlFxeUNUYTljeGl1dXJjYzI2SnBZNHJvT2FEYlZNWWs1ZUlKZzI2b25qbTBvaEpYOHppN2hsYXgyQWVodDV3dllvQUFPTGlPcDM0T0p6NTB6eWhGMjRQdDdOVXEzdFVZTnFiNlRBQkUwSlBuZGgrK2pGQm56VVdmdkpIeVRlRGdjd2FUNUlMWEpiUExOUlNFU0hEbk1WNWhGYXNSQzNVWllRNFRrR1c5RmF3ai9ZMU96eGkrYThGckFlRlZ3alFnZnQxZmt4dnJIam1YRFU3UXBKUEdBQ2E0TXdpTkFKZTIzTnV5Vm1BRmdiVHpwL1h0d2FCNmZFcjE1SGk3Vy9pRzlRRFdBNmZhYm5KLyt6dU1uMVN4UVR6ems2QVA3L1BlVjhDa0Jxc2YyenE4aFhRbURwSk5GRk5qcElZd1cvYVZTQ3FxN1Y5bjNiQlRCZkZMZ01IYmswMkVHMlgrYWZFTDNyQ3RqUFNJTVZvS2JQQWxHeUlMZW45N2xLbUZFN0JGUEtDZUhYOEJjcjZTN3VrcGlPbGg3eU9uRnYzTURZRlMyMzJCdmlJcnA1M3RtaWtXZnR0bSswakNZSzBYSHAySE9MM0NuZk5nYmlnNzlESTZLN0xxUTVtenl2K1I1MFZndmNJSjNaWW5IdGQ5dThYbUU0czVCcWhUajMzVnJvQjB4UEMvN291OXpJdUlmeXlhMGU3NlhLSDhrbUg3aUxrUEpZcmhoeHlvT0VKMDlsa3M4OFJUZ2NJbksvRnNuemRpK3lKVVAwWmlnVXhRdSs5MXRzTllKSEREd2dMa3RrblBTWGFsNFN5a1RlaVpFeitoVy9DSFdQaDR2L05WOWV2N2xBSU1FbzhlT3NuRXNTd2Z4V2t1aGZLdlEyVTZ5WTRJdituUUFJTUtpVm5VeTNDSktxVkZJN1E4ejdHa0VSUi9laGlnVmMxOUV1SmtMbmFhWjFkaFAydUh2VXhKYkdLem5qUHRLSURLZTl0dnNXblFpV3NaVEgvdW16aVpJRTJMdU40aW1yYit1a0JuRXl2b2lLOWEzQys5RXpxaWl4aXFXKzJzb2tjZ2tLRlJLL2ZtTUdjVmRRUTY3MXU1dllsMmlMS1psdzVybldVMm9TT3J5M2FOWE43Y1FiTGswc2FaL2NRWTNtKzQ4NE9TS1huL01pL2kwd0p1QlhuVnlQaS9sM2cvM3creGRXL3ZFRnlNWFN0VzhpVWhnR0xLVzZYUDRDZG1KN3lmV0J3c2NBQUFBQVNVVk9SSzVDWUlJPSIvPgoJPC9kZWZzPgoJPHN0eWxlPgoJPC9zdHlsZT4KCTx1c2UgaWQ9IkxheWVyIDIiIGhyZWY9IiNpbWcxIiB4PSIxOSIgeT0iMCIvPgo8L3N2Zz4="
+                ]
+              },
+              {
+                "config": {},
+                "name": "title",
+                "type": "string",
+                "values": [
+                  "Call Server"
+                ]
+              },
+              {
+                "config": {},
+                "name": "status",
+                "type": "number",
+                "values": [
+                  2
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "UCCE Components"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 2
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 9,
+        "y": 9
+      },
+      "id": 21,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\" style=\"background-color: {{statusColor}}\">\r\n  <h1 class=\"title\">{{title}}</h1>\r\n  <!-- <img class=\"image\" src={{svg}} /> -->\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 364,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "status",
+        "styles": ".container {\r\n  height: 100%;\r\n  width: 100%;\r\n  top: 50%;\r\n  left: 50%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  font-size: 35px;\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.image {\r\n  width: 150px;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "svg",
+                "type": "string",
+                "values": [
+                  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEyMCA5MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI5MCI+Cgk8dGl0bGU+TmV3IFByb2plY3Q8L3RpdGxlPgoJPGRlZnM+CgkJPGltYWdlICB3aWR0aD0iODIiIGhlaWdodD0iOTAiIGlkPSJpbWcxIiBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUZJQUFBQmFDQU1BQUFBY29mSEVBQUFBQVhOU1IwSUIyY2tzZndBQUFtMVFURlJGQUFBQS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vRWtoVnhBQUFBTTkwVWs1VEFENmk5clp5TFFkSjJ2L3J6MjRPWTNVTFVyaXBiQjhsN3UzSWR4QVlyL3JZQ1M1MitPL1NaaHdCSjdQK3hrd01RM2pqMldFMUF5SkliZHU5WWgwQ0Y0V3R6UEwxbjBaVlJ5QXFXNGpzZ1UvdzhjclUzL1A1cXAxVVJEYzVYRFRsNU1XbjRQMDYwN2R4T0UzMzUxNGFydlFHVWNQcCs3VVNzSVRSTTVSWGlwTWJsN1NaTmdTYVpic1Jvd3FQeXdBVGFiN1dIdHhvQlR6SGtkVkxadzgvL0JXVkRZdUNvU0dZMEVxeHExcFRDSGxBUXJMaG0wNjhmWDh4M212cWtFVmt1Y1NzRm9ZamU2WXZlaXdaZ0QwazR3aFkyUUFBQkJ0SlJFRlVlSnp0MkdkRDAwQVlCL0FIUWFFbkZoVVZBVmtPcExWSUhTd1ZVRkNyWUhHQUZFUVFrYnBCNmtKeG94VzFRRjA0VVhIZ0ZzVzlCKzc1bWJ5MHhhNWNjcGYwaFMvNHYySGM4ZVBTWEpMbkNRQlYvUHI0Qi9UdFJ6ZVhLb0ZCQ29SUS8rQUJTcCtSSWNISUZzWEFRVDd4bElORDBiOE1HVHBNdmhnV01CeTVKRHdpY29ROE1DcmFIM2trSm5hb2RDOXU1S2pSbmlDWE1mRmpFMVJTUUpWNlhLeUdUMFJJbzBrY3o3eWprclFUSnZKelBaa1VQems1aWRwTFNVMUxueUlNMnRDcDA3UVpORjVtMXZRWjJUbmlJSmVaNGRHejByeUoyYm81WVhOems3VTZuTHg1WStnc2wrUWdmYjV1Zm02bUM3a0FMUXhlVkZBWXptdzVzeGdWRlVRYURNVURTNWFVTGkwckJ4bVVhNVloVkZSUmtMMDhNYmJTVjZSTGVzbGVzcGVVVE1iN252UzUyRXYrNTZURVRUUjFCV21rQ3RJcEg3QnVVUmhCdVpJd3RncUNKSkFLTGE0ZkFnaURxMEhITGlJamZsaXZJUTNxSkpBcnVHSlFxeUNUYTljeGl1dXJjYzI2SnBZNHJvT2FEYlZNWWs1ZUlKZzI2b25qbTBvaEpYOHppN2hsYXgyQWVodDV3dllvQUFPTGlPcDM0T0p6NTB6eWhGMjRQdDdOVXEzdFVZTnFiNlRBQkUwSlBuZGgrK2pGQm56VVdmdkpIeVRlRGdjd2FUNUlMWEpiUExOUlNFU0hEbk1WNWhGYXNSQzNVWllRNFRrR1c5RmF3ai9ZMU96eGkrYThGckFlRlZ3alFnZnQxZmt4dnJIam1YRFU3UXBKUEdBQ2E0TXdpTkFKZTIzTnV5Vm1BRmdiVHpwL1h0d2FCNmZFcjE1SGk3Vy9pRzlRRFdBNmZhYm5KLyt6dU1uMVN4UVR6ems2QVA3L1BlVjhDa0Jxc2YyenE4aFhRbURwSk5GRk5qcElZd1cvYVZTQ3FxN1Y5bjNiQlRCZkZMZ01IYmswMkVHMlgrYWZFTDNyQ3RqUFNJTVZvS2JQQWxHeUlMZW45N2xLbUZFN0JGUEtDZUhYOEJjcjZTN3VrcGlPbGg3eU9uRnYzTURZRlMyMzJCdmlJcnA1M3RtaWtXZnR0bSswakNZSzBYSHAySE9MM0NuZk5nYmlnNzlESTZLN0xxUTVtenl2K1I1MFZndmNJSjNaWW5IdGQ5dThYbUU0czVCcWhUajMzVnJvQjB4UEMvN291OXpJdUlmeXlhMGU3NlhLSDhrbUg3aUxrUEpZcmhoeHlvT0VKMDlsa3M4OFJUZ2NJbksvRnNuemRpK3lKVVAwWmlnVXhRdSs5MXRzTllKSEREd2dMa3RrblBTWGFsNFN5a1RlaVpFeitoVy9DSFdQaDR2L05WOWV2N2xBSU1FbzhlT3NuRXNTd2Z4V2t1aGZLdlEyVTZ5WTRJdituUUFJTUtpVm5VeTNDSktxVkZJN1E4ejdHa0VSUi9laGlnVmMxOUV1SmtMbmFhWjFkaFAydUh2VXhKYkdLem5qUHRLSURLZTl0dnNXblFpV3NaVEgvdW16aVpJRTJMdU40aW1yYit1a0JuRXl2b2lLOWEzQys5RXpxaWl4aXFXKzJzb2tjZ2tLRlJLL2ZtTUdjVmRRUTY3MXU1dllsMmlMS1psdzVybldVMm9TT3J5M2FOWE43Y1FiTGswc2FaL2NRWTNtKzQ4NE9TS1huL01pL2kwd0p1QlhuVnlQaS9sM2cvM3creGRXL3ZFRnlNWFN0VzhpVWhnR0xLVzZYUDRDZG1KN3lmV0J3c2NBQUFBQVNVVk9SSzVDWUlJPSIvPgoJPC9kZWZzPgoJPHN0eWxlPgoJPC9zdHlsZT4KCTx1c2UgaWQ9IkxheWVyIDIiIGhyZWY9IiNpbWcxIiB4PSIxOSIgeT0iMCIvPgo8L3N2Zz4="
+                ]
+              },
+              {
+                "config": {},
+                "name": "title",
+                "type": "string",
+                "values": [
+                  "Media Server"
+                ]
+              },
+              {
+                "config": {},
+                "name": "status",
+                "type": "number",
+                "values": [
+                  2
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "UCCE Components"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Severity"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "basic",
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "Critical": {
+                        "color": "red",
+                        "index": 2
+                      },
+                      "OK": {
+                        "color": "green",
+                        "index": 0
+                      },
+                      "Warning": {
+                        "color": "orange",
+                        "index": 1
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 32,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Name",
+                "type": "string",
+                "values": [
+                  "Call Manager",
+                  "VXML",
+                  "Call Server",
+                  "Media Server",
+                  "PG",
+                  "Rogger",
+                  "Nuance",
+                  "External Services"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Deployment Status",
+                "type": "string",
+                "values": [
+                  "Failed",
+                  "Failed",
+                  "Warning",
+                  "Warning",
+                  "Success",
+                  "Success",
+                  "Warning",
+                  "Warning"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Severity",
+                "type": "string",
+                "values": [
+                  "Critical",
+                  "Critical",
+                  "Warning",
+                  "Warning",
+                  "OK",
+                  "OK",
+                  "Warning",
+                  "Warning"
+                ]
+              },
+              {
+                "config": {},
+                "name": "Last Updated",
+                "type": "time",
+                "values": [
+                  1727231760000,
+                  1727231760000,
+                  1727231760000,
+                  1727231760000,
+                  1727231760000,
+                  1727231760000,
+                  1727231760000,
+                  1727231760000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Version",
+                "type": "string",
+                "values": [
+                  "v2.1.3",
+                  "v2.0.7",
+                  "v2.2.1",
+                  "v1.8.9",
+                  "v3.2.0",
+                  "v1.5.4",
+                  "v4.0.1",
+                  "v5.3.2"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Business Components Health"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Business Components Health",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 2
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 0,
+        "y": 14
+      },
+      "id": 22,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\" style=\"background-color: {{statusColor}}\">\r\n  <h1 class=\"title\">{{title}}</h1>\r\n  <!-- <img class=\"image\" src={{svg}} /> -->\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 364,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "status",
+        "styles": ".container {\r\n  height: 100%;\r\n  width: 100%;\r\n  top: 50%;\r\n  left: 50%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  font-size: 35px;\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.image {\r\n  width: 150px;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "svg",
+                "type": "string",
+                "values": [
+                  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEyMCA5MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI5MCI+Cgk8dGl0bGU+TmV3IFByb2plY3Q8L3RpdGxlPgoJPGRlZnM+CgkJPGltYWdlICB3aWR0aD0iODIiIGhlaWdodD0iOTAiIGlkPSJpbWcxIiBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUZJQUFBQmFDQU1BQUFBY29mSEVBQUFBQVhOU1IwSUIyY2tzZndBQUFtMVFURlJGQUFBQS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vRWtoVnhBQUFBTTkwVWs1VEFENmk5clp5TFFkSjJ2L3J6MjRPWTNVTFVyaXBiQjhsN3UzSWR4QVlyL3JZQ1M1MitPL1NaaHdCSjdQK3hrd01RM2pqMldFMUF5SkliZHU5WWgwQ0Y0V3R6UEwxbjBaVlJ5QXFXNGpzZ1UvdzhjclUzL1A1cXAxVVJEYzVYRFRsNU1XbjRQMDYwN2R4T0UzMzUxNGFydlFHVWNQcCs3VVNzSVRSTTVSWGlwTWJsN1NaTmdTYVpic1Jvd3FQeXdBVGFiN1dIdHhvQlR6SGtkVkxadzgvL0JXVkRZdUNvU0dZMEVxeHExcFRDSGxBUXJMaG0wNjhmWDh4M212cWtFVmt1Y1NzRm9ZamU2WXZlaXdaZ0QwazR3aFkyUUFBQkJ0SlJFRlVlSnp0MkdkRDAwQVlCL0FIUWFFbkZoVVZBVmtPcExWSUhTd1ZVRkNyWUhHQUZFUVFrYnBCNmtKeG94VzFRRjA0VVhIZ0ZzVzlCKzc1bWJ5MHhhNWNjcGYwaFMvNHYySGM4ZVBTWEpMbkNRQlYvUHI0Qi9UdFJ6ZVhLb0ZCQ29SUS8rQUJTcCtSSWNISUZzWEFRVDd4bElORDBiOE1HVHBNdmhnV01CeTVKRHdpY29ROE1DcmFIM2trSm5hb2RDOXU1S2pSbmlDWE1mRmpFMVJTUUpWNlhLeUdUMFJJbzBrY3o3eWprclFUSnZKelBaa1VQems1aWRwTFNVMUxueUlNMnRDcDA3UVpORjVtMXZRWjJUbmlJSmVaNGRHejByeUoyYm81WVhOems3VTZuTHg1WStnc2wrUWdmYjV1Zm02bUM3a0FMUXhlVkZBWXptdzVzeGdWRlVRYURNVURTNWFVTGkwckJ4bVVhNVloVkZSUmtMMDhNYmJTVjZSTGVzbGVzcGVVVE1iN252UzUyRXYrNTZURVRUUjFCV21rQ3RJcEg3QnVVUmhCdVpJd3RncUNKSkFLTGE0ZkFnaURxMEhITGlJamZsaXZJUTNxSkpBcnVHSlFxeUNUYTljeGl1dXJjYzI2SnBZNHJvT2FEYlZNWWs1ZUlKZzI2b25qbTBvaEpYOHppN2hsYXgyQWVodDV3dllvQUFPTGlPcDM0T0p6NTB6eWhGMjRQdDdOVXEzdFVZTnFiNlRBQkUwSlBuZGgrK2pGQm56VVdmdkpIeVRlRGdjd2FUNUlMWEpiUExOUlNFU0hEbk1WNWhGYXNSQzNVWllRNFRrR1c5RmF3ai9ZMU96eGkrYThGckFlRlZ3alFnZnQxZmt4dnJIam1YRFU3UXBKUEdBQ2E0TXdpTkFKZTIzTnV5Vm1BRmdiVHpwL1h0d2FCNmZFcjE1SGk3Vy9pRzlRRFdBNmZhYm5KLyt6dU1uMVN4UVR6ems2QVA3L1BlVjhDa0Jxc2YyenE4aFhRbURwSk5GRk5qcElZd1cvYVZTQ3FxN1Y5bjNiQlRCZkZMZ01IYmswMkVHMlgrYWZFTDNyQ3RqUFNJTVZvS2JQQWxHeUlMZW45N2xLbUZFN0JGUEtDZUhYOEJjcjZTN3VrcGlPbGg3eU9uRnYzTURZRlMyMzJCdmlJcnA1M3RtaWtXZnR0bSswakNZSzBYSHAySE9MM0NuZk5nYmlnNzlESTZLN0xxUTVtenl2K1I1MFZndmNJSjNaWW5IdGQ5dThYbUU0czVCcWhUajMzVnJvQjB4UEMvN291OXpJdUlmeXlhMGU3NlhLSDhrbUg3aUxrUEpZcmhoeHlvT0VKMDlsa3M4OFJUZ2NJbksvRnNuemRpK3lKVVAwWmlnVXhRdSs5MXRzTllKSEREd2dMa3RrblBTWGFsNFN5a1RlaVpFeitoVy9DSFdQaDR2L05WOWV2N2xBSU1FbzhlT3NuRXNTd2Z4V2t1aGZLdlEyVTZ5WTRJdituUUFJTUtpVm5VeTNDSktxVkZJN1E4ejdHa0VSUi9laGlnVmMxOUV1SmtMbmFhWjFkaFAydUh2VXhKYkdLem5qUHRLSURLZTl0dnNXblFpV3NaVEgvdW16aVpJRTJMdU40aW1yYit1a0JuRXl2b2lLOWEzQys5RXpxaWl4aXFXKzJzb2tjZ2tLRlJLL2ZtTUdjVmRRUTY3MXU1dllsMmlMS1psdzVybldVMm9TT3J5M2FOWE43Y1FiTGswc2FaL2NRWTNtKzQ4NE9TS1huL01pL2kwd0p1QlhuVnlQaS9sM2cvM3creGRXL3ZFRnlNWFN0VzhpVWhnR0xLVzZYUDRDZG1KN3lmV0J3c2NBQUFBQVNVVk9SSzVDWUlJPSIvPgoJPC9kZWZzPgoJPHN0eWxlPgoJPC9zdHlsZT4KCTx1c2UgaWQ9IkxheWVyIDIiIGhyZWY9IiNpbWcxIiB4PSIxOSIgeT0iMCIvPgo8L3N2Zz4="
+                ]
+              },
+              {
+                "config": {},
+                "name": "title",
+                "type": "string",
+                "values": [
+                  "PG"
+                ]
+              },
+              {
+                "config": {},
+                "name": "status",
+                "type": "number",
+                "values": [
+                  1
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "UCCE Components"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 2
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 3,
+        "y": 14
+      },
+      "id": 24,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\" style=\"background-color: {{statusColor}}\">\r\n  <h1 class=\"title\">{{title}}</h1>\r\n  <!-- <img class=\"image\" src={{svg}} /> -->\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 364,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "status",
+        "styles": ".container {\r\n  height: 100%;\r\n  width: 100%;\r\n  top: 50%;\r\n  left: 50%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  font-size: 35px;\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.image {\r\n  width: 150px;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "svg",
+                "type": "string",
+                "values": [
+                  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEyMCA5MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI5MCI+Cgk8dGl0bGU+TmV3IFByb2plY3Q8L3RpdGxlPgoJPGRlZnM+CgkJPGltYWdlICB3aWR0aD0iODIiIGhlaWdodD0iOTAiIGlkPSJpbWcxIiBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUZJQUFBQmFDQU1BQUFBY29mSEVBQUFBQVhOU1IwSUIyY2tzZndBQUFtMVFURlJGQUFBQS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vRWtoVnhBQUFBTTkwVWs1VEFENmk5clp5TFFkSjJ2L3J6MjRPWTNVTFVyaXBiQjhsN3UzSWR4QVlyL3JZQ1M1MitPL1NaaHdCSjdQK3hrd01RM2pqMldFMUF5SkliZHU5WWgwQ0Y0V3R6UEwxbjBaVlJ5QXFXNGpzZ1UvdzhjclUzL1A1cXAxVVJEYzVYRFRsNU1XbjRQMDYwN2R4T0UzMzUxNGFydlFHVWNQcCs3VVNzSVRSTTVSWGlwTWJsN1NaTmdTYVpic1Jvd3FQeXdBVGFiN1dIdHhvQlR6SGtkVkxadzgvL0JXVkRZdUNvU0dZMEVxeHExcFRDSGxBUXJMaG0wNjhmWDh4M212cWtFVmt1Y1NzRm9ZamU2WXZlaXdaZ0QwazR3aFkyUUFBQkJ0SlJFRlVlSnp0MkdkRDAwQVlCL0FIUWFFbkZoVVZBVmtPcExWSUhTd1ZVRkNyWUhHQUZFUVFrYnBCNmtKeG94VzFRRjA0VVhIZ0ZzVzlCKzc1bWJ5MHhhNWNjcGYwaFMvNHYySGM4ZVBTWEpMbkNRQlYvUHI0Qi9UdFJ6ZVhLb0ZCQ29SUS8rQUJTcCtSSWNISUZzWEFRVDd4bElORDBiOE1HVHBNdmhnV01CeTVKRHdpY29ROE1DcmFIM2trSm5hb2RDOXU1S2pSbmlDWE1mRmpFMVJTUUpWNlhLeUdUMFJJbzBrY3o3eWprclFUSnZKelBaa1VQems1aWRwTFNVMUxueUlNMnRDcDA3UVpORjVtMXZRWjJUbmlJSmVaNGRHejByeUoyYm81WVhOems3VTZuTHg1WStnc2wrUWdmYjV1Zm02bUM3a0FMUXhlVkZBWXptdzVzeGdWRlVRYURNVURTNWFVTGkwckJ4bVVhNVloVkZSUmtMMDhNYmJTVjZSTGVzbGVzcGVVVE1iN252UzUyRXYrNTZURVRUUjFCV21rQ3RJcEg3QnVVUmhCdVpJd3RncUNKSkFLTGE0ZkFnaURxMEhITGlJamZsaXZJUTNxSkpBcnVHSlFxeUNUYTljeGl1dXJjYzI2SnBZNHJvT2FEYlZNWWs1ZUlKZzI2b25qbTBvaEpYOHppN2hsYXgyQWVodDV3dllvQUFPTGlPcDM0T0p6NTB6eWhGMjRQdDdOVXEzdFVZTnFiNlRBQkUwSlBuZGgrK2pGQm56VVdmdkpIeVRlRGdjd2FUNUlMWEpiUExOUlNFU0hEbk1WNWhGYXNSQzNVWllRNFRrR1c5RmF3ai9ZMU96eGkrYThGckFlRlZ3alFnZnQxZmt4dnJIam1YRFU3UXBKUEdBQ2E0TXdpTkFKZTIzTnV5Vm1BRmdiVHpwL1h0d2FCNmZFcjE1SGk3Vy9pRzlRRFdBNmZhYm5KLyt6dU1uMVN4UVR6ems2QVA3L1BlVjhDa0Jxc2YyenE4aFhRbURwSk5GRk5qcElZd1cvYVZTQ3FxN1Y5bjNiQlRCZkZMZ01IYmswMkVHMlgrYWZFTDNyQ3RqUFNJTVZvS2JQQWxHeUlMZW45N2xLbUZFN0JGUEtDZUhYOEJjcjZTN3VrcGlPbGg3eU9uRnYzTURZRlMyMzJCdmlJcnA1M3RtaWtXZnR0bSswakNZSzBYSHAySE9MM0NuZk5nYmlnNzlESTZLN0xxUTVtenl2K1I1MFZndmNJSjNaWW5IdGQ5dThYbUU0czVCcWhUajMzVnJvQjB4UEMvN291OXpJdUlmeXlhMGU3NlhLSDhrbUg3aUxrUEpZcmhoeHlvT0VKMDlsa3M4OFJUZ2NJbksvRnNuemRpK3lKVVAwWmlnVXhRdSs5MXRzTllKSEREd2dMa3RrblBTWGFsNFN5a1RlaVpFeitoVy9DSFdQaDR2L05WOWV2N2xBSU1FbzhlT3NuRXNTd2Z4V2t1aGZLdlEyVTZ5WTRJdituUUFJTUtpVm5VeTNDSktxVkZJN1E4ejdHa0VSUi9laGlnVmMxOUV1SmtMbmFhWjFkaFAydUh2VXhKYkdLem5qUHRLSURLZTl0dnNXblFpV3NaVEgvdW16aVpJRTJMdU40aW1yYit1a0JuRXl2b2lLOWEzQys5RXpxaWl4aXFXKzJzb2tjZ2tLRlJLL2ZtTUdjVmRRUTY3MXU1dllsMmlMS1psdzVybldVMm9TT3J5M2FOWE43Y1FiTGswc2FaL2NRWTNtKzQ4NE9TS1huL01pL2kwd0p1QlhuVnlQaS9sM2cvM3creGRXL3ZFRnlNWFN0VzhpVWhnR0xLVzZYUDRDZG1KN3lmV0J3c2NBQUFBQVNVVk9SSzVDWUlJPSIvPgoJPC9kZWZzPgoJPHN0eWxlPgoJPC9zdHlsZT4KCTx1c2UgaWQ9IkxheWVyIDIiIGhyZWY9IiNpbWcxIiB4PSIxOSIgeT0iMCIvPgo8L3N2Zz4="
+                ]
+              },
+              {
+                "config": {},
+                "name": "title",
+                "type": "string",
+                "values": [
+                  "Rogger"
+                ]
+              },
+              {
+                "config": {},
+                "name": "status",
+                "type": "number",
+                "values": [
+                  1
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "UCCE Components"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 2
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 6,
+        "y": 14
+      },
+      "id": 23,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\" style=\"background-color: {{statusColor}}\">\r\n  <h1 class=\"title\">{{title}}</h1>\r\n  <!-- <img class=\"image\" src={{svg}} /> -->\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 364,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "status",
+        "styles": ".container {\r\n  height: 100%;\r\n  width: 100%;\r\n  top: 50%;\r\n  left: 50%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  font-size: 35px;\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.image {\r\n  width: 150px;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "svg",
+                "type": "string",
+                "values": [
+                  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEyMCA5MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI5MCI+Cgk8dGl0bGU+TmV3IFByb2plY3Q8L3RpdGxlPgoJPGRlZnM+CgkJPGltYWdlICB3aWR0aD0iODIiIGhlaWdodD0iOTAiIGlkPSJpbWcxIiBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUZJQUFBQmFDQU1BQUFBY29mSEVBQUFBQVhOU1IwSUIyY2tzZndBQUFtMVFURlJGQUFBQS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vRWtoVnhBQUFBTTkwVWs1VEFENmk5clp5TFFkSjJ2L3J6MjRPWTNVTFVyaXBiQjhsN3UzSWR4QVlyL3JZQ1M1MitPL1NaaHdCSjdQK3hrd01RM2pqMldFMUF5SkliZHU5WWgwQ0Y0V3R6UEwxbjBaVlJ5QXFXNGpzZ1UvdzhjclUzL1A1cXAxVVJEYzVYRFRsNU1XbjRQMDYwN2R4T0UzMzUxNGFydlFHVWNQcCs3VVNzSVRSTTVSWGlwTWJsN1NaTmdTYVpic1Jvd3FQeXdBVGFiN1dIdHhvQlR6SGtkVkxadzgvL0JXVkRZdUNvU0dZMEVxeHExcFRDSGxBUXJMaG0wNjhmWDh4M212cWtFVmt1Y1NzRm9ZamU2WXZlaXdaZ0QwazR3aFkyUUFBQkJ0SlJFRlVlSnp0MkdkRDAwQVlCL0FIUWFFbkZoVVZBVmtPcExWSUhTd1ZVRkNyWUhHQUZFUVFrYnBCNmtKeG94VzFRRjA0VVhIZ0ZzVzlCKzc1bWJ5MHhhNWNjcGYwaFMvNHYySGM4ZVBTWEpMbkNRQlYvUHI0Qi9UdFJ6ZVhLb0ZCQ29SUS8rQUJTcCtSSWNISUZzWEFRVDd4bElORDBiOE1HVHBNdmhnV01CeTVKRHdpY29ROE1DcmFIM2trSm5hb2RDOXU1S2pSbmlDWE1mRmpFMVJTUUpWNlhLeUdUMFJJbzBrY3o3eWprclFUSnZKelBaa1VQems1aWRwTFNVMUxueUlNMnRDcDA3UVpORjVtMXZRWjJUbmlJSmVaNGRHejByeUoyYm81WVhOems3VTZuTHg1WStnc2wrUWdmYjV1Zm02bUM3a0FMUXhlVkZBWXptdzVzeGdWRlVRYURNVURTNWFVTGkwckJ4bVVhNVloVkZSUmtMMDhNYmJTVjZSTGVzbGVzcGVVVE1iN252UzUyRXYrNTZURVRUUjFCV21rQ3RJcEg3QnVVUmhCdVpJd3RncUNKSkFLTGE0ZkFnaURxMEhITGlJamZsaXZJUTNxSkpBcnVHSlFxeUNUYTljeGl1dXJjYzI2SnBZNHJvT2FEYlZNWWs1ZUlKZzI2b25qbTBvaEpYOHppN2hsYXgyQWVodDV3dllvQUFPTGlPcDM0T0p6NTB6eWhGMjRQdDdOVXEzdFVZTnFiNlRBQkUwSlBuZGgrK2pGQm56VVdmdkpIeVRlRGdjd2FUNUlMWEpiUExOUlNFU0hEbk1WNWhGYXNSQzNVWllRNFRrR1c5RmF3ai9ZMU96eGkrYThGckFlRlZ3alFnZnQxZmt4dnJIam1YRFU3UXBKUEdBQ2E0TXdpTkFKZTIzTnV5Vm1BRmdiVHpwL1h0d2FCNmZFcjE1SGk3Vy9pRzlRRFdBNmZhYm5KLyt6dU1uMVN4UVR6ems2QVA3L1BlVjhDa0Jxc2YyenE4aFhRbURwSk5GRk5qcElZd1cvYVZTQ3FxN1Y5bjNiQlRCZkZMZ01IYmswMkVHMlgrYWZFTDNyQ3RqUFNJTVZvS2JQQWxHeUlMZW45N2xLbUZFN0JGUEtDZUhYOEJjcjZTN3VrcGlPbGg3eU9uRnYzTURZRlMyMzJCdmlJcnA1M3RtaWtXZnR0bSswakNZSzBYSHAySE9MM0NuZk5nYmlnNzlESTZLN0xxUTVtenl2K1I1MFZndmNJSjNaWW5IdGQ5dThYbUU0czVCcWhUajMzVnJvQjB4UEMvN291OXpJdUlmeXlhMGU3NlhLSDhrbUg3aUxrUEpZcmhoeHlvT0VKMDlsa3M4OFJUZ2NJbksvRnNuemRpK3lKVVAwWmlnVXhRdSs5MXRzTllKSEREd2dMa3RrblBTWGFsNFN5a1RlaVpFeitoVy9DSFdQaDR2L05WOWV2N2xBSU1FbzhlT3NuRXNTd2Z4V2t1aGZLdlEyVTZ5WTRJdituUUFJTUtpVm5VeTNDSktxVkZJN1E4ejdHa0VSUi9laGlnVmMxOUV1SmtMbmFhWjFkaFAydUh2VXhKYkdLem5qUHRLSURLZTl0dnNXblFpV3NaVEgvdW16aVpJRTJMdU40aW1yYit1a0JuRXl2b2lLOWEzQys5RXpxaWl4aXFXKzJzb2tjZ2tLRlJLL2ZtTUdjVmRRUTY3MXU1dllsMmlMS1psdzVybldVMm9TT3J5M2FOWE43Y1FiTGswc2FaL2NRWTNtKzQ4NE9TS1huL01pL2kwd0p1QlhuVnlQaS9sM2cvM3creGRXL3ZFRnlNWFN0VzhpVWhnR0xLVzZYUDRDZG1KN3lmV0J3c2NBQUFBQVNVVk9SSzVDWUlJPSIvPgoJPC9kZWZzPgoJPHN0eWxlPgoJPC9zdHlsZT4KCTx1c2UgaWQ9IkxheWVyIDIiIGhyZWY9IiNpbWcxIiB4PSIxOSIgeT0iMCIvPgo8L3N2Zz4="
+                ]
+              },
+              {
+                "config": {},
+                "name": "title",
+                "type": "string",
+                "values": [
+                  "Nuance"
+                ]
+              },
+              {
+                "config": {},
+                "name": "status",
+                "type": "number",
+                "values": [
+                  2
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "UCCE Components"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 2
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 9,
+        "y": 14
+      },
+      "id": 25,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\" style=\"background-color: {{statusColor}}\">\r\n  <h1 class=\"title\">{{title}}</h1>\r\n  <!-- <img class=\"image\" src={{svg}} /> -->\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 364,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "status",
+        "styles": ".container {\r\n  height: 100%;\r\n  width: 100%;\r\n  top: 50%;\r\n  left: 50%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  font-size: 35px;\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.image {\r\n  width: 150px;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "svg",
+                "type": "string",
+                "values": [
+                  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEyMCA5MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI5MCI+Cgk8dGl0bGU+TmV3IFByb2plY3Q8L3RpdGxlPgoJPGRlZnM+CgkJPGltYWdlICB3aWR0aD0iODIiIGhlaWdodD0iOTAiIGlkPSJpbWcxIiBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUZJQUFBQmFDQU1BQUFBY29mSEVBQUFBQVhOU1IwSUIyY2tzZndBQUFtMVFURlJGQUFBQS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vRWtoVnhBQUFBTTkwVWs1VEFENmk5clp5TFFkSjJ2L3J6MjRPWTNVTFVyaXBiQjhsN3UzSWR4QVlyL3JZQ1M1MitPL1NaaHdCSjdQK3hrd01RM2pqMldFMUF5SkliZHU5WWgwQ0Y0V3R6UEwxbjBaVlJ5QXFXNGpzZ1UvdzhjclUzL1A1cXAxVVJEYzVYRFRsNU1XbjRQMDYwN2R4T0UzMzUxNGFydlFHVWNQcCs3VVNzSVRSTTVSWGlwTWJsN1NaTmdTYVpic1Jvd3FQeXdBVGFiN1dIdHhvQlR6SGtkVkxadzgvL0JXVkRZdUNvU0dZMEVxeHExcFRDSGxBUXJMaG0wNjhmWDh4M212cWtFVmt1Y1NzRm9ZamU2WXZlaXdaZ0QwazR3aFkyUUFBQkJ0SlJFRlVlSnp0MkdkRDAwQVlCL0FIUWFFbkZoVVZBVmtPcExWSUhTd1ZVRkNyWUhHQUZFUVFrYnBCNmtKeG94VzFRRjA0VVhIZ0ZzVzlCKzc1bWJ5MHhhNWNjcGYwaFMvNHYySGM4ZVBTWEpMbkNRQlYvUHI0Qi9UdFJ6ZVhLb0ZCQ29SUS8rQUJTcCtSSWNISUZzWEFRVDd4bElORDBiOE1HVHBNdmhnV01CeTVKRHdpY29ROE1DcmFIM2trSm5hb2RDOXU1S2pSbmlDWE1mRmpFMVJTUUpWNlhLeUdUMFJJbzBrY3o3eWprclFUSnZKelBaa1VQems1aWRwTFNVMUxueUlNMnRDcDA3UVpORjVtMXZRWjJUbmlJSmVaNGRHejByeUoyYm81WVhOems3VTZuTHg1WStnc2wrUWdmYjV1Zm02bUM3a0FMUXhlVkZBWXptdzVzeGdWRlVRYURNVURTNWFVTGkwckJ4bVVhNVloVkZSUmtMMDhNYmJTVjZSTGVzbGVzcGVVVE1iN252UzUyRXYrNTZURVRUUjFCV21rQ3RJcEg3QnVVUmhCdVpJd3RncUNKSkFLTGE0ZkFnaURxMEhITGlJamZsaXZJUTNxSkpBcnVHSlFxeUNUYTljeGl1dXJjYzI2SnBZNHJvT2FEYlZNWWs1ZUlKZzI2b25qbTBvaEpYOHppN2hsYXgyQWVodDV3dllvQUFPTGlPcDM0T0p6NTB6eWhGMjRQdDdOVXEzdFVZTnFiNlRBQkUwSlBuZGgrK2pGQm56VVdmdkpIeVRlRGdjd2FUNUlMWEpiUExOUlNFU0hEbk1WNWhGYXNSQzNVWllRNFRrR1c5RmF3ai9ZMU96eGkrYThGckFlRlZ3alFnZnQxZmt4dnJIam1YRFU3UXBKUEdBQ2E0TXdpTkFKZTIzTnV5Vm1BRmdiVHpwL1h0d2FCNmZFcjE1SGk3Vy9pRzlRRFdBNmZhYm5KLyt6dU1uMVN4UVR6ems2QVA3L1BlVjhDa0Jxc2YyenE4aFhRbURwSk5GRk5qcElZd1cvYVZTQ3FxN1Y5bjNiQlRCZkZMZ01IYmswMkVHMlgrYWZFTDNyQ3RqUFNJTVZvS2JQQWxHeUlMZW45N2xLbUZFN0JGUEtDZUhYOEJjcjZTN3VrcGlPbGg3eU9uRnYzTURZRlMyMzJCdmlJcnA1M3RtaWtXZnR0bSswakNZSzBYSHAySE9MM0NuZk5nYmlnNzlESTZLN0xxUTVtenl2K1I1MFZndmNJSjNaWW5IdGQ5dThYbUU0czVCcWhUajMzVnJvQjB4UEMvN291OXpJdUlmeXlhMGU3NlhLSDhrbUg3aUxrUEpZcmhoeHlvT0VKMDlsa3M4OFJUZ2NJbksvRnNuemRpK3lKVVAwWmlnVXhRdSs5MXRzTllKSEREd2dMa3RrblBTWGFsNFN5a1RlaVpFeitoVy9DSFdQaDR2L05WOWV2N2xBSU1FbzhlT3NuRXNTd2Z4V2t1aGZLdlEyVTZ5WTRJdituUUFJTUtpVm5VeTNDSktxVkZJN1E4ejdHa0VSUi9laGlnVmMxOUV1SmtMbmFhWjFkaFAydUh2VXhKYkdLem5qUHRLSURLZTl0dnNXblFpV3NaVEgvdW16aVpJRTJMdU40aW1yYit1a0JuRXl2b2lLOWEzQys5RXpxaWl4aXFXKzJzb2tjZ2tLRlJLL2ZtTUdjVmRRUTY3MXU1dllsMmlMS1psdzVybldVMm9TT3J5M2FOWE43Y1FiTGswc2FaL2NRWTNtKzQ4NE9TS1huL01pL2kwd0p1QlhuVnlQaS9sM2cvM3creGRXL3ZFRnlNWFN0VzhpVWhnR0xLVzZYUDRDZG1KN3lmV0J3c2NBQUFBQVNVVk9SSzVDWUlJPSIvPgoJPC9kZWZzPgoJPHN0eWxlPgoJPC9zdHlsZT4KCTx1c2UgaWQ9IkxheWVyIDIiIGhyZWY9IiNpbWcxIiB4PSIxOSIgeT0iMCIvPgo8L3N2Zz4="
+                ]
+              },
+              {
+                "config": {},
+                "name": "title",
+                "type": "string",
+                "values": [
+                  "External Services"
+                ]
+              },
+              {
+                "config": {},
+                "name": "status",
+                "type": "number",
+                "values": [
+                  2
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "UCCE Components"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 19
+      },
+      "id": 2,
+      "panels": [],
+      "title": "KPIs",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 2.1
+              },
+              {
+                "color": "green",
+                "value": 3.1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 20
+      },
+      "id": 26,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "value",
+                "type": "number",
+                "values": [
+                  2
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "MOS Score"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "MOS Score",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 6
+              },
+              {
+                "color": "orange",
+                "value": 11
+              },
+              {
+                "color": "red",
+                "value": 26
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 20
+      },
+      "id": 9,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000,
+                  1727231760000,
+                  1727231820000,
+                  1727231880000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Value",
+                "type": "number",
+                "values": [
+                  0,
+                  100,
+                  100,
+                  100
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "name"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Failure Rate",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "blue",
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 60
+              },
+              {
+                "color": "green",
+                "value": 71
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 20
+      },
+      "id": 27,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Agents",
+                "type": "number",
+                "values": [
+                  63
+                ]
+              },
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Name"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Number of Logged In Agents",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "blue",
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 41
+              },
+              {
+                "color": "green",
+                "value": 51
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 12,
+        "y": 20
+      },
+      "id": 29,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Agents",
+                "type": "number",
+                "values": [
+                  43
+                ]
+              },
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Name"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Number of Ready Agents",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "blue",
+            "mode": "fixed"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Number of Calls in Queue",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 8,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 15,
+        "w": 8,
+        "x": 16,
+        "y": 20
+      },
+      "id": 30,
+      "options": {
+        "legend": {
+          "calcs": [
+            "first",
+            "last",
+            "range",
+            "max",
+            "min",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fe2gphzf3r4sgb"
+          },
+          "hide": true,
+          "range": "A1:B6",
+          "refId": "A",
+          "spreadsheet": "1DHAXPwhG3o3uucWyPF_mxPnim-5XYvMChBRrFgiGDQM"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000,
+                  1727231760000,
+                  1727231820000,
+                  1727231880000,
+                  1727231940000,
+                  1727232000000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Calls In Queue",
+                "type": "number",
+                "values": [
+                  0,
+                  1,
+                  16,
+                  75,
+                  null,
+                  null
+                ]
+              }
+            ],
+            "meta": {}
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "CISCO ICM Router | Total Calls in Queue",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Total_Calls_in_Queue": "Calls in Queue"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "thresholds",
+            "seriesBy": "min"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Number of Calls",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 8,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed+area"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 5
+              },
+              {
+                "color": "orange",
+                "value": 20
+              },
+              {
+                "color": "red",
+                "value": 30
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Total Calls"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Success Calls"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Failed Calls"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 8,
+        "x": 0,
+        "y": 24
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [
+            "first",
+            "last",
+            "range",
+            "max",
+            "min",
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fe2gphzf3r4sgb"
+          },
+          "hide": true,
+          "range": "A1:C6",
+          "refId": "A",
+          "spreadsheet": "1vUCexPLdLKHF5XJ__9G7hoO0KYRM512ndkP_5HPiibY"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000,
+                  1727231760000,
+                  1727231820000,
+                  1727231880000,
+                  1727231940000,
+                  1727232000000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Failed Calls",
+                "type": "number",
+                "values": [
+                  0,
+                  1,
+                  23,
+                  105,
+                  null,
+                  null
+                ]
+              }
+            ],
+            "meta": {}
+          },
+          "hide": false,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000,
+                  1727231760000,
+                  1727231820000,
+                  1727231880000,
+                  1727231940000,
+                  1727232000000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Success Calls",
+                "type": "number",
+                "values": [
+                  5,
+                  0,
+                  0,
+                  0,
+                  null,
+                  null
+                ]
+              }
+            ],
+            "meta": {}
+          },
+          "hide": false,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000,
+                  1727231760000,
+                  1727231820000,
+                  1727231880000,
+                  1727231940000,
+                  1727232000000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Total Calls",
+                "type": "number",
+                "values": [
+                  5,
+                  1,
+                  23,
+                  105,
+                  null,
+                  null
+                ]
+              }
+            ],
+            "meta": {}
+          },
+          "hide": false,
+          "refId": "C"
+        }
+      ],
+      "title": "Call Status",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "thresholds",
+            "seriesBy": "min"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Number of Calls",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 8,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed+area"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 5
+              },
+              {
+                "color": "orange",
+                "value": 20
+              },
+              {
+                "color": "red",
+                "value": 30
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Affected Customers"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 8,
+        "x": 8,
+        "y": 24
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [
+            "first",
+            "last",
+            "range",
+            "max",
+            "min",
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.4.0-79146",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "grafana-googlesheets-datasource",
+            "uid": "fe2gphzf3r4sgb"
+          },
+          "hide": true,
+          "range": "A1:B6",
+          "refId": "A",
+          "spreadsheet": "1q0EEP2iLFSNguCuWocbj1BDDpxDToAntrjeEGExjE2I"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Timestamp",
+                "type": "time",
+                "values": [
+                  1727231700000,
+                  1727231760000,
+                  1727231820000,
+                  1727231880000,
+                  1727231940000,
+                  1727232000000
+                ]
+              },
+              {
+                "config": {},
+                "name": "Affected Customers",
+                "type": "number",
+                "values": [
+                  1,
+                  1,
+                  32,
+                  220,
+                  null,
+                  null
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Affected Customers"
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "Affected Customers",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Affected_Customers": "Affected Customers",
+              "Number of Calls": "Failed Calls"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "2024-09-25T02:35:00.000Z",
+    "to": "2024-09-25T02:38:00.000Z"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Call Center IVR System Overview",
+  "uid": "fe2gk9c0wgf0gd",
+  "version": 37,
+  "weekStart": ""
+}

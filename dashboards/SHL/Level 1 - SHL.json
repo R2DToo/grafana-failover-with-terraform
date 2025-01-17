@@ -1,0 +1,5022 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 26,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 26,
+      "panels": [],
+      "title": "SHL Service Stability",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 0,
+        "y": 1
+      },
+      "id": 61,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\">\n  <h3 class=\"title\">\n    {{Title}}\n  </h3>\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 200,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "everyRow": true,
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": ".container {\r\n  top: 50%;\r\n  left: 50%;\r\n  width: 100%;\r\n  height: 100%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  background-color: #383b3e;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  color: #ffffff;\r\n  font-weight: bold;\r\n  font-size: 1.875em;\r\n  text-align: 'center';\r\n  font-family: monospace;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "4.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Title",
+                "type": "string",
+                "values": [
+                  "Cart Service"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Dashboard Sections"
+          },
+          "refId": "A"
+        }
+      ],
+      "transparent": true,
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 4,
+        "y": 1
+      },
+      "id": 65,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\">\n  <h3 class=\"title\">\n    {{Title}}\n  </h3>\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 200,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "everyRow": true,
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": ".container {\r\n  top: 50%;\r\n  left: 50%;\r\n  width: 100%;\r\n  height: 100%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  background-color: #383b3e;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  color: #ffffff;\r\n  font-weight: bold;\r\n  font-size: 1.875em;\r\n  text-align: 'center';\r\n  font-family: monospace;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "4.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Title",
+                "type": "string",
+                "values": [
+                  "Ad Service"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Dashboard Sections"
+          },
+          "refId": "A"
+        }
+      ],
+      "transparent": true,
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 8,
+        "y": 1
+      },
+      "id": 59,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\">\n  <h3 class=\"title\">\n    {{Title}}\n  </h3>\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 200,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "everyRow": true,
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": ".container {\r\n  top: 50%;\r\n  left: 50%;\r\n  width: 100%;\r\n  height: 100%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  background-color: #383b3e;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  color: #ffffff;\r\n  font-weight: bold;\r\n  font-size: 1.875em;\r\n  text-align: 'center';\r\n  font-family: monospace;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "4.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Title",
+                "type": "string",
+                "values": [
+                  "Fraud-Detection Service"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Dashboard Sections"
+          },
+          "refId": "A"
+        }
+      ],
+      "transparent": true,
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 12,
+        "y": 1
+      },
+      "id": 60,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\">\n  <h3 class=\"title\">\n    {{Title}}\n  </h3>\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 200,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "everyRow": true,
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": ".container {\r\n  top: 50%;\r\n  left: 50%;\r\n  width: 100%;\r\n  height: 100%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  background-color: #383b3e;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  color: #ffffff;\r\n  font-weight: bold;\r\n  font-size: 1.875em;\r\n  text-align: 'center';\r\n  font-family: monospace;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "4.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Title",
+                "type": "string",
+                "values": [
+                  "Front End Service"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Dashboard Sections"
+          },
+          "refId": "A"
+        }
+      ],
+      "transparent": true,
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 8,
+        "x": 16,
+        "y": 1
+      },
+      "id": 62,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\">\n  <h3 class=\"title\">\n    {{Title}}\n  </h3>\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 200,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "everyRow": true,
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": "& {\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\n.container {\r\n  top: 50%;\r\n  left: 50%;\r\n  width: 100%;\r\n  height: 100%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  background-color: #383b3e;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  color: #ffffff;\r\n  font-weight: bold;\r\n  font-size: 1.875em;\r\n  text-align: 'center';\r\n  font-family: monospace;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "4.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Title",
+                "type": "string",
+                "values": [
+                  "SHL Service Management KPIs"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Dashboard Sections"
+          },
+          "refId": "A"
+        }
+      ],
+      "transparent": true,
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "dlopes7-appdynamics-datasource",
+        "uid": "cdckqcbbhigaob"
+      },
+      "description": "Keep timerange below 6 hours otherwise AppDynamics data granularity will break the panels calculation",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [
+            {
+              "options": {
+                "from": 0,
+                "result": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "UP"
+                },
+                "to": 300000
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 300001,
+                "result": {
+                  "color": "red",
+                  "index": 1,
+                  "text": "DOWN"
+                },
+                "to": 999999999
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 0,
+        "y": 3
+      },
+      "id": 18,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.0-66955",
+      "targets": [
+        {
+          "aggregation": "Value",
+          "alias": "",
+          "application": "OpenTelemetryDemo",
+          "datasource": {
+            "type": "dlopes7-appdynamics-datasource",
+            "uid": "cdckqcbbhigaob"
+          },
+          "delimiter": "|",
+          "isRawQuery": false,
+          "metric": "Application Infrastructure Performance|CartServiceTier|Agent|App|Availability",
+          "queryType": "metrics",
+          "refId": "A",
+          "rollUp": false,
+          "schemaVersion": "3.5.0",
+          "transformLegend": "Full Path",
+          "transformLegendText": ""
+        }
+      ],
+      "title": "Availability",
+      "transformations": [
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": true,
+            "labelsToFields": true,
+            "mode": "reduceFields",
+            "reducers": [
+              "lastNotNull"
+            ]
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "number",
+                "targetField": "time"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": "${__to}",
+              "operator": "-",
+              "reducer": "sum",
+              "right": "time"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "dlopes7-appdynamics-datasource",
+        "uid": "cdckqcbbhigaob"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 1000
+              },
+              {
+                "color": "red",
+                "value": 2000
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 2,
+        "y": 3
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.0-66955",
+      "targets": [
+        {
+          "aggregation": "Value",
+          "alias": "",
+          "application": "OpenTelemetryDemo",
+          "datasource": {
+            "type": "dlopes7-appdynamics-datasource",
+            "uid": "cdckqcbbhigaob"
+          },
+          "delimiter": "|",
+          "isRawQuery": false,
+          "metric": "Overall Application Performance|CartServiceTier|Average Response Time (ms)",
+          "queryType": "metrics",
+          "refId": "A",
+          "rollUp": true,
+          "schemaVersion": "3.5.0",
+          "transformLegend": "Full Path",
+          "transformLegendText": ""
+        }
+      ],
+      "title": "Performance",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "dlopes7-appdynamics-datasource",
+        "uid": "cdckqcbbhigaob"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [
+            {
+              "options": {
+                "from": 0,
+                "result": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "UP"
+                },
+                "to": 300000
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 300001,
+                "result": {
+                  "color": "red",
+                  "index": 1,
+                  "text": "DOWN"
+                },
+                "to": 999999999
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 4,
+        "y": 3
+      },
+      "id": 66,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.0-66955",
+      "targets": [
+        {
+          "aggregation": "Value",
+          "alias": "",
+          "application": "OpenTelemetryDemo",
+          "datasource": {
+            "type": "dlopes7-appdynamics-datasource",
+            "uid": "cdckqcbbhigaob"
+          },
+          "delimiter": "|",
+          "isRawQuery": false,
+          "metric": "Application Infrastructure Performance|AdServiceTier|Agent|App|Availability",
+          "queryType": "metrics",
+          "refId": "A",
+          "rollUp": false,
+          "schemaVersion": "3.5.0",
+          "transformLegend": "Full Path",
+          "transformLegendText": ""
+        }
+      ],
+      "title": "Availability",
+      "transformations": [
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": true,
+            "mode": "reduceFields",
+            "reducers": [
+              "lastNotNull"
+            ]
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "number",
+                "targetField": "time"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": "${__to}",
+              "operator": "-",
+              "right": "time"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "dlopes7-appdynamics-datasource",
+        "uid": "cdckqcbbhigaob"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 5000
+              },
+              {
+                "color": "red",
+                "value": 6000
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 6,
+        "y": 3
+      },
+      "id": 67,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.0-66955",
+      "targets": [
+        {
+          "aggregation": "Value",
+          "alias": "",
+          "application": "OpenTelemetryDemo",
+          "datasource": {
+            "type": "dlopes7-appdynamics-datasource",
+            "uid": "cdckqcbbhigaob"
+          },
+          "delimiter": "|",
+          "isRawQuery": false,
+          "metric": "Overall Application Performance|AdServiceTier|Average Response Time (ms)",
+          "queryType": "metrics",
+          "refId": "A",
+          "rollUp": true,
+          "schemaVersion": "3.5.0",
+          "transformLegend": "Full Path",
+          "transformLegendText": ""
+        }
+      ],
+      "title": "Performance",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 8,
+        "y": 3
+      },
+      "id": 1,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^Availability$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.0-66955",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Availability",
+                "type": "string",
+                "values": [
+                  "UP"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Availability"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Availability",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 5000
+              },
+              {
+                "color": "red",
+                "value": 6000
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 10,
+        "y": 3
+      },
+      "id": 64,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^Performance$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.0-66955",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Performance",
+                "type": "string",
+                "values": [
+                  "100 ms"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Performance"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Performance",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "dlopes7-appdynamics-datasource",
+        "uid": "cdckqcbbhigaob"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null+nan",
+                "result": {
+                  "color": "red",
+                  "index": 0,
+                  "text": "0"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 12,
+        "y": 3
+      },
+      "id": 16,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.0-66955",
+      "targets": [
+        {
+          "aggregation": "Value",
+          "alias": "",
+          "application": "1694",
+          "datasource": {
+            "type": "dlopes7-appdynamics-datasource",
+            "uid": "cdckqcbbhigaob"
+          },
+          "delimiter": "|",
+          "isRawQuery": false,
+          "metric": "End User Experience|App|Requests per Minute",
+          "queryType": "metrics",
+          "refId": "A",
+          "rollUp": false,
+          "schemaVersion": "3.5.0",
+          "transformLegend": "Full Path",
+          "transformLegendText": ""
+        }
+      ],
+      "title": "Requests per Minute",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "dlopes7-appdynamics-datasource",
+        "uid": "cdckqcbbhigaob"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 5000
+              },
+              {
+                "color": "red",
+                "value": 6000
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 2,
+        "x": 14,
+        "y": 3
+      },
+      "id": 17,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.0-66955",
+      "targets": [
+        {
+          "aggregation": "Value",
+          "alias": "",
+          "application": "1694",
+          "datasource": {
+            "type": "dlopes7-appdynamics-datasource",
+            "uid": "cdckqcbbhigaob"
+          },
+          "delimiter": "|",
+          "isRawQuery": false,
+          "metric": "End User Experience|App|End User Response Time (ms)",
+          "queryType": "metrics",
+          "refId": "A",
+          "rollUp": true,
+          "schemaVersion": "3.5.0",
+          "transformLegend": "Full Path",
+          "transformLegendText": ""
+        }
+      ],
+      "title": "Performance",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "1 - Critical"
+            },
+            "properties": [
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "3 - Moderate"
+            },
+            "properties": [
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "yellow",
+                      "value": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 16,
+        "y": 3
+      },
+      "id": 25,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.0-66955",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [
+                "count"
+              ],
+              "name": "priority"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "incident_state",
+              "fieldDesc": {
+                "choice": "3",
+                "choice_field": "state",
+                "choice_table": "incident",
+                "description": "Incident",
+                "element": "incident_state",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=integer",
+                  "value": "integer"
+                },
+                "label": "Incident state",
+                "name": "incident",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Incident state",
+                "table": "incident",
+                "value": "incident_state"
+              },
+              "op": "=",
+              "type": "integer",
+              "value": "1"
+            },
+            {
+              "conjunction": "and",
+              "field": "priority",
+              "fieldDesc": {
+                "choice": "1",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Task",
+                "element": "priority",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=integer",
+                  "value": "integer"
+                },
+                "label": "Priority",
+                "name": "task",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Priority",
+                "table": "task",
+                "value": "priority"
+              },
+              "op": "IN",
+              "type": "integer",
+              "value": "1,2,3"
+            },
+            {
+              "conjunction": "and",
+              "field": "contact_type",
+              "fieldDesc": {
+                "choice": "1",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Task",
+                "element": "contact_type",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Contact type",
+                "name": "task",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Contact type",
+                "table": "task",
+                "value": "contact_type"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "Alert"
+            },
+            {}
+          ],
+          "groupBy": [
+            "priority"
+          ],
+          "limit": 2000,
+          "queryType": "AggregateAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "incident",
+          "timeField": "ignore_time"
+        }
+      ],
+      "title": "ServiceNow Incidents",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "count 1 - Critical": "1 - Critical",
+              "count 3 - Moderate": "3 - Moderate"
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 20,
+        "y": 3
+      },
+      "id": 21,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/^MTTR$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.0-66955",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "MTTR",
+                "type": "string",
+                "values": [
+                  "2 Hours"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "MTTR"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "MTTR",
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "opened_at"
+              },
+              {
+                "destinationType": "time",
+                "targetField": "closed_at"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "disabled": true,
+          "id": "calculateField",
+          "options": {
+            "alias": "Maintenance Duration",
+            "binary": {
+              "left": "closed_at",
+              "operator": "-",
+              "reducer": "sum",
+              "right": "opened_at"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "disabled": true,
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Maintenance Duration": {
+                "aggregations": [
+                  "sum",
+                  "count"
+                ],
+                "operation": "aggregate"
+              },
+              "group_by": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        },
+        {
+          "disabled": true,
+          "id": "calculateField",
+          "options": {
+            "alias": "MTTR",
+            "binary": {
+              "left": "Maintenance Duration (sum)",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "Maintenance Duration (count)"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
+      "id": 27,
+      "panels": [],
+      "title": "SHL Platform Health",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              },
+              {
+                "color": "orange",
+                "value": 2
+              },
+              {
+                "color": "yellow",
+                "value": 3
+              },
+              {
+                "color": "blue",
+                "value": 4
+              },
+              {
+                "color": "green",
+                "value": 5
+              },
+              {
+                "color": "green",
+                "value": 6
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 3,
+        "x": 0,
+        "y": 9
+      },
+      "id": 51,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\" style=\"background-color: {{statusColor}}\">\r\n  <h1 class=\"title\">Application</h1>\r\n  <img class=\"image\" src={{svg}} />\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 364,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "everyRow": true,
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "severity",
+        "styles": ".container {\r\n  height: 180px;\r\n  width: 100%;\r\n  top: 50%;\r\n  left: 50%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  font-size: 30px;\r\n  color: white;\r\n}\r\n\r\n.image {\r\n  width: 150px;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "4.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "svg",
+                "type": "string",
+                "values": [
+                  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEyMyA5MiIgd2lkdGg9IjEyMyIgaGVpZ2h0PSI5MiI+Cgk8dGl0bGU+d2ViLWNvZGUtaWNvbi1zdmc8L3RpdGxlPgoJPGRlZnM+CgkJPGltYWdlICB3aWR0aD0iMTIzIiBoZWlnaHQ9IjkyIiBpZD0iaW1nMSIgaHJlZj0iZGF0YTppbWFnZS9wbmc7YmFzZTY0LGlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFIc0FBQUJjQ0FNQUFBQjVzRHJEQUFBQUFYTlNSMElCMmNrc2Z3QUFBYVJRVEZSRkFBQUEvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vZVpTUkp3QUFBSXgwVWs1VEFDWjl4disvY2hzZDBib1JTL2txOVE0RDU4aEFKSmhqNFp6QjNEZ1VIMlkwSVhZdkpZSEVvd0V5a2tYN0MySHpCQUtOdFJPYmd6QnRXUVZIR0tnak42QUdxejlTOTM5TVhmRjZTYjFJWlE4WEZReFZFSlZxNWJnSU5WZHBXeW5lczFvOVBNOFcyZ2xVWUk5UWpOUWdNd3F4TVVyOTQ4c1NsbXpOaWF3MmFFTzJpdWsrVWVDcHd3ZEc3M1NONmwxeEFBQURia2xFUVZSNG5PMmErVnZUTUJqSEE3eWdNQVlNbU1oZ3VrMGRCYm5HN1p4TTBJbDRNT1FRRDBEd0FDOHVSY0Q3Qm85LzJqWHR4bEs2TnVtYTl2R2gzMS8yZkplMzcyYzVsaVpwRVJKVlVGZ0UxcW00NUFoSzYyaXBoV0JKWlM0SlhXNDVPU1YzaFlpdXNBTU5VRm1Ga0tmYUhqYlVJRlJyRXhyQWk0N1p4cTVEeDIxajF5UGIwT0F6bGQzUTZEOXhNdU9LQXY1Z0tPUEtUdmxQbnlHaXcyYXl5enppZjlZcnV5WkJkTTJ5YThGVHlWbGU3TlkyYWE1cXg2NmpVM0pTemFzamt1dml4TzZXcCtnZTdIclRFeloyZmJMcjU4UWVrUE5Ic0RzbnV5aDI1NG5mWlQ2N1ZNNGZ3KzZDN0FheFM5Yzd6b2tOTVNsL24rVGszcitJalh0SWN0MjgyTDVvOXNnZXhvUHRrdXg2OFdDN25CMXVLaHNTVjBhdTd0ZHM5TnIxdWhzWlZ4MjZPUlltb3MxbHM4bGhIMHAyUEdtdHhyUFlmbVN0aEN6MkxSdlpkdGJiYVhPSGJSWGI2VytIcmFVSkYyRmpRM213R2NmYUpBUkluNGdiWnpQVmU4b0hTamJBZE5RQ2R1ZHQ4WUlEYkhDUENKelp3cVFiMU5rQU0vUU5iNFR0YlpEWE8ycHNnRHRWM05oM216SnJyWHRFd2YzTTk3TVJMbXhoRHZZVklJb205d3RtQXFvWDU4ZWVmd0EwYklBRmlvWm5ZZy8xQWxDeUFSWjFSendMKzJHQ3pBNUJvdmlSb3ZUeEV3YTI5cncyN2xQa0xuWXBJcnhMaW9oUUp6VmJxOTdMOVlxOFMvTXFVYldqWkpEN3FRbnN1RnVCZnFiZW05SG5pcmlhWk41c1JYVmU1SjYzcTBKa2JOaGM5a3Z0TzBaUG1CdDdaVldUTEtvOHdZVzlzcVpMVGlreWx1REE3cWRCcHpUSGdRMWQ2eFRrMkFhbnNUYXJOMWxHcC9tTjg2VlhXbVRQNjBwengva3dBWWVaNXB6NUZqZkowRkRlYkZUd2hreTUwS1lhbGxuU3lOcmExc2hKZlIvejdKQlpOOXM5QjJLUzAyUU12TlhLeUhJUERiNGpFM2NvN3RCdDd4WGtEeHB6T1NNYm9ZK0tSMWtCb2xTeGR2RHB6bjlzYXliaEV5Mjc4ck51TXVhMW91dExGaURYT2hYZ3EvYXF3Umdib2JWdnV2VXVpbEZsTXJBM2lBeG9zenUrMCtVeHRpZmE5bW13cVpyYk9CdWhINjA1K3Z1bmx6NkowZjMzK3E0YWV6UEhNazZmelhidXNMcDNvTTM3ZmpGbHlPZk1ZNDZzOSs5Qnh1di8xN01lTTluT3VlTGhZanY5N2JBdFlPT3pDcjJ6R1M3c1hiUW5mdER1TWMzU2hBZ3RSSXZpeHhiVENYVGVFdkNMYTQwb0NUYnBUMnAzVTJJVHUxeHNnUjM5T0E3Nkt6Vi9pdzNva25UZnIxbjVWcTZvamV3ZDIvS1VsWklmYWYwREJYMzZOZm83WFBvQUFBQUFTVVZPUks1Q1lJST0iLz4KCTwvZGVmcz4KCTxzdHlsZT4KCTwvc3R5bGU+Cgk8ZyBpZD0iTGF5ZXIiPgoJCTx1c2UgaWQ9IkxheWVyIDEiIGhyZWY9IiNpbWcxIiB4PSIwIiB5PSIwIi8+Cgk8L2c+Cjwvc3ZnPg=="
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Application"
+          },
+          "hide": false,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "false",
+          "fields": [
+            {
+              "aggregates": [
+                "min"
+              ],
+              "name": "severity"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "cmdb_ci.sys_id",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Cmdb_ci",
+                "element": "sys_id",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=GUID",
+                  "value": "GUID"
+                },
+                "label": "Configuration item -> sys_id",
+                "name": "cmdb_ci",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "",
+                "table": "cmdb_ci",
+                "value": "cmdb_ci.sys_id"
+              },
+              "op": "=",
+              "type": "GUID",
+              "value": "c6b2e597879c8250406540c6cebb35b7"
+            },
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "choice": "1",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "state",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=choice",
+                  "value": "choice"
+                },
+                "label": "State",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "State",
+                "table": "em_alert",
+                "value": "state"
+              },
+              "op": "IN",
+              "type": "choice",
+              "value": "Open,Reopen"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "hide": false,
+          "limit": 25,
+          "queryType": "AggregateAPI",
+          "refId": "B",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "em_alert",
+          "timeField": "ignore_time"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {
+            "frameNameLabel": "frame",
+            "frameNameMode": "label"
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "number",
+                "targetField": "severity"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 3,
+        "x": 3,
+        "y": 9
+      },
+      "id": 50,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\" style=\"background-color: {{statusColor}}\">\r\n  <h1 class=\"title\">Infrastructure</h1>\r\n  <img class=\"image\" src={{svg}} />\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 364,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "everyRow": true,
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "status",
+        "styles": ".container {\r\n  height: 180px;\r\n  width: 100%;\r\n  top: 50%;\r\n  left: 50%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  font-size: 30px;\r\n  color: white;\r\n}\r\n\r\n.image {\r\n  width: 150px;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "4.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Infrastructure",
+                "type": "string",
+                "values": [
+                  "1"
+                ]
+              },
+              {
+                "config": {},
+                "name": "svg",
+                "type": "string",
+                "values": [
+                  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEyMCA5MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI5MCI+Cgk8dGl0bGU+TmV3IFByb2plY3Q8L3RpdGxlPgoJPGRlZnM+CgkJPGltYWdlICB3aWR0aD0iODciIGhlaWdodD0iOTAiIGlkPSJpbWcxIiBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUZjQUFBQmFDQU1BQUFENmlEcUFBQUFBQVhOU1IwSUIyY2tzZndBQUFsaFFURlJGQUFBQS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy9McngyN0FBQUFNaDBVazVUQUM2Ui84RkFCUTdXNkVSUmlnR3E4QU9yc1Y5b3JYdkw1R1BOZW1za25zbDViTWpQdE5YcjAvWGlUVnJsZ0FvWHpwMXRobmdIU09rblBSckV0UThKc3pwVjFDWEhMUUE1MGN6OW8wRXdSLzVjUlhMYStlK1dONHhRMXpLODd0M2grdHYwNHpWZHcrZDlDekdDNEdBQ0lNVTJHY3ArTkl1cEhqeS9WMWpmY2FRUXR5aC9UTkErSXcwY3doTzlqMGJzaHhXVDk3bENWUFBZOXBpRDJaSXJER2Y3SHhnc3VoWlBZWFM0cjJLaWxPMHpwUWlWV2E0R1ppbnhqazc0Z2JzUk93UjFxQkxTM2xPQzU0VElBQUFEOTBsRVFWUjRuTzJZWjFjVFFSU0dKeTZDTFNFYVFRUkJRWXFpeEM0V1FLTVlzY1NJaVZKRXBDaFlzWUNpQ0NwR0JDdWlXTUNDWXU5ZHhJSmkvVnZ1M2hsU2RqUHNMaG5PZ1hONFA5Mjc4L0prZHRyZUFTR0VOSU00aHZJYjdJOUFBVU5ZWWpsdTZERE1IYzRXeTNFakFLdlZzZVlHQWxjL2tqV1gwdzV3dlhGSEdReUcwU1FPNHVQZ01UZ080ZU94b1Qzbmh2R1pQNG5IOFhGNEJJN0hDNnRHelZ1SnVCUGN1SkZ1M0NpdjNJblJNYTRrTmpwdUVoUHU1SGorNFpTaE9KbWFZRVJvMm5URjNCbDA3a3k5WUo0VkM4bnNPUUpvYmlJRDdqellVL09qSU5GQXNtQWhoU3VaTjhMMU5tOUdRRTFMZ2lRWmtwUkZEUHE3R0ZDbUpaRGdBMnpwUktYY2J1WXRkWmtaYVplbjRXUkYvQnhrVG81d052ckFYYmxxdFdYTktKSlkwOVphMHRldFpNSGxsNnd0MEpYWWJldGRXREYzZzhWaXlTQnhKaDluNFZuaHN2bDRZNDZZMjQxRTNFMDJteTJYeE92NWVEUFpRbmw4bkYvUWN5NHpEWEN4OEhkK0EydHNJZVp1WWMwTncxeTB0U2pXTjVDOTJPWlM2TGJ0aEt2ZnNWUG5wa0pzMWlrUjNqbTdNbmU3dEtZRWVSZXBmeWl0bnRvRDFyMzdsSGo3UG5mL2JuZVZZcTVCaWNxazQzdWdpNm8vcU9aTWtWZjVJY3c5ekpUS0gvbXpQY2FUbmJJQlc4TCtmREREOFBhZjg2eWZjMm4xYnlueXJmNE43Z3ZjaWlPbXl0S3VwT3FvcVRLVHlwMkFsTmQ5eDQ0TDUwcTFIWktnRXdMSVlXZkF4YWZMeVJwSVRrRlM2N3phK01EMXFIL3JJR0ZTLzU0R2xPVU1KTFdRbkQxSDRhcTVaNFVKZjZzL2owdktCT0d5Z1M3VU0raHZ3Y1Y1RFpwTFpLWXVOMTVwMEZ5OTVtejBnY3R4YVJYWFhVbGl4ZlVtVitZVHR4dUp1RVVPaDJPRVc5eWNqK042UHI1eHMrZGNaaHJnWXNIM3pSd2hiMVFuVXYrT2xuZXEweTNNRFlpUnQ2cFIybTNNUlMxM1BHcmFRdHlzb3Y2dHozRTltUlUvVVA4cTRWN3VKVzV2OWZkdUwzR3ZLZUsyWW02R2NtNS9XdzhzdWZmdVczZzl3RndodER5a2VrdWcvUkZZNHg0TGNhMmU1bzFNRlM3TzVIc05sK2l4Vks0UjJrUEFpdS9kRVMwMGI1bnpQNWRkZWtMbHRrak9zYWNCTksvREoyNWpjdS8wVjVhYi8wejNMRmVPVzRjTmdROTBJLzJzWHNiQjVLWnlLT09tUGpjaTR4ME1mbUdpYVN1MFcxKzJJcTBtOWE0UTF4aWNqY1BEa2VSMVhqMFhmczc4dWxEUzRrVnYzZ3JtcGU5RWp3dmVTN2pXRHgveGk3UXB3QmFSZytGVG5JaGJLZUcyZnlZRDlPV3JQTGVzQVh1M0o4bjJ0Nm1aY0xQeTVMbmZ5SDZzcTVibGNoM2ZzZGNoaitXR3BJTlZtMUVsNGtySGdXdHZBKytQWWdWY3JxTlQ4TjdYV1NYOTliSitzenBSNXhScytFbGR2MlJmL1BxTnpQdDNRZWkrZm45NzQzSk5mN3FLZWxrdVB4Wi9TYURtZktCejZ5UmpRdC9IYXJpK25UdHF1UFJ4ZVA4bVNhUi9WRzZLMkpwMHcralcvQi9GV1VhSjlxS3Ztd0FBQUFCSlJVNUVya0pnZ2c9PSIvPgoJPC9kZWZzPgoJPHN0eWxlPgoJPC9zdHlsZT4KCTx1c2UgaWQ9IkxheWVyIDUiIGhyZWY9IiNpbWcxIiB4PSIxNyIgeT0iMCIvPgo8L3N2Zz4="
+                ]
+              },
+              {
+                "config": {},
+                "name": "status",
+                "type": "number",
+                "values": [
+                  1
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Application"
+          },
+          "refId": "A"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {
+            "frameNameLabel": "frame",
+            "frameNameMode": "label"
+          }
+        }
+      ],
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 2,
+        "x": 6,
+        "y": 9
+      },
+      "id": 54,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\" style=\"background-color: {{statusColor}}\">\r\n  <h1 class=\"title\">Database</h1>\r\n  <img class=\"image\" src={{svg}} />\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 364,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "everyRow": true,
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "status",
+        "styles": ".container {\r\n  height: 180px;\r\n  width: 100%;\r\n  top: 50%;\r\n  left: 50%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  font-size: 30px;\r\n  color: white;\r\n}\r\n\r\n.image {\r\n  width: 150px;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "4.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Database",
+                "type": "string",
+                "values": [
+                  "1"
+                ]
+              },
+              {
+                "config": {},
+                "name": "svg",
+                "type": "string",
+                "values": [
+                  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEyMCA5MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI5MCI+Cgk8dGl0bGU+TmV3IFByb2plY3Q8L3RpdGxlPgoJPGRlZnM+CgkJPGltYWdlICB3aWR0aD0iNzciIGhlaWdodD0iOTAiIGlkPSJpbWcxIiBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUUwQUFBQmFDQU1BQUFES0JDdWhBQUFBQVhOU1IwSUIyY2tzZndBQUF0TlFURlJGQUFBQS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLzRpeklwZ0FBQVBGMFVrNVRBQUFKSzFWWFhXVnNlNG1odk56Mm00ZDhiV1JiVENFS0F5K1BxclBWLzh1MGR4MENSSjZzd3ZIbHVKY2JGMHAwdS83QVFSa1Vkc0gwNjhONkRIOUpBU05mME5SaVZzMzlwMXd6cTdJbUxpcksvSzRPa0pIZzVEb2dwRkg1K21kNFB6WVFVQ1RPYWQ3ak9RUnF5ZG1PUlRSZUdzeUZHS2oxSWdhdjU3QVZ5T2tGaUQwbG1kRmFCM0JEcGV5MU8rYTVRSDVIYjc4OEQ0WnVDMC9IOHBvbjAwNjJDRDdvZ3pnY0RlS1NIckhHOCtyWW1PNHN2dDJpTFZMNzRSOFcrSGx5bE5jUllGbW0yb0FUV1BmV0tiMU5jNFN0aTk5eGZjWFBOV2dTblNoSVlWVFNqV3VnTUZPVzdicXBrMGFWaW5VM2d1dEF1YUVBQUFZa1NVUkJWSGljclpqL1EwMW5ITWVmZXpzVjA3Y3B1amw2bE1OTjZqWnlHMVp6SXRkV0IwMjJpaEEzb2t0SUxvcm1GcnFSNUR1bFRNdFdLRjhtWHhlMmFTeGpaQ3VMWVdQcysreFAySFBPUGFmT3ZmZmM3K2Y5MnozbmVWNzNPYy96Zk42ZnovTUFZRUVTcVJ1R3VYdDQ5dW43V2o4dmJ4OXZMMSsvMS92N0I3aGpBd1lHU2l4MUVwWXNhQkErT0JnS3ltZElDQjQ2VkdZdmloZzJYQjQyUWhqRktueWtQQ0xTSmxDaWlIcGoxR2lySUo2aVBjWW9yWHgwekp0ang5bUxZalQrcmRnNFM3QzNIU0p4bWtBS29PSW5UbklLQm1IQ1pLbnB6S3Vtdk9Na0RNTFI3eVlTZkZnUzVUVEtvS25UZW1IVFI3a0lnM0M0a29NbHYrY3lETTVJbVc2QUtieGRoeUdGSzJqWXpQZEZnVUg0QWIyMGZWSkZvcVdsQXpCTGhFbGpOUnVBakRtaTBlYVNZSjVvTUFpVklGTkUybnhSYVF2QVJCRnBhcEExVnpUWU9CSXNYQ1FhRGUwUWtMMVlKTmlTSEVUVFpJdEVXMnBJTzh0RWdlWFNxSVhJM2tTWU9zYVJOR0M1UkR5M1hBRVdyNlJUb3NwQ1lyZFBjM0x6Nk05Y2xRL2dhaTJUWmZKZHlESnI4dWdzUS9aSHRMV0RtS1ZZNTNRR0RHWXpZSG9hb3FHbExUQllPbGJvK1BldTM1REVacGVpRHlGRDI0aXhEM1J1L2drT3NieUxTOWlSZ0UyYm9ZRUd0NVJ5NlVzL3Y4ekxibGEweDlhZXZEZHdXemxIZzNCN0JTL3YyNjY0ZGxRYVYxd0ZPOGZUanprYVhMSkxDWGhBN1c0c1lNOWVRVkpFZGdDMmI3OVJxVER0d0Vab1JFTTZDTXhFVm1uWDVWU1hSUnlxR1ZLYlBhQWlYbEVnVUJESmVneVhUNFBCL2hXRWVXUHJJZzhIOUNiM2ZQQVIveXZTNUVjY3FwQTF5ZFFXWHZkODRHRXlMVFYxRTFjb1ByYk5KRmZWbDFhYUZMWFZvUDZvMlR5bmZ1S0pmUm9uVkRKeUpIM0RCUGRpODlocEJMcEN3WlU3VmtmaHg3RnBWVExqVVdxcVRtUkY0RlJUODBtQlBwV29RWnhZVmMycE1RQTBBdTFwY1dobjlDUlFvVHp6bVJpdzhyTkFEVnBpQU1nNjV6THI1UGtMZ0pTRHRSZFJ2Q1c1Yk9YejFBQ3NSTEZ3S1JRdGhUVDJzZ3VvOWR1Q0VPUHpaWFJrQmJmU2ExODI5b3F6c0lTcmFwcHd6UkNuWHpUU08xS2hjaElXNnNac3hlUTBOdXBuRzM3TE1qWi82U0RwWEQvV0dMODZtTnZqSWNIWERYRkVYbWdiN0FETHJ6U0pqVC9pYXpvNE9FZTZ3WGs1RVlUbFZkcUZ1cG1IS1RrRGk5dTFGa0srdnhVZSthWW5HaVhTOXZOVVUwdnFMU0hLdDN0RHFPVzNkYnpnVmNTeXVZN25sdVB1Yk9WN0phbVBXZkFkNXA3bmVmZWViMlZxemFLTyszM0wvQk5WR0hhMktORElYc2lBc1J6Q3lIdFJaclhzUWhZazQ5ZHIrZUNPRWU3N0gwcUs3SFp6TWpKcW5sSHZPck1xZXYxZWVlZFFuVTBTSUpMNlVsMG10d0FZMlBSQWFLb3ZkN1puL0ZnVUtETnpkQWtoVlo3RjJqS0Z6bzFYZElDOFZ5NkVnOUNuWlJmS25CaFdrZHdReWFoaFUzbzFoclYxSCtnUTdnQmIwTDg5ZkdUaEphdndoT1l1UnMwUDBxeWV5Y3AzazZBQWtFT3M0K3pWTlJBSkRnUHcweFF4WUpzSlhSYllKd1d5eHlMQWZHK0RESGRRL0FSVllQb3VGMW5qbHhMSUxaK0M0cCszb3FVWUd1c1NiRklVWXZ5Qzlsc3hoTXhHeWdsekh2YU1EdHo1RUQ0RmZoQlNSVXpFZVRRN2RTaFBlLzRyNmwzVm5VdlQwTml1eUEybTBQRGlwY09zMDkzcFRJMTU0RGYwUTBYVGtDYXcxMVNOVjBmZXNCZDBhZEdhOWhpbWw5NXRBL1BrS1V2TExlVThLL0lKL3JzZHVYOUdjTXI1eDZ6YkVLby9vQkVOMXR4UDRpSmNvaDZHUGNPdG9jci9UTHpvcHVIYTM2NnRnUnpOcjZmTm9Xb3QzOXFJL2FxWE9JNVQ4cFJDZ3pya0ZQNDh0cjVWejIvVldoM2QreTk4R3J3VkptODFjeUNTME9nTWtoR2tpVUZKdEozUlByd3hsNENiUnQrd2ZZL1U3c0pYb3I1ZnQ5R290eHE0bTgxS1V5SVdKRlRKOTRxVXpzSUN6SzhUVXdHSUZ6S1EzQTBVL3RkRElhSkVFOS9uRVRWWThDcXJETDBQM1NIMHhxRHlSNTNYL0s4YjVMa244MjlCMStma1JWL254WjJ4MXNRQlpUT0RueVZLb1FwcjJZMlRjOHgxVm5pVW5wdlpkTmRwSmIxYm1sU0Z1OFk2ZGRWby9ZdUtmV3ozc2FSem1UTk45aEdoNnVjczdKK1ZRanM4d3luV2NVdEZVS3RmaUdPa3kwM1VDU3RoSGFqNjEyN1UwZWVKci9SV3c1bmVMZ1U1K0ZRYmQyZ0pkZFIvWnQ1bFNlVCtlblFFRFJNODNZem9Tc0h4RjBwYll6SWw2cld2TUt4OWN2L01RUjFiWUdwaDdlcTczWlBiTUd4M3BNYktUUDBQK1hhVW51MHhKenNBQUFBQVNVVk9SSzVDWUlJPSIvPgoJPC9kZWZzPgoJPHN0eWxlPgoJPC9zdHlsZT4KCTx1c2UgaWQ9IkxheWVyIDMiIGhyZWY9IiNpbWcxIiB4PSIyMiIgeT0iMCIvPgo8L3N2Zz4="
+                ]
+              },
+              {
+                "config": {},
+                "name": "status",
+                "type": "number",
+                "values": [
+                  1
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Platform Health"
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 2,
+        "x": 8,
+        "y": 9
+      },
+      "id": 53,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\" style=\"background-color: {{statusColor}}\">\r\n  <h1 class=\"title\">Network</h1>\r\n  <img class=\"image\" src={{svg}} />\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 364,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "everyRow": true,
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "status",
+        "styles": ".container {\r\n  height: 180px;\r\n  width: 100%;\r\n  top: 50%;\r\n  left: 50%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  font-size: 30px;\r\n  color: white;\r\n}\r\n\r\n.image {\r\n  width: 150px;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "4.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Network",
+                "type": "string",
+                "values": [
+                  "1"
+                ]
+              },
+              {
+                "config": {},
+                "name": "svg",
+                "type": "string",
+                "values": [
+                  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEyMCA5MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI5MCI+Cgk8dGl0bGU+TmV3IFByb2plY3Q8L3RpdGxlPgoJPGRlZnM+CgkJPGltYWdlICB3aWR0aD0iMTE1IiBoZWlnaHQ9IjkwIiBpZD0iaW1nMSIgaHJlZj0iZGF0YTppbWFnZS9wbmc7YmFzZTY0LGlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFITUFBQUJhQ0FNQUFBQzhQcGtxQUFBQUFYTlNSMElCMmNrc2Z3QUFBTDFRVEZSRkFBQUEvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL1B6OC8vLy8vLy8vLy8vLy8vLy8vZjM5Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL0wwWGtvQUFBQUQ5MFVrNVRBRVgvMDNseEo2cGZFNFhha0pabHhzL3BlNWRDVlVRT0FReGUxdTUxR0VPMTlOMXM0SFRrZlFJbE5oM0gwbTAxbVpNNnRQVmd0eGtGUHM0d3llOUpBcUdIc0FBQUFONUpSRUZVZUp6dDJyY1Nna0FVaFdIQWdKaEZ3WndEWUVETTJmZC9MRVU3dlpYRFpVYzlwLzJMYjdiYjJWbEo4aWNyMUNKUmlYRXgwbFFVbURCaHdvUUpFeVpNbURCaGZxa1pWNmtsTkU0elNhYVV6R21xZEVzTE1ETXdZY0lNeGN6bTdzc1hRalYxQWVjc3dvUUo4d2ROcldTOHp5eFhHTTFxclU2a1JyUEZhTFk3WGFyMVRFYXpQNkNqd1dnT1J6Qmh3dnhCMHhKZ2ZueW5odmxYcHUyTVgrZllyT1prU3BTWk8rYzBEYnA1TUdIQ2hBa1RKa3lZd1pzTEFhYnJ0K1ZxSGF6cFBmOFVicWl6YlBXZDMvWUg2dUhrYUQzZWgwNW5vbDI4NncybzQwM0I5enJZd2dBQUFBQkpSVTVFcmtKZ2dnPT0iLz4KCTwvZGVmcz4KCTxzdHlsZT4KCTwvc3R5bGU+Cgk8dXNlIGlkPSJMYXllciAxIiBocmVmPSIjaW1nMSIgeD0iMCIgeT0iMCIvPgo8L3N2Zz4="
+                ]
+              },
+              {
+                "config": {},
+                "name": "status",
+                "type": "number",
+                "values": [
+                  1
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Platform Health"
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 2,
+        "x": 10,
+        "y": 9
+      },
+      "id": 52,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"container\" style=\"background-color: {{statusColor}}\">\r\n  <h1 class=\"title\">Security</h1>\r\n  <img class=\"image\" src={{svg}} />\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 364,
+          "language": "html"
+        },
+        "editors": [
+          "styles"
+        ],
+        "everyRow": true,
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "status",
+        "styles": ".container {\r\n  height: 180px;\r\n  width: 100%;\r\n  top: 50%;\r\n  left: 50%;\r\n  display: flex;\r\n  position: absolute;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.title {\r\n  font-size: 30px;\r\n  color: white;\r\n}\r\n\r\n.image {\r\n  width: 150px;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "4.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Security",
+                "type": "string",
+                "values": [
+                  "1"
+                ]
+              },
+              {
+                "config": {},
+                "name": "svg",
+                "type": "string",
+                "values": [
+                  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEyMCA5MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI5MCI+Cgk8dGl0bGU+TmV3IFByb2plY3Q8L3RpdGxlPgoJPGRlZnM+CgkJPGltYWdlICB3aWR0aD0iODIiIGhlaWdodD0iOTAiIGlkPSJpbWcxIiBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUZJQUFBQmFDQU1BQUFBY29mSEVBQUFBQVhOU1IwSUIyY2tzZndBQUFtMVFURlJGQUFBQS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vRWtoVnhBQUFBTTkwVWs1VEFENmk5clp5TFFkSjJ2L3J6MjRPWTNVTFVyaXBiQjhsN3UzSWR4QVlyL3JZQ1M1MitPL1NaaHdCSjdQK3hrd01RM2pqMldFMUF5SkliZHU5WWgwQ0Y0V3R6UEwxbjBaVlJ5QXFXNGpzZ1UvdzhjclUzL1A1cXAxVVJEYzVYRFRsNU1XbjRQMDYwN2R4T0UzMzUxNGFydlFHVWNQcCs3VVNzSVRSTTVSWGlwTWJsN1NaTmdTYVpic1Jvd3FQeXdBVGFiN1dIdHhvQlR6SGtkVkxadzgvL0JXVkRZdUNvU0dZMEVxeHExcFRDSGxBUXJMaG0wNjhmWDh4M212cWtFVmt1Y1NzRm9ZamU2WXZlaXdaZ0QwazR3aFkyUUFBQkJ0SlJFRlVlSnp0MkdkRDAwQVlCL0FIUWFFbkZoVVZBVmtPcExWSUhTd1ZVRkNyWUhHQUZFUVFrYnBCNmtKeG94VzFRRjA0VVhIZ0ZzVzlCKzc1bWJ5MHhhNWNjcGYwaFMvNHYySGM4ZVBTWEpMbkNRQlYvUHI0Qi9UdFJ6ZVhLb0ZCQ29SUS8rQUJTcCtSSWNISUZzWEFRVDd4bElORDBiOE1HVHBNdmhnV01CeTVKRHdpY29ROE1DcmFIM2trSm5hb2RDOXU1S2pSbmlDWE1mRmpFMVJTUUpWNlhLeUdUMFJJbzBrY3o3eWprclFUSnZKelBaa1VQems1aWRwTFNVMUxueUlNMnRDcDA3UVpORjVtMXZRWjJUbmlJSmVaNGRHejByeUoyYm81WVhOems3VTZuTHg1WStnc2wrUWdmYjV1Zm02bUM3a0FMUXhlVkZBWXptdzVzeGdWRlVRYURNVURTNWFVTGkwckJ4bVVhNVloVkZSUmtMMDhNYmJTVjZSTGVzbGVzcGVVVE1iN252UzUyRXYrNTZURVRUUjFCV21rQ3RJcEg3QnVVUmhCdVpJd3RncUNKSkFLTGE0ZkFnaURxMEhITGlJamZsaXZJUTNxSkpBcnVHSlFxeUNUYTljeGl1dXJjYzI2SnBZNHJvT2FEYlZNWWs1ZUlKZzI2b25qbTBvaEpYOHppN2hsYXgyQWVodDV3dllvQUFPTGlPcDM0T0p6NTB6eWhGMjRQdDdOVXEzdFVZTnFiNlRBQkUwSlBuZGgrK2pGQm56VVdmdkpIeVRlRGdjd2FUNUlMWEpiUExOUlNFU0hEbk1WNWhGYXNSQzNVWllRNFRrR1c5RmF3ai9ZMU96eGkrYThGckFlRlZ3alFnZnQxZmt4dnJIam1YRFU3UXBKUEdBQ2E0TXdpTkFKZTIzTnV5Vm1BRmdiVHpwL1h0d2FCNmZFcjE1SGk3Vy9pRzlRRFdBNmZhYm5KLyt6dU1uMVN4UVR6ems2QVA3L1BlVjhDa0Jxc2YyenE4aFhRbURwSk5GRk5qcElZd1cvYVZTQ3FxN1Y5bjNiQlRCZkZMZ01IYmswMkVHMlgrYWZFTDNyQ3RqUFNJTVZvS2JQQWxHeUlMZW45N2xLbUZFN0JGUEtDZUhYOEJjcjZTN3VrcGlPbGg3eU9uRnYzTURZRlMyMzJCdmlJcnA1M3RtaWtXZnR0bSswakNZSzBYSHAySE9MM0NuZk5nYmlnNzlESTZLN0xxUTVtenl2K1I1MFZndmNJSjNaWW5IdGQ5dThYbUU0czVCcWhUajMzVnJvQjB4UEMvN291OXpJdUlmeXlhMGU3NlhLSDhrbUg3aUxrUEpZcmhoeHlvT0VKMDlsa3M4OFJUZ2NJbksvRnNuemRpK3lKVVAwWmlnVXhRdSs5MXRzTllKSEREd2dMa3RrblBTWGFsNFN5a1RlaVpFeitoVy9DSFdQaDR2L05WOWV2N2xBSU1FbzhlT3NuRXNTd2Z4V2t1aGZLdlEyVTZ5WTRJdituUUFJTUtpVm5VeTNDSktxVkZJN1E4ejdHa0VSUi9laGlnVmMxOUV1SmtMbmFhWjFkaFAydUh2VXhKYkdLem5qUHRLSURLZTl0dnNXblFpV3NaVEgvdW16aVpJRTJMdU40aW1yYit1a0JuRXl2b2lLOWEzQys5RXpxaWl4aXFXKzJzb2tjZ2tLRlJLL2ZtTUdjVmRRUTY3MXU1dllsMmlMS1psdzVybldVMm9TT3J5M2FOWE43Y1FiTGswc2FaL2NRWTNtKzQ4NE9TS1huL01pL2kwd0p1QlhuVnlQaS9sM2cvM3creGRXL3ZFRnlNWFN0VzhpVWhnR0xLVzZYUDRDZG1KN3lmV0J3c2NBQUFBQVNVVk9SSzVDWUlJPSIvPgoJPC9kZWZzPgoJPHN0eWxlPgoJPC9zdHlsZT4KCTx1c2UgaWQ9IkxheWVyIDIiIGhyZWY9IiNpbWcxIiB4PSIxOSIgeT0iMCIvPgo8L3N2Zz4="
+                ]
+              },
+              {
+                "config": {},
+                "name": "status",
+                "type": "number",
+                "values": [
+                  1
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Platform Health"
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "transparent",
+            "mode": "fixed"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "mode": "basic",
+              "type": "color-background"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "severity"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 110
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "green",
+                        "index": 5,
+                        "text": "Clear"
+                      },
+                      "1": {
+                        "color": "red",
+                        "index": 4,
+                        "text": "Critical"
+                      },
+                      "2": {
+                        "color": "orange",
+                        "index": 3,
+                        "text": "Major"
+                      },
+                      "3": {
+                        "color": "yellow",
+                        "index": 2,
+                        "text": "Minor"
+                      },
+                      "4": {
+                        "color": "blue",
+                        "index": 1,
+                        "text": "Warning"
+                      },
+                      "5": {
+                        "color": "green",
+                        "index": 0,
+                        "text": "OK"
+                      }
+                    },
+                    "type": "value"
+                  },
+                  {
+                    "options": {
+                      "match": "null+nan",
+                      "result": {
+                        "color": "green",
+                        "index": 6,
+                        "text": "OK"
+                      }
+                    },
+                    "type": "special"
+                  },
+                  {
+                    "options": {
+                      "match": "empty",
+                      "result": {
+                        "color": "green",
+                        "index": 7,
+                        "text": "OK"
+                      }
+                    },
+                    "type": "special"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Active Incidents"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 135
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Change (last 3 days)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 80
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Support Group"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 206
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Level 2/3 Dashboard",
+                    "url": "/d/f5b3815f-0c5c-440f-b855-b160743cd68?orgId=1&var-service_name=${__data.fields.name}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ci_id.sys_id"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "service_id.sys_id"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 43,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": [
+            "Health"
+          ],
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 1,
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "10.4.0-66955",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "name"
+            },
+            {
+              "aggregates": [],
+              "name": "sys_updated_on"
+            },
+            {
+              "aggregates": [],
+              "name": "container_id"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and"
+            }
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "queryType": "TableAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "cmdb_ci_docker_container",
+          "timeField": "ignore_time"
+        },
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "false",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "cmdb_ci.name"
+            },
+            {
+              "aggregates": [],
+              "name": "severity"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "cmdb_ci.name",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Cmdb_ci",
+                "element": "name",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Configuration item -> name",
+                "name": "cmdb_ci",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "",
+                "table": "cmdb_ci",
+                "value": "cmdb_ci.name"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "CartServiceTier"
+            },
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "choice": "1",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "state",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=choice",
+                  "value": "choice"
+                },
+                "label": "State",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "State",
+                "table": "em_alert",
+                "value": "state"
+              },
+              "op": "IN",
+              "type": "choice",
+              "value": "Open,Reopen"
+            },
+            {}
+          ],
+          "groupBy": [
+            "cmdb_ci.name"
+          ],
+          "hide": false,
+          "limit": 1,
+          "queryType": "TableAPI",
+          "refId": "B",
+          "sort": [
+            {
+              "field": "sys_updated_by",
+              "order": "desc"
+            },
+            {}
+          ],
+          "stats": [],
+          "table": "em_alert",
+          "timeField": "ignore_time"
+        }
+      ],
+      "title": "SHL Services Health",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(cmdb_ci.name)",
+            "renamePattern": "name"
+          }
+        },
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "name",
+            "mode": "outer"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {
+              "container_id A": 2,
+              "name": 0,
+              "severity B": 1,
+              "sys_updated_on A": 3
+            },
+            "renameByName": {
+              "COUNT": "Active Alerts",
+              "MIN": "Severity",
+              "container_id A": "container_id",
+              "name": "",
+              "self_severity B": "severity",
+              "service_id": "Application Service",
+              "severity B": "severity",
+              "sys_updated_on A": "sys_updated_on"
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "name"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 35,
+      "panels": [],
+      "title": "SHL Key Health Indicators",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "dlopes7-appdynamics-datasource",
+        "uid": "cdckqcbbhigaob"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 3,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed+area"
+            }
+          },
+          "displayName": "CPU Utilization",
+          "mappings": [],
+          "max": 100,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 4,
+        "x": 0,
+        "y": 18
+      },
+      "id": 36,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "aggregation": "Value",
+          "alias": "",
+          "application": "OpenTelemetryDemo",
+          "datasource": {
+            "type": "dlopes7-appdynamics-datasource",
+            "uid": "cdckqcbbhigaob"
+          },
+          "delimiter": "|",
+          "isRawQuery": false,
+          "metric": "Application Infrastructure Performance|*|Hardware Resources|CPU|%Busy",
+          "queryType": "metrics",
+          "refId": "A",
+          "rollUp": false,
+          "schemaVersion": "3.6.0",
+          "transformLegend": "Full Path",
+          "transformLegendText": ""
+        }
+      ],
+      "title": "CPU",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "dlopes7-appdynamics-datasource",
+        "uid": "cdckqcbbhigaob"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 3,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed+area"
+            }
+          },
+          "displayName": "Memory Utilization",
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 4,
+        "x": 4,
+        "y": 18
+      },
+      "id": 37,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "aggregation": "Value",
+          "alias": "",
+          "application": "OpenTelemetryDemo",
+          "datasource": {
+            "type": "dlopes7-appdynamics-datasource",
+            "uid": "cdckqcbbhigaob"
+          },
+          "delimiter": "|",
+          "isRawQuery": false,
+          "metric": "Application Infrastructure Performance|*|Hardware Resources|Memory|Used %",
+          "queryType": "metrics",
+          "refId": "A",
+          "rollUp": false,
+          "schemaVersion": "3.6.0",
+          "transformLegend": "Full Path",
+          "transformLegendText": ""
+        }
+      ],
+      "title": "Memory",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "dlopes7-appdynamics-datasource",
+        "uid": "cdckqcbbhigaob"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 3,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "displayName": "Active Users",
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 8,
+        "y": 18
+      },
+      "id": 40,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "aggregation": "Value",
+          "alias": "",
+          "application": "OpenTelemetryDemo",
+          "datasource": {
+            "type": "dlopes7-appdynamics-datasource",
+            "uid": "cdckqcbbhigaob"
+          },
+          "delimiter": "|",
+          "isRawQuery": false,
+          "metric": "Overall Application Performance|Calls per Minute",
+          "queryType": "metrics",
+          "refId": "A",
+          "rollUp": false,
+          "schemaVersion": "3.6.0",
+          "transformLegend": "Full Path",
+          "transformLegendText": ""
+        }
+      ],
+      "title": "Calls Per Minute",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "dlopes7-appdynamics-datasource",
+        "uid": "cdckqcbbhigaob"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 13,
+        "y": 18
+      },
+      "id": 71,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "aggregation": "Value",
+          "alias": "",
+          "application": "1694",
+          "datasource": {
+            "type": "dlopes7-appdynamics-datasource",
+            "uid": "cdckqcbbhigaob"
+          },
+          "delimiter": "|",
+          "isRawQuery": false,
+          "metric": "End User Experience|App|AJAX Request Errors per Minute",
+          "queryType": "metrics",
+          "refId": "A",
+          "rollUp": false,
+          "schemaVersion": "3.5.0",
+          "transformLegend": "Full Path",
+          "transformLegendText": ""
+        }
+      ],
+      "title": "Errors per Minute",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "dlopes7-appdynamics-datasource",
+        "uid": "cdckqcbbhigaob"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 3,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "displayName": "Response Time",
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 5000
+              },
+              {
+                "color": "red",
+                "value": 8000
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 18
+      },
+      "id": 41,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "aggregation": "Value",
+          "alias": "",
+          "application": "OpenTelemetryDemo",
+          "datasource": {
+            "type": "dlopes7-appdynamics-datasource",
+            "uid": "cdckqcbbhigaob"
+          },
+          "delimiter": "|",
+          "isRawQuery": false,
+          "metric": "Overall Application Performance|Average Response Time (ms)",
+          "queryType": "metrics",
+          "refId": "A",
+          "rollUp": false,
+          "schemaVersion": "3.6.0",
+          "transformLegend": "Full Path",
+          "transformLegendText": ""
+        }
+      ],
+      "title": "Average Response Time",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 26
+      },
+      "id": 44,
+      "panels": [],
+      "title": "SHL Alerts and Change",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "transparent",
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "severity"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 215
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "Clear": {
+                        "color": "green",
+                        "index": 5
+                      },
+                      "Critical": {
+                        "color": "red",
+                        "index": 4
+                      },
+                      "Major": {
+                        "color": "orange",
+                        "index": 3
+                      },
+                      "Minor": {
+                        "color": "yellow",
+                        "index": 2
+                      },
+                      "OK": {
+                        "color": "green",
+                        "index": 0
+                      },
+                      "Warning": {
+                        "color": "blue",
+                        "index": 1
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "basic",
+                  "type": "color-background"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Active Incidents"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 71
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Change (last 3 days)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 80
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Support Group"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 206
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Priority"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 135
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Category"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 116
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Opned at"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 242
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Number"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 240
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "description"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 223
+              },
+              {
+                "id": "custom.inspect",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "incident_state"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 138
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "Open": {
+                        "color": "#57f287",
+                        "index": 0
+                      },
+                      "Reopen": {
+                        "color": "#57f287",
+                        "index": 1
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "group_source"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 128
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "source"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 116
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "severity"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 98
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "number"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 123
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Drilldown into ServiceNow",
+                    "url": "https://optimizincdemo1.service-now.com/now/nav/ui/classic/params/target/incident.do%3Fsys_id%3D${__data.fields.sys_id}%26sysparm_record_target%3Dincident%26sysparm_record_row%3D1%26sysparm_record_rows%3D91%26sysparm_record_list%3DORDERBYDESCnumber"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 27
+      },
+      "id": 70,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": [
+            "Health"
+          ],
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "10.4.0-66955",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "number"
+            },
+            {
+              "aggregates": [],
+              "name": "state"
+            },
+            {
+              "aggregates": [],
+              "name": "severity"
+            },
+            {
+              "aggregates": [],
+              "name": "description"
+            },
+            {
+              "aggregates": [],
+              "name": "business_impact"
+            },
+            {
+              "aggregates": [],
+              "name": "caller_id.name"
+            },
+            {
+              "aggregates": [],
+              "name": "category"
+            },
+            {
+              "aggregates": [],
+              "name": "cause"
+            },
+            {
+              "aggregates": [],
+              "name": "child_incidents"
+            },
+            {
+              "aggregates": [],
+              "name": "close_code"
+            },
+            {
+              "aggregates": [],
+              "name": "hold_reason"
+            },
+            {
+              "aggregates": [],
+              "name": "incident_state"
+            },
+            {
+              "aggregates": [],
+              "name": "notify"
+            },
+            {
+              "aggregates": [],
+              "name": "origin_id"
+            },
+            {
+              "aggregates": [],
+              "name": "origin_table"
+            },
+            {
+              "aggregates": [],
+              "name": "parent_incident.number"
+            },
+            {
+              "aggregates": [],
+              "name": "short_description"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "incident_state",
+              "fieldDesc": {
+                "choice": "3",
+                "choice_field": "state",
+                "choice_table": "incident",
+                "description": "Incident",
+                "element": "incident_state",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=integer",
+                  "value": "integer"
+                },
+                "label": "Incident state",
+                "name": "incident",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Incident state",
+                "table": "incident",
+                "value": "incident_state"
+              },
+              "op": "=",
+              "type": "integer",
+              "value": "1"
+            },
+            {
+              "conjunction": "and",
+              "field": "priority",
+              "fieldDesc": {
+                "choice": "1",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Task",
+                "element": "priority",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=integer",
+                  "value": "integer"
+                },
+                "label": "Priority",
+                "name": "task",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Priority",
+                "table": "task",
+                "value": "priority"
+              },
+              "op": "IN",
+              "type": "integer",
+              "value": "1,3,2"
+            },
+            {
+              "conjunction": "and",
+              "field": "contact_type",
+              "fieldDesc": {
+                "choice": "1",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Task",
+                "element": "contact_type",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Contact type",
+                "name": "task",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Contact type",
+                "table": "task",
+                "value": "contact_type"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "Alert"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 2000,
+          "queryType": "TableAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "incident",
+          "timeField": "ignore_time"
+        }
+      ],
+      "title": "ServiceNow Incidents",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "close_code": true,
+              "sn_priority_group": true,
+              "state": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "business_impact": 6,
+              "caller_id.name": 7,
+              "category": 8,
+              "cause": 9,
+              "child_incidents": 11,
+              "close_code": 12,
+              "description": 4,
+              "hold_reason": 13,
+              "incident_state": 1,
+              "notify": 14,
+              "number": 0,
+              "origin_id": 10,
+              "origin_table": 15,
+              "parent_incident.number": 16,
+              "severity": 3,
+              "short_description": 5,
+              "state": 2
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "transparent",
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "severity"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 215
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "Clear": {
+                        "color": "green",
+                        "index": 5
+                      },
+                      "Critical": {
+                        "color": "red",
+                        "index": 4
+                      },
+                      "Major": {
+                        "color": "orange",
+                        "index": 3
+                      },
+                      "Minor": {
+                        "color": "yellow",
+                        "index": 2
+                      },
+                      "OK": {
+                        "color": "green",
+                        "index": 0
+                      },
+                      "Warning": {
+                        "color": "blue",
+                        "index": 1
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "basic",
+                  "type": "color-background"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Active Incidents"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 71
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Change (last 3 days)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 80
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Support Group"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 206
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Priority"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 135
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Category"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 116
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Opned at"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 242
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Number"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 240
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "description"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 339
+              },
+              {
+                "id": "custom.inspect",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "state"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 91
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "Open": {
+                        "color": "#57f287",
+                        "index": 0
+                      },
+                      "Reopen": {
+                        "color": "#57f287",
+                        "index": 1
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "group_source"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 128
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "source"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 141
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "severity"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 98
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "number"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 123
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Drilldown into ServiceNow",
+                    "url": "https://optimizincdemo1.service-now.com/now/nav/ui/classic/params/target/em_alert.do%3Fsys_id%3D${__data.fields.sys_id}%26sysparm_record_target%3Dem_alert%26sysparm_record_row%3D1%26sysparm_record_rows%3D29%26sysparm_record_list%3Dcorrelation_group%2521%253D2%255Ecorrelation_group%2521%253D3%255EORDERBYDESCsys_updated_on"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "source"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "continuous-YlBl"
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cmdb_ci.name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 158
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sys_id"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 33
+      },
+      "id": 48,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": [
+            "Health"
+          ],
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "10.4.0-66955",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "number"
+            },
+            {
+              "aggregates": [],
+              "name": "severity"
+            },
+            {
+              "aggregates": [],
+              "name": "cmdb_ci.name"
+            },
+            {
+              "aggregates": [],
+              "name": "description"
+            },
+            {
+              "aggregates": [],
+              "name": "event_count"
+            },
+            {
+              "aggregates": [],
+              "name": "state"
+            },
+            {
+              "aggregates": [],
+              "name": "source"
+            },
+            {
+              "aggregates": [],
+              "name": "node"
+            },
+            {
+              "aggregates": [],
+              "name": "sys_id"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "choice": "1",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "state",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=choice",
+                  "value": "choice"
+                },
+                "label": "State",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "State",
+                "table": "em_alert",
+                "value": "state"
+              },
+              "op": "!=",
+              "type": "choice",
+              "value": "Closed"
+            },
+            {
+              "conjunction": "and",
+              "field": "source",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "source",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Source",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Source",
+                "table": "em_alert",
+                "value": "source"
+              },
+              "op": "IN",
+              "type": "string",
+              "value": "AppDynamics,Group Alert"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 2000,
+          "queryType": "TableAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "em_alert",
+          "timeField": "ignore_time"
+        }
+      ],
+      "title": "Source Alerts",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "sn_priority_group": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "cmdb_ci.name": 4,
+              "description": 5,
+              "event_count": 6,
+              "node": 7,
+              "number": 0,
+              "severity": 3,
+              "source": 2,
+              "state": 1,
+              "sys_id": 8
+            },
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "number"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Priority"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 110
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "1 - Critical": {
+                        "color": "#ed4245",
+                        "index": 0,
+                        "text": "Critical"
+                      },
+                      "2 - High": {
+                        "color": "#fa6400",
+                        "index": 1,
+                        "text": "High"
+                      },
+                      "3 - Moderate": {
+                        "color": "#fee75c",
+                        "index": 2,
+                        "text": "Moderate"
+                      },
+                      "4 - Low": {
+                        "color": "#5865f2",
+                        "index": 3,
+                        "text": "Low"
+                      },
+                      "5 - Very Low": {
+                        "color": "purple",
+                        "index": 4,
+                        "text": "Very Low"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Urgency"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 100
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "1 - Critical": {
+                        "color": "red",
+                        "index": 0,
+                        "text": "Critical"
+                      },
+                      "2 - High": {
+                        "color": "orange",
+                        "index": 1,
+                        "text": "High"
+                      },
+                      "3 - Medium": {
+                        "color": "yellow",
+                        "index": 2,
+                        "text": "Medium"
+                      },
+                      "4- Low": {
+                        "color": "blue",
+                        "index": 3,
+                        "text": "Low"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Risk"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 110
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "basic",
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "High": {
+                        "color": "orange",
+                        "index": 1
+                      },
+                      "Low": {
+                        "color": "green",
+                        "index": 3
+                      },
+                      "Moderate": {
+                        "color": "yellow",
+                        "index": 2
+                      },
+                      "Very High": {
+                        "color": "red",
+                        "index": 0
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "State"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "custom.minWidth",
+                "value": 100
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "Assess": {
+                        "color": "#95e7f7",
+                        "index": 0
+                      },
+                      "Authorize": {
+                        "color": "yellow",
+                        "index": 1
+                      },
+                      "Canceled": {
+                        "color": "dark-orange",
+                        "index": 2
+                      },
+                      "Closed": {
+                        "color": "dark-red",
+                        "index": 3
+                      },
+                      "Implement": {
+                        "color": "purple",
+                        "index": 4
+                      },
+                      "New": {
+                        "color": "#70ee5f",
+                        "index": 5
+                      },
+                      "Review": {
+                        "color": "dark-green",
+                        "index": 6
+                      },
+                      "Scheduled": {
+                        "color": "blue",
+                        "index": 7
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Change"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "center"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Category"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "custom.minWidth",
+                "value": 120
+              },
+              {
+                "id": "custom.width",
+                "value": 176
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Escalation"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "custom.minWidth",
+                "value": 110
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Impact"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "custom.minWidth",
+                "value": 130
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "1-Global / Sector": {
+                        "index": 0,
+                        "text": "Global/Sector"
+                      },
+                      "2-Division/Region/Multi-Site": {
+                        "index": 1,
+                        "text": "Division/Region/Multi-Site"
+                      },
+                      "3-Site/Department": {
+                        "index": 2,
+                        "text": "Site/Department"
+                      },
+                      "4-Multi-User": {
+                        "index": 3,
+                        "text": "Multi-User"
+                      },
+                      "5-User": {
+                        "index": 4,
+                        "text": "User"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.width",
+                "value": 228
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Updated Relative"
+            },
+            "properties": [
+              {
+                "id": "custom.minWidth",
+                "value": 190
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Updated"
+            },
+            "properties": [
+              {
+                "id": "custom.minWidth",
+                "value": 200
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cmdb_ci"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "custom.minWidth",
+                "value": 150
+              },
+              {
+                "id": "custom.width",
+                "value": 337
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Short Description"
+            },
+            "properties": [
+              {
+                "id": "custom.minWidth",
+                "value": 350
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Type"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "center"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "relative_sys_created_on"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "custom.minWidth",
+                "value": 180
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sys_created_on"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "custom.minWidth",
+                "value": 190
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cab_required"
+            },
+            "properties": [
+              {
+                "id": "custom.minWidth",
+                "value": 120
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "conflict_status"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "center"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Description"
+            },
+            "properties": [
+              {
+                "id": "custom.minWidth",
+                "value": 300
+              },
+              {
+                "id": "custom.inspect",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "backout_plan"
+            },
+            "properties": [
+              {
+                "id": "custom.minWidth",
+                "value": 250
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cmdb_ci.sys_id"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 319
+              },
+              {
+                "id": "custom.inspect",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cmdb_ci.sys_class_name"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "custom.width",
+                "value": 267
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Assigned To"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "custom.width",
+                "value": 180
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sys_mod_count"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "lcd",
+                  "type": "gauge",
+                  "valueDisplayMode": "text"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Assignment Group"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "custom.width",
+                "value": 322
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Change"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Drilldown into ServiceNow",
+                    "url": "https://optimizincdemo1.service-now.com/now/nav/ui/classic/params/target/change_request.do%3Fsys_id%3D${__data.fields.sys_id}%26sysparm_record_target%3Dchange_request%26sysparm_record_row%3D1%26sysparm_record_rows%3D1%26sysparm_record_list%3DdescriptionCONTAINStls%255EORDERBYDESCstart_date"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 33
+      },
+      "id": 68,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": true,
+          "fields": [],
+          "reducer": [
+            "count"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "10.4.0-66955",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "number"
+            },
+            {
+              "aggregates": [],
+              "name": "description"
+            },
+            {
+              "aggregates": [],
+              "name": "type"
+            },
+            {
+              "aggregates": [],
+              "name": "start_date"
+            },
+            {
+              "aggregates": [],
+              "name": "end_date"
+            },
+            {
+              "aggregates": [],
+              "name": "priority"
+            },
+            {
+              "aggregates": [],
+              "name": "urgency"
+            },
+            {
+              "aggregates": [],
+              "name": "risk"
+            },
+            {
+              "aggregates": [],
+              "name": "state"
+            },
+            {
+              "aggregates": [],
+              "name": "escalation"
+            },
+            {
+              "aggregates": [],
+              "name": "impact"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "requested_by.name",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Sys_user",
+                "element": "name",
+                "internal_type": {
+                  "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Requested by -> Name",
+                "name": "sys_user",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Name",
+                "table": "sys_user",
+                "value": "requested_by.name"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "Braden Still-Routley"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "queryType": "TableAPI",
+          "refId": "A",
+          "sort": [
+            {
+              "field": "number",
+              "order": "desc"
+            },
+            {}
+          ],
+          "stats": [],
+          "table": "change_request",
+          "timeField": "ignore_time"
+        }
+      ],
+      "title": "Change Requests",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "additional_assignee_list": true,
+              "business_duration": true,
+              "business_service": true,
+              "cab_date": true,
+              "cab_delegate": true,
+              "cab_recommendation": true,
+              "calendar_duration": true,
+              "chg_model": true,
+              "close_code": true,
+              "close_notes": true,
+              "comments": true,
+              "comments_and_work_notes": true,
+              "company": true,
+              "contract": true,
+              "correlation_display": true,
+              "correlation_id": true,
+              "delivery_plan": true,
+              "delivery_task": true,
+              "location": true,
+              "on_hold_reason": true,
+              "on_hold_task": true,
+              "order": true,
+              "reason": true,
+              "rejection_goto": true,
+              "review_comments": true,
+              "review_date": true,
+              "review_status": true,
+              "risk_impact_analysis": true,
+              "route_reason": true,
+              "service_offering": true,
+              "sys_class_name": true,
+              "time_worked": true,
+              "universal_request": true,
+              "user_input": true,
+              "variables": true,
+              "watch_list": true,
+              "wf_activity": true,
+              "work_notes": true,
+              "work_notes_list": true
+            },
+            "indexByName": {
+              "active": 1,
+              "approval": 22,
+              "assigned_to": 10,
+              "assignment_group": 16,
+              "category": 3,
+              "closed_at": 23,
+              "closed_by": 24,
+              "cmdb_ci": 13,
+              "cmdb_ci.sys_class_name": 15,
+              "cmdb_ci.sys_id": 14,
+              "description": 9,
+              "escalation": 6,
+              "impact": 7,
+              "justification": 18,
+              "location": 25,
+              "number": 2,
+              "opened_at": 26,
+              "opened_by": 27,
+              "phase": 19,
+              "phase_state": 20,
+              "priority": 4,
+              "relative_sys_updated_on": 11,
+              "risk": 8,
+              "state": 0,
+              "sys_id": 21,
+              "sys_updated_on": 12,
+              "type": 17,
+              "urgency": 5
+            },
+            "renameByName": {
+              "assigned_to": "Assigned To",
+              "assignment_group": "Assignment Group",
+              "category": "Category",
+              "change_plan": "",
+              "description": "Description",
+              "escalation": "Escalation",
+              "impact": "Impact",
+              "number": "Change",
+              "outside_maintenance_schedule": "",
+              "priority": "Priority",
+              "relative_sys_updated_on": "Updated Relative",
+              "risk": "Risk",
+              "short_description": "Short Description",
+              "state": "State",
+              "sys_created_on": "",
+              "sys_updated_on": "Updated",
+              "test_plan": "",
+              "type": "Type",
+              "urgency": "Urgency"
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "sys_created_on"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Level 1 - SHL",
+  "uid": "f2787beb-9daa-41aa-be18-60b9b686cd88",
+  "version": 30,
+  "weekStart": ""
+}

@@ -1,0 +1,365 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 67,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 4,
+      "panels": [
+        {
+          "datasource": {
+            "type": "dlopes7-appdynamics-datasource",
+            "uid": "c5d516e4-85d2-45d6-ad0c-8cc1e80e1a70"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 6,
+            "x": 0,
+            "y": 1
+          },
+          "id": 3,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "name",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.1.0-69622",
+          "targets": [
+            {
+              "aggregation": "Value",
+              "alias": "",
+              "application": "Server & Infrastructure Monitoring",
+              "applicationName": "Server & Infrastructure Monitoring",
+              "datasource": {
+                "type": "dlopes7-appdynamics-datasource",
+                "uid": "c5d516e4-85d2-45d6-ad0c-8cc1e80e1a70"
+              },
+              "delimiter": "|",
+              "isRawQuery": true,
+              "metric": "Application Infrastructure Performance|Root|Individual Nodes|$servers|Hardware Resources|CPU|%Busy",
+              "queryType": "metrics",
+              "refId": "A",
+              "rollUp": false,
+              "schemaVersion": "3.7.0",
+              "transformLegend": "Segments",
+              "transformLegendText": "4"
+            }
+          ],
+          "title": "Server Name",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "dlopes7-appdynamics-datasource",
+            "uid": "c5d516e4-85d2-45d6-ad0c-8cc1e80e1a70"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 9,
+            "x": 6,
+            "y": 1
+          },
+          "id": 1,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "aggregation": "Value",
+              "alias": "",
+              "application": "Server & Infrastructure Monitoring",
+              "applicationName": "Server & Infrastructure Monitoring",
+              "datasource": {
+                "type": "dlopes7-appdynamics-datasource",
+                "uid": "c5d516e4-85d2-45d6-ad0c-8cc1e80e1a70"
+              },
+              "delimiter": "|",
+              "isRawQuery": true,
+              "metric": "Application Infrastructure Performance|Root|Individual Nodes|$servers|Hardware Resources|CPU|%Busy",
+              "queryType": "metrics",
+              "refId": "A",
+              "rollUp": false,
+              "schemaVersion": "3.7.0",
+              "transformLegend": "Segments",
+              "transformLegendText": "4,6,7"
+            }
+          ],
+          "title": "CPU %Busy",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "dlopes7-appdynamics-datasource",
+            "uid": "c5d516e4-85d2-45d6-ad0c-8cc1e80e1a70"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 9,
+            "x": 15,
+            "y": 1
+          },
+          "id": 2,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "aggregation": "Value",
+              "alias": "",
+              "application": "Server & Infrastructure Monitoring",
+              "applicationName": "Server & Infrastructure Monitoring",
+              "datasource": {
+                "type": "dlopes7-appdynamics-datasource",
+                "uid": "c5d516e4-85d2-45d6-ad0c-8cc1e80e1a70"
+              },
+              "delimiter": "|",
+              "isRawQuery": true,
+              "metric": "Application Infrastructure Performance|Root|Individual Nodes|$servers|Hardware Resources|Memory|Used %",
+              "queryType": "metrics",
+              "refId": "A",
+              "rollUp": false,
+              "schemaVersion": "3.7.0",
+              "transformLegend": "Segments",
+              "transformLegendText": "4,6,7"
+            }
+          ],
+          "title": "Memory Used %",
+          "type": "timeseries"
+        }
+      ],
+      "repeat": "servers",
+      "repeatDirection": "h",
+      "title": "$servers",
+      "type": "row"
+    }
+  ],
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": "*",
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "dlopes7-appdynamics-datasource",
+          "uid": "c5d516e4-85d2-45d6-ad0c-8cc1e80e1a70"
+        },
+        "definition": "Server & Infrastructure Monitoring.Path.Application Infrastructure Performance.Root.Individual Nodes",
+        "hide": 0,
+        "includeAll": true,
+        "multi": false,
+        "name": "servers",
+        "options": [],
+        "query": "Server & Infrastructure Monitoring.Path.Application Infrastructure Performance.Root.Individual Nodes",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timeRangeUpdatedDuringEditOrView": false,
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "AppD Server List",
+  "uid": "ddk8hre77943kb",
+  "version": 3,
+  "weekStart": ""
+}

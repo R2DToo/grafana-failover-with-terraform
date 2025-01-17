@@ -1,0 +1,4058 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      },
+      {
+        "datasource": {
+          "type": "grafana-servicenow-datasource",
+          "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+        },
+        "enable": false,
+        "hide": false,
+        "iconColor": "yellow",
+        "mappings": {
+          "id": {
+            "source": "field",
+            "value": "number"
+          },
+          "tags": {
+            "source": "field",
+            "value": "urgency"
+          },
+          "text": {
+            "source": "field",
+            "value": "short_description"
+          },
+          "time": {
+            "source": "field",
+            "value": "work_start"
+          },
+          "timeEnd": {
+            "source": "field",
+            "value": "work_end"
+          },
+          "title": {
+            "source": "field",
+            "value": "number"
+          }
+        },
+        "name": "Change Annotation",
+        "target": {
+          "basicSysparm": [
+            {}
+          ],
+          "basic_sysparam": [],
+          "cacheOverride": "",
+          "compressLogs": false,
+          "excludedClasses": [],
+          "getAlertCount": {
+            "label": "No",
+            "value": "false"
+          },
+          "grafanaTimerange": true,
+          "grafanaTimerangeColumn": {
+            "description": "sys_updated_on",
+            "label": "Updated (Date/Time)",
+            "value": "sys_updated_on"
+          },
+          "page": 0,
+          "refId": "Anno",
+          "relationshipTypes": [],
+          "rowLimit": "2000",
+          "selectedQueryCategory": {
+            "description": "Choose your own table to gather data from",
+            "label": "Table",
+            "value": "Table"
+          },
+          "selectedtableColumns": [
+            {
+              "label": "number",
+              "value": "number"
+            },
+            {
+              "label": "short_description",
+              "value": "short_description"
+            },
+            {
+              "label": "work_start",
+              "value": "work_start"
+            },
+            {
+              "label": "work_end",
+              "value": "work_end"
+            },
+            {
+              "label": "urgency",
+              "value": "urgency"
+            }
+          ],
+          "sortDirection": "ASC",
+          "tableName": {
+            "description": "change_request",
+            "label": "Change Request",
+            "value": "change_request"
+          },
+          "topology_child_depth": "3",
+          "topology_parent_depth": "3"
+        }
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 288,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "dashboard",
+      "includeVars": false,
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Application Services",
+      "tooltip": "",
+      "type": "link",
+      "url": "/d/rD_AfGznz"
+    }
+  ],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 40,
+      "panels": [],
+      "title": "Incident Cockpit",
+      "type": "row"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 3,
+        "x": 0,
+        "y": 1
+      },
+      "id": 105,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "\n<p><a><span style=\"color: #84c9fb;\"><span style=\"font-size: 16pt;\"><i class=\"fa fa-lightbulb-o\"></i>&nbsp;&nbsp;<span style=\"color: #f6f6f6;\">Active Insights</span></span></span></a></p>",
+        "mode": "html"
+      },
+      "pluginVersion": "11.4.0-77868",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "dark-blue",
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": null
+              },
+              {
+                "color": "dark-red",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 3,
+        "x": 3,
+        "y": 1
+      },
+      "id": 106,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [
+                "count"
+              ],
+              "name": ""
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "active",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Active",
+                "element": "active",
+                "internal_type": {
+                  "link": "",
+                  "value": "boolean"
+                },
+                "label": "Active",
+                "name": "active",
+                "sys_name": "Active",
+                "table": "",
+                "value": "active"
+              },
+              "op": "=",
+              "type": "boolean",
+              "value": "True"
+            },
+            {
+              "conjunction": "and",
+              "field": "priority",
+              "fieldDesc": {
+                "Choices": [
+                  {
+                    "image": "",
+                    "label": "-- None --",
+                    "missing": false,
+                    "rawLabel": "-- None --",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": ""
+                  },
+                  {
+                    "image": "",
+                    "label": "1 - Critical",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "1 - Critical",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "1"
+                  },
+                  {
+                    "image": "",
+                    "label": "2 - High",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "2 - High",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "2"
+                  },
+                  {
+                    "image": "",
+                    "label": "3 - Medium",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "3 - Medium",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "3"
+                  },
+                  {
+                    "image": "",
+                    "label": "4 - Low",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "4 - Low",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "4"
+                  },
+                  {
+                    "image": "",
+                    "label": "5 - Planning",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "5 - Planning",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "5"
+                  }
+                ],
+                "choice": "true",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Priority",
+                "element": "priority",
+                "internal_type": {
+                  "link": "",
+                  "value": "integer"
+                },
+                "label": "Priority",
+                "name": "priority",
+                "sys_name": "Priority",
+                "table": "",
+                "value": "priority"
+              },
+              "op": "=",
+              "type": "integer",
+              "value": "1"
+            },
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "Choices": [
+                  {
+                    "image": "",
+                    "label": "New",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "New",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "1"
+                  },
+                  {
+                    "image": "",
+                    "label": "In Progress",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "In Progress",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "2"
+                  },
+                  {
+                    "image": "",
+                    "label": "Awaiting User Input",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Awaiting User Input",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "-1"
+                  },
+                  {
+                    "image": "",
+                    "label": "Resolved",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Resolved",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "6"
+                  },
+                  {
+                    "image": "",
+                    "label": "Closed",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Closed",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "7"
+                  },
+                  {
+                    "image": "",
+                    "label": "Canceled",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Canceled",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "8"
+                  }
+                ],
+                "choice": "true",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "State",
+                "element": "state",
+                "internal_type": {
+                  "link": "",
+                  "value": "integer"
+                },
+                "label": "State",
+                "name": "state",
+                "sys_name": "State",
+                "table": "",
+                "value": "state"
+              },
+              "op": "NOT IN",
+              "type": "integer",
+              "value": "7,8,6"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "hide": false,
+          "limit": 25,
+          "queryType": "AggregateAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "incident",
+          "timeField": "sys_updated_on"
+        }
+      ],
+      "title": "Critical Open Incidents",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "dark-blue",
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 10
+              },
+              {
+                "color": "dark-red",
+                "value": 20
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 3,
+        "x": 6,
+        "y": 1
+      },
+      "id": 148,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "basicSysparm": [
+            {}
+          ],
+          "basic_sysparam": [],
+          "cacheOverride": "",
+          "compressLogs": false,
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "excludedClasses": [],
+          "fields": [
+            {
+              "aggregates": [
+                "count"
+              ],
+              "name": ""
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "active",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Active",
+                "element": "active",
+                "internal_type": {
+                  "link": "",
+                  "value": "boolean"
+                },
+                "label": "Active",
+                "name": "active",
+                "sys_name": "Active",
+                "table": "",
+                "value": "active"
+              },
+              "op": "=",
+              "type": "boolean",
+              "value": "True"
+            },
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "Choices": [
+                  {
+                    "image": "",
+                    "label": "New",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "New",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "1"
+                  },
+                  {
+                    "image": "",
+                    "label": "In Progress",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "In Progress",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "2"
+                  },
+                  {
+                    "image": "",
+                    "label": "Awaiting User Input",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Awaiting User Input",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "-1"
+                  },
+                  {
+                    "image": "",
+                    "label": "Resolved",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Resolved",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "6"
+                  },
+                  {
+                    "image": "",
+                    "label": "Closed",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Closed",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "7"
+                  },
+                  {
+                    "image": "",
+                    "label": "Canceled",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Canceled",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "8"
+                  }
+                ],
+                "choice": "true",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "State",
+                "element": "state",
+                "internal_type": {
+                  "link": "",
+                  "value": "integer"
+                },
+                "label": "State",
+                "name": "state",
+                "sys_name": "State",
+                "table": "",
+                "value": "state"
+              },
+              "op": "NOT IN",
+              "type": "integer",
+              "value": "7,8,6"
+            },
+            {
+              "conjunction": "and",
+              "field": "severity",
+              "fieldDesc": {
+                "Choices": [
+                  {
+                    "image": "",
+                    "label": "1 - High",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "1 - High",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "1"
+                  },
+                  {
+                    "image": "",
+                    "label": "2 - Medium",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "2 - Medium",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "2"
+                  },
+                  {
+                    "image": "",
+                    "label": "3 - Low",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "3 - Low",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "3"
+                  }
+                ],
+                "choice": "true",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Severity",
+                "element": "severity",
+                "internal_type": {
+                  "link": "",
+                  "value": "integer"
+                },
+                "label": "Severity",
+                "name": "severity",
+                "sys_name": "Severity",
+                "table": "",
+                "value": "severity"
+              },
+              "op": "IN",
+              "type": "integer",
+              "value": "$severity"
+            },
+            {}
+          ],
+          "getAlertCount": {
+            "label": "No",
+            "value": "false"
+          },
+          "grafanaTimerange": true,
+          "grafanaTimerangeColumn": {
+            "description": "sys_updated_on",
+            "label": "Updated (Date/Time)",
+            "value": "sys_updated_on"
+          },
+          "groupBy": [],
+          "limit": 25,
+          "page": 0,
+          "queryType": "AggregateAPI",
+          "refId": "A",
+          "relationshipTypes": [],
+          "rowLimit": "2000",
+          "selectedQueryCategory": {
+            "description": "Get row count from query",
+            "label": "Row Count",
+            "value": "Row_Count"
+          },
+          "sort": [
+            {}
+          ],
+          "sortDirection": "ASC",
+          "stats": [],
+          "sysparam_query": "active!=0^stateNOT IN6,7,8^descriptionLIKE$search",
+          "table": "incident",
+          "tableName": {
+            "description": "incident",
+            "label": "Incident",
+            "value": "incident"
+          },
+          "timeField": "sys_updated_on",
+          "topology_child_depth": "3",
+          "topology_parent_depth": "3"
+        }
+      ],
+      "title": "Open Incidents",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "displayName": "${__field.displayName}",
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 9,
+        "y": 1
+      },
+      "id": 152,
+      "options": {
+        "displayMode": "lcd",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 300,
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "text"
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [
+                "count"
+              ],
+              "name": ""
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "active",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Active",
+                "element": "active",
+                "internal_type": {
+                  "link": "",
+                  "value": "boolean"
+                },
+                "label": "Active",
+                "name": "active",
+                "sys_name": "Active",
+                "table": "",
+                "value": "active"
+              },
+              "op": "=",
+              "type": "boolean",
+              "value": "True"
+            },
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "Choices": [
+                  {
+                    "image": "",
+                    "label": "New",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "New",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "1"
+                  },
+                  {
+                    "image": "",
+                    "label": "In Progress",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "In Progress",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "2"
+                  },
+                  {
+                    "image": "",
+                    "label": "Awaiting User Input",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Awaiting User Input",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "-1"
+                  },
+                  {
+                    "image": "",
+                    "label": "Resolved",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Resolved",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "6"
+                  },
+                  {
+                    "image": "",
+                    "label": "Closed",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Closed",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "7"
+                  },
+                  {
+                    "image": "",
+                    "label": "Canceled",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Canceled",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "8"
+                  }
+                ],
+                "choice": "true",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "State",
+                "element": "state",
+                "internal_type": {
+                  "link": "",
+                  "value": "integer"
+                },
+                "label": "State",
+                "name": "state",
+                "sys_name": "State",
+                "table": "",
+                "value": "state"
+              },
+              "op": "NOT IN",
+              "type": "integer",
+              "value": "7,6,8"
+            },
+            {
+              "conjunction": "and",
+              "field": "severity",
+              "fieldDesc": {
+                "Choices": [
+                  {
+                    "image": "",
+                    "label": "1 - High",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "1 - High",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "1"
+                  },
+                  {
+                    "image": "",
+                    "label": "2 - Medium",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "2 - Medium",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "2"
+                  },
+                  {
+                    "image": "",
+                    "label": "3 - Low",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "3 - Low",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "3"
+                  }
+                ],
+                "choice": "true",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Severity",
+                "element": "severity",
+                "internal_type": {
+                  "link": "",
+                  "value": "integer"
+                },
+                "label": "Severity",
+                "name": "severity",
+                "sys_name": "Severity",
+                "table": "",
+                "value": "severity"
+              },
+              "op": "IN",
+              "type": "integer",
+              "value": "$severity"
+            },
+            {}
+          ],
+          "groupBy": [
+            "priority"
+          ],
+          "hide": false,
+          "limit": 25,
+          "queryType": "AggregateAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "incident",
+          "timeField": "sys_updated_on"
+        }
+      ],
+      "title": "Open Incidents - Grouped By Priority",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "/count [0-9] - (.*)/",
+            "renamePattern": "$1"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "displayName": "${__field.displayName}",
+          "mappings": [],
+          "noValue": "NA",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 5
+              },
+              {
+                "color": "dark-red",
+                "value": 10
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 1
+      },
+      "id": 153,
+      "options": {
+        "displayMode": "lcd",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 300,
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 20,
+          "values": true
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "text"
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [
+                "count"
+              ],
+              "name": ""
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "active",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Active",
+                "element": "active",
+                "internal_type": {
+                  "link": "",
+                  "value": "boolean"
+                },
+                "label": "Active",
+                "name": "active",
+                "sys_name": "Active",
+                "table": "",
+                "value": "active"
+              },
+              "op": "=",
+              "type": "boolean",
+              "value": "True"
+            },
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "Choices": [
+                  {
+                    "image": "",
+                    "label": "New",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "New",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "1"
+                  },
+                  {
+                    "image": "",
+                    "label": "In Progress",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "In Progress",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "2"
+                  },
+                  {
+                    "image": "",
+                    "label": "Awaiting User Input",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Awaiting User Input",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "-1"
+                  },
+                  {
+                    "image": "",
+                    "label": "Resolved",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Resolved",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "6"
+                  },
+                  {
+                    "image": "",
+                    "label": "Closed",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Closed",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "7"
+                  },
+                  {
+                    "image": "",
+                    "label": "Canceled",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Canceled",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "8"
+                  }
+                ],
+                "choice": "true",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "State",
+                "element": "state",
+                "internal_type": {
+                  "link": "",
+                  "value": "integer"
+                },
+                "label": "State",
+                "name": "state",
+                "sys_name": "State",
+                "table": "",
+                "value": "state"
+              },
+              "op": "NOT IN",
+              "type": "integer",
+              "value": "8,7,6"
+            },
+            {
+              "conjunction": "and",
+              "field": "severity",
+              "fieldDesc": {
+                "Choices": [
+                  {
+                    "image": "",
+                    "label": "1 - High",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "1 - High",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "1"
+                  },
+                  {
+                    "image": "",
+                    "label": "2 - Medium",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "2 - Medium",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "2"
+                  },
+                  {
+                    "image": "",
+                    "label": "3 - Low",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "3 - Low",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "3"
+                  }
+                ],
+                "choice": "true",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Severity",
+                "element": "severity",
+                "internal_type": {
+                  "link": "",
+                  "value": "integer"
+                },
+                "label": "Severity",
+                "name": "severity",
+                "sys_name": "Severity",
+                "table": "",
+                "value": "severity"
+              },
+              "op": "IN",
+              "type": "integer",
+              "value": "$severity"
+            },
+            {}
+          ],
+          "groupBy": [
+            "opened_by.name"
+          ],
+          "hide": false,
+          "limit": 25,
+          "queryType": "AggregateAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "incident",
+          "timeField": "sys_updated_on"
+        }
+      ],
+      "title": "Count of Open Incidents Opened By",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "/count (.*)/",
+            "renamePattern": "$1"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "dark-blue",
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#57f287",
+                "value": null
+              },
+              {
+                "color": "dark-blue",
+                "value": 0
+              },
+              {
+                "color": "dark-red",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 3,
+        "x": 0,
+        "y": 9
+      },
+      "id": 156,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "basicSysparm": [
+            {
+              "column": {
+                "description": "opened_at",
+                "label": "Opened (Date/Time)",
+                "value": "opened_at"
+              },
+              "operator": {
+                "description": "ISNOTEMPTY",
+                "label": "is not empty",
+                "value": "ISNOTEMPTY"
+              },
+              "separator": {
+                "label": "AND",
+                "value": "^"
+              }
+            },
+            {
+              "column": {
+                "description": "closed_at",
+                "label": "Closed (Date/Time)",
+                "value": "closed_at"
+              },
+              "operator": {
+                "description": "ISNOTEMPTY",
+                "label": "is not empty",
+                "value": "ISNOTEMPTY"
+              },
+              "separator": {
+                "label": "AND",
+                "value": "^"
+              }
+            },
+            {
+              "column": {
+                "description": "state",
+                "label": "State (Integer)",
+                "value": "state"
+              },
+              "operator": {
+                "label": "IN",
+                "value": "IN"
+              },
+              "separator": {
+                "label": "AND",
+                "value": "^"
+              },
+              "value": {
+                "label": "$state",
+                "value": "$state"
+              }
+            },
+            {
+              "column": {
+                "description": "severity",
+                "label": "Severity (Integer)",
+                "value": "severity"
+              },
+              "operator": {
+                "label": "IN",
+                "value": "IN"
+              },
+              "separator": {
+                "label": "AND",
+                "value": "^"
+              },
+              "value": {
+                "label": "$severity",
+                "value": "$severity"
+              }
+            }
+          ],
+          "basic_sysparam": [],
+          "cacheOverride": "",
+          "compressLogs": false,
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "excludedClasses": [],
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "opened_at"
+            },
+            {
+              "aggregates": [],
+              "name": "closed_at"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "Choices": [
+                  {
+                    "image": "",
+                    "label": "New",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "New",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "1"
+                  },
+                  {
+                    "image": "",
+                    "label": "In Progress",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "In Progress",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "2"
+                  },
+                  {
+                    "image": "",
+                    "label": "Awaiting User Input",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Awaiting User Input",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "-1"
+                  },
+                  {
+                    "image": "",
+                    "label": "Resolved",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Resolved",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "6"
+                  },
+                  {
+                    "image": "",
+                    "label": "Closed",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Closed",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "7"
+                  },
+                  {
+                    "image": "",
+                    "label": "Canceled",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Canceled",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "8"
+                  }
+                ],
+                "choice": "true",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "State",
+                "element": "state",
+                "internal_type": {
+                  "link": "",
+                  "value": "integer"
+                },
+                "label": "State",
+                "name": "state",
+                "sys_name": "State",
+                "table": "",
+                "value": "state"
+              },
+              "op": "IN",
+              "type": "integer",
+              "value": "7,6"
+            },
+            {}
+          ],
+          "getAlertCount": {
+            "label": "No",
+            "value": "false"
+          },
+          "grafanaTimerange": true,
+          "grafanaTimerangeColumn": {
+            "description": "opened_at",
+            "label": "Opened (Date/Time)",
+            "value": "opened_at"
+          },
+          "groupBy": [],
+          "limit": 25,
+          "page": 0,
+          "queryType": "TableAPI",
+          "refId": "A",
+          "relationshipTypes": [],
+          "rowLimit": "2000",
+          "selectedQueryCategory": {
+            "description": "Choose your own table to gather data from",
+            "label": "Table",
+            "value": "Table"
+          },
+          "selectedtableColumns": [
+            {
+              "description": "opened_at",
+              "label": "Opened (Date/Time)",
+              "value": "opened_at"
+            },
+            {
+              "description": "closed_at",
+              "label": "Closed (Date/Time)",
+              "value": "closed_at"
+            },
+            {
+              "label": "group_by",
+              "value": "group_by"
+            }
+          ],
+          "sort": [
+            {}
+          ],
+          "sortBy": {
+            "description": "opened_at",
+            "label": "Opened (Date/Time)",
+            "value": "opened_at"
+          },
+          "sortDirection": "DESC",
+          "stats": [],
+          "sysparam_query": "active!=0^state!=6^assigned_toISEMPTY^severityIN$severity^descriptionLIKE$search",
+          "table": "incident",
+          "tableName": {
+            "description": "incident",
+            "label": "Incident",
+            "value": "incident"
+          },
+          "timeField": "sys_updated_on",
+          "topology_child_depth": 3,
+          "topology_parent_depth": 3
+        }
+      ],
+      "title": "MTTR",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Maintenance Duration",
+            "binary": {
+              "left": "closed_at",
+              "operator": "-",
+              "reducer": "sum",
+              "right": "opened_at"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "reduceFields",
+            "reducers": [
+              "mean"
+            ]
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "dark-blue",
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#57f287",
+                "value": null
+              },
+              {
+                "color": "dark-blue",
+                "value": 0
+              },
+              {
+                "color": "dark-red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 3,
+        "x": 3,
+        "y": 9
+      },
+      "id": 115,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "basicSysparm": [
+            {}
+          ],
+          "basic_sysparam": [
+            {}
+          ],
+          "cacheOverride": "",
+          "compressLogs": false,
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "excludedClasses": [],
+          "fields": [
+            {
+              "aggregates": [
+                "count"
+              ],
+              "name": ""
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "active",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Active",
+                "element": "active",
+                "internal_type": {
+                  "link": "",
+                  "value": "boolean"
+                },
+                "label": "Active",
+                "name": "active",
+                "sys_name": "Active",
+                "table": "",
+                "value": "active"
+              },
+              "op": "=",
+              "type": "boolean",
+              "value": "True"
+            },
+            {
+              "conjunction": "and",
+              "field": "assigned_to.name",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Name",
+                "element": "name",
+                "internal_type": {
+                  "link": "",
+                  "value": "string"
+                },
+                "label": "Assigned to -> Name",
+                "name": "name",
+                "sys_name": "Name",
+                "table": "",
+                "value": "assigned_to.name"
+              },
+              "op": "ISEMPTY",
+              "type": "string",
+              "value": ""
+            },
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "Choices": [
+                  {
+                    "image": "",
+                    "label": "New",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "New",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "1"
+                  },
+                  {
+                    "image": "",
+                    "label": "In Progress",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "In Progress",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "2"
+                  },
+                  {
+                    "image": "",
+                    "label": "Awaiting User Input",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Awaiting User Input",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "-1"
+                  },
+                  {
+                    "image": "",
+                    "label": "Resolved",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Resolved",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "6"
+                  },
+                  {
+                    "image": "",
+                    "label": "Closed",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Closed",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "7"
+                  },
+                  {
+                    "image": "",
+                    "label": "Canceled",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Canceled",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "8"
+                  }
+                ],
+                "choice": "true",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "State",
+                "element": "state",
+                "internal_type": {
+                  "link": "",
+                  "value": "integer"
+                },
+                "label": "State",
+                "name": "state",
+                "sys_name": "State",
+                "table": "",
+                "value": "state"
+              },
+              "op": "NOT IN",
+              "type": "integer",
+              "value": "8,7,6"
+            },
+            {
+              "conjunction": "and",
+              "field": "severity",
+              "fieldDesc": {
+                "Choices": [
+                  {
+                    "image": "",
+                    "label": "1 - High",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "1 - High",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "1"
+                  },
+                  {
+                    "image": "",
+                    "label": "2 - Medium",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "2 - Medium",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "2"
+                  },
+                  {
+                    "image": "",
+                    "label": "3 - Low",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "3 - Low",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "3"
+                  }
+                ],
+                "choice": "true",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Severity",
+                "element": "severity",
+                "internal_type": {
+                  "link": "",
+                  "value": "integer"
+                },
+                "label": "Severity",
+                "name": "severity",
+                "sys_name": "Severity",
+                "table": "",
+                "value": "severity"
+              },
+              "op": "IN",
+              "type": "integer",
+              "value": "$severity"
+            },
+            {}
+          ],
+          "getAlertCount": {
+            "label": "No",
+            "value": "false"
+          },
+          "grafanaTimerange": true,
+          "grafanaTimerangeColumn": {
+            "description": "sys_updated_on",
+            "label": "Updated (Date/Time)",
+            "value": "sys_updated_on"
+          },
+          "groupBy": [],
+          "limit": 25,
+          "page": 0,
+          "queryType": "AggregateAPI",
+          "refId": "A",
+          "relationshipTypes": [],
+          "rowLimit": "2000",
+          "selectedQueryCategory": {
+            "description": "Get row count from query",
+            "label": "Row Count",
+            "value": "Row_Count"
+          },
+          "sort": [
+            {}
+          ],
+          "sortDirection": "ASC",
+          "stats": [],
+          "sysparam_query": "active!=0^stateNOT IN6,7,8^assigned_toISEMPTY^descriptionLIKE$search",
+          "table": "incident",
+          "tableName": {
+            "description": "incident",
+            "label": "Incident",
+            "value": "incident"
+          },
+          "timeField": "sys_updated_on",
+          "topology_child_depth": 3,
+          "topology_parent_depth": 3
+        }
+      ],
+      "title": "Open Unassigned Incidents",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "",
+            "binary": {
+              "left": "em_alert 1",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "em_alert 2"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "result",
+            "binary": {
+              "left": "em_alert 1 / em_alert 2",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "100"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "dark-green",
+                "value": 0
+              },
+              {
+                "color": "dark-red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 3,
+        "x": 6,
+        "y": 9
+      },
+      "id": 82,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [
+                "count"
+              ],
+              "name": ""
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "active",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Active",
+                "element": "active",
+                "internal_type": {
+                  "link": "",
+                  "value": "boolean"
+                },
+                "label": "Active",
+                "name": "active",
+                "sys_name": "Active",
+                "table": "",
+                "value": "active"
+              },
+              "op": "=",
+              "type": "boolean",
+              "value": "True"
+            },
+            {
+              "conjunction": "and",
+              "field": "due_date",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Due_date",
+                "element": "due_date",
+                "internal_type": {
+                  "link": "",
+                  "value": "glide_date_time"
+                },
+                "label": "Due date",
+                "name": "due_date",
+                "sys_name": "Due date",
+                "table": "",
+                "value": "due_date"
+              },
+              "op": "<",
+              "type": "glide_date_time",
+              "value": "2024-10-02"
+            },
+            {
+              "conjunction": "and",
+              "field": "severity",
+              "fieldDesc": {
+                "Choices": [
+                  {
+                    "image": "",
+                    "label": "1 - High",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "1 - High",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "1"
+                  },
+                  {
+                    "image": "",
+                    "label": "2 - Medium",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "2 - Medium",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "2"
+                  },
+                  {
+                    "image": "",
+                    "label": "3 - Low",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "3 - Low",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "3"
+                  }
+                ],
+                "choice": "true",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Severity",
+                "element": "severity",
+                "internal_type": {
+                  "link": "",
+                  "value": "integer"
+                },
+                "label": "Severity",
+                "name": "severity",
+                "sys_name": "Severity",
+                "table": "",
+                "value": "severity"
+              },
+              "op": "IN",
+              "type": "integer",
+              "value": "$severity"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "hide": false,
+          "limit": 25,
+          "queryType": "AggregateAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "incident",
+          "timeField": "sys_updated_on"
+        }
+      ],
+      "title": "Overdue Incidents",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "displayName": "${__field.displayName}",
+          "mappings": [],
+          "noValue": "NA",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 4
+              },
+              {
+                "color": "dark-red",
+                "value": 6
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 9,
+        "y": 9
+      },
+      "id": 157,
+      "options": {
+        "displayMode": "lcd",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 300,
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 20,
+          "values": true
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "text"
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [
+                "count"
+              ]
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "active",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Active",
+                "element": "active",
+                "internal_type": {
+                  "link": "",
+                  "value": "boolean"
+                },
+                "label": "Active",
+                "name": "active",
+                "sys_name": "Active",
+                "table": "",
+                "value": "active"
+              },
+              "op": "=",
+              "type": "boolean",
+              "value": "True"
+            },
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "Choices": [
+                  {
+                    "image": "",
+                    "label": "New",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "New",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "1"
+                  },
+                  {
+                    "image": "",
+                    "label": "In Progress",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "In Progress",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "2"
+                  },
+                  {
+                    "image": "",
+                    "label": "Awaiting User Input",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Awaiting User Input",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "-1"
+                  },
+                  {
+                    "image": "",
+                    "label": "Resolved",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Resolved",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "6"
+                  },
+                  {
+                    "image": "",
+                    "label": "Closed",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Closed",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "7"
+                  },
+                  {
+                    "image": "",
+                    "label": "Canceled",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Canceled",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "8"
+                  }
+                ],
+                "choice": "true",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "State",
+                "element": "state",
+                "internal_type": {
+                  "link": "",
+                  "value": "integer"
+                },
+                "label": "State",
+                "name": "state",
+                "sys_name": "State",
+                "table": "",
+                "value": "state"
+              },
+              "op": "NOT IN",
+              "type": "integer",
+              "value": "7,8,6"
+            },
+            {
+              "conjunction": "and",
+              "field": "severity",
+              "fieldDesc": {
+                "Choices": [
+                  {
+                    "image": "",
+                    "label": "1 - High",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "1 - High",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "1"
+                  },
+                  {
+                    "image": "",
+                    "label": "2 - Medium",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "2 - Medium",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "2"
+                  },
+                  {
+                    "image": "",
+                    "label": "3 - Low",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "3 - Low",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "3"
+                  }
+                ],
+                "choice": "true",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Severity",
+                "element": "severity",
+                "internal_type": {
+                  "link": "",
+                  "value": "integer"
+                },
+                "label": "Severity",
+                "name": "severity",
+                "sys_name": "Severity",
+                "table": "",
+                "value": "severity"
+              },
+              "op": "IN",
+              "type": "integer",
+              "value": "$severity"
+            },
+            {}
+          ],
+          "groupBy": [
+            "cmdb_ci.name"
+          ],
+          "hide": false,
+          "limit": 25,
+          "queryType": "AggregateAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "incident",
+          "timeField": "sys_updated_on"
+        }
+      ],
+      "title": "Count of Open Incidents by CI",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "/count (.*)/",
+            "renamePattern": "$1"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "displayName": "${__field.displayName}",
+          "mappings": [],
+          "noValue": "NA",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 4
+              },
+              {
+                "color": "dark-red",
+                "value": 6
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 9
+      },
+      "id": 154,
+      "options": {
+        "displayMode": "lcd",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 300,
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 20,
+          "values": true
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "text"
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [
+                "count"
+              ],
+              "name": ""
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "active",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Active",
+                "element": "active",
+                "internal_type": {
+                  "link": "",
+                  "value": "boolean"
+                },
+                "label": "Active",
+                "name": "active",
+                "sys_name": "Active",
+                "table": "",
+                "value": "active"
+              },
+              "op": "=",
+              "type": "boolean",
+              "value": "True"
+            },
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "Choices": [
+                  {
+                    "image": "",
+                    "label": "New",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "New",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "1"
+                  },
+                  {
+                    "image": "",
+                    "label": "In Progress",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "In Progress",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "2"
+                  },
+                  {
+                    "image": "",
+                    "label": "Awaiting User Input",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Awaiting User Input",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "-1"
+                  },
+                  {
+                    "image": "",
+                    "label": "Resolved",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Resolved",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "6"
+                  },
+                  {
+                    "image": "",
+                    "label": "Closed",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Closed",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "7"
+                  },
+                  {
+                    "image": "",
+                    "label": "Canceled",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Canceled",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "8"
+                  }
+                ],
+                "choice": "true",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "State",
+                "element": "state",
+                "internal_type": {
+                  "link": "",
+                  "value": "integer"
+                },
+                "label": "State",
+                "name": "state",
+                "sys_name": "State",
+                "table": "",
+                "value": "state"
+              },
+              "op": "NOT IN",
+              "type": "integer",
+              "value": "6,7,8"
+            },
+            {
+              "conjunction": "and",
+              "field": "severity",
+              "fieldDesc": {
+                "Choices": [
+                  {
+                    "image": "",
+                    "label": "1 - High",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "1 - High",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "1"
+                  },
+                  {
+                    "image": "",
+                    "label": "2 - Medium",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "2 - Medium",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "2"
+                  },
+                  {
+                    "image": "",
+                    "label": "3 - Low",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "3 - Low",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "3"
+                  }
+                ],
+                "choice": "true",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Severity",
+                "element": "severity",
+                "internal_type": {
+                  "link": "",
+                  "value": "integer"
+                },
+                "label": "Severity",
+                "name": "severity",
+                "sys_name": "Severity",
+                "table": "",
+                "value": "severity"
+              },
+              "op": "IN",
+              "type": "integer",
+              "value": "$severity"
+            },
+            {}
+          ],
+          "groupBy": [
+            "assigned_to.name"
+          ],
+          "hide": false,
+          "limit": 25,
+          "queryType": "AggregateAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "incident",
+          "timeField": "sys_updated_on"
+        }
+      ],
+      "title": "Count of Open Incidents Assigned To",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "/count (.*)/",
+            "renamePattern": "$1"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "bargauge"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 0,
+        "y": 17
+      },
+      "id": 151,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "\n<p><a><span style=\"color: #84c9fb;\"><span style=\"font-size: 16pt;\"><i class=\"fa fa-lightbulb-o\"></i>&nbsp;&nbsp;<span style=\"color: #f6f6f6;\">All Incidents</span></span></span></a></p>",
+        "mode": "html"
+      },
+      "pluginVersion": "10.4.7",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "type": "color-text"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "number"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 133
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "severity"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 110
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "state"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 147
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "category"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 172
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "description"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 1297
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "severity"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "1 - High": {
+                        "color": "semi-dark-red",
+                        "index": 0
+                      },
+                      "2 - Medium": {
+                        "color": "semi-dark-orange",
+                        "index": 1
+                      },
+                      "3 - Low": {
+                        "color": "semi-dark-green",
+                        "index": 2
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "state"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "Canceled": {
+                        "color": "semi-dark-red",
+                        "index": 1
+                      },
+                      "Closed": {
+                        "color": "semi-dark-red",
+                        "index": 0
+                      },
+                      "In Progress": {
+                        "color": "semi-dark-orange",
+                        "index": 3
+                      },
+                      "New": {
+                        "color": "semi-dark-green",
+                        "index": 4
+                      },
+                      "On Hold": {
+                        "color": "semi-dark-orange",
+                        "index": 2
+                      },
+                      "Resolved": {
+                        "color": "semi-dark-green",
+                        "index": 5
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Description"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 1011
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CI"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Generic CI Drilldown",
+                    "url": "/d/AEOITnWnz?var-ci=${__data.fields[\"cmdb_ci.sys_id\"]}&var-ciClasses=${__data.fields[\"cmdb_ci.sys_class_name\"]}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 24,
+        "x": 0,
+        "y": 20
+      },
+      "id": 99,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 1,
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "10.4.7",
+      "targets": [
+        {
+          "basicSysparm": [
+            {
+              "column": {
+                "description": "description",
+                "label": "Description (String)",
+                "value": "description"
+              },
+              "operator": {
+                "description": "LIKE",
+                "label": "contains",
+                "value": "LIKE"
+              },
+              "value": {
+                "label": "$search",
+                "value": "$search"
+              }
+            },
+            {
+              "column": {
+                "description": "severity",
+                "label": "Severity (Integer)",
+                "value": "severity"
+              },
+              "operator": {
+                "label": "IN",
+                "value": "IN"
+              },
+              "separator": {
+                "label": "AND",
+                "value": "^"
+              },
+              "value": {
+                "label": "$severity",
+                "value": "$severity"
+              }
+            },
+            {
+              "column": {
+                "description": "state",
+                "label": "State (Integer)",
+                "value": "state"
+              },
+              "operator": {
+                "label": "IN",
+                "value": "IN"
+              },
+              "separator": {
+                "label": "AND",
+                "value": "^"
+              },
+              "value": {
+                "label": "$state",
+                "value": "$state"
+              }
+            }
+          ],
+          "basic_sysparam": [],
+          "cacheOverride": "",
+          "compressLogs": false,
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "displayValue": "all",
+          "excludedClasses": [],
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "active"
+            },
+            {
+              "aggregates": [],
+              "name": "opened_at"
+            },
+            {
+              "aggregates": [],
+              "name": "severity"
+            },
+            {
+              "aggregates": [],
+              "name": "number"
+            },
+            {
+              "aggregates": [],
+              "name": "state"
+            },
+            {
+              "aggregates": [],
+              "name": "category"
+            },
+            {
+              "aggregates": [],
+              "name": "description"
+            },
+            {
+              "aggregates": [],
+              "name": "cmdb_ci.sys_class_name"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "Choices": [
+                  {
+                    "image": "",
+                    "label": "New",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "New",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "1"
+                  },
+                  {
+                    "image": "",
+                    "label": "In Progress",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "In Progress",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "2"
+                  },
+                  {
+                    "image": "",
+                    "label": "Awaiting User Input",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Awaiting User Input",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "-1"
+                  },
+                  {
+                    "image": "",
+                    "label": "Resolved",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Resolved",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "6"
+                  },
+                  {
+                    "image": "",
+                    "label": "Closed",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Closed",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "7"
+                  },
+                  {
+                    "image": "",
+                    "label": "Canceled",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "Canceled",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "8"
+                  }
+                ],
+                "choice": "true",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "State",
+                "element": "state",
+                "internal_type": {
+                  "link": "",
+                  "value": "integer"
+                },
+                "label": "State",
+                "name": "state",
+                "sys_name": "State",
+                "table": "",
+                "value": "state"
+              },
+              "op": "IN",
+              "type": "integer",
+              "value": "$state"
+            },
+            {
+              "conjunction": "and",
+              "field": "severity",
+              "fieldDesc": {
+                "Choices": [
+                  {
+                    "image": "",
+                    "label": "1 - High",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "1 - High",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "1"
+                  },
+                  {
+                    "image": "",
+                    "label": "2 - Medium",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "2 - Medium",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "2"
+                  },
+                  {
+                    "image": "",
+                    "label": "3 - Low",
+                    "missing": false,
+                    "parameters": {
+                      "name": "incident"
+                    },
+                    "rawLabel": "3 - Low",
+                    "reference": false,
+                    "selected": false,
+                    "used": false,
+                    "value": "3"
+                  }
+                ],
+                "choice": "true",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Severity",
+                "element": "severity",
+                "internal_type": {
+                  "link": "",
+                  "value": "integer"
+                },
+                "label": "Severity",
+                "name": "severity",
+                "sys_name": "Severity",
+                "table": "",
+                "value": "severity"
+              },
+              "op": "IN",
+              "type": "integer",
+              "value": "$severity"
+            },
+            {}
+          ],
+          "getAlertCount": {
+            "label": "No",
+            "value": "false"
+          },
+          "grafanaTimerange": true,
+          "grafanaTimerangeColumn": {
+            "description": "sys_updated_on",
+            "label": "Updated (Date/Time)",
+            "value": "sys_updated_on"
+          },
+          "groupBy": [],
+          "hide": false,
+          "page": 0,
+          "queryType": "TableAPI",
+          "refId": "A",
+          "relationshipTypes": [],
+          "rowLimit": "200",
+          "selectedAlertStateList": {
+            "description": "Get Open and Reopen Alerts",
+            "label": "Active",
+            "value": "Active"
+          },
+          "selectedAlertTypeList": {
+            "description": "Ignore CI selection and use sysparam_query",
+            "label": "None",
+            "value": "None"
+          },
+          "selectedQueryCategory": {
+            "description": "Choose your own table to gather data from",
+            "label": "Table",
+            "value": "Table"
+          },
+          "selectedtableColumns": [
+            {
+              "description": "number",
+              "label": "Number (String)",
+              "value": "number"
+            },
+            {
+              "description": "severity",
+              "label": "Severity (Integer)",
+              "value": "severity"
+            },
+            {
+              "description": "state",
+              "label": "State (Integer)",
+              "value": "state"
+            },
+            {
+              "description": "category",
+              "label": "Category (String)",
+              "value": "category"
+            },
+            {
+              "description": "caller_id",
+              "label": "Opened for (Reference)",
+              "value": "caller_id"
+            },
+            {
+              "description": "description",
+              "label": "Description (String)",
+              "value": "description"
+            },
+            {
+              "description": "opened_at",
+              "label": "Opened (Date/Time)",
+              "value": "opened_at"
+            },
+            {
+              "description": "cmdb_ci",
+              "label": "Configuration item (Reference)",
+              "value": "cmdb_ci"
+            },
+            {
+              "label": "cmdb_ci:v",
+              "value": "cmdb_ci:v"
+            },
+            {
+              "description": "cmdb_ci.sys_class_name",
+              "label": "Configuration item => Class (System Class Name)",
+              "value": "cmdb_ci.sys_class_name"
+            }
+          ],
+          "sort": [
+            {}
+          ],
+          "sortDirection": "ASC",
+          "stats": [],
+          "sysparam_query": "group_sourceIN$group^severityIN$severity^sourceIN$source^state!=Closed^maintenance=false^descriptionLIKE$search",
+          "table": "incident",
+          "tableName": {
+            "description": "incident",
+            "label": "Incident",
+            "value": "incident"
+          },
+          "timeField": "sys_updated_on",
+          "topology_child_depth": "3",
+          "topology_parent_depth": "3"
+        }
+      ],
+      "title": "All Incidents",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "opened_at"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "indexByName": {
+              "caller_id": 4,
+              "category": 3,
+              "cmdb_ci": 5,
+              "cmdb_ci:value": 8,
+              "description": 6,
+              "number": 0,
+              "opened_at": 7,
+              "severity": 1,
+              "state": 2
+            },
+            "renameByName": {
+              "caller_id": "Caller ID",
+              "category": "Category",
+              "cmdb_ci": "CI",
+              "cmdb_ci:value": "cmdb_ci.sys_id",
+              "description": "Description",
+              "number": "Number",
+              "opened_at": "Opened At",
+              "severity": "Severity",
+              "state": "State"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "preload": false,
+  "refresh": "",
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "",
+          "value": ""
+        },
+        "name": "search",
+        "options": [
+          {
+            "selected": true,
+            "text": "",
+            "value": ""
+          }
+        ],
+        "query": "",
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-servicenow-datasource",
+          "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+        },
+        "definition": "grafana-servicenow-datasource - TableAPI - sys_choice",
+        "includeAll": true,
+        "label": "Severity",
+        "multi": true,
+        "name": "severity_label",
+        "options": [],
+        "query": {
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "label"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "name",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Name",
+                "element": "name",
+                "internal_type": {
+                  "link": "",
+                  "value": "table_name"
+                },
+                "label": "Table",
+                "name": "name",
+                "sys_name": "Table",
+                "table": "",
+                "value": "name"
+              },
+              "op": "=",
+              "type": "table_name",
+              "value": "incident"
+            },
+            {
+              "conjunction": "and",
+              "field": "element",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Element",
+                "element": "element",
+                "internal_type": {
+                  "link": "",
+                  "value": "string"
+                },
+                "label": "Element",
+                "name": "element",
+                "sys_name": "Element",
+                "table": "",
+                "value": "element"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "severity"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "namespace": "generic",
+          "queryType": "TableAPI",
+          "rawQuery": "sys_choice||label||value||name=incident^element=severity^language=en",
+          "showNull": true,
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "sys_choice",
+          "timeField": "ignore_time"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-servicenow-datasource",
+          "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+        },
+        "definition": "grafana-servicenow-datasource - TableAPI - sys_choice",
+        "hide": 2,
+        "includeAll": true,
+        "label": "Severity",
+        "multi": true,
+        "name": "severity",
+        "options": [],
+        "query": {
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "value"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "name",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Name",
+                "element": "name",
+                "internal_type": {
+                  "link": "",
+                  "value": "table_name"
+                },
+                "label": "Table",
+                "name": "name",
+                "sys_name": "Table",
+                "table": "",
+                "value": "name"
+              },
+              "op": "=",
+              "type": "table_name",
+              "value": "incident"
+            },
+            {
+              "conjunction": "and",
+              "field": "element",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Element",
+                "element": "element",
+                "internal_type": {
+                  "link": "",
+                  "value": "string"
+                },
+                "label": "Element",
+                "name": "element",
+                "sys_name": "Element",
+                "table": "",
+                "value": "element"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "severity"
+            },
+            {
+              "conjunction": "and",
+              "field": "label",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Label",
+                "element": "label",
+                "internal_type": {
+                  "link": "",
+                  "value": "string"
+                },
+                "label": "Label",
+                "name": "label",
+                "sys_name": "Label",
+                "table": "",
+                "value": "label"
+              },
+              "op": "IN",
+              "type": "string",
+              "value": "$severity_label"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "namespace": "generic",
+          "queryType": "TableAPI",
+          "rawQuery": "sys_choice||label||value||name=incident^element=severity^language=en",
+          "showNull": true,
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "sys_choice",
+          "timeField": "ignore_time"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-servicenow-datasource",
+          "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+        },
+        "definition": "grafana-servicenow-datasource - TableAPI - sys_choice",
+        "includeAll": true,
+        "label": "State",
+        "multi": true,
+        "name": "state_label",
+        "options": [],
+        "query": {
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "label"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "name",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Name",
+                "element": "name",
+                "internal_type": {
+                  "link": "",
+                  "value": "table_name"
+                },
+                "label": "Table",
+                "name": "name",
+                "sys_name": "Table",
+                "table": "",
+                "value": "name"
+              },
+              "op": "=",
+              "type": "table_name",
+              "value": "incident"
+            },
+            {
+              "conjunction": "and",
+              "field": "element",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Element",
+                "element": "element",
+                "internal_type": {
+                  "link": "",
+                  "value": "string"
+                },
+                "label": "Element",
+                "name": "element",
+                "sys_name": "Element",
+                "table": "",
+                "value": "element"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "state"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "namespace": "generic",
+          "queryType": "TableAPI",
+          "rawQuery": "sys_choice||label||value||name=incident^element=state^language=en",
+          "showNull": true,
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "sys_choice",
+          "timeField": "ignore_time"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-servicenow-datasource",
+          "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+        },
+        "definition": "grafana-servicenow-datasource - TableAPI - sys_choice",
+        "hide": 2,
+        "includeAll": true,
+        "label": "State",
+        "multi": true,
+        "name": "state",
+        "options": [],
+        "query": {
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "value"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "name",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Name",
+                "element": "name",
+                "internal_type": {
+                  "link": "",
+                  "value": "table_name"
+                },
+                "label": "Table",
+                "name": "name",
+                "sys_name": "Table",
+                "table": "",
+                "value": "name"
+              },
+              "op": "=",
+              "type": "table_name",
+              "value": "incident"
+            },
+            {
+              "conjunction": "and",
+              "field": "element",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Element",
+                "element": "element",
+                "internal_type": {
+                  "link": "",
+                  "value": "string"
+                },
+                "label": "Element",
+                "name": "element",
+                "sys_name": "Element",
+                "table": "",
+                "value": "element"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "state"
+            },
+            {
+              "conjunction": "and",
+              "field": "label",
+              "fieldDesc": {
+                "choice": "",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Label",
+                "element": "label",
+                "internal_type": {
+                  "link": "",
+                  "value": "string"
+                },
+                "label": "Label",
+                "name": "label",
+                "sys_name": "Label",
+                "table": "",
+                "value": "label"
+              },
+              "op": "IN",
+              "type": "string",
+              "value": "$state_label"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "namespace": "generic",
+          "queryType": "TableAPI",
+          "rawQuery": "sys_choice||label||value||name=incident^element=state^language=en",
+          "showNull": true,
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "sys_choice",
+          "timeField": "ignore_time"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-30d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Incident Management",
+  "uid": "fe2dz0spd8oowc",
+  "version": 3,
+  "weekStart": ""
+}

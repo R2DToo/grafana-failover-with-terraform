@@ -1,0 +1,263 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "A place to create panels for experimentation ",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 189,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "edtfwtgw2ct1cc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 5,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"header\">\r\n  {{#each (split service_group ',')}}\r\n    <div class=\"arrow-pointer\"><p class=\"header-text\">{{ this }}</p></div>\r\n  {{/each}}\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 200,
+          "language": "markdown"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": ".header {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n  height: 60px;\r\n  background: #7eb4e2;\r\n}\r\n\r\n.arrow-pointer {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n  height: 50px;\r\n  background: #32557f;\r\n  position: relative;\r\n  margin: auto;\r\n  margin-right: 25px;\r\n\r\n  &:after {\r\n    content: '';\r\n    position: absolute;\r\n    left: 0;\r\n    bottom: 0;\r\n    width: 0;\r\n    height: 0;\r\n    border-left: 25px solid #7eb4e2;\r\n    border-top: 25px solid transparent;\r\n    border-bottom: 25px solid transparent;\r\n  }\r\n\r\n  &:before {\r\n    content: '';\r\n    position: absolute;\r\n    right: -25px;\r\n    bottom: 0;\r\n    width: 0;\r\n    height: 0;\r\n    border-left: 25px solid #32557f;\r\n    border-top: 25px solid transparent;\r\n    border-bottom: 25px solid transparent;\r\n  }\r\n}\r\n\r\n.header-text {\r\n  padding: 0;\r\n  margin: auto;\r\n  padding-left: 25px;\r\n}\r\n\r\n.body {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  background: #7eb4e2;\r\n  padding: 0;\r\n  margin: 0;\r\n}\r\n\r\n.grey-box {\r\n  margin: 5px;\r\n  flex: 1 0 15%;\r\n  height: 6vh;\r\n  background: grey;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.double-grey-box {\r\n  margin: 5px;\r\n  flex: 2 0 31%;\r\n  height: 6vh;\r\n  background: grey;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.green-box {\r\n  margin: 5px;\r\n  flex: 1 0 15%;\r\n  height: 6vh;\r\n  background: green;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.double-green-box {\r\n  margin: 5px;\r\n  flex: 2 0 30%;\r\n  height: 6vh;\r\n  background: green;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.red-box {\r\n  margin: 5px;\r\n  flex: 1 0 15%;\r\n  height: 6vh;\r\n  background: red;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.double-red-box {\r\n  margin: 5px;\r\n  flex: 2 0 30%;\r\n  height: 6vh;\r\n  background: red;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.item-text {\r\n  padding: 0;\r\n  margin: auto;\r\n  text-align: center;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "targets": [
+        {
+          "columns": [],
+          "data": "\"service_group\",\"parent_group\"\n\"1 Fusion Center PoC\",\"All\"",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "edtfwtgw2ct1cc"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "type": "csv",
+          "url": "https://github.com/grafana/grafana-infinity-datasource/blob/main/testdata/users.json",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "",
+      "transparent": true,
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 21,
+        "w": 24,
+        "x": 0,
+        "y": 3
+      },
+      "id": 3,
+      "options": {
+        "afterRender": "",
+        "content": "<div class=\"body\">\r\n  <div class=\"{{ \"severity\" }}-box\">\r\n    <a href=\"https://servicenow.nexteraenergy.com/now/sow/service-map/{{ \"sys_id\" }}/params/root-node/{{ \"sys_id\" }}/selected-node-sysid/{{ \"sys_id\" }}/selected-node-class/cmdb_ci_service/levels/5\" target=\"_blank\" rel=\"noopener noreferrer\"><p class=\"item-text\">{{ \"service\" }}</p></a>\r\n  </div>\r\n</div>",
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 200,
+          "language": "markdown"
+        },
+        "editors": [
+          "styles"
+        ],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": ".header {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n  height: 60px;\r\n  background: #7eb4e2;\r\n}\r\n\r\n.arrow-pointer {\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n  height: 50px;\r\n  background: #32557f;\r\n  position: relative;\r\n  margin: auto;\r\n  margin-right: 25px;\r\n\r\n  &:after {\r\n    content: '';\r\n    position: absolute;\r\n    left: 0;\r\n    bottom: 0;\r\n    width: 0;\r\n    height: 0;\r\n    border-left: 25px solid #7eb4e2;\r\n    border-top: 25px solid transparent;\r\n    border-bottom: 25px solid transparent;\r\n  }\r\n\r\n  &:before {\r\n    content: '';\r\n    position: absolute;\r\n    right: -25px;\r\n    bottom: 0;\r\n    width: 0;\r\n    height: 0;\r\n    border-left: 25px solid #32557f;\r\n    border-top: 25px solid transparent;\r\n    border-bottom: 25px solid transparent;\r\n  }\r\n}\r\n\r\n.header-text {\r\n  padding: 0;\r\n  margin: auto;\r\n  padding-left: 25px;\r\n}\r\n\r\n.body {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  background: #7eb4e2;\r\n  padding: 5px;\r\n  margin: 0;\r\n  width: 100%;\r\n}\r\n\r\n.OK-box {\r\n  flex: 1 0 15%;\r\n  height: 6vh;\r\n  width: 100%;\r\n  background: green;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.Warning-box {\r\n  flex: 1 0 15%;\r\n  height: 6vh;\r\n  background: blue;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.Minor-box {\r\n  flex: 1 0 15%;\r\n  height: 6vh;\r\n  background: yellow;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.Major-box {\r\n  flex: 1 0 15%;\r\n  height: 6vh;\r\n  background: orange;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.Critical-box {\r\n  flex: 1 0 15%;\r\n  height: 6vh;\r\n  background: red;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.Operational-box {\r\n  flex: 1 0 15%;\r\n  height: 6vh;\r\n  background: green;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.Non-Operational-box {\r\n  flex: 1 0 15%;\r\n  height: 6vh;\r\n  background: grey;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.item-text {\r\n  padding: 0;\r\n  margin: auto;\r\n  text-align: center;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.2.0",
+      "repeat": "appServices",
+      "repeatDirection": "h",
+      "targets": [
+        {
+          "columns": [],
+          "data": "service,severity,sys_id,class\nWTR1 Telemetry PROD,OK,47372f7a473b0adc13df5e89e16d436d,cmdb_ci_service_discovered\nCEWIS PROD PoC,Warning,5156976593c38ed07cfdf5527cba1080,cmdb_ci_service_discovered\nEnergy Dashboard,Critical,eb8a819e4799ca5ca091a769116d4306,cmdb_ci_service_calculated",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "edtfwtgw2ct1cc"
+          },
+          "filterExpression": "service == \"$appServices\"",
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "hide": false,
+          "parser": "backend",
+          "refId": "C",
+          "root_selector": "",
+          "source": "inline",
+          "type": "csv",
+          "uql": "parse-csv",
+          "url": "https://github.com/grafana/grafana-infinity-datasource/blob/main/testdata/users.json",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "",
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "$appService"
+                  }
+                },
+                "fieldName": "service"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "marcusolsson-dynamictext-panel"
+    }
+  ],
+  "preload": false,
+  "refresh": "",
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
+        "hide": 2,
+        "includeAll": true,
+        "name": "appServices",
+        "options": [
+          {
+            "selected": true,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": false,
+            "text": "WTR1 Telemetry PROD",
+            "value": "WTR1 Telemetry PROD"
+          },
+          {
+            "selected": false,
+            "text": "CEWIS PROD PoC",
+            "value": "CEWIS PROD PoC"
+          },
+          {
+            "selected": false,
+            "text": "Energy Dashboard",
+            "value": "Energy Dashboard"
+          }
+        ],
+        "query": "WTR1 Telemetry PROD, CEWIS PROD PoC, Energy Dashboard",
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "FPL CSV Data v2",
+  "uid": "edxlu5hvh95a8a",
+  "version": 4,
+  "weekStart": ""
+}

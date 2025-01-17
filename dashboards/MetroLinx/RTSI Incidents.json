@@ -1,0 +1,1476 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 295,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "edtfwtgw2ct1cc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "1 - Critical"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2 - High"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "3 - Moderate"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "4 - Low"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 0,
+        "y": 0
+      },
+      "id": 5,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ],
+          "fields": "/^Number$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "columns": [],
+          "data": "\"Number\",\"Severity(priority)\",\"State\",\"Opened\",\"Updated\",\"Resolved\",\"Description\",\"Configuration Item\",\"Assignment group\"\n\"INC0553399\",\"3 - Moderate\",\"Closed\",\"2024-09-01 09:48:29\",\"2024-09-04 13:00:05\",\"2024-09-01 12:49:54\",\"Issue description: On September 1, 2024, coach length information is displaying incorrectly for two consists - dispatch 70 and 45. See attached for snippets from TM4, DSSI Viewer and TIS 3.0\nThis issue first occurred on: 2024-09-01 09:42:11\",\"Trip Manager\",\"Business - ONOC - Duty Call Management\"\n\"INC0553458\",\"1 - Critical\",\"Resolved\",\"2024-09-01 23:39:09\",\"2024-09-27 15:27:09\",\"2024-09-02 02:22:00\",\"TrainTrac is not tracking trips; trips all have red borders around them\r\nTM4 does not have any tracking data for trips\",\"Trip Manager\",\"Infrastructure - Level 3 - Server & Storage\"\n\"INC0553485\",\"3 - Moderate\",\"Closed\",\"2024-09-02 09:31:05\",\"2024-09-06 08:00:02\",\"2024-09-03 07:01:51\",\"NOC Controllers unable to send auto email generated from TM4 to business regarding track changes\",\"Trip Manager\",\"ITApps - Level 3 - Transit Ops\"\n\"INC0553490\",\"4 - Low\",\"Closed\",\"2024-09-02 09:51:48\",\"2024-09-09 13:00:12\",\"2024-09-06 12:43:56\",\"Issue description: WE CAN NOT SEE WHERE THE TRAINS ARE\nThis issue first occurred on: 2024-09-02 09:47:15\",\"GO Tracker [1.0 External Facing and 2.0 Internal Facing] (Mobile and Desktop)\",\"ITSD - Phone\"\n\"INC0553501\",\"4 - Low\",\"Closed\",\"2024-09-02 12:40:51\",\"2024-09-05 13:00:11\",\"2024-09-02 12:45:04\",\"Summary: There are an unexpected number of connections to MessageHub on RTSI-PPERSIST01.\r\nDescription: There should be 3 per RTSI-PAPPnn, CCMS, CCMS Viewer and ETA however we can't tell which is not connected.\r\nLabels: alertname\tMessage Hub Connections\r\ngrafana_folder\tCCMS\r\nhost\trtsi-papp01\",\"CCMS Manager\",\"Platform Delivery - EPAM AMS\"\n\"INC0553502\",\"4 - Low\",\"Closed\",\"2024-09-02 13:44:36\",\"2024-09-16 00:00:35\",\"2024-09-12 23:22:51\",\" http://rtsiapp.metrolinx.com:8111//ViewEvent.aspx?eventId=521772\n\n Event #: 521772\n Event date: September-02-24 Time: 1:04 PM\n Event category: IT;O\n Categories: Operational Log (O), GO IT Incident Log (IT) \n Delay code: None\n Created by: COURTNEYBO on 02/09/2024 1:44 PM \n\n Consist lineup\n 638, 4224, 230, 4142, 4020, 4512, 333\n\n Equipment fault: None\n Corridor: Barrie\n Train: 6318\n Station: King City GO\n\n \"\"6318 did not track correctly at King City GO. 6318 arrived at 13:22:24 and departed at 13:23:17 per cctv000330. IT notfiied via TM4 log email.\"\"\n by COURTNEYBO on 02/09/2024 1:44 PM\n\n This e-mail is intended only for the person or entity to which it is addressed. If you received this in error, please contact the sender and delete all copies of the e-mail together with any attachments.\",\"Trip Manager\",\"ITApps - Level 2 - Transit Ops\"\n\"INC0554399\",\"3 - Moderate\",\"Closed\",\"2024-09-04 14:35:04\",\"2024-09-08 20:00:05\",\"2024-09-05 19:59:49\",\"Trip mamanger not letting go back and make changes\nL96988\",\"Trip Manager\",\"ITApps - Level 2 - Transit Ops\"\n\"INC0554765\",\"3 - Moderate\",\"Closed\",\"2024-09-05 12:31:45\",\"2024-09-15 14:00:13\",\"2024-09-12 13:45:10\",\"Issue description: There is a power outage at Yorkdale @ 11:44, the power restored at 1147 and all our TIS is not showing the Bus Schedule Departure. Can someone please attend Yorkdale Bus Terminal or reset the system at your ends.\nThis issue first occurred on: 2024-09-05 12:28:21\",\"Traveller Information Service (TIS)\",\"Infrastructure - NOC\"\n\"INC0555655\",\"4 - Low\",\"Closed\",\"2024-09-08 19:19:09\",\"2024-09-13 13:00:11\",\"2024-09-10 12:51:10\",\"Issue description: Train Trac is showing some trains Frozen on the desktop version T1960,T9122 and E6922W\nThis issue first occurred on: 2024-09-08 19:12:44\",\"TrainTrac (TM360)\",\"ITApps - Level 2 - Transit Ops\"\n\"INC0556222\",\"4 - Low\",\"Closed\",\"2024-09-09 22:15:36\",\"2024-09-20 09:00:04\",\"2024-09-17 08:21:00\",\"Issue description: TrainTrac program on the lap tops and desktops (Not Big Video Wall ) is frozen for all users.  Trains on the Traintrac program have red boxes around them.\nThis issue first occurred on: 2024-09-09 22:13:16\",\"TrainTrac (TM360)\",\"ITApps - Level 2 - Transit Ops\"\n\"INC0556439\",\"4 - Low\",\"Closed\",\"2024-09-10 11:13:47\",\"2024-09-13 13:00:14\",\"2024-09-10 12:54:49\",\"Initial scheduled Platform information is intermittently not capturing correctly for dual platforms\",\"Trip Manager\",\"ITApps - Level 3 - Transit Ops\"\n\"INC0556510\",\"4 - Low\",\"Closed\",\"2024-09-10 12:20:16\",\"2024-09-15 20:00:04\",\"2024-09-12 19:15:27\",\"Issue description: v-epam-Robert Burke is experiencing issues with his Atlassian account. Could you please get it back to active state?\nThis issue first occurred on: 2024-09-10 12:18:56\",\"Atlassian App Suite\",\"ITAM - Operations (IT Asset Mgmt)\"\n\"INC0556715\",\"4 - Low\",\"Closed\",\"2024-09-10 20:52:07\",\"2024-09-15 23:00:03\",\"2024-09-12 22:20:02\",\" http://rtsiapp.metrolinx.com:8111//ViewEvent.aspx?eventId=523023\n\n Event #: 523023\n Event date: September-10-24 Time: 7:23 PM\n Event category: IT;O\n Categories: Operational Log (O), GO IT Incident Log (IT) \n Delay code: None\n Created by: BAILEYL on 10/09/2024 8:50 PM \n\n Consist lineup\n 644, 2312, 4229, 4230, 4156, 4502, 4213, 4223, 4187, 4056, 2012, 2057, 335\n\n Equipment fault: None\n Corridor: Kitchener\n Train: 3529\n Station: Mount Pleasant GO\n\n \"\"TM4 did not register an arrival time for 3529 at Mount Pleasant GO - We are unable to verify the arrival time on CCTV due to playback issues. I&IT advised by TM4 log email.\"\"\n by BAILEYL on 10/09/2024 8:50 PM\n\n This e-mail is intended only for the person or entity to which it is addressed. If you received this in error, please contact the sender and delete all copies of the e-mail together with any attachments.\",\"Trip Manager\",\"ITApps - Level 2 - Transit Ops\"\n\"INC0557456\",\"4 - Low\",\"Closed\",\"2024-09-12 13:42:08\",\"2024-09-19 11:00:28\",\"2024-09-16 10:05:53\",\"my traintrac access is limited, i had requested for more access to use the functions of the tool\",\"Trip Manager (TM3,TM4)\",\"ITSD - Phone\"\n\"INC0557739\",\"2 - High\",\"Resolved\",\"2024-09-13 04:28:36\",\"2024-10-03 11:35:04\",\"2024-09-13 05:30:00\",\"Issue description: TM4 is not uploading WOCC reporting that the file is stuck in a processing que and will not upload- The file had two previous errors that were rectified, however now the file will not uplo\nThis issue first occurred on: 2024-09-13 04:17:17\",\"Dispatch Upload\",\"ITApps - Level 3 - Transit Ops\"\n\"INC0558243\",\"4 - Low\",\"Active\",\"2024-09-14 16:22:02\",\"2024-09-16 06:59:38\",\"\",\" http://rtsiapp.metrolinx.com:8111//ViewEvent.aspx?eventId=523596\n\n Event #: 523596\n Event date: September-14-24 Time: 3:49 PM\n Event category: IT;O\n Categories: Operational Log (O), GO IT Incident Log (IT) \n Delay code: None\n Created by: COURTNEYBO on 14/09/2024 4:20 PM \n\n Consist lineup\n 681, 2241, 2211, 2735, 4011, 2554, 257\n\n Equipment fault: None\n Corridor: Barrie\n Train: E6324\n Station: Aurora GO\n\n \"\"E6324 did not track correctly arriving into Aurora GO. E6324 arrived at 15:59:11 per cctv010480. IT notified via TM4 log email.\"\"\n by COURTNEYBO on 14/09/2024 4:20 PM\n\n This e-mail is intended only for the person or entity to which it is addressed. If you received this in error, please contact the sender and delete all copies of the e-mail together with any attachments.\",\"Trip Manager\",\"ITApps - Level 2 - Transit Ops\"\n\"INC0558244\",\"4 - Low\",\"Closed\",\"2024-09-14 16:34:01\",\"2024-09-22 10:00:10\",\"2024-09-19 09:53:29\",\" http://rtsiapp.metrolinx.com:8111//ViewEvent.aspx?eventId=523599\n\n Event #: 523599\n Event date: September-14-24 Time: 3:55 PM\n Event category: IT;O\n Categories: Operational Log (O), GO IT Incident Log (IT) \n Delay code: None\n Created by: COURTNEYBO on 14/09/2024 4:31 PM \n\n Consist lineup\n 681, 2241, 2211, 2735, 4011, 2554, 257\n\n Equipment fault: None\n Corridor: Barrie\n Train: 6324\n Station: Aurora GO\n\n \"\"6324 did not track correctly departing Aurora GO. 6324 departed at 16:02:07 per cctv010480. IT notified via TM4 log email.\"\"\n by COURTNEYBO on 14/09/2024 4:31 PM\n\n This e-mail is intended only for the person or entity to which it is addressed. If you received this in error, please contact the sender and delete all copies of the e-mail together with any attachments.\",\"Trip Manager\",\"ITApps - Level 2 - Transit Ops\"\n\"INC0558394\",\"2 - High\",\"Resolved\",\"2024-09-16 05:21:56\",\"2024-10-03 11:35:04\",\"2024-09-16 06:40:00\",\"Alstom reports AM Trip Manager 4 upload issue  - data is not uploading in TM4. NOC is attempting to manually assign trips with a 50/50 success rate. \r\nIssue description: Alstom reports AM Trip Manager 4 upload issue  - data is not uploading in TM4. NOC is attempting to manually assign trips with a 50/50 success rate. \r\nThis issue first occurred on: 2024-09-16 05:20:42\",\"Dispatch Upload\",\"ITApps - Level 3 - Transit Ops\"\n\"INC0558846\",\"2 - High\",\"Resolved\",\"2024-09-17 04:35:03\",\"2024-09-18 09:39:50\",\"2024-09-17 05:45:53\",\"The dispatch system did not complete successfully due to file formatting. The incident was initially logged with a medium impact level but was escalated due to its potential to significantly disrupt operations. The file was re-uploaded successfully and unassigned equipment were corrected manually.\",\"Dispatch Upload\",\"ITApps - Level 3 - Transit Ops\"\n\"INC0558883\",\"4 - Low\",\"Closed\",\"2024-09-17 08:04:53\",\"2024-09-17 11:42:55\",\"2024-09-17 11:42:55\",\"Issue description: no access to trip manager 4\nThis issue first occurred on: 2024-09-17 08:03:53\",\"Trip Manager (TM3,TM4)\",\"ITSD - Phone\"\n\"INC0559065\",\"4 - Low\",\"Active\",\"2024-09-17 12:09:52\",\"2024-09-17 13:08:18\",\"\",\" http://rtsiapp.metrolinx.com:8111//ViewEvent.aspx?eventId=524000\n\n Event #: 524000\n Event date: September-17-24 Time: 8:39 AM\n Event category: IT;O\n Categories: Operational Log (O), GO IT Incident Log (IT) \n Delay code: None\n Created by: COURTNEYBO on 17/09/2024 12:07 PM \n\n Consist lineup\n 652, 4053, 2052, 2773, 4105, 2512, 2066, 2855, 4090, 2444, 326\n\n Equipment fault: None\n Corridor: Lakeshore East\n Train: 9208\n Station: Union Station\n\n \"\"9208 did not track correctly departing Union Station. 9208 departed at 08:57:56 per cctv007483. IT notified via TM4 log email.\"\"\n by COURTNEYBO on 17/09/2024 12:07 PM\n\n This e-mail is intended only for the person or entity to which it is addressed. If you received this in error, please contact the sender and delete all copies of the e-mail together with any attachments.\",\"Trip Manager\",\"ITApps - Level 2 - Transit Ops\"\n\"INC0559380\",\"4 - Low\",\"Closed\",\"2024-09-18 06:41:12\",\"2024-09-22 10:00:10\",\"2024-09-19 09:00:30\",\" http://rtsiapp.metrolinx.com:8111//ViewEvent.aspx?eventId=524175\n\n Event #: 524175\n Event date: September-18-24 Time: 6:30 AM\n Event category: IT;O\n Categories: Operational Log (O), GO IT Incident Log (IT) \n Delay code: None\n Created by: COURTNEYBO on 18/09/2024 6:37 AM \n\n Consist lineup\n 631, 4206, 4061, 2798, 4202, 2500, 2215, 2204, 2763, 2243, 255\n\n Equipment fault: None\n Corridor: Richmond Hill\n Train: 5006\n Station: Oriole GO\n\n \"\"5006 did not track correctly departing Oriole GO. 5006 departed at 06:35:47 per cctv002985. IT notified via TM4 log email.\"\"\n by COURTNEYBO on 18/09/2024 6:37 AM\n\n This e-mail is intended only for the person or entity to which it is addressed. If you received this in error, please contact the sender and delete all copies of the e-mail together with any attachments.\",\"Trip Manager\",\"ITApps - Level 2 - Transit Ops\"\n\"INC0559384\",\"4 - Low\",\"Closed\",\"2024-09-18 07:03:59\",\"2024-09-21 10:00:08\",\"2024-09-18 09:55:23\",\"located in bus terminal\",\"S4 Corridor View\",\"I&IT Field Service Technicians-West\"\n\"INC0559617\",\"4 - Low\",\"Closed\",\"2024-09-18 11:43:23\",\"2024-09-21 13:00:06\",\"2024-09-18 12:35:04\",\"Issue description: The following list of team members require read access to Trip Manager and Traintrac\r\n\r\nAndreas Kraus\tCrew and Fleet Controller\takraus@onxpress.com\r\n\r\nGrace D Costa\tCrew and Fleet Controller\tgdcosta@onxpress.com\r\n\r\nJoseph Mutamiswa\tCrew and Fleet Controller\tjmutamiswa@onxpress.com\r\n\r\nJerald David John\tCrew and Fleet Controller\tdjohn@onxpress.com\r\n\r\nRyan Jay Parades\tCrew and Fleet Controller\trparedes@onxpress.com\r\n\r\nMylika Laing\tCrew and Fleet Controller\tmlaing@onxpress.com\r\n\r\nNorbert Syrek\tNOC Operations Manager\tnsyrek@onxpress.com\r\n\r\nRizwan Khan\tNOC Operations Manager\trikhan@onxpress.com\r\n\r\nFatine Azghari\tNOC Operations Manager\tfazghari@onxpress.com\r\n\r\nSyed Imran Rashee\tNOC Operations Manager\tisyed@onxpress.com\r\n\r\nBhavish Luximon\tNOC Operations Manager\tbluximon@onxpress.com\r\n\r\nRae-Anne Morrell\tNOC Operations Manager\trmorrell@onxpress.com\r\n\r\nPatrick Masterson\tCrew and Fleet Controller\tpmasterson@onxpress.com\r\n\r\nMoe Amodwala\tCrew and Fleet Controller\tmamodwala@onxpress.com\r\n\r\nShilpa Pradeep\tCrew and Fleet Controller\tspradeep@onxpress.com\r\n\r\nAchoy Poon Kwong\tCrew and Fleet Controller\tapoonkwong@onxpress.com\r\n\r\nJustin Alinsod\tCrew and Fleet Controller\tjalinsod@onxpress.com\r\n\r\nSarai Portieles Torrez\tCrew and Fleet Controller\tsportielestorrez@onxpress.com\nThis issue first occurred on: 2024-09-18 11:41:53\",\"Trip Manager\",\"ITSD - Phone\"\n\"INC0559830\",\"4 - Low\",\"Closed\",\"2024-09-19 05:45:19\",\"2024-09-23 13:00:08\",\"2024-09-20 12:48:46\",\"Issue description: TIS monitor #14 located at the west side of accessible ramp at Eglinton GO Station is not in service.\nThis issue first occurred on: 2024-09-19 05:42:14\",\"Traveller Information Service (TIS)\",\"I&IT Field Service Technicians-East\"\n\"INC0560145\",\"4 - Low\",\"Active\",\"2024-09-19 15:41:13\",\"2024-09-22 09:18:36\",\"\",\" http://rtsiapp.metrolinx.com:8111//ViewEvent.aspx?eventId=524501\n\n Event #: 524501\n Event date: September-19-24 Time: 2:55 PM\n Event category: IT;O\n Categories: Operational Log (O), GO IT Incident Log (IT) \n Delay code: None\n Created by: COURTNEYBO on 19/09/2024 3:39 PM \n\n Consist lineup\n 641, 2781, 4047, 4136, 4210, 2553, 4204, 2039, 4111, 2200, 325\n\n Equipment fault: None\n Corridor: Barrie\n Train: 6919\n Station: Newmarket GO\n\n \"\"6919 did not track correctly departing Newmarket GO. 6919 departed at 15:00:53 per cctv001897. IT notified via TM4 log email.\"\"\n by COURTNEYBO on 19/09/2024 3:39 PM\n\n This e-mail is intended only for the person or entity to which it is addressed. If you received this in error, please contact the sender and delete all copies of the e-mail together with any attachments.\",\"Trip Manager\",\"ITApps - Level 2 - Transit Ops\"\n\"INC0560233\",\"4 - Low\",\"Active\",\"2024-09-20 00:03:03\",\"2024-09-22 09:18:35\",\"\",\" http://rtsiapp.metrolinx.com:8111//ViewEvent.aspx?eventId=524578\n\n Event #: 524578\n Event date: September-19-24 Time: 11:14 PM\n Event category: IT;O\n Categories: Operational Log (O), GO IT Incident Log (IT) \n Delay code: None\n Created by: COURTNEYBO on 20/09/2024 12:02 AM \n\n Consist lineup\n 630, 4082, 2722, 219, 4057, 2545, 4197, 4118, 4216, 4225, 4220, 4179, 364\n\n Equipment fault: None\n Corridor: Lakeshore East\n Train: 9136\n Station: Whitby GO\n\n \"\"9136 did not track correctly departing Whitby GO. 9136 departed at 23:20:57 per cctv000810. IT notified via TM4 log email.\"\"\n by COURTNEYBO on 20/09/2024 12:02 AM\n\n This e-mail is intended only for the person or entity to which it is addressed. If you received this in error, please contact the sender and delete all copies of the e-mail together with any attachments.\",\"Trip Manager\",\"ITApps - Level 2 - Transit Ops\"\n\"INC0560254\",\"4 - Low\",\"Closed\",\"2024-09-20 06:20:09\",\"2024-09-26 09:00:08\",\"2024-09-23 08:32:39\",\"S4-0007 on platform is out of service - no internet connection is the error message\",\"S4 Corridor View\",\"I&IT Field Service Technicians-East\"\n\"INC0561399\",\"4 - Low\",\"Closed\",\"2024-09-24 01:31:20\",\"2024-09-27 14:00:17\",\"2024-09-24 13:37:51\",\"Issue description: Trip 4034 is \"\"stuck\"\" (outlined in red) on TrainTrac application (both desktop and video wall).\nThis issue first occurred on: 2024-09-24 01:29:44\",\"TrainTrac (TM360)\",\"ITApps - Level 2 - Transit Ops\"\n\"INC0561908\",\"3 - Moderate\",\"Active\",\"2024-09-25 10:11:33\",\"2024-10-03 05:29:58\",\"\",\"Issue description: All PA related Reports are showing no data. http://rtsi-pssrs01/Reports/browse/CCMS\r\nThis is critical for reporting and audting\nThis issue first occurred on: 2024-09-23 10:09:11\",\"CCMS Manager\",\"Platform Delivery - EPAM AMS\"\n\"INC0562352\",\"4 - Low\",\"Active\",\"2024-09-26 09:53:13\",\"2024-09-27 13:32:57\",\"\",\" http://rtsiapp.metrolinx.com:8111//ViewEvent.aspx?eventId=526660\n\n Event #: 526660\n Event date: September-26-24 Time: 9:41 AM\n Event category: IT;O\n Categories: Operational Log (O), GO IT Incident Log (IT) \n Delay code: None\n Created by: COURTNEYBO on 26/09/2024 9:52 AM \n\n Equipment fault: None\n Corridor: Lakeshore East\n Train: 9208\n Station: Durham College Oshawa GO\n\n \"\"9208 did not track correctly arriving into Durham College Oshawa GO. 9208 arrived at 09:39:07 per cctv010052. IT notified via TM4 log email.\"\"\n by COURTNEYBO on 26/09/2024 9:52 AM\n\n This e-mail is intended only for the person or entity to which it is addressed. If you received this in error, please contact the sender and delete all copies of the e-mail together with any attachments.\",\"Trip Manager\",\"ITApps - Level 2 - Transit Ops\"\n\"INC0562399\",\"4 - Low\",\"Closed\",\"2024-09-26 10:45:32\",\"2024-10-04 10:00:04\",\"2024-10-01 09:10:29\",\"DSSI showed trip 1017 cancelled, when TM4 did not reflect that change. \r\n \r\nThere was a dispatch re-adjustment this more that MIGHT have effected it, but not confirmed. \r\n \r\nRail Ops (with the Comms STL turning automation off) cancelled and reinstated the trip which resolved the issue.\",\"Trip Manager (TM3,TM4)\",\"Platform Delivery - Customer Experience\"\n\"INC0562758\",\"4 - Low\",\"Active\",\"2024-09-27 07:56:28\",\"2024-09-27 13:32:58\",\"\",\" http://rtsiapp.metrolinx.com:8111//ViewEvent.aspx?eventId=526790\n\n Event #: 526790\n Event date: September-27-24 Time: 7:01 AM\n Event category: IT;O\n Categories: Operational Log (O), GO IT Incident Log (IT) \n Delay code: None\n Created by: BAILEYL on 27/09/2024 7:55 AM \n\n Consist lineup\n 600, 4235, 235, 4055, 2247, 2543, 4159, 2759, 4196, 4023, 2796, 4099, 346\n\n Equipment fault: None\n Corridor: Barrie\n Train: 6908\n Station: Allandale Waterfront GO\n\n \"\"6908 did not register a departure time for Allandale - pre-CCTV 000974; trip departed at 07:01:23. I&IT advised by TM4 log email.\"\"\n by BAILEYL on 27/09/2024 7:55 AM\n\n This e-mail is intended only for the person or entity to which it is addressed. If you received this in error, please contact the sender and delete all copies of the e-mail together with any attachments.\",\"Trip Manager\",\"ITApps - Level 2 - Transit Ops\"\n\"INC0562769\",\"4 - Low\",\"Active\",\"2024-09-27 08:19:33\",\"2024-09-27 13:32:58\",\"\",\" http://rtsiapp.metrolinx.com:8111//ViewEvent.aspx?eventId=526791\n\n Event #: 526791\n Event date: September-27-24 Time: 7:51 AM\n Event category: IT;O\n Categories: Operational Log (O), GO IT Incident Log (IT) \n Delay code: None\n Created by: COURTNEYBO on 27/09/2024 8:18 AM \n\n Consist lineup\n 671, 4240, 222, 2844, 215, 4523, 4052, 2004, 2227, 2611, 4231, 4218, 303\n\n Equipment fault: None\n Corridor: Lakeshore West\n Train: 1758\n Station: Clarkson GO\n\n \"\"1758 did not track correctly departing Clarkson GO. 1758 departed at 07:56:56 per cctv000933. IT notified via TM4 log email.\"\"\n by COURTNEYBO on 27/09/2024 8:18 AM\n\n This e-mail is intended only for the person or entity to which it is addressed. If you received this in error, please contact the sender and delete all copies of the e-mail together with any attachments.\",\"Trip Manager\",\"ITApps - Level 2 - Transit Ops\"\n\"INC0562873\",\"4 - Low\",\"Active\",\"2024-09-27 11:35:37\",\"2024-09-27 13:32:59\",\"\",\" http://rtsiapp.metrolinx.com:8111//ViewEvent.aspx?eventId=526804\n\n Event #: 526804\n Event date: September-27-24 Time: 10:25 AM\n Event category: IT;O\n Categories: Operational Log (O), GO IT Incident Log (IT) \n Delay code: None\n Created by: COURTNEYBO on 27/09/2024 11:33 AM \n\n Consist lineup\n 664, 4100, 4232, 2808, 4127, 2513, 2712, 4241, 4115, 2323, 4026, 4154, 252\n\n Equipment fault: None\n Corridor: Lakeshore West\n Train: 1714\n Station: West Harbour GO\n\n \"\"1714 did not track correctly departing West Harbour GO. 1714 departed at 10:25:10 per cctv002371. IT notified via TM4 log email.\"\"\n by COURTNEYBO on 27/09/2024 11:33 AM\n\n This e-mail is intended only for the person or entity to which it is addressed. If you received this in error, please contact the sender and delete all copies of the e-mail together with any attachments.\",\"Trip Manager\",\"ITApps - Level 2 - Transit Ops\"\n\"INC0562888\",\"4 - Low\",\"Active\",\"2024-09-27 11:54:41\",\"2024-09-27 13:32:56\",\"\",\" http://rtsiapp.metrolinx.com:8111//ViewEvent.aspx?eventId=526809\n\n Event #: 526809\n Event date: September-27-24 Time: 11:20 AM\n Event category: IT;O\n Categories: Operational Log (O), GO IT Incident Log (IT) \n Delay code: None\n Created by: COURTNEYBO on 27/09/2024 11:51 AM \n\n Consist lineup\n 664, 4100, 4232, 2808, 4127, 2513, 2712, 4241, 4115, 2323, 4026, 4154, 252\n\n Equipment fault: None\n Corridor: Lakeshore West\n Train: 1714\n Station: Long Branch GO\n\n \"\"1714 did not track correctly departing Long Branch GO. 1714 departed at 11:25:53 per cctv000618. IT notified via TM4 log email.\"\"\n by COURTNEYBO on 27/09/2024 11:51 AM\n\n This e-mail is intended only for the person or entity to which it is addressed. If you received this in error, please contact the sender and delete all copies of the e-mail together with any attachments.\",\"Trip Manager\",\"ITApps - Level 2 - Transit Ops\"\n\"INC0563279\",\"4 - Low\",\"Resolved\",\"2024-09-29 10:46:15\",\"2024-10-03 11:07:59\",\"2024-10-03 09:01:54\",\"Issue description: 9-29-24 TRIP 1711 LONG BRANCH - Not on S4 Board - Westbound Train All Stops to West Harbour\nThis issue first occurred on: 2024-09-29 10:06:00\",\"Trip Manager\",\"Platform Delivery - EPAM AMS\"\n\"INC0563323\",\"4 - Low\",\"Active\",\"2024-09-29 21:09:31\",\"2024-10-04 10:45:09\",\"\",\"Issue description: Train Trip # 1733 not displaying on all stations' DSSI.\nThis issue first occurred on: 2024-09-29 21:06:19\",\"Traveller Information Service (TIS)\",\"Platform Delivery - Customer Experience\"\n\"INC0563387\",\"4 - Low\",\"Resolved\",\"2024-09-30 08:57:26\",\"2024-10-03 12:47:58\",\"2024-10-03 12:47:58\",\"Issue description: trip 1710 EB at 9.01 from Oakville GO station is not showing on all S4's and showing departed @ 8.45 on Go Tracker.\nThis issue first occurred on: 2024-09-30 08:53:05\",\"Traveller Information Service (TIS)\",\"ITSD - Phone\"\n\"INC0563388\",\"4 - Low\",\"Awaiting User\",\"2024-09-30 09:08:24\",\"2024-10-03 11:59:42\",\"\",\"Issue description: S4 signs do not showing train with 9-08 am departure.GoTracker is showing already departed even though the time is before 9 am\nThis issue first occurred on: 2024-09-30 09:01:53\",\"Traveller Information Service (TIS)\",\"ITSD - Phone\"\n",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "edtfwtgw2ct1cc"
+          },
+          "filterExpression": "",
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "type": "csv",
+          "url": "https://github.com/grafana/grafana-infinity-datasource/blob/main/testdata/users.json",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Total Incidents",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "1 - Critical"
+                  }
+                },
+                "fieldName": "Severity(priority)"
+              },
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "2 - High"
+                  }
+                },
+                "fieldName": "Severity(priority)"
+              },
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "3 - Moderate"
+                  }
+                },
+                "fieldName": "Severity(priority)"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "1 - Critical"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2 - High"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "3 - Moderate"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "4 - Low"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 8,
+        "y": 0
+      },
+      "id": 6,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 5,
+          "refId": "A",
+          "withTransforms": true
+        }
+      ],
+      "title": "Incidents by State",
+      "transformations": [
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Number": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "aggregate"
+              },
+              "State": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "1 - Critical"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2 - High"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "3 - Moderate"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "4 - Low"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 16,
+        "y": 0
+      },
+      "id": 7,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "/^Duration$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 5,
+          "refId": "A",
+          "withTransforms": true
+        }
+      ],
+      "title": "Overall MTTR",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "Closed"
+                  }
+                },
+                "fieldName": "State"
+              },
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "Resolved"
+                  }
+                },
+                "fieldName": "State"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Opened"
+              },
+              {
+                "destinationType": "time",
+                "targetField": "Resolved"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Duration",
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Resolved"
+                }
+              },
+              "operator": "-",
+              "right": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Opened"
+                }
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "MTTR",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "1 - Critical"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2 - High"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "3 - Moderate"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "4 - Low"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      },
+      "id": 9,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "normal",
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "xField": "Configuration Item\\Severity(priority)",
+        "xTickLabelMaxLength": 20,
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 5,
+          "refId": "A",
+          "withTransforms": true
+        }
+      ],
+      "title": "MTTR by CI & Priority",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "Closed"
+                  }
+                },
+                "fieldName": "State"
+              },
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "Resolved"
+                  }
+                },
+                "fieldName": "State"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Opened"
+              },
+              {
+                "destinationType": "time",
+                "targetField": "Resolved"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Duration",
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Resolved"
+                }
+              },
+              "operator": "-",
+              "right": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Opened"
+                }
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Configuration Item": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Duration": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "aggregate"
+              },
+              "Severity(priority)": {
+                "aggregations": []
+              }
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "Configuration Item"
+              }
+            ]
+          }
+        },
+        {
+          "disabled": true,
+          "id": "groupingToMatrix",
+          "options": {
+            "columnField": "Severity(priority)",
+            "emptyValue": "null",
+            "rowField": "Configuration Item",
+            "valueField": "Duration (mean)"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Configuration Item\\Severity(priority)": "Configuration Item"
+            }
+          }
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "MTTR",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "1 - Critical"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2 - High"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "3 - Moderate"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "4 - Low"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 10
+      },
+      "id": 4,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [
+            "mean",
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "normal",
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "xField": "Configuration Item\\Severity(priority)",
+        "xTickLabelMaxLength": 20,
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 5,
+          "refId": "A",
+          "withTransforms": true
+        }
+      ],
+      "title": "MTTR by CI & Priority",
+      "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "Closed"
+                  }
+                },
+                "fieldName": "State"
+              },
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "Resolved"
+                  }
+                },
+                "fieldName": "State"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Opened"
+              },
+              {
+                "destinationType": "time",
+                "targetField": "Resolved"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Duration",
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Resolved"
+                }
+              },
+              "operator": "-",
+              "right": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Opened"
+                }
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Configuration Item": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Duration": {
+                "aggregations": [
+                  "mean"
+                ],
+                "operation": "aggregate"
+              },
+              "Severity(priority)": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "Configuration Item"
+              }
+            ]
+          }
+        },
+        {
+          "id": "groupingToMatrix",
+          "options": {
+            "columnField": "Severity(priority)",
+            "emptyValue": "null",
+            "rowField": "Configuration Item",
+            "valueField": "Duration (mean)"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Configuration Item\\Severity(priority)": "Configuration Item"
+            }
+          }
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Incident Count",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "1 - Critical"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2 - High"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "3 - Moderate"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "4 - Low"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 20
+      },
+      "id": 1,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "normal",
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "xTickLabelMaxLength": 25,
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 5,
+          "refId": "A",
+          "withTransforms": true
+        }
+      ],
+      "title": "Incident Count by CI & Priority",
+      "transformations": [
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Configuration Item": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Number": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "aggregate"
+              },
+              "Severity(priority)": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "Configuration Item"
+              }
+            ]
+          }
+        },
+        {
+          "id": "groupingToMatrix",
+          "options": {
+            "columnField": "Severity(priority)",
+            "emptyValue": "null",
+            "rowField": "Configuration Item",
+            "valueField": "Number (count)"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Configuration Item\\Severity(priority)": "Configuration Item"
+            }
+          }
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "1 - Critical"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2 - High"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "3 - Moderate"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "4 - Low"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 29
+      },
+      "id": 2,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.4.0-77868",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 5,
+          "refId": "A",
+          "withTransforms": true
+        }
+      ],
+      "title": "Incident Lookup Table",
+      "transformations": [
+        {
+          "id": "groupToNestedTable",
+          "options": {
+            "fields": {
+              "Configuration Item": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Number": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "aggregate"
+              },
+              "Severity(priority)": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            },
+            "showSubframeHeaders": true
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "Configuration Item"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "RTSI Incidents",
+  "uid": "be09iywfzasxsc",
+  "version": 3,
+  "weekStart": ""
+}
