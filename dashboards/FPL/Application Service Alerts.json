@@ -125,7 +125,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.2.0-73830",
+      "pluginVersion": "11.5.0-81311",
       "targets": [
         {
           "datasource": {
@@ -215,8 +215,12 @@
     }
   ],
   "preload": false,
-  "schemaVersion": 39,
-  "tags": [],
+  "refresh": "",
+  "schemaVersion": 40,
+  "tags": [
+    "Test",
+    "test"
+  ],
   "templating": {
     "list": [
       {
@@ -444,6 +448,6 @@
   "timezone": "browser",
   "title": "Application Service Alerts",
   "uid": "bdu5l10dw8hs0d",
-  "version": 8,
+  "version": 9,
   "weekStart": ""
 }

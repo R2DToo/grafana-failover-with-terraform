@@ -1,0 +1,2026 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 529,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "BAM_Overview"
+      ],
+      "targetBlank": true,
+      "title": "",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 3,
+      "panels": [],
+      "title": "Clearing and Settlement",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "ce39l7ne2jym8a"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Total"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RJCT"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 1
+      },
+      "id": 5,
+      "interval": "15m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84214",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_${env}_cs_k8s\" \"kubernetes.container_name\"=\"rtr-cs-service-settlement-engine-tr-wo-res-${env}\" message=\"*loggerName=ca.payments.rtr.cs.lib.settlement.engine.common.services.SyncWithAsyncWriterService*\" message=\"*POST/settlement-engine/transfer-wo-reserve*\" message=\"*\\\"isoMessageId\\\":\\\"camt.006.001.08\\\"*\"\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"\\\"rtgs\\\":\\\"(?<rtgs>[^\\\"]+)\\\"\"\n| timechart span=15m count by rtgs\n| addtotals",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "BAM6-W1-Aggregate No. of Transaction Volume by Status",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "ce39l7ne2jym8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Amount"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 120
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Sending Participant"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 200
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Receiving Participant"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 200
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Reason"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 200
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 1
+      },
+      "id": 6,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.6.0-84214",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_${env}_cs_k8s\" \n\"kubernetes.container_name\"=\"rtr-cs-service-settlement-engine-tr-wo-res-${env}\" \nmessage=\"*loggerName=ca.payments.rtr.cs.lib.settlement.engine.common.services.SyncWithAsyncWriterService*\" \nmessage=\"*POST/settlement-engine/transfer-wo-reserve*\" \nmessage=\"*\\\"isoMessageId\\\":\\\"camt.050.001.05\\\"*\"\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"eventDateTime=(?<eventDateTime>\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{9})\"\n| rex field=log_without_backslashes \"\\\"end_to_end_identification\\\":\\\"(?<eteID>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"uetr\\\":\\\"(?<uetr>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"debtor\\\":\\\"(?<debtor>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"creditor\\\":\\\"(?<creditor>[^\\\"]+)\\\"\"\n| table eventDateTime, eteID, uetr, debtor, creditor",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        },
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "hide": false,
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_${env}_cs_k8s\" \"kubernetes.container_name\"=\"rtr-cs-service-settlement-engine-tr-wo-res-${env}\" message=\"*loggerName=ca.payments.rtr.cs.lib.settlement.engine.common.services.SyncWithAsyncWriterService*\" message=\"*POST/settlement-engine/transfer-wo-reserve*\" message=\"*\\\"isoMessageId\\\":\\\"camt.006.001.08\\\"*\"\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"eventDateTime=(?<eventDateTime>\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{9})\"\n| rex field=log_without_backslashes \"\\\"rtgs\\\":\\\"(?<rtgs>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"end_to_end_identification\\\":\\\"(?<eteID>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"reason\\\":{\\\"proprietary\\\":\\\"(?<rejectionReason>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"eventDetails\\\":\\\"{\\\"return_transaction\\\":{.*?\\\"to\\\":{\\\"organisation_identification\\\":{\\\"identification\\\":{\\\"organisation_identification\\\":{\\\"other\\\":{\\\"identification\\\":\\\"(?<to_identification>[A-Z0-9]{4})\\\"\"\n| rex field=log_without_backslashes \"eventDetails\\\":\\\"{\\\"return_transaction\\\":{.*?\\\"from\\\":{\\\"organisation_identification\\\":{\\\"identification\\\":{\\\"organisation_identification\\\":{\\\"other\\\":{\\\"identification\\\":\\\"(?<from_identification>[A-Z0-9]{6})\\\"\"\n| table eventDateTime, rtgs, eteID, to_identification, from_identification, rejectionReason",
+          "rawQuery": true,
+          "refId": "B",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "BAM6-W2- Rejected Transactions Reasons",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "eteID",
+            "mode": "inner"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "eteID": true,
+              "eventDateTime 1": true,
+              "eventDateTime 2": true,
+              "from_identification": true,
+              "rtgs": true,
+              "to_identification": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "creditor": 1,
+              "debtor": 0,
+              "eteID": 4,
+              "eventDateTime 1": 5,
+              "eventDateTime 2": 6,
+              "from_identification": 9,
+              "rejectionReason": 2,
+              "rtgs": 7,
+              "to_identification": 8,
+              "uetr": 3
+            },
+            "renameByName": {
+              "creditor": "Receiving Participant",
+              "debtor": "Sending Participant",
+              "rejectionReason": "Reason",
+              "uetr": "UETR"
+            }
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "Reason"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "Receiving Participant"
+              },
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "Sending Participant"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "ce39l7ne2jym8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "STLD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "REVD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RJCT"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MSTL"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MREV"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "id": 7,
+      "interval": "15m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84214",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_${env}_cs_k8s\" \n\"kubernetes.container_name\"=\"rtr-cs-service-settlement-engine-tr-wo-res-${env}\" \nmessage=\"*loggerName=ca.payments.rtr.cs.lib.settlement.engine.common.services.SyncWithAsyncWriterService*\" \nmessage=\"*POST/settlement-engine/transfer-wo-reserve*\" \nmessage=\"*\\\"isoMessageId\\\":\\\"camt.050.001.05\\\"*\"\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"\\\"debtor\\\":\\\"(?<debtor>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"creditor\\\":\\\"(?<creditor>[^\\\"]+)\\\"\"\n| timechart span=15m count by debtor",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "BAM6-W3-Transaction Volume Sent by Participant",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "ce39l7ne2jym8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "STLD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "REVD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RJCT"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MSTL"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MREV"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 8,
+      "interval": "15m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84214",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_${env}_cs_k8s\" \n\"kubernetes.container_name\"=\"rtr-cs-service-settlement-engine-tr-wo-res-${env}\" \nmessage=\"*loggerName=ca.payments.rtr.cs.lib.settlement.engine.common.services.SyncWithAsyncWriterService*\" \nmessage=\"*POST/settlement-engine/transfer-wo-reserve*\" \nmessage=\"*\\\"isoMessageId\\\":\\\"camt.050.001.05\\\"*\"\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"\\\"debtor\\\":\\\"(?<debtor>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"creditor\\\":\\\"(?<creditor>[^\\\"]+)\\\"\"\n| timechart span=15m count by creditor",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "BAM6-W4-Transaction Volume Received by Participant",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "ce39l7ne2jym8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "STLD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "REVD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RJCT"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MSTL"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MREV"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 9,
+      "interval": "15m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84214",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_${env}_cs_k8s\" \"kubernetes.container_name\"=\"rtr-cs-service-settlement-engine-tr-wo-res-${env}\" message=\"*loggerName=ca.payments.rtr.cs.lib.settlement.engine.common.services.SyncWithAsyncWriterService*\" message=\"*POST/settlement-engine/transfer-wo-reserve*\" message=\"*\\\"isoMessageId\\\":\\\"camt.006.001.08\\\"*\"\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"eventDetails\\\":\\\"{\\\"return_transaction\\\":{.*?\\\"to\\\":{\\\"organisation_identification\\\":{\\\"identification\\\":{\\\"organisation_identification\\\":{\\\"other\\\":{\\\"identification\\\":\\\"(?<to_identification>[A-Z0-9]{4})\\\"\"\n| rex field=log_without_backslashes \"eventDetails\\\":\\\"{\\\"return_transaction\\\":{.*?\\\"from\\\":{\\\"organisation_identification\\\":{\\\"identification\\\":{\\\"organisation_identification\\\":{\\\"other\\\":{\\\"identification\\\":\\\"(?<from_identification>[A-Z0-9]{6})\\\"\"\n| timechart span=15m count by to_identification",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "BAM6-W5-Transaction Volume Sent by Exchange",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 25
+      },
+      "id": 4,
+      "panels": [],
+      "title": "Exchange",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "ce39l7ne2jym8a"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Total"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RJCT"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 26
+      },
+      "id": 10,
+      "interval": "15m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84214",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "hide": false,
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_${env}_exch_k8s\" \"kubernetes.container_name\"=\"rtr-credit-transfer-api-${env}\" (message=\"*pacs.008*\" OR message=\"*pacs.002*\" OR message=\"*head.001*\") message=\"*Settlement Commit Advice pacs.002 sent to DA*\"\n| timechart span=15m count",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        },
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "hide": false,
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_dev1_exch_k8s\" \"kubernetes.container_name\"=\"rtr-credit-transfer-api-dev1\" (message=\"*pacs.008*\" OR message=\"*pacs.002*\" OR message=\"*head.001*\")\n| rex field=message \"\\\"error_code\\\":\\\"(?<error_code>[^\\\"]+)\\\"\"\n| rex field=message \"\\\"uetr\\\":\\\"(?<uetr>[^\\\"]+)\\\"\"\n| rex field=message \"\\\"clearing_system_reference\\\":\\\"(?<clearing_system_reference>[^\\\"]+)\\\"\"\n| where clearing_system_reference=\"${traceabilityID}\"\n| where error_code!=\"NA\"\n| timechart span=15m distinct_count(uetr)",
+          "rawQuery": true,
+          "refId": "B",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "BAM1-W1-Aggregate No. of Transaction Volume by Status",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "NULL": true,
+              "_span": true,
+              "_span 1": true,
+              "_span 2": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "count": "ACSC",
+              "distinct_count(uetr)": "RJCT"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "ACSC",
+                "RJCT"
+              ],
+              "reducer": "sum"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "ce39l7ne2jym8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "STLD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "REVD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RJCT"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MSTL"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MREV"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 34
+      },
+      "id": 11,
+      "interval": "15m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84214",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_${env}_exch_k8s\" \"kubernetes.container_name\"=\"rtr-credit-transfer-api-${env}\" (message=\"*pacs.008*\" OR message=\"*pacs.002*\" OR message=\"*head.001*\") message=\"*Settlement Commit Advice pacs.002 sent to DA*\"\n| rex field=message \"\\\"api_provider\\\":\\\"(?<creditor>[^\\\"]+)\\\"\"\n| rex field=message \"\\\"api_consumer\\\":\\\"(?<debitor>[^\\\"]+)\\\"\"\n| timechart span=15m count by creditor",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "BAM1-W2-Transaction Volume Sent by Participant",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "ce39l7ne2jym8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "STLD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "REVD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RJCT"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MSTL"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MREV"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 34
+      },
+      "id": 12,
+      "interval": "15m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84214",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_${env}_exch_k8s\" \"kubernetes.container_name\"=\"rtr-credit-transfer-api-${env}\" (message=\"*pacs.008*\" OR message=\"*pacs.002*\" OR message=\"*head.001*\") message=\"*Settlement Commit Advice pacs.002 sent to DA*\"\n| rex field=message \"\\\"api_provider\\\":\\\"(?<creditor>[^\\\"]+)\\\"\"\n| rex field=message \"\\\"api_consumer\\\":\\\"(?<debitor>[^\\\"]+)\\\"\"\n| timechart span=15m count by debitor",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "BAM1-W3-Transaction Volume Received by Participant",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "ce39l7ne2jym8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "STLD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "REVD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RJCT"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MSTL"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MREV"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 42
+      },
+      "id": 13,
+      "interval": "15m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84214",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_${env}_exch_k8s\" \"kubernetes.container_name\"=\"rtr-credit-transfer-api-${env}\" (message=\"*pacs.008*\" OR message=\"*pacs.002*\" OR message=\"*head.001*\") message=\"*Settlement Commit Advice pacs.002 sent to DA*\"\n| rex field=message \"\\\"api_provider\\\":\\\"(?<creditor>[^\\\"]+)\\\"\"\n| rex field=message \"\\\"api_consumer\\\":\\\"(?<debitor>[^\\\"]+)\\\"\"\n| timechart span=15m count by creditor",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "BAM1-W4-Transaction Volume Sent by CSP",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 41,
+  "tags": [
+    "BAM_Overview"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "dev2",
+          "value": "dev2"
+        },
+        "label": "Environment",
+        "name": "env",
+        "options": [
+          {
+            "selected": false,
+            "text": "Early Performance Testing",
+            "value": "ept"
+          },
+          {
+            "selected": false,
+            "text": "SIT 1",
+            "value": "sit1"
+          },
+          {
+            "selected": false,
+            "text": "SIT 2",
+            "value": "sit2"
+          },
+          {
+            "selected": false,
+            "text": "Development 1",
+            "value": "dev1"
+          },
+          {
+            "selected": true,
+            "text": "Development 2",
+            "value": "dev2"
+          }
+        ],
+        "query": "Early Performance Testing : ept, SIT 1 : sit1, SIT 2 : sit2, Development 1 : dev1, Development 2 : dev2",
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "BAM Overview Option 1 - 24 Hours",
+  "uid": "fefqhn4nl5p8gc",
+  "version": 5
+}

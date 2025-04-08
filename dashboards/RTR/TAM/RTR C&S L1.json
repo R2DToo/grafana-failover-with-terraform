@@ -1,0 +1,5899 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 535,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 26,
+      "panels": [],
+      "title": "Service Stability",
+      "type": "row"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 66,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<table style=\"width:100%; height:100%;border:0px solid black;\">\n     <td style=\"text-align: center;vertical-align: middle;border:0px solid black; \">\n       <span style=\"font-size:25px\"><b>Service Management KPIs</b></span><br \\>\n     </td>\n</table>",
+        "mode": "html"
+      },
+      "pluginVersion": "11.6.0-84846",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "fed1r83fk9x4wa"
+      },
+      "description": "Success rate of requests",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red"
+              },
+              {
+                "color": "#EAB839",
+                "value": 0.95
+              },
+              {
+                "color": "green",
+                "value": 0.99
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 0,
+        "y": 3
+      },
+      "id": 1,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/^Availability$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:service.requestCount.server:filter(and(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\"))\")),in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isClusterOfService(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${appCluster}~\"))\")))):splitBy():fold",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.19.2"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "builtin:service.errors.server.count:filter(and(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\"))\")),in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isClusterOfService(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${appCluster}~\"))\")))):splitBy():fold",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:service.errors.server.count:filter(and(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\"))\")),in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isClusterOfService(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${appCluster}~\"))\")))):splitBy():fold",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.19.2"
+        }
+      ],
+      "title": "Availability",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Error Percentage",
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "builtin:service.errors.server.count: {  }"
+                }
+              },
+              "operator": "/",
+              "right": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "builtin:service.requestCount.server: {  }"
+                }
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Availability",
+            "binary": {
+              "left": {
+                "fixed": "1"
+              },
+              "operator": "-",
+              "right": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Error Percentage"
+                }
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "builtin:service.errors.server.count: {  } · time": true,
+              "builtin:service.requestCount.server: {  } · time": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Dashboard --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "green",
+                "value": 0.01
+              },
+              {
+                "color": "#EAB839",
+                "value": 0.05
+              },
+              {
+                "color": "#6ED0E0",
+                "value": 10.05
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 3,
+        "y": 3
+      },
+      "id": 16,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/^Error Percentage$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "-- Dashboard --"
+          },
+          "panelId": 1,
+          "refId": "A",
+          "withTransforms": true
+        }
+      ],
+      "title": "Error Rate",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "fed1r83fk9x4wa"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          },
+          "unit": "µs"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 6,
+        "y": 3
+      },
+      "id": 28,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^builtin:service\\.response\\.server:median \\{  \\}$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "builtin:service.response.server:filter(and(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\"))\")),in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isClusterOfService(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${cluster}~\"))\")))):splitBy():median",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:service.response.server:filter(and(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\"))\")),in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isClusterOfService(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${appCluster}~\"))\")))):splitBy():median",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.19.2"
+        }
+      ],
+      "title": "Response Time",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "fed1r83fk9x4wa"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "light-purple",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 9,
+        "y": 3
+      },
+      "id": 71,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "builtin:service.requestCount.server:filter(and(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\"))\")),in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isClusterOfService(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${cluster}~\"))\")))):splitBy():sum",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:service.requestCount.server:filter(and(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\"))\")),in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isClusterOfService(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${appCluster}~\"))\")))):splitBy():sum",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.19.2"
+        }
+      ],
+      "title": "# of Transactions",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "ae4jvxm2gdqm8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "noValue": "No Active Incidents",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "P1"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "P2"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "P3"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "P4"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "P5"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 8,
+        "x": 12,
+        "y": 3
+      },
+      "id": 74,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "ae4jvxm2gdqm8c"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [
+                "count"
+              ],
+              "name": "task"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "choice": "3",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Task",
+                "element": "state",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=integer",
+                  "value": "integer"
+                },
+                "label": "State",
+                "name": "task",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "State",
+                "table": "task",
+                "value": "state"
+              },
+              "op": "NOT IN",
+              "type": "integer",
+              "value": "3,4,7"
+            },
+            {}
+          ],
+          "groupBy": [
+            "priority"
+          ],
+          "limit": 25,
+          "queryType": "AggregateAPI",
+          "refId": "A",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "incident",
+          "timeField": "opened_at"
+        }
+      ],
+      "title": "Incidents",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "count (.*) - .*",
+            "renamePattern": "P$1"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "Down": {
+                  "color": "red",
+                  "index": 1
+                },
+                "Up": {
+                  "color": "green",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 20,
+        "y": 3
+      },
+      "id": 73,
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "never",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Time",
+                "type": "time",
+                "values": [
+                  1732910400000,
+                  1732910460000,
+                  1732910480000,
+                  1732989600000
+                ]
+              },
+              {
+                "config": {},
+                "name": "State",
+                "type": "string",
+                "values": [
+                  "Up",
+                  "Down",
+                  "Up",
+                  "Up"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "Outage Timeline"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Outage Record",
+      "type": "state-timeline"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
+      "id": 27,
+      "panels": [],
+      "title": "Platform Health",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "RTR CDB L2",
+              "url": "/d/feednujsdrhtsa?${__all_variables}&var-application=cs&${__url_time_range}"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "problemIdCountFinal"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "green",
+                        "index": 0,
+                        "text": "CDB is Healthy"
+                      }
+                    },
+                    "type": "value"
+                  },
+                  {
+                    "options": {
+                      "match": "null",
+                      "result": {
+                        "color": "green",
+                        "index": 1,
+                        "text": "CDB is Healthy"
+                      }
+                    },
+                    "type": "special"
+                  },
+                  {
+                    "options": {
+                      "from": 1,
+                      "result": {
+                        "color": "red",
+                        "index": 2,
+                        "text": "CDB is Un-Healthy"
+                      },
+                      "to": 10000
+                    },
+                    "type": "range"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 0,
+        "y": 9
+      },
+      "id": 83,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^problemIdCountFinal$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "active": "rawurl",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "problem": {
+            "expandDetails": false,
+            "impact": "",
+            "severity": "",
+            "status": "",
+            "tags": []
+          },
+          "queryType": "rawurl",
+          "rawUrl": {
+            "fields": [
+              {
+                "alias": "",
+                "nullable": false,
+                "path": "$.entities.*.displayName",
+                "type": "string"
+              },
+              {
+                "alias": "",
+                "nullable": false,
+                "path": "$.entities.*.entityId",
+                "type": "string"
+              },
+              {
+                "alias": "problemId",
+                "nullable": false,
+                "path": "$.entities.*.type",
+                "type": "number"
+              }
+            ],
+            "parseIndividualFields": true,
+            "text": "v2/entities?entitySelector=type(\"dt.entity.cloud_application\"),toRelationships.isNamespaceOfCa(type(\"dt.entity.cloud_application_namespace\"),entityName(\"cockroachdb\")),toRelationships.isClusterOfCa(type(\"dt.entity.kubernetes_cluster\"),entityName(\"${appCluster}\")),toRelationships.isNamespaceOfCa(type(\"dt.entity.cloud_application_namespace\"),entityName(\"${env}-rtr-cs\"))"
+          },
+          "refId": "A",
+          "version": "3.21.7"
+        },
+        {
+          "active": "rawurl",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "problem": {
+            "expandDetails": false,
+            "impact": "",
+            "severity": "",
+            "status": "",
+            "tags": []
+          },
+          "queryType": "rawurl",
+          "rawUrl": {
+            "fields": [
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.problemId",
+                "type": "string"
+              },
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.impactedEntities[0].entityId.id",
+                "type": "auto"
+              },
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.status",
+                "type": "auto"
+              }
+            ],
+            "parseIndividualFields": true,
+            "text": "v2/problems?from=${__from}&to=${__to}&entitySelector=type(\"dt.entity.cloud_application\"),toRelationships.isNamespaceOfCa(type(\"dt.entity.cloud_application_namespace\"),entityName(\"cockroachdb\")),toRelationships.isClusterOfCa(type(\"dt.entity.kubernetes_cluster\"),entityName(\"${appCluster}\")),toRelationships.isNamespaceOfCa(type(\"dt.entity.cloud_application_namespace\"),entityName(\"${env}-rtr-cs\"))"
+          },
+          "refId": "B",
+          "version": "3.21.7"
+        }
+      ],
+      "title": "CDB Health",
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:A)$/"
+          },
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "$.entities.*.displayName": false
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.entities.*.displayName": "entityName",
+              "$.entities.*.entityId": "entityId",
+              "problemId": "problemIdCount1"
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.problems.*.impactedEntities[0].entityId.id": "entityId",
+              "$.problems.*.problemId": "problemId",
+              "$.problems.*.status": "status"
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "CLOSED"
+                  }
+                },
+                "fieldName": "status"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "entityId": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "problemId": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "aggregate"
+              }
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "entityId",
+            "mode": "outerTabular"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "entityName"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "entityId": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.entities.*.type": "HiddenField",
+              "problemId (count)": "problemIdCount2",
+              "problemId A len=1": "",
+              "problemId A len=5": "problemIdCount1"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "problemIdCountFinal",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "problemIdCount1",
+                "problemIdCount2"
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "problemId": true,
+              "problemIdCount1": true,
+              "problemIdCount2": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "reduceFields",
+            "reducers": [
+              "sum"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "RTR EDB L2",
+              "url": "/d/aeecyxk17bpc0c?${__all_variables}&var-application=cs&${__url_time_range}"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "problemIdCountFinal"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "green",
+                        "index": 0,
+                        "text": "EDB is Healthy"
+                      }
+                    },
+                    "type": "value"
+                  },
+                  {
+                    "options": {
+                      "match": "null",
+                      "result": {
+                        "color": "green",
+                        "index": 1,
+                        "text": "EDB is Healthy"
+                      }
+                    },
+                    "type": "special"
+                  },
+                  {
+                    "options": {
+                      "from": 1,
+                      "result": {
+                        "color": "red",
+                        "index": 2,
+                        "text": "EDB is Un-Healthy"
+                      },
+                      "to": 10000
+                    },
+                    "type": "range"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 3,
+        "y": 9
+      },
+      "id": 82,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^problemIdCountFinal$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "active": "rawurl",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "problem": {
+            "expandDetails": false,
+            "impact": "",
+            "severity": "",
+            "status": "",
+            "tags": []
+          },
+          "queryType": "rawurl",
+          "rawUrl": {
+            "fields": [
+              {
+                "alias": "",
+                "nullable": false,
+                "path": "$.entities.*.displayName",
+                "type": "string"
+              },
+              {
+                "alias": "",
+                "nullable": false,
+                "path": "$.entities.*.entityId",
+                "type": "string"
+              },
+              {
+                "alias": "problemId",
+                "nullable": false,
+                "path": "$.entities.*.type",
+                "type": "number"
+              }
+            ],
+            "parseIndividualFields": true,
+            "text": "v2/entities?entitySelector=type(\"dt.entity.cloud_application\"),toRelationships.isNamespaceOfCa(type(\"dt.entity.cloud_application_namespace\"),entityName(\"edb\")),toRelationships.isClusterOfCa(type(\"dt.entity.kubernetes_cluster\"),entityName(\"${appCluster}\")),toRelationships.isNamespaceOfCa(type(\"dt.entity.cloud_application_namespace\"),entityName(\"${env}-rtr-cs\"))"
+          },
+          "refId": "A",
+          "version": "3.21.7"
+        },
+        {
+          "active": "rawurl",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "problem": {
+            "expandDetails": false,
+            "impact": "",
+            "severity": "",
+            "status": "",
+            "tags": []
+          },
+          "queryType": "rawurl",
+          "rawUrl": {
+            "fields": [
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.problemId",
+                "type": "string"
+              },
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.impactedEntities[0].entityId.id",
+                "type": "auto"
+              },
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.status",
+                "type": "auto"
+              }
+            ],
+            "parseIndividualFields": true,
+            "text": "v2/problems?from=${__from}&to=${__to}&entitySelector=type(\"dt.entity.cloud_application\"),toRelationships.isNamespaceOfCa(type(\"dt.entity.cloud_application_namespace\"),entityName(\"edb\")),toRelationships.isClusterOfCa(type(\"dt.entity.kubernetes_cluster\"),entityName(\"${appCluster}\")),toRelationships.isNamespaceOfCa(type(\"dt.entity.cloud_application_namespace\"),entityName(\"${env}-rtr-cs\"))"
+          },
+          "refId": "B",
+          "version": "3.21.7"
+        }
+      ],
+      "title": "EDB Health",
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:A)$/"
+          },
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "$.entities.*.displayName": false
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.entities.*.displayName": "entityName",
+              "$.entities.*.entityId": "entityId",
+              "problemId": "problemIdCount1"
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.problems.*.impactedEntities[0].entityId.id": "entityId",
+              "$.problems.*.problemId": "problemId",
+              "$.problems.*.status": "status"
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "CLOSED"
+                  }
+                },
+                "fieldName": "status"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "entityId": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "problemId": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "aggregate"
+              }
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "entityId",
+            "mode": "outerTabular"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "entityName"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "entityId": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.entities.*.type": "HiddenField",
+              "problemId (count)": "problemIdCount2",
+              "problemId A len=1": "",
+              "problemId A len=5": "problemIdCount1"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "problemIdCountFinal",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "problemIdCount1",
+                "problemIdCount2"
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "problemId": true,
+              "problemIdCount1": true,
+              "problemIdCount2": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "reduceFields",
+            "reducers": [
+              "sum"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "problemIdCountFinal"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "green",
+                        "index": 0,
+                        "text": "AMQ is Healthy"
+                      }
+                    },
+                    "type": "value"
+                  },
+                  {
+                    "options": {
+                      "match": "null",
+                      "result": {
+                        "color": "green",
+                        "index": 1,
+                        "text": "AMQ is Healthy"
+                      }
+                    },
+                    "type": "special"
+                  },
+                  {
+                    "options": {
+                      "from": 1,
+                      "result": {
+                        "color": "red",
+                        "index": 2,
+                        "text": "AMQ is Un-Healthy"
+                      },
+                      "to": 10000
+                    },
+                    "type": "range"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 6,
+        "y": 9
+      },
+      "id": 84,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^problemIdCountFinal$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "active": "rawurl",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "problem": {
+            "expandDetails": false,
+            "impact": "",
+            "severity": "",
+            "status": "",
+            "tags": []
+          },
+          "queryType": "rawurl",
+          "rawUrl": {
+            "fields": [
+              {
+                "alias": "",
+                "nullable": false,
+                "path": "$.entities.*.displayName",
+                "type": "string"
+              },
+              {
+                "alias": "",
+                "nullable": false,
+                "path": "$.entities.*.entityId",
+                "type": "string"
+              },
+              {
+                "alias": "problemId",
+                "nullable": false,
+                "path": "$.entities.*.type",
+                "type": "number"
+              }
+            ],
+            "parseIndividualFields": true,
+            "text": "v2/entities?entitySelector=type(\"dt.entity.cloud_application\"),toRelationships.isNamespaceOfCa(type(\"dt.entity.cloud_application_namespace\"),entityName(\"amq\")),toRelationships.isClusterOfCa(type(\"dt.entity.kubernetes_cluster\"),entityName(\"${appCluster}\")),toRelationships.isNamespaceOfCa(type(\"dt.entity.cloud_application_namespace\"),entityName(\"${env}-rtr-cs\"))"
+          },
+          "refId": "A",
+          "version": "3.21.7"
+        },
+        {
+          "active": "rawurl",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "problem": {
+            "expandDetails": false,
+            "impact": "",
+            "severity": "",
+            "status": "",
+            "tags": []
+          },
+          "queryType": "rawurl",
+          "rawUrl": {
+            "fields": [
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.problemId",
+                "type": "string"
+              },
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.impactedEntities[0].entityId.id",
+                "type": "auto"
+              },
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.status",
+                "type": "auto"
+              }
+            ],
+            "parseIndividualFields": true,
+            "text": "v2/problems?from=${__from}&to=${__to}&entitySelector=type(\"dt.entity.cloud_application\"),toRelationships.isNamespaceOfCa(type(\"dt.entity.cloud_application_namespace\"),entityName(\"amq\")),toRelationships.isClusterOfCa(type(\"dt.entity.kubernetes_cluster\"),entityName(\"${appCluster}\")),toRelationships.isNamespaceOfCa(type(\"dt.entity.cloud_application_namespace\"),entityName(\"${env}-rtr-cs\"))"
+          },
+          "refId": "B",
+          "version": "3.21.7"
+        }
+      ],
+      "title": "AMQ Health",
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:A)$/"
+          },
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "$.entities.*.displayName": false
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.entities.*.displayName": "entityName",
+              "$.entities.*.entityId": "entityId",
+              "problemId": "problemIdCount1"
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.problems.*.impactedEntities[0].entityId.id": "entityId",
+              "$.problems.*.problemId": "problemId",
+              "$.problems.*.status": "status"
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "CLOSED"
+                  }
+                },
+                "fieldName": "status"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "entityId": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "problemId": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "aggregate"
+              }
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "entityId",
+            "mode": "outerTabular"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "entityName"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "entityId": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.entities.*.type": "HiddenField",
+              "problemId (count)": "problemIdCount2",
+              "problemId A len=1": "",
+              "problemId A len=5": "problemIdCount1"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "problemIdCountFinal",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "problemIdCount1",
+                "problemIdCount2"
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "problemId": true,
+              "problemIdCount1": true,
+              "problemIdCount2": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "reduceFields",
+            "reducers": [
+              "sum"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "problemIdCountFinal"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "green",
+                        "index": 0,
+                        "text": "Kong API Gateway is Healthy"
+                      }
+                    },
+                    "type": "value"
+                  },
+                  {
+                    "options": {
+                      "match": "null",
+                      "result": {
+                        "color": "green",
+                        "index": 1,
+                        "text": "Kong API Gateway is Healthy"
+                      }
+                    },
+                    "type": "special"
+                  },
+                  {
+                    "options": {
+                      "from": 1,
+                      "result": {
+                        "color": "red",
+                        "index": 2,
+                        "text": "Kong API Gateway is Un-Healthy"
+                      },
+                      "to": 10000
+                    },
+                    "type": "range"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 9,
+        "y": 9
+      },
+      "id": 85,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^problemIdCountFinal$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "active": "rawurl",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "problem": {
+            "expandDetails": false,
+            "impact": "",
+            "severity": "",
+            "status": "",
+            "tags": []
+          },
+          "queryType": "rawurl",
+          "rawUrl": {
+            "fields": [
+              {
+                "alias": "",
+                "nullable": false,
+                "path": "$.entities.*.displayName",
+                "type": "string"
+              },
+              {
+                "alias": "",
+                "nullable": false,
+                "path": "$.entities.*.entityId",
+                "type": "string"
+              },
+              {
+                "alias": "problemId",
+                "nullable": false,
+                "path": "$.entities.*.type",
+                "type": "number"
+              }
+            ],
+            "parseIndividualFields": true,
+            "text": "v2/entities?entitySelector=type(\"dt.entity.cloud_application\"),toRelationships.isNamespaceOfCa(type(\"dt.entity.cloud_application_namespace\"),entityName(\"kong\")),not(toRelationships.isNamespaceOfCa(type(\"dt.entity.cloud_application_namespace\"),entityName(\"edb\"))),toRelationships.isClusterOfCa(type(\"dt.entity.kubernetes_cluster\"),entityName(\"${appCluster}\")),toRelationships.isNamespaceOfCa(type(\"dt.entity.cloud_application_namespace\"),entityName(\"${env}-rtr-cs\"))"
+          },
+          "refId": "A",
+          "version": "3.21.7"
+        },
+        {
+          "active": "rawurl",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "problem": {
+            "expandDetails": false,
+            "impact": "",
+            "severity": "",
+            "status": "",
+            "tags": []
+          },
+          "queryType": "rawurl",
+          "rawUrl": {
+            "fields": [
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.problemId",
+                "type": "string"
+              },
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.impactedEntities[0].entityId.id",
+                "type": "auto"
+              },
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.status",
+                "type": "auto"
+              }
+            ],
+            "parseIndividualFields": true,
+            "text": "v2/problems?from=${__from}&to=${__to}&entitySelector=type(\"dt.entity.cloud_application\"),toRelationships.isNamespaceOfCa(type(\"dt.entity.cloud_application_namespace\"),entityName(\"kong\")),not(toRelationships.isNamespaceOfCa(type(\"dt.entity.cloud_application_namespace\"),entityName(\"edb\"))),toRelationships.isClusterOfCa(type(\"dt.entity.kubernetes_cluster\"),entityName(\"${appCluster}\")),toRelationships.isNamespaceOfCa(type(\"dt.entity.cloud_application_namespace\"),entityName(\"${env}-rtr-cs\"))"
+          },
+          "refId": "B",
+          "version": "3.21.7"
+        }
+      ],
+      "title": "Kong API Gateway Health",
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:A)$/"
+          },
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "$.entities.*.displayName": false
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.entities.*.displayName": "entityName",
+              "$.entities.*.entityId": "entityId",
+              "problemId": "problemIdCount1"
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.problems.*.impactedEntities[0].entityId.id": "entityId",
+              "$.problems.*.problemId": "problemId",
+              "$.problems.*.status": "status"
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "CLOSED"
+                  }
+                },
+                "fieldName": "status"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "entityId": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "problemId": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "aggregate"
+              }
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "entityId",
+            "mode": "outerTabular"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "entityName"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "entityId": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.entities.*.type": "HiddenField",
+              "problemId (count)": "problemIdCount2",
+              "problemId A len=1": "",
+              "problemId A len=5": "problemIdCount1"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "problemIdCountFinal",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "problemIdCount1",
+                "problemIdCount2"
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "problemId": true,
+              "problemIdCount1": true,
+              "problemIdCount2": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "reduceFields",
+            "reducers": [
+              "sum"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "fed1r83fk9x4wa"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "µs"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "service"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "RTR C&S L2",
+                    "url": "/d/ceg7v7fswlibkc?${__all_variables}&var-service=${__data.fields.service}&${__url_time_range}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 76,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 0,
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "service"
+          }
+        ]
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "Response Time $dimensions",
+            "cleanSelector": "builtin:service.response.server:filter(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\"))\"))):splitBy(\"dt.entity.service\"):fold(median):names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:service.response.server:filter(and(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\"))\"))),not(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),entityName.equals(~\"ActiveMQ Artemis Queue Listener~\")\"))),not(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),entityName.equals(~\"MessagingMessageListenerAdapter~\")\"))),not(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),entityName.contains(~\"Requests executed in background threads of SpringBoot~\")\")))):splitBy(\"dt.entity.service\"):fold(median):names",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.19.2"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Requests $dimensions",
+            "cleanSelector": "builtin:service.requestCount.server:filter(and(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\"))\"))),not(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),entityName.equals(~\"ActiveMQ Artemis Queue Listener~\")\"))),not(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),entityName.equals(~\"MessagingMessageListenerAdapter~\")\"))),not(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),entityName.contains(~\"Requests executed in background threads of SpringBoot~\")\")))):splitBy(\"dt.entity.service\"):fold(sum):names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:service.requestCount.server:filter(and(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\"))\"))),not(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),entityName.equals(~\"ActiveMQ Artemis Queue Listener~\")\"))),not(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),entityName.equals(~\"MessagingMessageListenerAdapter~\")\"))),not(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),entityName.contains(~\"Requests executed in background threads of SpringBoot~\")\")))):splitBy(\"dt.entity.service\"):fold(sum):names",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.19.2"
+        }
+      ],
+      "title": "Services",
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:A)$/"
+          },
+          "id": "seriesToRows",
+          "options": {},
+          "topic": "series"
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "seriesToRows",
+          "options": {},
+          "topic": "series"
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "regexp",
+            "regExp": "/.*dt.entity.service.name=(?<service>.*) }/",
+            "source": "Metric"
+          }
+        },
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "service",
+            "mode": "inner"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Metric": true,
+              "Metric 1": true,
+              "Metric 2": true,
+              "Time": true,
+              "Time 1": true,
+              "Time 2": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Value 1": "Response Time",
+              "Value 2": "Requests"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "problemIdCountFinal"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "green",
+                        "index": 0,
+                        "text": "Reporting Services are Healthy"
+                      }
+                    },
+                    "type": "value"
+                  },
+                  {
+                    "options": {
+                      "match": "null",
+                      "result": {
+                        "color": "green",
+                        "index": 1,
+                        "text": "Reporting Services are Healthy"
+                      }
+                    },
+                    "type": "special"
+                  },
+                  {
+                    "options": {
+                      "from": 1,
+                      "result": {
+                        "color": "red",
+                        "index": 2,
+                        "text": "Reporting Services are Un-Healthy"
+                      },
+                      "to": 10000
+                    },
+                    "type": "range"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 13
+      },
+      "id": 89,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^problemIdCountFinal$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "active": "rawurl",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "problem": {
+            "expandDetails": false,
+            "impact": "",
+            "severity": "",
+            "status": "",
+            "tags": []
+          },
+          "queryType": "rawurl",
+          "rawUrl": {
+            "fields": [
+              {
+                "alias": "",
+                "nullable": false,
+                "path": "$.entities.*.displayName",
+                "type": "string"
+              },
+              {
+                "alias": "",
+                "nullable": false,
+                "path": "$.entities.*.entityId",
+                "type": "string"
+              },
+              {
+                "alias": "problemId",
+                "nullable": false,
+                "path": "$.entities.*.type",
+                "type": "number"
+              }
+            ],
+            "parseIndividualFields": true,
+            "text": "v2/entities?entitySelector=type(\"dt.entity.service\"),entityName(\"report\"),toRelationship.isNamespaceOfService(type(\"dt.entity.cloud_application_namespace\"),entityName(\"${env}-rtr-cs\")),toRelationship.isClusterOfService(type(\"dt.entity.kubernetes_cluster\"),entityName(\"${appCluster}\"))"
+          },
+          "refId": "A",
+          "version": "3.21.7"
+        },
+        {
+          "active": "rawurl",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "problem": {
+            "expandDetails": false,
+            "impact": "",
+            "severity": "",
+            "status": "",
+            "tags": []
+          },
+          "queryType": "rawurl",
+          "rawUrl": {
+            "fields": [
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.problemId",
+                "type": "string"
+              },
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.impactedEntities[0].entityId.id",
+                "type": "auto"
+              },
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.status",
+                "type": "auto"
+              }
+            ],
+            "parseIndividualFields": true,
+            "text": "v2/problems?from=${__from}&to=${__to}&entitySelector=type(\"dt.entity.service\"),entityName(\"report\"),toRelationship.isNamespaceOfService(type(\"dt.entity.cloud_application_namespace\"),entityName(\"${env}-rtr-cs\")),toRelationship.isClusterOfService(type(\"dt.entity.kubernetes_cluster\"),entityName(\"${appCluster}\"))"
+          },
+          "refId": "B",
+          "version": "3.21.7"
+        }
+      ],
+      "title": "Reporting Services Health",
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:A)$/"
+          },
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "$.entities.*.displayName": false
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.entities.*.displayName": "entityName",
+              "$.entities.*.entityId": "entityId",
+              "problemId": "problemIdCount1"
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.problems.*.impactedEntities[0].entityId.id": "entityId",
+              "$.problems.*.problemId": "problemId",
+              "$.problems.*.status": "status"
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "CLOSED"
+                  }
+                },
+                "fieldName": "status"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "entityId": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "problemId": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "aggregate"
+              }
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "entityId",
+            "mode": "outerTabular"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "entityName"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "entityId": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.entities.*.type": "HiddenField",
+              "problemId (count)": "problemIdCount2",
+              "problemId A len=1": "",
+              "problemId A len=5": "problemIdCount1"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "problemIdCountFinal",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "problemIdCount1",
+                "problemIdCount2"
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "problemId": true,
+              "problemIdCount1": true,
+              "problemIdCount2": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "reduceFields",
+            "reducers": [
+              "sum"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "problemIdCountFinal"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "green",
+                        "index": 0,
+                        "text": "Portal Services are Healthy"
+                      }
+                    },
+                    "type": "value"
+                  },
+                  {
+                    "options": {
+                      "match": "null",
+                      "result": {
+                        "color": "green",
+                        "index": 1,
+                        "text": "Portal Services are Healthy"
+                      }
+                    },
+                    "type": "special"
+                  },
+                  {
+                    "options": {
+                      "from": 1,
+                      "result": {
+                        "color": "red",
+                        "index": 2,
+                        "text": "Portal Services are Un-Healthy"
+                      },
+                      "to": 10000
+                    },
+                    "type": "range"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 13
+      },
+      "id": 90,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^problemIdCountFinal$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "active": "rawurl",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "problem": {
+            "expandDetails": false,
+            "impact": "",
+            "severity": "",
+            "status": "",
+            "tags": []
+          },
+          "queryType": "rawurl",
+          "rawUrl": {
+            "fields": [
+              {
+                "alias": "",
+                "nullable": false,
+                "path": "$.entities.*.displayName",
+                "type": "string"
+              },
+              {
+                "alias": "",
+                "nullable": false,
+                "path": "$.entities.*.entityId",
+                "type": "string"
+              },
+              {
+                "alias": "problemId",
+                "nullable": false,
+                "path": "$.entities.*.type",
+                "type": "number"
+              }
+            ],
+            "parseIndividualFields": true,
+            "text": "v2/entities?entitySelector=type(\"dt.entity.service\"),entityName(\"portal\"),toRelationship.isNamespaceOfService(type(\"dt.entity.cloud_application_namespace\"),entityName(\"${env}-rtr-cs\")),toRelationship.isClusterOfService(type(\"dt.entity.kubernetes_cluster\"),entityName(\"${appCluster}\"))"
+          },
+          "refId": "A",
+          "version": "3.21.7"
+        },
+        {
+          "active": "rawurl",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "problem": {
+            "expandDetails": false,
+            "impact": "",
+            "severity": "",
+            "status": "",
+            "tags": []
+          },
+          "queryType": "rawurl",
+          "rawUrl": {
+            "fields": [
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.problemId",
+                "type": "string"
+              },
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.impactedEntities[0].entityId.id",
+                "type": "auto"
+              },
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.status",
+                "type": "auto"
+              }
+            ],
+            "parseIndividualFields": true,
+            "text": "v2/problems?from=${__from}&to=${__to}&entitySelector=type(\"dt.entity.service\"),entityName(\"portal\"),toRelationship.isNamespaceOfService(type(\"dt.entity.cloud_application_namespace\"),entityName(\"${env}-rtr-cs\")),toRelationship.isClusterOfService(type(\"dt.entity.kubernetes_cluster\"),entityName(\"${appCluster}\"))"
+          },
+          "refId": "B",
+          "version": "3.21.7"
+        }
+      ],
+      "title": "Portal Services Health",
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:A)$/"
+          },
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "$.entities.*.displayName": false
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.entities.*.displayName": "entityName",
+              "$.entities.*.entityId": "entityId",
+              "problemId": "problemIdCount1"
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.problems.*.impactedEntities[0].entityId.id": "entityId",
+              "$.problems.*.problemId": "problemId",
+              "$.problems.*.status": "status"
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "CLOSED"
+                  }
+                },
+                "fieldName": "status"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "entityId": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "problemId": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "aggregate"
+              }
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "entityId",
+            "mode": "outerTabular"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "entityName"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "entityId": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.entities.*.type": "HiddenField",
+              "problemId (count)": "problemIdCount2",
+              "problemId A len=1": "",
+              "problemId A len=5": "problemIdCount1"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "problemIdCountFinal",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "problemIdCount1",
+                "problemIdCount2"
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "problemId": true,
+              "problemIdCount1": true,
+              "problemIdCount2": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "reduceFields",
+            "reducers": [
+              "sum"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "problemIdCountFinal"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "green",
+                        "index": 0,
+                        "text": "API Services are Healthy"
+                      }
+                    },
+                    "type": "value"
+                  },
+                  {
+                    "options": {
+                      "match": "null",
+                      "result": {
+                        "color": "green",
+                        "index": 1,
+                        "text": "API Services are Healthy"
+                      }
+                    },
+                    "type": "special"
+                  },
+                  {
+                    "options": {
+                      "from": 1,
+                      "result": {
+                        "color": "red",
+                        "index": 2,
+                        "text": "API Services are Un-Healthy"
+                      },
+                      "to": 10000
+                    },
+                    "type": "range"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 13
+      },
+      "id": 91,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^problemIdCountFinal$/",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "active": "rawurl",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "problem": {
+            "expandDetails": false,
+            "impact": "",
+            "severity": "",
+            "status": "",
+            "tags": []
+          },
+          "queryType": "rawurl",
+          "rawUrl": {
+            "fields": [
+              {
+                "alias": "",
+                "nullable": false,
+                "path": "$.entities.*.displayName",
+                "type": "string"
+              },
+              {
+                "alias": "",
+                "nullable": false,
+                "path": "$.entities.*.entityId",
+                "type": "string"
+              },
+              {
+                "alias": "problemId",
+                "nullable": false,
+                "path": "$.entities.*.type",
+                "type": "number"
+              }
+            ],
+            "parseIndividualFields": true,
+            "text": "v2/entities?entitySelector=type(\"dt.entity.service\"),not(entityName(\"portal\")),not(entityName(\"report\")),toRelationship.isNamespaceOfService(type(\"dt.entity.cloud_application_namespace\"),entityName(\"${env}-rtr-cs\")),toRelationship.isClusterOfService(type(\"dt.entity.kubernetes_cluster\"),entityName(\"${appCluster}\"))"
+          },
+          "refId": "A",
+          "version": "3.21.7"
+        },
+        {
+          "active": "rawurl",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "problem": {
+            "expandDetails": false,
+            "impact": "",
+            "severity": "",
+            "status": "",
+            "tags": []
+          },
+          "queryType": "rawurl",
+          "rawUrl": {
+            "fields": [
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.problemId",
+                "type": "string"
+              },
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.impactedEntities[0].entityId.id",
+                "type": "auto"
+              },
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.status",
+                "type": "auto"
+              }
+            ],
+            "parseIndividualFields": true,
+            "text": "v2/problems?from=${__from}&to=${__to}&entitySelector=type(\"dt.entity.service\"),not(entityName(\"portal\")),not(entityName(\"report\")),toRelationship.isNamespaceOfService(type(\"dt.entity.cloud_application_namespace\"),entityName(\"${env}-rtr-cs\")),toRelationship.isClusterOfService(type(\"dt.entity.kubernetes_cluster\"),entityName(\"${appCluster}\"))"
+          },
+          "refId": "B",
+          "version": "3.21.7"
+        }
+      ],
+      "title": "API Services Health",
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:A)$/"
+          },
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "$.entities.*.displayName": false
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.entities.*.displayName": "entityName",
+              "$.entities.*.entityId": "entityId",
+              "problemId": "problemIdCount1"
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.problems.*.impactedEntities[0].entityId.id": "entityId",
+              "$.problems.*.problemId": "problemId",
+              "$.problems.*.status": "status"
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "CLOSED"
+                  }
+                },
+                "fieldName": "status"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "entityId": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "problemId": {
+                "aggregations": [
+                  "count"
+                ],
+                "operation": "aggregate"
+              }
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "entityId",
+            "mode": "outerTabular"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNull",
+                  "options": {}
+                },
+                "fieldName": "entityName"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "entityId": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.entities.*.type": "HiddenField",
+              "problemId (count)": "problemIdCount2",
+              "problemId A len=1": "",
+              "problemId A len=5": "problemIdCount1"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "problemIdCountFinal",
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "problemIdCount1",
+                "problemIdCount2"
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "problemId": true,
+              "problemIdCount1": true,
+              "problemIdCount2": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "reduceFields",
+            "reducers": [
+              "sum"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 35,
+      "panels": [],
+      "title": "Platform Key Health Indicators",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "fed1r83fk9x4wa"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "noValue": "No Pods Detected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Running"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Succeeded"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Pending"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Failed"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Terminating"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 10,
+        "x": 0,
+        "y": 18
+      },
+      "id": 78,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "normal",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        },
+        "xTickLabelMaxLength": 7,
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "builtin:kubernetes.pods:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${appCluster}~\"))\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\")\")))):splitBy(\"k8s.namespace.name\",\"pod_status\"):sum:timeshift(-2m)",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.pods:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${appCluster}~\"))\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\")\")))):splitBy(\"k8s.namespace.name\",\"pod_status\"):sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.7"
+        }
+      ],
+      "title": "Pods by Namespace and Status",
+      "transformations": [
+        {
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "lastNotNull"
+            ]
+          }
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "source": "Field"
+          }
+        },
+        {
+          "id": "groupingToMatrix",
+          "options": {
+            "columnField": "pod_status",
+            "rowField": "k8s.namespace.name",
+            "valueField": "Last *"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "k8s.namespace.name\\pod_status": "Namespace"
+            }
+          }
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "fed1r83fk9x4wa"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "red"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Desired Pods"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Running Pods"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 10,
+        "y": 18
+      },
+      "id": 40,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.6,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "percent",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 100
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "Desired Pods $dimensions",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.pods_desired:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${appCluster}~\"))\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\")\")))):splitBy(\"dt.entity.cloud_application_namespace\"):sum:timeshift(-2m):names",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Running Pods $dimensions",
+            "cleanSelector": "builtin:kubernetes.pods:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${appCluster}~\"))\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\")\")))):splitBy(\"dt.entity.cloud_application_namespace\"):sum:timeshift(-2m):names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.pods:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${appCluster}~\"))\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\")\")))):splitBy(\"dt.entity.cloud_application_namespace\"):sum:timeshift(-2m):names",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B"
+        }
+      ],
+      "title": "Pods by Namespace",
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:A)$/"
+          },
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "lastNotNull"
+            ]
+          },
+          "topic": "series"
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "lastNotNull"
+            ]
+          },
+          "topic": "series"
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "regexp",
+            "regExp": "/.* dt.entity.cloud_application_namespace.name=(?<namespace>.*) }/",
+            "source": "Field"
+          }
+        },
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "namespace",
+            "mode": "inner"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Field 1": true,
+              "Field 2": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Field 1": 3,
+              "Field 2": 4,
+              "Last * 1": 2,
+              "Last * 2": 1,
+              "namespace": 0
+            },
+            "renameByName": {
+              "Field 1": "",
+              "Field 2": "",
+              "Last * 1": "Running Pods",
+              "Last * 2": "Desired Pods"
+            }
+          }
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "fed1r83fk9x4wa"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "noValue": "No Operators Found",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Running"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Succeeded"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Pending"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Failed"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Terminating"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 17,
+        "y": 18
+      },
+      "id": 77,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "builtin:kubernetes.pods:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"operator~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${cluster}~\"))\")))):splitBy(\"pod_status\"):sum:timeshift(-2m)",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.pods:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-cs~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"operator~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${appCluster}~\"))\")))):splitBy(\"pod_status\"):sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.7"
+        }
+      ],
+      "title": "Operator Health",
+      "transformations": [
+        {
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "lastNotNull"
+            ]
+          }
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "source": "Field"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Field": true,
+              "builtin": true,
+              "kubernetes.pods": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Field": 0,
+              "Last *": 4,
+              "builtin": 1,
+              "kubernetes.pods": 2,
+              "pod_status": 3
+            },
+            "renameByName": {
+              "Last *": "# of Pods"
+            }
+          }
+        },
+        {
+          "id": "rowsToFields",
+          "options": {
+            "mappings": [
+              {
+                "fieldName": "pod_status",
+                "handlerKey": "field.name"
+              },
+              {
+                "fieldName": "# of Pods",
+                "handlerKey": "field.value"
+              }
+            ]
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byType",
+                  "options": "number"
+                }
+              },
+              "right": {
+                "fixed": "0"
+              }
+            },
+            "mode": "reduceRow",
+            "reduce": {
+              "include": [
+                "Pending",
+                "Terminating",
+                "Running",
+                "Succeeded",
+                "Failed"
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {
+              "Running": 1,
+              "Succeeded": 2,
+              "Total": 0
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 26
+      },
+      "id": 44,
+      "panels": [],
+      "title": "Incidents & Changes",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "number"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Open in ServiceNow",
+                    "url": "https://optimizincdemo3.service-now.com/now/nav/ui/classic/params/target/em_alert.do%3Fsys_id%3D${__data.fields.sys_id}"
+                  }
+                ]
+              },
+              {
+                "id": "custom.width",
+                "value": 120
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sys_id"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "problem_id"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Open in Dynatrace",
+                    "url": "https://sgp67269.apps.dynatrace.com/ui/apps/dynatrace.davis.problems/problem/${__data.fields.problemLink}"
+                  }
+                ]
+              },
+              {
+                "id": "custom.width",
+                "value": 120
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "severity"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 90
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "Clear": {
+                        "color": "green",
+                        "index": 5
+                      },
+                      "Critical": {
+                        "color": "red",
+                        "index": 0
+                      },
+                      "Major": {
+                        "color": "orange",
+                        "index": 1
+                      },
+                      "Minor": {
+                        "color": "yellow",
+                        "index": 2
+                      },
+                      "OK": {
+                        "color": "green",
+                        "index": 4
+                      },
+                      "Warning": {
+                        "color": "blue",
+                        "index": 3
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "basic",
+                  "type": "color-background"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sys_created_on"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 126
+              },
+              {
+                "id": "unit",
+                "value": "dateTimeFromNow"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "problemLink"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 27
+      },
+      "id": 88,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 1,
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "ae4jvxm2gdqm8c"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "number"
+            },
+            {
+              "aggregates": [],
+              "name": "node"
+            },
+            {
+              "aggregates": [],
+              "name": "severity"
+            },
+            {
+              "aggregates": [],
+              "name": "description"
+            },
+            {
+              "aggregates": [],
+              "name": "sys_created_on"
+            },
+            {
+              "aggregates": [],
+              "name": "sys_id"
+            },
+            {
+              "aggregates": [],
+              "name": "sn_alert_tags"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "source",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "source",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Source",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Source",
+                "table": "em_alert",
+                "value": "source"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "DYNATRACE"
+            },
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "choice": "1",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "state",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=choice",
+                  "value": "choice"
+                },
+                "label": "State",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "State",
+                "table": "em_alert",
+                "value": "state"
+              },
+              "op": "NOT IN",
+              "type": "choice",
+              "value": "Flapping,Closed"
+            },
+            {
+              "conjunction": "and",
+              "field": "additional_info",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "additional_info",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Additional information",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Additional information",
+                "table": "em_alert",
+                "value": "additional_info"
+              },
+              "op": "LIKE",
+              "type": "string",
+              "value": "ns-${env}-rtr-cs"
+            },
+            {
+              "conjunction": "and",
+              "field": "sys_id",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "sys_id",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=GUID",
+                  "value": "GUID"
+                },
+                "label": "sys_id",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "",
+                "table": "em_alert",
+                "value": "sys_id"
+              },
+              "op": "IN",
+              "type": "GUID",
+              "value": "${alertSysIds}"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "queryType": "TableAPI",
+          "refId": "A",
+          "sort": [
+            {
+              "field": "sys_created_on",
+              "order": "desc"
+            },
+            {}
+          ],
+          "stats": [],
+          "table": "em_alert",
+          "timeField": "ignore_time"
+        },
+        {
+          "active": "rawurl",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "builder",
+          "queryType": "rawurl",
+          "rawUrl": {
+            "fields": [
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.displayId",
+                "type": "auto"
+              },
+              {
+                "alias": "",
+                "nullable": true,
+                "path": "$.problems.*.problemId",
+                "type": "auto"
+              }
+            ],
+            "parseIndividualFields": true,
+            "text": "v2/problems?problemSelector=status(\"open\"),displayId(${alertProblemIds:doublequote})"
+          },
+          "refId": "B",
+          "version": "3.21.7"
+        }
+      ],
+      "title": "Alerts",
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:A)$/"
+          },
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "source": "sn_alert_tags"
+          },
+          "topic": "series"
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:A)$/"
+          },
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "sn_alert_tags": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "description": 5,
+              "message_key": 8,
+              "node": 2,
+              "number": 0,
+              "severity": 4,
+              "sn_alert_tags": 7,
+              "sys_created_on": 3,
+              "sys_id": 6,
+              "t_dt_problem_id": 1
+            },
+            "renameByName": {
+              "t_dt_problem_id": ""
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "$.problems.*.displayId": "t_dt_problem_id",
+              "$.problems.*.problemId": ""
+            }
+          },
+          "topic": "series"
+        },
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "t_dt_problem_id",
+            "mode": "inner"
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "sys_created_on A"
+              }
+            ]
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*?) B.*",
+            "renamePattern": "$1"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {
+              "$.problems.*.problemId B len=50": 7,
+              "description A": 6,
+              "node A": 2,
+              "number A": 1,
+              "severity A": 5,
+              "sys_created_on A": 4,
+              "sys_id A": 3,
+              "t_dt_problem_id": 0
+            },
+            "renameByName": {
+              "$.problems.*.problemId": "problemLink",
+              "$.problems.*.problemId B len=50": "problemLink",
+              "description A": "description",
+              "node A": "node",
+              "number A": "number",
+              "severity A": "severity",
+              "sys_created_on A": "sys_created_on",
+              "sys_id A": "sys_id",
+              "t_dt_problem_id": "problem_id"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "ae4jvxm2gdqm8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "transparent",
+            "mode": "fixed"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "mode": "basic",
+              "type": "color-background"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "priority"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 215
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "pattern": "1.*",
+                      "result": {
+                        "color": "red",
+                        "index": 0
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": "2.*",
+                      "result": {
+                        "color": "orange",
+                        "index": 1
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": "3.*",
+                      "result": {
+                        "color": "yellow",
+                        "index": 2
+                      }
+                    },
+                    "type": "regex"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "applyToRow": false,
+                  "mode": "gradient",
+                  "type": "color-background"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Support Group"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 206
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "priority"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 135
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "category"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 116
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "opened_at"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 178
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "severity"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 101
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sys_id"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "number"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Open in ServiceNow",
+                    "url": "https://optimizincdemo3.service-now.com/now/nav/ui/classic/params/target/incident.do%3Fsys_id%3D${__data.fields.sys_id}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 35
+      },
+      "id": 65,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": [
+            "Health"
+          ],
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "ae4jvxm2gdqm8c"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "number"
+            },
+            {
+              "aggregates": [],
+              "name": "opened_at"
+            },
+            {
+              "aggregates": [],
+              "name": "priority"
+            },
+            {
+              "aggregates": [],
+              "name": "severity"
+            },
+            {
+              "aggregates": [],
+              "name": "category"
+            },
+            {
+              "aggregates": [],
+              "name": "cmdb_ci.name"
+            },
+            {
+              "aggregates": [],
+              "name": "short_description"
+            },
+            {
+              "aggregates": [],
+              "name": "sys_updated_on"
+            },
+            {
+              "aggregates": [],
+              "name": "incident_state"
+            },
+            {
+              "aggregates": [],
+              "name": "sys_id"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "choice": "3",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Task",
+                "element": "state",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=integer",
+                  "value": "integer"
+                },
+                "label": "State",
+                "name": "task",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "State",
+                "table": "task",
+                "value": "state"
+              },
+              "op": "NOT IN",
+              "type": "integer",
+              "value": "3,4,7"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "queryType": "TableAPI",
+          "refId": "A",
+          "sort": [
+            {
+              "field": "opened_at",
+              "order": "desc"
+            },
+            {}
+          ],
+          "stats": [],
+          "table": "incident",
+          "timeField": "opened_at"
+        }
+      ],
+      "title": "Incidents",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-servicenow-datasource",
+        "uid": "ae4jvxm2gdqm8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "transparent",
+            "mode": "fixed"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "mode": "basic",
+              "type": "color-background"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sys_id"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "number"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Open in ServiceNow",
+                    "url": "https://optimizincdemo3.service-now.com/now/nav/ui/classic/params/target/change_request.do%3Fsys_id%3D${__data.fields.sys_id}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 35
+      },
+      "id": 49,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": [
+            "Health"
+          ],
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "ae4jvxm2gdqm8c"
+          },
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "number"
+            },
+            {
+              "aggregates": [],
+              "name": "work_end"
+            },
+            {
+              "aggregates": [],
+              "name": "category"
+            },
+            {
+              "aggregates": [],
+              "name": "state"
+            },
+            {
+              "aggregates": [],
+              "name": "cmdb_ci.name"
+            },
+            {
+              "aggregates": [],
+              "name": "short_description"
+            },
+            {
+              "aggregates": [],
+              "name": "sys_id"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "choice": "3",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Task",
+                "element": "state",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=integer",
+                  "value": "integer"
+                },
+                "label": "State",
+                "name": "task",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "State",
+                "table": "task",
+                "value": "state"
+              },
+              "op": "NOT IN",
+              "type": "integer",
+              "value": "4,7,3"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "queryType": "TableAPI",
+          "refId": "A",
+          "sort": [
+            {
+              "field": "number",
+              "order": "desc"
+            },
+            {}
+          ],
+          "stats": [],
+          "table": "change_request",
+          "timeField": "opened_at"
+        }
+      ],
+      "title": "Change Records",
+      "type": "table"
+    }
+  ],
+  "preload": false,
+  "refresh": "",
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "ept",
+          "value": "ept"
+        },
+        "label": "Environment",
+        "name": "env",
+        "options": [
+          {
+            "selected": true,
+            "text": "Early Performance Testing",
+            "value": "ept"
+          },
+          {
+            "selected": false,
+            "text": "SIT 1",
+            "value": "sit1"
+          },
+          {
+            "selected": false,
+            "text": "SIT 2",
+            "value": "sit2"
+          },
+          {
+            "selected": false,
+            "text": "Development 1",
+            "value": "dev1"
+          },
+          {
+            "selected": false,
+            "text": "Development 2",
+            "value": "dev2"
+          }
+        ],
+        "query": "Early Performance Testing : ept, SIT 1 : sit1, SIT 2 : sit2, Development 1 : dev1, Development 2 : dev2",
+        "type": "custom"
+      },
+      {
+        "current": {
+          "text": "ept",
+          "value": "ept"
+        },
+        "datasource": {
+          "type": "yesoreyeram-infinity-datasource",
+          "uid": "edtfwtgw2ct1cc"
+        },
+        "definition": "",
+        "hide": 2,
+        "name": "envStripped",
+        "options": [],
+        "query": {
+          "infinityQuery": {
+            "columns": [],
+            "data": "text\n${env}",
+            "filters": [],
+            "format": "table",
+            "parser": "backend",
+            "refId": "variable",
+            "root_selector": "",
+            "source": "inline",
+            "type": "csv",
+            "url": "https://github.com/grafana/grafana-infinity-datasource/blob/main/testdata/users.json",
+            "url_options": {
+              "data": "",
+              "method": "GET"
+            }
+          },
+          "query": "",
+          "queryType": "infinity"
+        },
+        "refresh": 1,
+        "regex": "/([a-zA-Z]{3})\\d?/",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "ept-app",
+          "value": "ept-app"
+        },
+        "datasource": {
+          "type": "grafana-dynatrace-datasource",
+          "uid": "fed1r83fk9x4wa"
+        },
+        "definition": "",
+        "hide": 2,
+        "label": "App Cluster",
+        "name": "appCluster",
+        "options": [],
+        "query": {
+          "query": {
+            "active": "rawurl",
+            "metric": {
+              "aggregations": [],
+              "alias": "",
+              "cleanSelector": "",
+              "displayName": "",
+              "filters": {
+                "conjunction": "AND",
+                "filters": []
+              },
+              "name": "Select...",
+              "selector": "",
+              "transformations": [
+                {
+                  "name": "names",
+                  "params": []
+                }
+              ],
+              "zones": []
+            },
+            "mode": "builder",
+            "queryType": "rawurl",
+            "rawUrl": {
+              "fields": [
+                {
+                  "alias": "",
+                  "nullable": false,
+                  "path": "$.entities.*.displayName",
+                  "type": "auto"
+                }
+              ],
+              "parseIndividualFields": true,
+              "text": "v2/entities?entitySelector=type(\"dt.entity.kubernetes_cluster\"),fromRelationships.isClusterOfNamespace(type(\"dt.entity.cloud_application_namespace\"),entityName.contains(\"${env}\")),entityName.contains(\"app\")"
+            },
+            "refId": "VariableQueryEditor",
+            "version": "3.21.7"
+          },
+          "queryType": "custom",
+          "queryable": false,
+          "staticLabel": "Query Editor"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "",
+          "value": ""
+        },
+        "datasource": {
+          "type": "grafana-dynatrace-datasource",
+          "uid": "fed1r83fk9x4wa"
+        },
+        "definition": "",
+        "hide": 2,
+        "label": "Management Cluster",
+        "name": "mgmtCluster",
+        "options": [],
+        "query": {
+          "query": {
+            "active": "rawurl",
+            "metric": {
+              "aggregations": [],
+              "alias": "",
+              "cleanSelector": "",
+              "displayName": "",
+              "filters": {
+                "conjunction": "AND",
+                "filters": []
+              },
+              "name": "Select...",
+              "selector": "",
+              "transformations": [
+                {
+                  "name": "names",
+                  "params": []
+                }
+              ],
+              "zones": []
+            },
+            "mode": "builder",
+            "queryType": "rawurl",
+            "rawUrl": {
+              "fields": [
+                {
+                  "alias": "",
+                  "nullable": false,
+                  "path": "$.entities.*.displayName",
+                  "type": "auto"
+                }
+              ],
+              "parseIndividualFields": true,
+              "text": "v2/entities?entitySelector=type(\"dt.entity.kubernetes_cluster\"),entityName(\"${envStripped}-mgmt\")"
+            },
+            "refId": "VariableQueryEditor",
+            "version": "3.21.7"
+          },
+          "queryType": "custom",
+          "queryable": false,
+          "staticLabel": "Query Editor"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-servicenow-datasource",
+          "uid": "ae4jvxm2gdqm8c"
+        },
+        "definition": "",
+        "hide": 2,
+        "includeAll": true,
+        "multi": true,
+        "name": "alertProblemIds",
+        "options": [],
+        "query": {
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "sn_alert_tags"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "source",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "source",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Source",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Source",
+                "table": "em_alert",
+                "value": "source"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "DYNATRACE"
+            },
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "choice": "1",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "state",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=choice",
+                  "value": "choice"
+                },
+                "label": "State",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "State",
+                "table": "em_alert",
+                "value": "state"
+              },
+              "op": "NOT IN",
+              "type": "choice",
+              "value": "Flapping,Closed"
+            },
+            {
+              "conjunction": "and",
+              "field": "additional_info",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "additional_info",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Additional information",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Additional information",
+                "table": "em_alert",
+                "value": "additional_info"
+              },
+              "op": "LIKE",
+              "type": "string",
+              "value": "ns-${env}-rtr-cs"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "queryType": "TableAPI",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "em_alert",
+          "timeField": "ignore_time"
+        },
+        "refresh": 2,
+        "regex": "{\"t_dt_problem_id\":\"(.*?)\".*",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-servicenow-datasource",
+          "uid": "ae4jvxm2gdqm8c"
+        },
+        "definition": "",
+        "hide": 2,
+        "includeAll": true,
+        "multi": true,
+        "name": "alertSysIds",
+        "options": [],
+        "query": {
+          "displayValue": "all",
+          "fields": [
+            {
+              "aggregates": [],
+              "name": "sys_id"
+            }
+          ],
+          "filters": [
+            {
+              "conjunction": "and",
+              "field": "source",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "source",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Source",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Source",
+                "table": "em_alert",
+                "value": "source"
+              },
+              "op": "=",
+              "type": "string",
+              "value": "DYNATRACE"
+            },
+            {
+              "conjunction": "and",
+              "field": "state",
+              "fieldDesc": {
+                "choice": "1",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "state",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=choice",
+                  "value": "choice"
+                },
+                "label": "State",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "State",
+                "table": "em_alert",
+                "value": "state"
+              },
+              "op": "NOT IN",
+              "type": "choice",
+              "value": "Flapping,Closed"
+            },
+            {
+              "conjunction": "and",
+              "field": "additional_info",
+              "fieldDesc": {
+                "choice": "0",
+                "choice_field": "",
+                "choice_table": "",
+                "description": "Em_alert",
+                "element": "additional_info",
+                "internal_type": {
+                  "link": "https://optimizincdemo3.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                  "value": "string"
+                },
+                "label": "Additional information",
+                "name": "em_alert",
+                "reference": {
+                  "display_value": "",
+                  "link": "",
+                  "value": ""
+                },
+                "sys_name": "Additional information",
+                "table": "em_alert",
+                "value": "additional_info"
+              },
+              "op": "LIKE",
+              "type": "string",
+              "value": "ns-${env}-rtr-cs"
+            },
+            {}
+          ],
+          "groupBy": [],
+          "limit": 25,
+          "queryType": "TableAPI",
+          "sort": [
+            {}
+          ],
+          "stats": [],
+          "table": "em_alert",
+          "timeField": "ignore_time"
+        },
+        "refresh": 2,
+        "regex": "",
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "America/Winnipeg",
+  "title": "RTR C&S L1",
+  "uid": "feg7r7g2we9kwe",
+  "version": 5
+}

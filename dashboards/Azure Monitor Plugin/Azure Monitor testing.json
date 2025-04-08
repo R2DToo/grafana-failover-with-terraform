@@ -1,0 +1,1309 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 472,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 13,
+      "panels": [],
+      "title": "Template Variables",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "adxt0c7dgzpj4b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 1
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-83314",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Total",
+            "alias": "",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "customNamespace": "$Namespaces",
+            "dimensionFilters": [],
+            "metricName": "$Metric_Names",
+            "metricNamespace": "$Namespaces",
+            "region": "$Regions",
+            "resources": [
+              {
+                "metricNamespace": "$Namespaces",
+                "region": "$Regions",
+                "resourceGroup": "$Resource_Groups",
+                "resourceName": "$Resource_Names",
+                "subscription": "$Subscriptions"
+              }
+            ],
+            "timeGrain": "auto",
+            "top": ""
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "adxt0c7dgzpj4b"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "$Subscriptions"
+        }
+      ],
+      "title": "CPU Utilization for Specific Resource",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "adxt0c7dgzpj4b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 1
+      },
+      "id": 14,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-83314",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Average",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "customNamespace": "microsoft.web/serverfarms",
+            "dimensionFilters": [],
+            "metricName": "CpuPercentage",
+            "metricNamespace": "microsoft.web/serverfarms",
+            "region": "canadacentral",
+            "resources": [
+              {
+                "metricNamespace": "microsoft.web/serverfarms",
+                "region": "canadacentral",
+                "resourceGroup": "AppDTools",
+                "resourceName": "ASP-AppDTools-aa3e",
+                "subscription": "af833f85-71a7-4f4f-a4ca-5ac72fabc0b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "adxt0c7dgzpj4b"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "af833f85-71a7-4f4f-a4ca-5ac72fabc0b4"
+        }
+      ],
+      "title": "CPU Percentage",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 6,
+      "panels": [],
+      "title": "Resource - appdtool-optimiz",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "adxt0c7dgzpj4b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 10
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-83314",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Total",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "IoReadBytesPerSecond",
+            "metricNamespace": "microsoft.web/sites",
+            "region": "canadacentral",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Web/sites",
+                "region": "canadacentral",
+                "resourceGroup": "AppDTools",
+                "resourceName": "appdtool-optimiz",
+                "subscription": "af833f85-71a7-4f4f-a4ca-5ac72fabc0b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "adxt0c7dgzpj4b"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "af833f85-71a7-4f4f-a4ca-5ac72fabc0b4"
+        }
+      ],
+      "title": "IO Read Bytes Per Second",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "adxt0c7dgzpj4b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 10
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-83314",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Total",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "CpuTime",
+            "metricNamespace": "microsoft.web/sites",
+            "region": "canadacentral",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Web/sites",
+                "region": "canadacentral",
+                "resourceGroup": "AppDTools",
+                "resourceName": "appdtool-optimiz",
+                "subscription": "af833f85-71a7-4f4f-a4ca-5ac72fabc0b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "adxt0c7dgzpj4b"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "af833f85-71a7-4f4f-a4ca-5ac72fabc0b4"
+        }
+      ],
+      "title": "CPU Time in Total",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "adxt0c7dgzpj4b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 18
+      },
+      "id": 9,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-82840",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Average",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "AverageMemoryWorkingSet",
+            "metricNamespace": "microsoft.web/sites",
+            "region": "canadacentral",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Web/sites",
+                "region": "canadacentral",
+                "resourceGroup": "AppDTools",
+                "resourceName": "appdtool-optimiz",
+                "subscription": "af833f85-71a7-4f4f-a4ca-5ac72fabc0b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "adxt0c7dgzpj4b"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "af833f85-71a7-4f4f-a4ca-5ac72fabc0b4"
+        }
+      ],
+      "title": "Average Memory Working Set",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "adxt0c7dgzpj4b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 18
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-82840",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Average",
+            "allowedTimeGrainsMs": [
+              300000,
+              3600000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "IoWriteOperationsPerSecond",
+            "metricNamespace": "microsoft.web/sites",
+            "region": "canadacentral",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Web/sites",
+                "region": "canadacentral",
+                "resourceGroup": "AppDTools",
+                "resourceName": "appdtool-optimiz",
+                "subscription": "af833f85-71a7-4f4f-a4ca-5ac72fabc0b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "adxt0c7dgzpj4b"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "af833f85-71a7-4f4f-a4ca-5ac72fabc0b4"
+        }
+      ],
+      "title": "IO Write Operations Per Second",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-azure-monitor-datasource",
+        "uid": "adxt0c7dgzpj4b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 26
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-82840",
+      "targets": [
+        {
+          "azureMonitor": {
+            "aggregation": "Total",
+            "allowedTimeGrainsMs": [
+              60000,
+              300000,
+              900000,
+              1800000,
+              3600000,
+              21600000,
+              43200000,
+              86400000
+            ],
+            "dimensionFilters": [],
+            "metricName": "IoReadOperationsPerSecond",
+            "metricNamespace": "microsoft.web/sites",
+            "region": "canadacentral",
+            "resources": [
+              {
+                "metricNamespace": "Microsoft.Web/sites",
+                "region": "canadacentral",
+                "resourceGroup": "AppDTools",
+                "resourceName": "appdtool-optimiz",
+                "subscription": "af833f85-71a7-4f4f-a4ca-5ac72fabc0b4"
+              }
+            ],
+            "timeGrain": "auto"
+          },
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "adxt0c7dgzpj4b"
+          },
+          "queryType": "Azure Monitor",
+          "refId": "A",
+          "subscription": "af833f85-71a7-4f4f-a4ca-5ac72fabc0b4"
+        }
+      ],
+      "title": "IO Read Operations Per Second",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 34
+      },
+      "id": 5,
+      "panels": [
+        {
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "adxt0c7dgzpj4b"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 50
+          },
+          "id": 1,
+          "options": {
+            "minVizHeight": 75,
+            "minVizWidth": 75,
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true,
+            "sizing": "auto"
+          },
+          "pluginVersion": "11.6.0-82840",
+          "targets": [
+            {
+              "azureMonitor": {
+                "aggregation": "Average",
+                "allowedTimeGrainsMs": [
+                  60000,
+                  300000,
+                  900000,
+                  1800000,
+                  3600000,
+                  21600000,
+                  43200000,
+                  86400000
+                ],
+                "dimensionFilters": [],
+                "metricName": "CpuPercentage",
+                "metricNamespace": "microsoft.web/serverfarms",
+                "region": "canadacentral",
+                "resources": [
+                  {
+                    "metricNamespace": "Microsoft.Web/serverFarms",
+                    "region": "canadacentral",
+                    "resourceGroup": "AppDTools",
+                    "resourceName": "ASP-AppDTools-aa3e",
+                    "subscription": "af833f85-71a7-4f4f-a4ca-5ac72fabc0b4"
+                  }
+                ],
+                "timeGrain": "auto"
+              },
+              "datasource": {
+                "type": "grafana-azure-monitor-datasource",
+                "uid": "adxt0c7dgzpj4b"
+              },
+              "queryType": "Azure Monitor",
+              "refId": "A",
+              "subscription": "af833f85-71a7-4f4f-a4ca-5ac72fabc0b4"
+            }
+          ],
+          "title": "Avg. CPU Percentage",
+          "type": "gauge"
+        },
+        {
+          "datasource": {
+            "type": "grafana-azure-monitor-datasource",
+            "uid": "adxt0c7dgzpj4b"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 50
+          },
+          "id": 2,
+          "options": {
+            "minVizHeight": 75,
+            "minVizWidth": 75,
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true,
+            "sizing": "auto"
+          },
+          "pluginVersion": "11.6.0-82840",
+          "targets": [
+            {
+              "azureMonitor": {
+                "aggregation": "Maximum",
+                "allowedTimeGrainsMs": [
+                  60000,
+                  300000,
+                  900000,
+                  1800000,
+                  3600000,
+                  21600000,
+                  43200000,
+                  86400000
+                ],
+                "dimensionFilters": [],
+                "metricName": "MemoryPercentage",
+                "metricNamespace": "microsoft.web/serverfarms",
+                "region": "canadacentral",
+                "resources": [
+                  {
+                    "metricNamespace": "Microsoft.Web/serverFarms",
+                    "region": "canadacentral",
+                    "resourceGroup": "AppDTools",
+                    "resourceName": "ASP-AppDTools-aa3e",
+                    "subscription": "af833f85-71a7-4f4f-a4ca-5ac72fabc0b4"
+                  }
+                ],
+                "timeGrain": "auto"
+              },
+              "datasource": {
+                "type": "grafana-azure-monitor-datasource",
+                "uid": "adxt0c7dgzpj4b"
+              },
+              "queryType": "Azure Monitor",
+              "refId": "A",
+              "subscription": "af833f85-71a7-4f4f-a4ca-5ac72fabc0b4"
+            }
+          ],
+          "title": "Maximum Memory Percentange",
+          "type": "gauge"
+        }
+      ],
+      "title": "Resource - ASP-AppDTools-aa3e ",
+      "type": "row"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": [
+            "Azure subscription 1"
+          ],
+          "value": [
+            "af833f85-71a7-4f4f-a4ca-5ac72fabc0b4"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "adxt0c7dgzpj4b"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "Subscriptions",
+        "multi": true,
+        "name": "Subscriptions",
+        "options": [],
+        "query": {
+          "azureLogAnalytics": {
+            "query": "",
+            "resources": []
+          },
+          "queryType": "Azure Subscriptions",
+          "refId": "A"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": [
+            "AppDTools"
+          ],
+          "value": [
+            "AppDTools"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "adxt0c7dgzpj4b"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "Resource Groups",
+        "multi": true,
+        "name": "Resource_Groups",
+        "options": [],
+        "query": {
+          "azureLogAnalytics": {
+            "query": "",
+            "resources": []
+          },
+          "queryType": "Azure Resource Groups",
+          "refId": "A",
+          "subscription": "$Subscriptions"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": [
+            "microsoft.web/serverfarms"
+          ],
+          "value": [
+            "microsoft.web/serverfarms"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "adxt0c7dgzpj4b"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "Namespaces",
+        "multi": true,
+        "name": "Namespaces",
+        "options": [],
+        "query": {
+          "azureLogAnalytics": {
+            "query": "",
+            "resources": []
+          },
+          "queryType": "Azure Namespaces",
+          "refId": "A",
+          "resourceGroup": "$Resource_Groups",
+          "subscription": "$Subscriptions"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": [
+            "Canada Central"
+          ],
+          "value": [
+            "canadacentral"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "adxt0c7dgzpj4b"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "Regions",
+        "multi": true,
+        "name": "Regions",
+        "options": [],
+        "query": {
+          "azureLogAnalytics": {
+            "query": "",
+            "resources": []
+          },
+          "queryType": "Azure Regions",
+          "refId": "A",
+          "subscription": "$Subscriptions"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "adxt0c7dgzpj4b"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "Workspaces",
+        "multi": true,
+        "name": "Workspaces",
+        "options": [],
+        "query": {
+          "azureLogAnalytics": {
+            "query": "",
+            "resources": []
+          },
+          "queryType": "Azure Workspaces",
+          "refId": "A",
+          "subscription": "$Subscriptions"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "adxt0c7dgzpj4b"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "Resource Graphs",
+        "multi": true,
+        "name": "Resource_Graphs",
+        "options": [],
+        "query": {
+          "azureLogAnalytics": {
+            "query": "",
+            "resources": []
+          },
+          "azureResourceGraph": {
+            "query": ""
+          },
+          "queryType": "Azure Resource Graph",
+          "refId": "A",
+          "subscriptions": [
+            "$Subscriptions"
+          ]
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "adxt0c7dgzpj4b"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "Resource Names",
+        "multi": true,
+        "name": "Resource_Names",
+        "options": [],
+        "query": {
+          "azureLogAnalytics": {
+            "query": "",
+            "resources": []
+          },
+          "namespace": "$Namespaces",
+          "queryType": "Azure Resource Names",
+          "refId": "A",
+          "region": "$Regions",
+          "resourceGroup": "$Resource_Groups",
+          "subscription": "$Subscriptions"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": [
+            "CPU Percentage"
+          ],
+          "value": [
+            "CpuPercentage"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-azure-monitor-datasource",
+          "uid": "adxt0c7dgzpj4b"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "Metric Names",
+        "multi": true,
+        "name": "Metric_Names",
+        "options": [],
+        "query": {
+          "azureLogAnalytics": {
+            "query": "",
+            "resources": []
+          },
+          "namespace": "$Namespaces",
+          "queryType": "Azure Metric Names",
+          "refId": "A",
+          "resource": "$Resource_Names",
+          "resourceGroup": "$Resource_Groups",
+          "subscription": "$Subscriptions"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Azure Monitor testing",
+  "uid": "aee2d26qpgetce",
+  "version": 53,
+  "weekStart": ""
+}

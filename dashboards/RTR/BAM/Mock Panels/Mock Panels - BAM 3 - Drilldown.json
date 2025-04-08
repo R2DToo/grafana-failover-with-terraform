@@ -1,0 +1,534 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 427,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "ce1yc0vwmt79ca"
+      },
+      "description": "Green: 0% - 5%\n\nYellow: 5% - 10%\n\nRed: 10% - 100%",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 19,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "#EAB839",
+                "value": 5
+              },
+              {
+                "color": "red",
+                "value": 10
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "interval": "1m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-81938",
+      "targets": [
+        {
+          "alias": "C&S-outbound",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "max": 9,
+          "min": 1,
+          "noise": 3,
+          "refId": "C",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "spread": 10
+        },
+        {
+          "alias": "CSP1-outbound",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "max": 100,
+          "min": 30,
+          "noise": 3,
+          "refId": "A",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "spread": 10
+        },
+        {
+          "alias": "CSP2-outbound",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "max": 100,
+          "min": 30,
+          "noise": 3,
+          "refId": "B",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "spread": 10
+        },
+        {
+          "alias": "CSP3-outbound",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "max": 100,
+          "min": 30,
+          "noise": 3,
+          "refId": "D",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "spread": 10
+        },
+        {
+          "alias": "CSP4-outbound",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "max": 100,
+          "min": 30,
+          "noise": 3,
+          "refId": "E",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "spread": 10
+        },
+        {
+          "alias": "CSP5-outbound",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "max": 100,
+          "min": 30,
+          "noise": 3,
+          "refId": "F",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "spread": 10
+        },
+        {
+          "alias": "CSP6-outbound",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "max": 100,
+          "min": 30,
+          "noise": 3,
+          "refId": "G",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "spread": 10
+        },
+        {
+          "alias": "CSP7-outbound",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "max": 100,
+          "min": 30,
+          "noise": 3,
+          "refId": "H",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "spread": 10
+        },
+        {
+          "alias": "CSP8-outbound",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "max": 100,
+          "min": 30,
+          "noise": 3,
+          "refId": "I",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "spread": 10
+        },
+        {
+          "alias": "CSP9-outbound",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "max": 100,
+          "min": 30,
+          "noise": 3,
+          "refId": "J",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "spread": 10
+        },
+        {
+          "alias": "CSP10-outbound",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "max": 100,
+          "min": 30,
+          "noise": 3,
+          "refId": "K",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "spread": 10
+        },
+        {
+          "alias": "CSP11-outbound",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "max": 100,
+          "min": 30,
+          "noise": 3,
+          "refId": "L",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "spread": 10
+        }
+      ],
+      "title": "BAM3-W3-Heartbeat Failure Percentage L2: Sent from Exchange",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "pattern": "(time|${entity})"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "ce1yc0vwmt79ca"
+      },
+      "description": "Green: 0% - 5%\n\nYellow: 5% - 10%\n\nRed: 10% - 100%",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 25,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "#EAB839",
+                "value": 5
+              },
+              {
+                "color": "red",
+                "value": 10
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 3,
+      "interval": "1m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-81938",
+      "targets": [
+        {
+          "alias": "C&S-inbound",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "hide": false,
+          "max": 100,
+          "min": 30,
+          "noise": 3,
+          "refId": "C",
+          "scenarioId": "random_walk",
+          "seriesCount": 1,
+          "spread": 10
+        }
+      ],
+      "title": "BAM3-W4-Heartbeat Failure Percentage L2: Received by Exchange",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "pattern": "(time|${entity})"
+            }
+          }
+        }
+      ],
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "C&S-outbound",
+          "value": "C&S-outbound"
+        },
+        "hide": 2,
+        "name": "entity",
+        "options": [
+          {
+            "selected": true,
+            "text": "C&S-outbound",
+            "value": "C&S-outbound"
+          },
+          {
+            "selected": false,
+            "text": "C&S-inbound",
+            "value": "C&S-inbound"
+          },
+          {
+            "selected": false,
+            "text": "CSP1-outbound",
+            "value": "CSP1-outbound"
+          },
+          {
+            "selected": false,
+            "text": "CSP2-outbound",
+            "value": "CSP2-outbound"
+          },
+          {
+            "selected": false,
+            "text": "CSP3-outbound",
+            "value": "CSP3-outbound"
+          },
+          {
+            "selected": false,
+            "text": "CSP4-outbound",
+            "value": "CSP4-outbound"
+          },
+          {
+            "selected": false,
+            "text": "CSP5-outbound",
+            "value": "CSP5-outbound"
+          },
+          {
+            "selected": false,
+            "text": "CSP6-outbound",
+            "value": "CSP6-outbound"
+          },
+          {
+            "selected": false,
+            "text": "CSP7-outbound",
+            "value": "CSP7-outbound"
+          },
+          {
+            "selected": false,
+            "text": "CSP8-outbound",
+            "value": "CSP8-outbound"
+          },
+          {
+            "selected": false,
+            "text": "CSP9-outbound",
+            "value": "CSP9-outbound"
+          },
+          {
+            "selected": false,
+            "text": "CSP10-outbound",
+            "value": "CSP10-outbound"
+          },
+          {
+            "selected": false,
+            "text": "CSP11-outbound",
+            "value": "CSP11-outbound"
+          }
+        ],
+        "query": "C&S-outbound, C&S-inbound, CSP1-outbound, CSP2-outbound, CSP3-outbound, CSP4-outbound, CSP5-outbound, CSP6-outbound, CSP7-outbound, CSP8-outbound, CSP9-outbound, CSP10-outbound, CSP11-outbound",
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "America/Winnipeg",
+  "title": "Mock Panels - BAM 3 - Drilldown",
+  "uid": "bearvoi8o6mm8c",
+  "version": 15,
+  "weekStart": ""
+}

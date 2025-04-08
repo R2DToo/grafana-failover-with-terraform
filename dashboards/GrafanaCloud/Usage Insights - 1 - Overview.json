@@ -30,7 +30,7 @@
       "title": "Data Source Insights",
       "tooltip": "",
       "type": "link",
-      "url": "/d/AEbrOO2Mz"
+      "url": "/d/AEbrOO2Mz/usage-insights-2-data-sources"
     },
     {
       "icon": "bolt",
@@ -39,7 +39,7 @@
       "title": "Query Errors Insights",
       "tooltip": "",
       "type": "link",
-      "url": "/d/MpmkYhRVz"
+      "url": "/d/MpmkYhRVz/usage-insights-3-query-errors"
     }
   ],
   "panels": [
@@ -452,7 +452,7 @@
           "links": [
             {
               "title": "Go to datasource usage insights",
-              "url": "/d/AEbrOO2Mz/usage-insights-for-datasource?var-datasource_id=${__data.fields.ID}&var-datasource_name=${__data.fields.Name:percentencode}&${__url_time_range}"
+              "url": "/d/AEbrOO2Mz/usage-insights-2-data-sources?var-datasource_id=${__data.fields.ID}&var-datasource_name=${__data.fields.Name:percentencode}&${__url_time_range}"
             }
           ]
         },
@@ -629,7 +629,7 @@
                   {
                     "targetBlank": true,
                     "title": "View errors",
-                    "url": "/d/MpmkYhRVz?var-search=${__data.fields.UID}"
+                    "url": "/d/MpmkYhRVz/usage-insights-3-query-errors?var-search=${__data.fields.UID}"
                   }
                 ]
               }
@@ -702,7 +702,7 @@
           "links": [
             {
               "title": "Go to data source usage insights",
-              "url": "/d/AEbrOO2Mz/usage-insights-for-datasource?var-datasource_id=${__data.fields.ID}&var-datasource_name=${__data.fields.Name:percentencode}&${__url_time_range}"
+              "url": "/d/AEbrOO2Mz/usage-insights-2-data-sources?var-datasource_id=${__data.fields.ID}&var-datasource_name=${__data.fields.Name:percentencode}&${__url_time_range}"
             }
           ]
         },
@@ -729,7 +729,7 @@
                   {
                     "targetBlank": true,
                     "title": "View errors",
-                    "url": "/d/MpmkYhRVz?var-search=${__data.fields.Name}"
+                    "url": "/d/MpmkYhRVz/usage-insights-3-query-errors?var-search=${__data.fields.Name}"
                   }
                 ]
               }
@@ -827,7 +827,7 @@
                   {
                     "targetBlank": true,
                     "title": "View errors",
-                    "url": "/d/MpmkYhRVz?var-search=${__data.fields.Username}"
+                    "url": "/d/MpmkYhRVz/usage-insights-3-query-errors?var-search=${__data.fields.Username}"
                   }
                 ]
               }
@@ -921,5 +921,5 @@
   "timezone": "",
   "title": "Usage Insights - 1 - Overview",
   "uid": "XU8HAD5Gk",
-  "version": 2
+  "version": 3
 }

@@ -33,7 +33,7 @@
       "title": "Usage Insights Overview",
       "tooltip": "",
       "type": "link",
-      "url": "/d/XU8HAD5Gk/usage-insights"
+      "url": "/d/XU8HAD5Gk/usage-insights-1-overview"
     }
   ],
   "panels": [
@@ -1978,6 +1978,6 @@
   "timezone": "browser",
   "title": "Usage Insights - 6 - Loki Query Fair Usage Drilldown",
   "uid": "cdybdibbio2dcd",
-  "version": 6,
+  "version": 7,
   "weekStart": ""
 }

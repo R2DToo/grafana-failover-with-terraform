@@ -1,0 +1,361 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 431,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "ce39l7ne2jym8a"
+      },
+      "description": "Green: 0% - 5%\n\nYellow: 5% - 10%\n\nRed: 10% - 100%",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 19,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "max": 1,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "#EAB839",
+                "value": 0.05
+              },
+              {
+                "color": "red",
+                "value": 0.1
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-81732",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_sit1_exch_k8s\" kubernetes.container_name=\"rtr-heartbeat-outbound-api-sit1\" level=info message=\"*.interac.rtr.heartbeat.service.MetricLoggingService*\"\n| rex field=_raw \"ca.interac.rtr.heartbeat.service.MetricLoggingService - (?<status>.*?) \"\n| rex field=_raw \"participant=(?<participant>\\w+)\"\n| search participant=\"$participant\"\n| timechart span=1m count as total_logs, count(eval(status=\"Failed\")) as failed_logs\n| eval failure_ratio = if(total_logs > 0, round(failed_logs / total_logs, 4), 0)",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "BAM3-W3-Heartbeat Failure Percentage L2: Sent from Exchange",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true,
+              "failed_logs": true,
+              "total_logs": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "ce39l7ne2jym8a"
+      },
+      "description": "Green: 0% - 5%\n\nYellow: 5% - 10%\n\nRed: 10% - 100%",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 25,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "max": 1,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "#EAB839",
+                "value": 0.05
+              },
+              {
+                "color": "red",
+                "value": 0.1
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 3,
+      "interval": "1m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-81732",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_sit1_exch_k8s\" kubernetes.container_name=\"rtr-heartbeat-inbound-api-sit1\" level=info message=\"*.interac.rtr.heartbeat.service.MetricLoggingService*\"\n| rex field=_raw \"ca.interac.rtr.heartbeat.service.MetricLoggingService - (?<status>.*?) \"\n| rex field=_raw \"participant=(?<participant>\\w+)\"\n| search participant=\"$participant\"\n| timechart span=1m count as total_logs, count(eval(status=\"Failed\")) as failed_logs\n| eval failure_ratio = if(total_logs > 0, round(failed_logs / total_logs, 4), 0)",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "BAM3-W4-Heartbeat Failure Percentage L2: Received by Exchange",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true,
+              "failed_logs": true,
+              "total_logs": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "Node7",
+          "value": "Node7"
+        },
+        "datasource": {
+          "type": "grafana-splunk-datasource",
+          "uid": "ce39l7ne2jym8a"
+        },
+        "definition": "",
+        "name": "participant",
+        "options": [],
+        "query": {
+          "namespace": "",
+          "search": "index=\"index_sit1_exch_k8s\" kubernetes.container_name=\"rtr-heartbeat-outbound-api-sit1\" level=info message=\"*.interac.rtr.heartbeat.service.MetricLoggingService*\"\n| rex field=_raw \"ca.interac.rtr.heartbeat.service.MetricLoggingService - (?<status>.*?) \"\n| rex field=_raw \"participant=(?<participant>\\w+)\"\n| dedup participant\n| table participant"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "America/Winnipeg",
+  "title": "Test Data Panels - BAM 3 - Drilldown",
+  "uid": "deazza16htssge",
+  "version": 5,
+  "weekStart": ""
+}

@@ -621,6 +621,7 @@
         "alertInstanceLabelFilter": "{grafana_slo_uuid=\"ozjcibubx7l7bqedfthmg\"}",
         "alertName": "",
         "dashboardAlerts": false,
+        "datasource": "grafanacloud-optimiz-prom",
         "folder": "",
         "groupBy": [
           "grafana_slo_severity"
@@ -1024,11 +1025,6 @@
             "name": "grafana_slo_uuid",
             "type": 0,
             "value": "ozjcibubx7l7bqedfthmg"
-          },
-          {
-            "name": "service",
-            "type": 0,
-            "value": "$service"
           }
         ],
         "onlyInteresting": true
@@ -1307,5 +1303,5 @@
   "timezone": "browser",
   "title": "Service Availability ozjcibubx7l7bqedfthmg",
   "uid": "cdlazm3mte70ge",
-  "version": 1359
+  "version": 1367
 }

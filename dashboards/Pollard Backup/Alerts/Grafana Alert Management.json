@@ -1,0 +1,1387 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 491,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-usage"
+      },
+      "description": "Percentage of active vs paused alerts",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 1,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 0
+              },
+              {
+                "color": "#EAB839",
+                "value": 0.3
+              },
+              {
+                "color": "green",
+                "value": 0.5
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "paused_evaluation"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 13,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-usage"
+          },
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "exemplar": false,
+          "expr": "grafanacloud_grafana_instance_alerting_rule_group_rules{id=\"793527\", state=~\"active|paused\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": true,
+          "legendFormat": "{{state}}",
+          "range": false,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Alert Rule Deployment Status",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "Time",
+            "mode": "outer"
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "total",
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "active"
+                }
+              },
+              "right": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "paused"
+                }
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "active_evaluation",
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "active"
+                }
+              },
+              "operator": "/",
+              "right": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "total"
+                }
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "unary": {
+              "fieldName": "Time",
+              "operator": "exp"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "active": true,
+              "paused": true,
+              "total": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-usage"
+      },
+      "description": "Percentage of active vs paused alerts",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "from": 0,
+                "result": {
+                  "index": 0,
+                  "text": "Critical"
+                },
+                "to": 0.3
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 0.3,
+                "result": {
+                  "index": 1,
+                  "text": "Investigate Now"
+                },
+                "to": 0.5
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 0.5,
+                "result": {
+                  "index": 2,
+                  "text": "Normal"
+                },
+                "to": 1
+              },
+              "type": "range"
+            }
+          ],
+          "max": 1,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 0
+              },
+              {
+                "color": "#EAB839",
+                "value": 0.3
+              },
+              {
+                "color": "green",
+                "value": 0.5
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "paused_evaluation"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 23,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-usage"
+          },
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "exemplar": false,
+          "expr": "grafanacloud_grafana_instance_alerting_rule_group_rules{id=\"793527\", state=~\"active|paused\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": true,
+          "legendFormat": "{{state}}",
+          "range": false,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Alert Rule Deployment Status",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "Time",
+            "mode": "outer"
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "total",
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "active"
+                }
+              },
+              "right": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "paused"
+                }
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "active_evaluation",
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "active"
+                }
+              },
+              "operator": "/",
+              "right": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "total"
+                }
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "unary": {
+              "fieldName": "Time",
+              "operator": "exp"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "active": true,
+              "paused": true,
+              "total": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 3
+      },
+      "id": 4,
+      "panels": [],
+      "title": "Grafana Managed",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-alert-state-history"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "links": [],
+          "mappings": [
+            {
+              "options": {
+                "Alerting": {
+                  "color": "red",
+                  "index": 2
+                },
+                "Error": {
+                  "color": "orange",
+                  "index": 4
+                },
+                "NoData": {
+                  "color": "blue",
+                  "index": 3
+                },
+                "Normal": {
+                  "color": "green",
+                  "index": 1
+                },
+                "Normal (MissingSeries)": {
+                  "color": "#808080",
+                  "index": 5,
+                  "text": "Mixed"
+                },
+                "Normal (Updated)": {
+                  "color": "#808080",
+                  "index": 6,
+                  "text": "Mixed"
+                },
+                "Pending": {
+                  "color": "yellow",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 6,
+        "x": 0,
+        "y": 4
+      },
+      "id": 18,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-alert-state-history"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "count(rate({instance_id=\"793527\", folderUID=\"ddokt1hspkhs0d\"} | json | current = `Alerting` [$__auto]))",
+          "legendFormat": "{{labels_alertname}}",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Current Firing Alert Instances",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "Time",
+            "mode": "outer"
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "seriesToRows",
+            "reducers": [
+              "sum"
+            ]
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Field": "Alert Rule Name",
+              "Total": "Instances Fired"
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-alert-state-history"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "links": [],
+          "mappings": [
+            {
+              "options": {
+                "Alerting": {
+                  "color": "red",
+                  "index": 2
+                },
+                "Error": {
+                  "color": "orange",
+                  "index": 4
+                },
+                "NoData": {
+                  "color": "blue",
+                  "index": 3
+                },
+                "Normal": {
+                  "color": "green",
+                  "index": 1
+                },
+                "Normal (MissingSeries)": {
+                  "color": "#808080",
+                  "index": 5,
+                  "text": "Mixed"
+                },
+                "Normal (Updated)": {
+                  "color": "#808080",
+                  "index": 6,
+                  "text": "Mixed"
+                },
+                "Pending": {
+                  "color": "yellow",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 6,
+        "x": 6,
+        "y": 4
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-alert-state-history"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "count(rate({instance_id=\"793527\", folderUID=\"ddokt1hspkhs0d\"} | json | current = `Pending` [$__auto]))",
+          "legendFormat": "{{labels_alertname}}",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Current Pending Alert Instances",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "Time",
+            "mode": "outer"
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "seriesToRows",
+            "reducers": [
+              "sum"
+            ]
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Field": "Alert Rule Name",
+              "Total": "Instances Fired"
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-alert-state-history"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "links": [],
+          "mappings": [
+            {
+              "options": {
+                "Alerting": {
+                  "color": "red",
+                  "index": 2
+                },
+                "Error": {
+                  "color": "orange",
+                  "index": 4
+                },
+                "NoData": {
+                  "color": "blue",
+                  "index": 3
+                },
+                "Normal": {
+                  "color": "green",
+                  "index": 1
+                },
+                "Normal (MissingSeries)": {
+                  "color": "#808080",
+                  "index": 5,
+                  "text": "Mixed"
+                },
+                "Normal (Updated)": {
+                  "color": "#808080",
+                  "index": 6,
+                  "text": "Mixed"
+                },
+                "Pending": {
+                  "color": "yellow",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue"
+              },
+              {
+                "color": "blue",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 6,
+        "x": 12,
+        "y": 4
+      },
+      "id": 20,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-alert-state-history"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "count(rate({instance_id=\"793527\", folderUID=\"ddokt1hspkhs0d\"} | json | current = `NoData` [$__auto]))",
+          "legendFormat": "{{labels_alertname}}",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Current NoData Alert Instances",
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "joinByField",
+          "options": {
+            "byField": "Time",
+            "mode": "outer"
+          }
+        },
+        {
+          "disabled": true,
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "seriesToRows",
+            "reducers": [
+              "sum"
+            ]
+          }
+        },
+        {
+          "disabled": true,
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Field": "Alert Rule Name",
+              "Total": "Instances Fired"
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-alert-state-history"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "links": [],
+          "mappings": [
+            {
+              "options": {
+                "Alerting": {
+                  "color": "red",
+                  "index": 2
+                },
+                "Error": {
+                  "color": "orange",
+                  "index": 4
+                },
+                "NoData": {
+                  "color": "blue",
+                  "index": 3
+                },
+                "Normal": {
+                  "color": "green",
+                  "index": 1
+                },
+                "Normal (MissingSeries)": {
+                  "color": "#808080",
+                  "index": 5,
+                  "text": "Mixed"
+                },
+                "Normal (Updated)": {
+                  "color": "#808080",
+                  "index": 6,
+                  "text": "Mixed"
+                },
+                "Pending": {
+                  "color": "yellow",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "orange"
+              },
+              {
+                "color": "orange",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 6,
+        "x": 18,
+        "y": 4
+      },
+      "id": 21,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-alert-state-history"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "count(rate({instance_id=\"793527\", folderUID=\"ddokt1hspkhs0d\"} | json | current = `Error` [$__auto]))",
+          "legendFormat": "{{labels_alertname}}",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Current Error Alert Instances",
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "joinByField",
+          "options": {
+            "byField": "Time",
+            "mode": "outer"
+          }
+        },
+        {
+          "disabled": true,
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "seriesToRows",
+            "reducers": [
+              "sum"
+            ]
+          }
+        },
+        {
+          "disabled": true,
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Field": "Alert Rule Name",
+              "Total": "Instances Fired"
+            }
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-alert-state-history"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Grafana Alert Drilldown",
+              "url": "/d/ddrd0odw73wu8aprod?orgId=1&var-alertname=${__data.fields[\"Alert Rule Name\"]}&${__url_time_range}"
+            }
+          ],
+          "mappings": [
+            {
+              "options": {
+                "Alerting": {
+                  "color": "red",
+                  "index": 2
+                },
+                "Error": {
+                  "color": "orange",
+                  "index": 4
+                },
+                "NoData": {
+                  "color": "blue",
+                  "index": 3
+                },
+                "Normal": {
+                  "color": "green",
+                  "index": 1
+                },
+                "Normal (MissingSeries)": {
+                  "color": "#808080",
+                  "index": 5,
+                  "text": "Mixed"
+                },
+                "Normal (Updated)": {
+                  "color": "#808080",
+                  "index": 6,
+                  "text": "Mixed"
+                },
+                "Pending": {
+                  "color": "yellow",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 7
+      },
+      "id": 17,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-alert-state-history"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "count by(labels_alertname) (rate({instance_id=\"793527\", folderUID=\"ddokt1hspkhs0d\"} | json | current = `Alerting` [$__auto]))",
+          "legendFormat": "{{labels_alertname}}",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Alerts Instances Fired During Selected Timeframe",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "Time",
+            "mode": "outer"
+          }
+        },
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "seriesToRows",
+            "reducers": [
+              "sum"
+            ]
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Field": "Alert Rule Name",
+              "Total": "Instances Fired"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-alert-state-history"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Grafana Alert Drilldown",
+              "url": "/d/ddrd0odw73wu8aprod?orgId=1&var-alertname=${__data.fields[\"Alert Rule Name\"]}&${__url_time_range}"
+            }
+          ],
+          "mappings": [
+            {
+              "options": {
+                "Alerting": {
+                  "color": "red",
+                  "index": 2
+                },
+                "Error": {
+                  "color": "orange",
+                  "index": 4
+                },
+                "NoData": {
+                  "color": "blue",
+                  "index": 3
+                },
+                "Normal": {
+                  "color": "green",
+                  "index": 1
+                },
+                "Normal (MissingSeries)": {
+                  "color": "#808080",
+                  "index": 5,
+                  "text": "Mixed"
+                },
+                "Normal (Updated)": {
+                  "color": "#808080",
+                  "index": 6,
+                  "text": "Mixed"
+                },
+                "Pending": {
+                  "color": "yellow",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Alerting"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Pending"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Normal"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 16,
+        "x": 8,
+        "y": 7
+      },
+      "id": 22,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-alert-state-history"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "count(rate({instance_id=\"793527\", folderUID=\"ddokt1hspkhs0d\"} | json | current = `Alerting` [$__auto]))",
+          "legendFormat": "Alerting",
+          "queryType": "range",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-alert-state-history"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "count(rate({instance_id=\"793527\", folderUID=\"ddokt1hspkhs0d\"} | json | current = `Pending` [$__auto]))",
+          "hide": false,
+          "legendFormat": "Pending",
+          "queryType": "range",
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-alert-state-history"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "count(rate({instance_id=\"793527\", folderUID=\"ddokt1hspkhs0d\"} | json | current = `Error` [$__auto]))",
+          "hide": false,
+          "legendFormat": "Error",
+          "queryType": "range",
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-alert-state-history"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "count(rate({instance_id=\"793527\", folderUID=\"ddokt1hspkhs0d\"} | json | current = `NoData` [$__auto]))",
+          "hide": false,
+          "legendFormat": "NoData",
+          "queryType": "range",
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-alert-state-history"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "count(rate({instance_id=\"793527\", folderUID=\"ddokt1hspkhs0d\"} | json | current = `Normal` [$__auto]))",
+          "hide": false,
+          "legendFormat": "Normal",
+          "queryType": "range",
+          "refId": "E"
+        }
+      ],
+      "title": "Alert Instances By State",
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "refresh": "",
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "kansas-prod",
+          "value": "kansas-prod"
+        },
+        "hide": 2,
+        "name": "env",
+        "query": "kansas-prod",
+        "skipUrlSync": true,
+        "type": "constant"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "utc",
+  "title": "Grafana Alert Management",
+  "uid": "adra1zvboth4wdprod",
+  "version": 3
+}

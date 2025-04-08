@@ -1,0 +1,422 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 474,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "fed1r83fk9x4wa"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "µs"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 0,
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "service"
+          }
+        ]
+      },
+      "pluginVersion": "11.6.0-83314",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "Response Time $dimensions",
+            "cleanSelector": "builtin:service.response.server:filter(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-exch~\"))\"))):splitBy(\"dt.entity.service\"):fold(median):names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:service.response.server:splitBy(\"dt.entity.service\"):fold(median):names",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.19.2"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Requests $dimensions",
+            "cleanSelector": "builtin:service.requestCount.server:splitBy(\"dt.entity.service\"):fold(sum):names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:service.requestCount.server:splitBy(\"dt.entity.service\"):fold(sum):names",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.19.2"
+        }
+      ],
+      "title": "Transformations Disabled",
+      "transformations": [
+        {
+          "disabled": true,
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:A)$/"
+          },
+          "id": "seriesToRows",
+          "options": {},
+          "topic": "series"
+        },
+        {
+          "disabled": true,
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "seriesToRows",
+          "options": {},
+          "topic": "series"
+        },
+        {
+          "disabled": true,
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "regexp",
+            "regExp": "/.*dt.entity.service.name=(?<service>.*) }/",
+            "source": "Metric"
+          }
+        },
+        {
+          "disabled": true,
+          "id": "joinByField",
+          "options": {
+            "byField": "service",
+            "mode": "inner"
+          }
+        },
+        {
+          "disabled": true,
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Metric": true,
+              "Metric 1": true,
+              "Metric 2": true,
+              "Time": true,
+              "Time 1": true,
+              "Time 2": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Value 1": "Response Time",
+              "Value 2": "Requests"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "fed1r83fk9x4wa"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Response Time"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "µs"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 0,
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "service"
+          }
+        ]
+      },
+      "pluginVersion": "11.6.0-83314",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "Response Time $dimensions",
+            "cleanSelector": "builtin:service.response.server:filter(in(\"dt.entity.service\", entitySelector(\"type(~\"SERVICE~\"),toRelationship.isNamespaceOfService(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-exch~\"))\"))):splitBy(\"dt.entity.service\"):fold(median):names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:service.response.server:splitBy(\"dt.entity.service\"):fold(median):names",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.19.2"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Requests $dimensions",
+            "cleanSelector": "builtin:service.requestCount.server:splitBy(\"dt.entity.service\"):fold(sum):names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:service.requestCount.server:splitBy(\"dt.entity.service\"):fold(sum):names",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B",
+          "version": "3.19.2"
+        }
+      ],
+      "title": "Complete",
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:A)$/"
+          },
+          "id": "seriesToRows",
+          "options": {},
+          "topic": "series"
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "seriesToRows",
+          "options": {},
+          "topic": "series"
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "regexp",
+            "regExp": "/.*dt.entity.service.name=(?<service>.*) }/",
+            "source": "Metric"
+          }
+        },
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "service",
+            "mode": "inner"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Metric": true,
+              "Metric 1": true,
+              "Metric 2": true,
+              "Time": true,
+              "Time 1": true,
+              "Time 2": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Value 1": "Response Time",
+              "Value 2": "Requests"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Transformations",
+  "uid": "cee713eqlmr5se",
+  "version": 2,
+  "weekStart": ""
+}

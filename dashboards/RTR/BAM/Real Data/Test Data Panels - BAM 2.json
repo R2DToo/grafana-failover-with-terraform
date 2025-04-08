@@ -1,0 +1,666 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 526,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "ce39l7ne2jym8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "STLD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "REVD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RJCT"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MSTL"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MREV"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 3,
+      "interval": "15m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84214",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_${env}_exch_k8s\" \"kubernetes.container_name\"=\"rtr-credit-transfer-api-${env}\" (message=\"*pacs.008*\" OR message=\"*pacs.002*\" OR message=\"*head.001*\") message=\"*Settlement Commit Advice pacs.002 sent to DA*\"\n| rex field=message \"\\\"api_provider\\\":\\\"(?<creditor>[^\\\"]+)\\\"\"\n| rex field=message \"\\\"api_consumer\\\":\\\"(?<debitor>[^\\\"]+)\\\"\"\n| rex field=message \"\\\"clearing_system_reference\\\":\\\"(?<clearing_system_reference>[^\\\"]+)\\\"\"\n| where clearing_system_reference=\"${traceabilityID}\"\n| timechart span=1m count by creditor",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "BAM2-W1-Payments Per Second by Sending Participant",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byType",
+                  "options": "number"
+                }
+              },
+              "operator": "/",
+              "right": {
+                "fixed": "60"
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*?) / 60",
+            "renamePattern": "$1"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "ce39l7ne2jym8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "STLD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "REVD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RJCT"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MSTL"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MREV"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 4,
+      "interval": "15m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84214",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_${env}_exch_k8s\" \"kubernetes.container_name\"=\"rtr-credit-transfer-api-${env}\" (message=\"*pacs.008*\" OR message=\"*pacs.002*\" OR message=\"*head.001*\") message=\"*Settlement Commit Advice pacs.002 sent to DA*\"\n| rex field=message \"\\\"api_provider\\\":\\\"(?<creditor>[^\\\"]+)\\\"\"\n| rex field=message \"\\\"api_consumer\\\":\\\"(?<debitor>[^\\\"]+)\\\"\"\n| rex field=message \"\\\"clearing_system_reference\\\":\\\"(?<clearing_system_reference>[^\\\"]+)\\\"\"\n| where clearing_system_reference=\"${traceabilityID}\"\n| timechart span=1m count by creditor",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "BAM2-W2-Payments Per Second by CSP",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byType",
+                  "options": "number"
+                }
+              },
+              "operator": "/",
+              "right": {
+                "fixed": "60"
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*?) / 60",
+            "renamePattern": "$1"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "refresh": "1m",
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "dev2",
+          "value": "dev2"
+        },
+        "label": "Environment",
+        "name": "env",
+        "options": [
+          {
+            "selected": false,
+            "text": "Early Performance Testing",
+            "value": "ept"
+          },
+          {
+            "selected": false,
+            "text": "SIT 1",
+            "value": "sit1"
+          },
+          {
+            "selected": false,
+            "text": "SIT 2",
+            "value": "sit2"
+          },
+          {
+            "selected": false,
+            "text": "Development 1",
+            "value": "dev1"
+          },
+          {
+            "selected": true,
+            "text": "Development 2",
+            "value": "dev2"
+          }
+        ],
+        "query": "Early Performance Testing : ept, SIT 1 : sit1, SIT 2 : sit2, Development 1 : dev1, Development 2 : dev2",
+        "type": "custom"
+      },
+      {
+        "current": {
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-splunk-datasource",
+          "uid": "ce39l7ne2jym8a"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "CSP",
+        "multi": true,
+        "name": "entity",
+        "options": [],
+        "query": {
+          "namespace": "",
+          "search": "index=\"index_${env}_exch_k8s\" \"kubernetes.container_name\"=\"rtr-credit-transfer-api-${env}\" (message=\"*pacs.008*\" OR message=\"*pacs.002*\" OR message=\"*head.001*\") message=\"*Inbound pacs.008 received from DA*\"\n| rex field=message \"\\\"api_provider\\\":\\\"(?<creditor>[^\\\"]+)\\\"\"\n| rex field=message \"\\\"api_consumer\\\":\\\"(?<debitor>[^\\\"]+)\\\"\"\n| dedup debitor\n| table debitor"
+        },
+        "refresh": 2,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-splunk-datasource",
+          "uid": "ce39l7ne2jym8a"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "Sending Participant",
+        "multi": true,
+        "name": "sendingParticipant",
+        "options": [],
+        "query": {
+          "namespace": "",
+          "search": "index=\"index_${env}_exch_k8s\" \"kubernetes.container_name\"=\"rtr-credit-transfer-api-${env}\" (message=\"*pacs.008*\" OR message=\"*pacs.002*\" OR message=\"*head.001*\") message=\"*Inbound pacs.008 received from DA*\"\n| rex field=message \"\\\"api_provider\\\":\\\"(?<creditor>[^\\\"]+)\\\"\"\n| rex field=message \"\\\"api_consumer\\\":\\\"(?<debitor>[^\\\"]+)\\\"\"\n| where debitor=\"${entity}\"\n| dedup debitor\n| table debitor"
+        },
+        "refresh": 2,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-splunk-datasource",
+          "uid": "ce39l7ne2jym8a"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "Receiving Participant",
+        "multi": true,
+        "name": "receivingParticipant",
+        "options": [],
+        "query": {
+          "namespace": "",
+          "search": "index=\"index_${env}_exch_k8s\" \"kubernetes.container_name\"=\"rtr-credit-transfer-api-${env}\" (message=\"*pacs.008*\" OR message=\"*pacs.002*\" OR message=\"*head.001*\") message=\"*Inbound pacs.008 received from DA*\"\n| rex field=message \"\\\"api_provider\\\":\\\"(?<creditor>[^\\\"]+)\\\"\"\n| rex field=message \"\\\"api_consumer\\\":\\\"(?<debitor>[^\\\"]+)\\\"\"\n| where debitor=\"${entity}\"\n| dedup creditor\n| table creditor"
+        },
+        "refresh": 2,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-splunk-datasource",
+          "uid": "ce39l7ne2jym8a"
+        },
+        "definition": "",
+        "description": "This is using clearing_system_reference for now as traceability_id is unreliable in lower environments",
+        "hide": 2,
+        "includeAll": true,
+        "multi": true,
+        "name": "traceabilityID",
+        "options": [],
+        "query": {
+          "namespace": "",
+          "search": "index=\"index_${env}_exch_k8s\" \"kubernetes.container_name\"=\"rtr-credit-transfer-api-${env}\" (message=\"*pacs.008*\" OR message=\"*pacs.002*\" OR message=\"*head.001*\") message=\"*Inbound pacs.008 received from DA*\"\n| rex field=message \"\\\"api_provider\\\":\\\"(?<creditor>[^\\\"]+)\\\"\"\n| rex field=message \"\\\"api_consumer\\\":\\\"(?<debitor>[^\\\"]+)\\\"\"\n| rex field=message \"\\\"clearing_system_reference\\\":\\\"(?<clearing_system_reference>[^\\\"]+)\\\"\"\n| where creditor=\"${receivingParticipant}\" AND debitor=\"${entity}\" AND debitor=\"${sendingParticipant}\"\n| dedup clearing_system_reference\n| table clearing_system_reference"
+        },
+        "refresh": 2,
+        "regex": "",
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Test Data Panels - BAM 2",
+  "uid": "defnmfk0o9se8c",
+  "version": 7
+}

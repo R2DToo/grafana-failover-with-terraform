@@ -1,0 +1,1433 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 478,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 5,
+      "panels": [],
+      "title": "Namespaces",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "fed1r83fk9x4wa"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 1
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84214",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "builtin:kubernetes.workload.cpu_usage:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-${application}~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"cockroachdb~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.in(${appCluster:csv},${dbClusters:csv}))\")))):splitBy(\"dt.entity.cloud_application_namespace\"):sum:timeshift(-2m):names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.cpu_usage:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-${application}~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"cockroachdb~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.in(${appCluster:csv},${dbClusters:csv}))\")))):splitBy(\"dt.entity.cloud_application_namespace\"):sum:timeshift(-2m):names",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.7"
+        }
+      ],
+      "title": "CPU Usage",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "/.*cloud_application_namespace.name=(.*) }/",
+            "renamePattern": "$1"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "fed1r83fk9x4wa"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 1
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84214",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "builtin:kubernetes.workload.memory_working_set:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-${application}~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"cockroachdb~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${appCluster}~\"))\")))):splitBy(\"dt.entity.cloud_application_namespace\"):sum:timeshift(-2m):names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.memory_working_set:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-${application}~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"cockroachdb~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.in(${appCluster:csv},${dbClusters:csv}))\")))):splitBy(\"dt.entity.cloud_application_namespace\"):sum:timeshift(-2m):names",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.7"
+        }
+      ],
+      "title": "Memory Usage",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "/.*cloud_application_namespace.name=(.*) }/",
+            "renamePattern": "$1"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "fed1r83fk9x4wa"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "red"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Desired Pods"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Running Pods"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 1
+      },
+      "id": 12,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.6,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "percent",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 100
+      },
+      "pluginVersion": "11.6.0-84214",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "Desired Pods $dimensions",
+            "cleanSelector": "Select...:names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.workload.pods_desired:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-${application}~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"cockroachdb~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.in(${appCluster:csv},${dbClusters:csv}))\")))):splitBy(\"dt.entity.cloud_application_namespace\"):sum:timeshift(-2m):names",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A"
+        },
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "hide": false,
+          "metric": {
+            "aggregations": [],
+            "alias": "Running Pods $dimensions",
+            "cleanSelector": "builtin:kubernetes.pods:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-${application}~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"cockroachdb~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${appCluster}~\"))\")))):splitBy(\"dt.entity.cloud_application_namespace\"):sum:timeshift(-2m):names",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.pods:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-${application}~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"cockroachdb~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${appCluster}~\"))\")))):splitBy(\"dt.entity.cloud_application_namespace\"):sum:timeshift(-2m):names",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "B"
+        }
+      ],
+      "title": "Pods by Namespace",
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:A)$/"
+          },
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "lastNotNull"
+            ]
+          },
+          "topic": "series"
+        },
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": "/^(?:B)$/"
+          },
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "lastNotNull"
+            ]
+          },
+          "topic": "series"
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "regexp",
+            "regExp": "/.* dt.entity.cloud_application_namespace.name=(?<namespace>.*) }/",
+            "source": "Field"
+          }
+        },
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "namespace",
+            "mode": "outerTabular"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Field 1": true,
+              "Field 2": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Field 1": 3,
+              "Field 2": 4,
+              "Last * 1": 2,
+              "Last * 2": 1,
+              "namespace": 0
+            },
+            "renameByName": {
+              "Field 1": "",
+              "Field 2": "",
+              "Last * 1": "Desired Pods",
+              "Last * 2": "Running Pods"
+            }
+          }
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "grafana-dynatrace-datasource",
+        "uid": "fed1r83fk9x4wa"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "noValue": "No Pods Detected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Running"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Succeeded"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Pending"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Failed"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Terminating"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 16,
+        "x": 0,
+        "y": 9
+      },
+      "id": 8,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "normal",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "11.6.0-84214",
+      "targets": [
+        {
+          "active": "metric",
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "metric": {
+            "aggregations": [],
+            "alias": "",
+            "cleanSelector": "builtin:kubernetes.pods:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-${application}~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"cockroachdb~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${appCluster}~\"))\")))):splitBy(\"k8s.namespace.name\",\"pod_status\"):sum:timeshift(-2m)",
+            "displayName": "",
+            "filters": {
+              "conjunction": "AND",
+              "filters": []
+            },
+            "name": "Select...",
+            "selector": "builtin:kubernetes.pods:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-${application}~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"cockroachdb~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.in(${appCluster:csv},${dbClusters:csv}))\")))):splitBy(\"k8s.namespace.name\",\"pod_status\"):sum:timeshift(-2m)",
+            "transformations": [
+              {
+                "name": "names",
+                "params": []
+              }
+            ],
+            "zones": []
+          },
+          "mode": "code",
+          "refId": "A",
+          "version": "3.21.7"
+        }
+      ],
+      "title": "Pods by Namespace and Status",
+      "transformations": [
+        {
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "lastNotNull"
+            ]
+          }
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "source": "Field"
+          }
+        },
+        {
+          "id": "groupingToMatrix",
+          "options": {
+            "columnField": "pod_status",
+            "rowField": "k8s.namespace.name",
+            "valueField": "Last *"
+          }
+        },
+        {
+          "disabled": true,
+          "id": "formatString",
+          "options": {
+            "outputFormat": "Substring",
+            "stringField": "k8s.namespace.name\\pod_status",
+            "substringStart": 16
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "k8s.namespace.name\\pod_status": "Namespace"
+            }
+          }
+        }
+      ],
+      "type": "barchart"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 16
+      },
+      "id": 6,
+      "panels": [
+        {
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "dashed"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 17
+          },
+          "id": 7,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "11.6.0-84214",
+          "targets": [
+            {
+              "active": "metric",
+              "datasource": {
+                "type": "grafana-dynatrace-datasource",
+                "uid": "fed1r83fk9x4wa"
+              },
+              "metric": {
+                "aggregations": [],
+                "alias": "",
+                "cleanSelector": "((builtin:kubernetes.persistentvolumeclaim.available:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-${application}~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"cockroachdb~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${appCluster}~\"))\")))):splitBy(\"k8s.persistent_volume_claim.name\"):avg/builtin:kubernetes.persistentvolumeclaim.capacity:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-${application}~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"cockroachdb~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${appCluster}~\"))\")))):splitBy(\"k8s.persistent_volume_claim.name\"):avg)*100):setUnit(Percent):timeshift(-2m)",
+                "displayName": "",
+                "filters": {
+                  "conjunction": "AND",
+                  "filters": []
+                },
+                "name": "Select...",
+                "selector": "((builtin:kubernetes.persistentvolumeclaim.available:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-${application}~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"cockroachdb~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.in(${appCluster:csv},${dbClusters:csv}))\")))):splitBy(\"k8s.persistent_volume_claim.name\"):avg/builtin:kubernetes.persistentvolumeclaim.capacity:filter(and(in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-${application}~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"cockroachdb~\")\")),in(\"dt.entity.cloud_application_namespace\", entitySelector(\"type(~\"CLOUD_APPLICATION_NAMESPACE~\"),toRelationships.isClusterOfNamespace(type(~\"KUBERNETES_CLUSTER~\"),entityName.in(${appCluster:csv},${dbClusters:csv}))\")))):splitBy(\"k8s.persistent_volume_claim.name\"):avg)*100):setUnit(Percent):timeshift(-2m)",
+                "transformations": [
+                  {
+                    "name": "names",
+                    "params": []
+                  }
+                ],
+                "zones": []
+              },
+              "mode": "code",
+              "refId": "A",
+              "version": "3.21.7"
+            }
+          ],
+          "title": "% of Available Storage",
+          "transformations": [
+            {
+              "id": "renameByRegex",
+              "options": {
+                "regex": "/.*k8s.persistent_volume_claim.name=(.*) }/",
+                "renamePattern": "$1"
+              }
+            }
+          ],
+          "type": "timeseries"
+        }
+      ],
+      "title": "Persistent Volume Claims",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 10,
+      "panels": [
+        {
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "dashed"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 18
+          },
+          "id": 9,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "11.6.0-84214",
+          "targets": [
+            {
+              "active": "metric",
+              "datasource": {
+                "type": "grafana-dynatrace-datasource",
+                "uid": "fed1r83fk9x4wa"
+              },
+              "metric": {
+                "aggregations": [],
+                "alias": "",
+                "cleanSelector": "builtin:containers.cpu.usagePercent:filter(and(in(\"dt.entity.container_group_instance\", entitySelector(\"type(~\"CONTAINER_GROUP_INSTANCE~\"),fromRelationships.isCgiOfNamespace(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"cockroachdb~\"))\")),in(\"dt.entity.container_group_instance\", entitySelector(\"type(~\"CONTAINER_GROUP_INSTANCE~\"),fromRelationships.isCgiOfNamespace(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-${application}~\"))\")),in(\"dt.entity.container_group_instance\", entitySelector(\"type(~\"CONTAINER_GROUP_INSTANCE~\"),fromRelationships.isCgiOfCluster(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${appCluster}~\"))\")))):parents:parents:splitBy(\"dt.entity.cloud_application\"):sum:names",
+                "displayName": "",
+                "filters": {
+                  "conjunction": "AND",
+                  "filters": []
+                },
+                "name": "Select...",
+                "selector": "builtin:containers.cpu.usagePercent:filter(and(in(\"dt.entity.container_group_instance\", entitySelector(\"type(~\"CONTAINER_GROUP_INSTANCE~\"),fromRelationships.isCgiOfNamespace(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"cockroachdb~\"))\")),in(\"dt.entity.container_group_instance\", entitySelector(\"type(~\"CONTAINER_GROUP_INSTANCE~\"),fromRelationships.isCgiOfNamespace(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-${application}~\"))\")),in(\"dt.entity.container_group_instance\", entitySelector(\"type(~\"CONTAINER_GROUP_INSTANCE~\"),fromRelationships.isCgiOfCluster(type(~\"KUBERNETES_CLUSTER~\"),entityName.in(${appCluster:csv},${dbClusters:csv}))\")))):parents:parents:splitBy(\"dt.entity.cloud_application\"):sum:names",
+                "transformations": [
+                  {
+                    "name": "names",
+                    "params": []
+                  }
+                ],
+                "zones": []
+              },
+              "mode": "code",
+              "refId": "A",
+              "version": "3.21.7"
+            }
+          ],
+          "title": "% CPU Usage",
+          "transformations": [
+            {
+              "id": "renameByRegex",
+              "options": {
+                "regex": "/.*dt.entity.cloud_application.name=(.*) }/",
+                "renamePattern": "$1"
+              }
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "grafana-dynatrace-datasource",
+            "uid": "fed1r83fk9x4wa"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "dashed"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 18
+          },
+          "id": 11,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "11.6.0-84214",
+          "targets": [
+            {
+              "active": "metric",
+              "datasource": {
+                "type": "grafana-dynatrace-datasource",
+                "uid": "fed1r83fk9x4wa"
+              },
+              "metric": {
+                "aggregations": [],
+                "alias": "",
+                "cleanSelector": "builtin:containers.memory.usagePercent:filter(and(in(\"dt.entity.container_group_instance\", entitySelector(\"type(~\"CONTAINER_GROUP_INSTANCE~\"),fromRelationships.isCgiOfNamespace(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"cockroachdb~\"))\")),in(\"dt.entity.container_group_instance\", entitySelector(\"type(~\"CONTAINER_GROUP_INSTANCE~\"),fromRelationships.isCgiOfNamespace(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-${application}~\"))\")),in(\"dt.entity.container_group_instance\", entitySelector(\"type(~\"CONTAINER_GROUP_INSTANCE~\"),fromRelationships.isCgiOfCluster(type(~\"KUBERNETES_CLUSTER~\"),entityName.equals(~\"${appCluster}~\"))\")))):parents:parents:splitBy(\"dt.entity.cloud_application\"):sum:names",
+                "displayName": "",
+                "filters": {
+                  "conjunction": "AND",
+                  "filters": []
+                },
+                "name": "Select...",
+                "selector": "builtin:containers.memory.usagePercent:filter(and(in(\"dt.entity.container_group_instance\", entitySelector(\"type(~\"CONTAINER_GROUP_INSTANCE~\"),fromRelationships.isCgiOfNamespace(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"cockroachdb~\"))\")),in(\"dt.entity.container_group_instance\", entitySelector(\"type(~\"CONTAINER_GROUP_INSTANCE~\"),fromRelationships.isCgiOfNamespace(type(~\"CLOUD_APPLICATION_NAMESPACE~\"),entityName.contains(~\"${env}-rtr-${application}~\"))\")),in(\"dt.entity.container_group_instance\", entitySelector(\"type(~\"CONTAINER_GROUP_INSTANCE~\"),fromRelationships.isCgiOfCluster(type(~\"KUBERNETES_CLUSTER~\"),entityName.in(${appCluster:csv},${dbClusters:csv}))\")))):parents:parents:splitBy(\"dt.entity.cloud_application\"):sum:names",
+                "transformations": [
+                  {
+                    "name": "names",
+                    "params": []
+                  }
+                ],
+                "zones": []
+              },
+              "mode": "code",
+              "refId": "A",
+              "version": "3.21.7"
+            }
+          ],
+          "title": "% Memory Usage",
+          "transformations": [
+            {
+              "id": "renameByRegex",
+              "options": {
+                "regex": "/.*dt.entity.cloud_application.name=(.*) }/",
+                "renamePattern": "$1"
+              }
+            }
+          ],
+          "type": "timeseries"
+        }
+      ],
+      "title": "Workloads",
+      "type": "row"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "ept",
+          "value": "ept"
+        },
+        "label": "Environment",
+        "name": "env",
+        "options": [
+          {
+            "selected": true,
+            "text": "Early Performance Testing",
+            "value": "ept"
+          },
+          {
+            "selected": false,
+            "text": "SIT 1",
+            "value": "sit1"
+          },
+          {
+            "selected": false,
+            "text": "SIT 2",
+            "value": "sit2"
+          },
+          {
+            "selected": false,
+            "text": "Development 1",
+            "value": "dev1"
+          },
+          {
+            "selected": false,
+            "text": "Development 2",
+            "value": "dev2"
+          }
+        ],
+        "query": "Early Performance Testing : ept, SIT 1 : sit1, SIT 2 : sit2, Development 1 : dev1, Development 2 : dev2",
+        "type": "custom"
+      },
+      {
+        "current": {
+          "text": "ept",
+          "value": "ept"
+        },
+        "datasource": {
+          "type": "yesoreyeram-infinity-datasource",
+          "uid": "edtfwtgw2ct1cc"
+        },
+        "definition": "",
+        "hide": 2,
+        "name": "envStripped",
+        "options": [],
+        "query": {
+          "infinityQuery": {
+            "columns": [],
+            "data": "text\n${env}",
+            "filters": [],
+            "format": "table",
+            "parser": "backend",
+            "refId": "variable",
+            "root_selector": "",
+            "source": "inline",
+            "type": "csv",
+            "url": "https://github.com/grafana/grafana-infinity-datasource/blob/main/testdata/users.json",
+            "url_options": {
+              "data": "",
+              "method": "GET"
+            }
+          },
+          "query": "",
+          "queryType": "infinity"
+        },
+        "refresh": 1,
+        "regex": "/([a-zA-Z]{3})\\d?/",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "ept-app",
+          "value": "ept-app"
+        },
+        "datasource": {
+          "type": "grafana-dynatrace-datasource",
+          "uid": "fed1r83fk9x4wa"
+        },
+        "definition": "",
+        "hide": 2,
+        "includeAll": false,
+        "label": "App Cluster",
+        "name": "appCluster",
+        "options": [],
+        "query": {
+          "query": {
+            "active": "rawurl",
+            "metric": {
+              "aggregations": [],
+              "alias": "",
+              "cleanSelector": "",
+              "displayName": "",
+              "filters": {
+                "conjunction": "AND",
+                "filters": []
+              },
+              "name": "Select...",
+              "selector": "",
+              "transformations": [
+                {
+                  "name": "names",
+                  "params": []
+                }
+              ],
+              "zones": []
+            },
+            "mode": "builder",
+            "queryType": "rawurl",
+            "rawUrl": {
+              "fields": [
+                {
+                  "alias": "",
+                  "nullable": false,
+                  "path": "$.entities.*.displayName",
+                  "type": "auto"
+                }
+              ],
+              "parseIndividualFields": true,
+              "text": "v2/entities?entitySelector=type(\"dt.entity.kubernetes_cluster\"),fromRelationships.isClusterOfNamespace(type(\"dt.entity.cloud_application_namespace\"),entityName.contains(\"${env}\")),entityName.contains(\"app\")"
+            },
+            "refId": "VariableQueryEditor",
+            "version": "3.21.7"
+          },
+          "queryType": "custom",
+          "queryable": false,
+          "staticLabel": "Query Editor"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "",
+          "value": ""
+        },
+        "datasource": {
+          "type": "grafana-dynatrace-datasource",
+          "uid": "fed1r83fk9x4wa"
+        },
+        "definition": "",
+        "hide": 2,
+        "label": "Management Cluster",
+        "name": "mgmtCluster",
+        "options": [],
+        "query": {
+          "query": {
+            "active": "rawurl",
+            "metric": {
+              "aggregations": [],
+              "alias": "",
+              "cleanSelector": "",
+              "displayName": "",
+              "filters": {
+                "conjunction": "AND",
+                "filters": []
+              },
+              "name": "Select...",
+              "selector": "",
+              "transformations": [
+                {
+                  "name": "names",
+                  "params": []
+                }
+              ],
+              "zones": []
+            },
+            "mode": "builder",
+            "queryType": "rawurl",
+            "rawUrl": {
+              "fields": [
+                {
+                  "alias": "",
+                  "nullable": false,
+                  "path": "$.entities.*.displayName",
+                  "type": "auto"
+                }
+              ],
+              "parseIndividualFields": true,
+              "text": "v2/entities?entitySelector=type(\"dt.entity.kubernetes_cluster\"),entityName(\"${envStripped}-mgmt\")"
+            },
+            "refId": "VariableQueryEditor",
+            "version": "3.21.7"
+          },
+          "queryType": "custom",
+          "queryable": false,
+          "staticLabel": "Query Editor"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-dynatrace-datasource",
+          "uid": "fed1r83fk9x4wa"
+        },
+        "definition": "",
+        "hide": 2,
+        "includeAll": true,
+        "label": "Database Clusters",
+        "multi": true,
+        "name": "dbClusters",
+        "options": [],
+        "query": {
+          "query": {
+            "active": "rawurl",
+            "metric": {
+              "aggregations": [],
+              "alias": "",
+              "cleanSelector": "",
+              "displayName": "",
+              "filters": {
+                "conjunction": "AND",
+                "filters": []
+              },
+              "name": "Select...",
+              "selector": "",
+              "transformations": [
+                {
+                  "name": "names",
+                  "params": []
+                }
+              ],
+              "zones": []
+            },
+            "mode": "builder",
+            "queryType": "rawurl",
+            "rawUrl": {
+              "fields": [
+                {
+                  "alias": "",
+                  "nullable": false,
+                  "path": "$.entities.*.displayName",
+                  "type": "auto"
+                }
+              ],
+              "parseIndividualFields": true,
+              "text": "v2/entities?entitySelector=type(\"dt.entity.kubernetes_cluster\"),entityName(\"${envStripped}\"),entityName(\"db\")"
+            },
+            "refId": "VariableQueryEditor",
+            "version": "3.21.7"
+          },
+          "queryType": "custom",
+          "queryable": false,
+          "staticLabel": "Query Editor"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "exch",
+          "value": "exch"
+        },
+        "name": "application",
+        "options": [
+          {
+            "selected": false,
+            "text": "C&S",
+            "value": "cs"
+          },
+          {
+            "selected": true,
+            "text": "Exchange",
+            "value": "exch"
+          }
+        ],
+        "query": "C&S : cs, Exchange : exch",
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-2d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "America/Winnipeg",
+  "title": "RTR CDB L2",
+  "uid": "feednujsdrhtsa",
+  "version": 9
+}

@@ -1,0 +1,2409 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 433,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 35,
+      "panels": [],
+      "title": "Total Transaction Volume by Status",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "ce39l7ne2jym8a"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Total"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RJCT"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 1
+      },
+      "id": 1,
+      "interval": "15m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84137",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "hide": false,
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_sit1_exch_k8s\" \"kubernetes.container_name\"=\"rtr-mock-api-sit1\" | where like(message, \"%pacs.008%\")\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"clearing_system_member_identification\\\"\\s*:\\s*\\{\\s*\\\"member_identification\\\"\\s*:\\s*\\\"(?<csp>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"transaction_status\\\"\\s*:\\s*\\\"(?<status>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"instructing_agent\\\"\\s*:\\s*\\{\\s*\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"clearing_system_member_identification\\\"\\s*:\\s*\\{\\s*\\\"member_identification\\\"\\s*:\\s*\\\"(?<sendingParticipant>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"instructed_agent\\\"\\s*:\\s*\\{\\s*\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"clearing_system_member_identification\\\"\\s*:\\s*\\{\\s*\\\"member_identification\\\"\\s*:\\s*\\\"(?<receivingParticipant>[^\\\"]+)\\\"\"\n| timechart span=15m count by status\n| addtotals",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "BAM1-W1-Aggregate No. of Transaction Volume by Status",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "NULL": true,
+              "_span": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 34,
+      "panels": [],
+      "title": "Transaction Volume Breakdown by Sending & Receiving Participants",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "ce39l7ne2jym8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "STLD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "REVD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RJCT"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MSTL"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MREV"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 10
+      },
+      "id": 26,
+      "interval": "15m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84137",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_sit1_exch_k8s\" \"kubernetes.container_name\"=\"rtr-mock-api-sit1\" | where like(message, \"%pacs.008%\")\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"clearing_system_member_identification\\\"\\s*:\\s*\\{\\s*\\\"member_identification\\\"\\s*:\\s*\\\"(?<csp>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"transaction_status\\\"\\s*:\\s*\\\"(?<status>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"instructing_agent\\\"\\s*:\\s*\\{\\s*\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"clearing_system_member_identification\\\"\\s*:\\s*\\{\\s*\\\"member_identification\\\"\\s*:\\s*\\\"(?<sendingParticipant>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"instructed_agent\\\"\\s*:\\s*\\{\\s*\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"clearing_system_member_identification\\\"\\s*:\\s*\\{\\s*\\\"member_identification\\\"\\s*:\\s*\\\"(?<receivingParticipant>[^\\\"]+)\\\"\"\n| timechart span=15m count by sendingParticipant",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "BAM1-W2-Transaction Volume Sent by Participant",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "ce39l7ne2jym8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "STLD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "REVD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RJCT"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MSTL"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MREV"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 10
+      },
+      "id": 27,
+      "interval": "15m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84137",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_sit1_exch_k8s\" \"kubernetes.container_name\"=\"rtr-mock-api-sit1\" | where like(message, \"%pacs.008%\")\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"clearing_system_member_identification\\\"\\s*:\\s*\\{\\s*\\\"member_identification\\\"\\s*:\\s*\\\"(?<csp>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"transaction_status\\\"\\s*:\\s*\\\"(?<status>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"instructing_agent\\\"\\s*:\\s*\\{\\s*\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"clearing_system_member_identification\\\"\\s*:\\s*\\{\\s*\\\"member_identification\\\"\\s*:\\s*\\\"(?<sendingParticipant>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"instructed_agent\\\"\\s*:\\s*\\{\\s*\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"clearing_system_member_identification\\\"\\s*:\\s*\\{\\s*\\\"member_identification\\\"\\s*:\\s*\\\"(?<receivingParticipant>[^\\\"]+)\\\"\"\n| timechart span=15m count by receivingParticipant",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "BAM1-W3-Transaction Volume Received by Participant",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "ce39l7ne2jym8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "STLD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "REVD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RJCT"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MSTL"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MREV"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 18
+      },
+      "id": 31,
+      "interval": "15m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84137",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_sit1_exch_k8s\" \"kubernetes.container_name\"=\"rtr-mock-api-sit1\" | where like(message, \"%pacs.008%\")\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"clearing_system_member_identification\\\"\\s*:\\s*\\{\\s*\\\"member_identification\\\"\\s*:\\s*\\\"(?<csp>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"transaction_status\\\"\\s*:\\s*\\\"(?<status>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"instructing_agent\\\"\\s*:\\s*\\{\\s*\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"clearing_system_member_identification\\\"\\s*:\\s*\\{\\s*\\\"member_identification\\\"\\s*:\\s*\\\"(?<sendingParticipant>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"instructed_agent\\\"\\s*:\\s*\\{\\s*\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"clearing_system_member_identification\\\"\\s*:\\s*\\{\\s*\\\"member_identification\\\"\\s*:\\s*\\\"(?<receivingParticipant>[^\\\"]+)\\\"\"\n| timechart span=15m count by csp",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "BAM1-W4-Transaction Volume Sent by CSP",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 26
+      },
+      "id": 37,
+      "panels": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "fillOpacity": 80,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineWidth": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "ACSC"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-blue",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "REVD"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-orange",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "RJCT"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "red",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "MSTL"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-yellow",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "MREV"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-purple",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 27
+          },
+          "id": 3,
+          "options": {
+            "barRadius": 0,
+            "barWidth": 0.6,
+            "fullHighlight": true,
+            "groupWidth": 0.7,
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "orientation": "auto",
+            "showValue": "never",
+            "stacking": "normal",
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "multi",
+              "sort": "desc"
+            },
+            "xField": "Participant",
+            "xTickLabelRotation": 0,
+            "xTickLabelSpacing": 0
+          },
+          "pluginVersion": "11.5.0-81311",
+          "targets": [
+            {
+              "datasource": {
+                "type": "marcusolsson-static-datasource",
+                "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+              },
+              "frame": {
+                "fields": [
+                  {
+                    "config": {},
+                    "name": "Participant",
+                    "type": "string",
+                    "values": [
+                      "Participant 1",
+                      "Participant 2",
+                      "Participant 3",
+                      "Participant 4"
+                    ]
+                  },
+                  {
+                    "config": {},
+                    "name": "ACSC",
+                    "type": "number",
+                    "values": [
+                      5,
+                      2,
+                      3,
+                      4
+                    ]
+                  },
+                  {
+                    "config": {},
+                    "name": "RJCT",
+                    "type": "number",
+                    "values": [
+                      1,
+                      2,
+                      3,
+                      5
+                    ]
+                  }
+                ],
+                "meta": {}
+              },
+              "refId": "A"
+            }
+          ],
+          "title": "Transaction Volume by Instructing Agent",
+          "transformations": [
+            {
+              "id": "filterByValue",
+              "options": {
+                "filters": [
+                  {
+                    "config": {
+                      "id": "regex",
+                      "options": {
+                        "value": "${sendingParticipant:regex}"
+                      }
+                    },
+                    "fieldName": "Participant"
+                  }
+                ],
+                "match": "all",
+                "type": "include"
+              }
+            }
+          ],
+          "type": "barchart"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "fillOpacity": 80,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineWidth": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "ACSC"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-blue",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "REVD"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-orange",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "RJCT"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "red",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "MSTL"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-yellow",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "MREV"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-purple",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 27
+          },
+          "id": 4,
+          "options": {
+            "barRadius": 0,
+            "barWidth": 0.6,
+            "fullHighlight": true,
+            "groupWidth": 0.7,
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "orientation": "auto",
+            "showValue": "never",
+            "stacking": "normal",
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "multi",
+              "sort": "desc"
+            },
+            "xField": "Participant",
+            "xTickLabelRotation": 0,
+            "xTickLabelSpacing": 0
+          },
+          "pluginVersion": "11.5.0-81311",
+          "targets": [
+            {
+              "datasource": {
+                "type": "marcusolsson-static-datasource",
+                "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+              },
+              "frame": {
+                "fields": [
+                  {
+                    "config": {},
+                    "name": "Participant",
+                    "type": "string",
+                    "values": [
+                      "Participant 1",
+                      "Participant 2",
+                      "Participant 3",
+                      "Participant 4"
+                    ]
+                  },
+                  {
+                    "config": {},
+                    "name": "ACSC",
+                    "type": "number",
+                    "values": [
+                      5,
+                      2,
+                      3,
+                      4
+                    ]
+                  },
+                  {
+                    "config": {},
+                    "name": "RJCT",
+                    "type": "number",
+                    "values": [
+                      1,
+                      2,
+                      3,
+                      5
+                    ]
+                  }
+                ],
+                "meta": {}
+              },
+              "refId": "A"
+            }
+          ],
+          "title": "Transaction Volume by Instructed Agent",
+          "transformations": [
+            {
+              "id": "filterByValue",
+              "options": {
+                "filters": [
+                  {
+                    "config": {
+                      "id": "regex",
+                      "options": {
+                        "value": "${receivingParticipant:regex}"
+                      }
+                    },
+                    "fieldName": "Participant"
+                  }
+                ],
+                "match": "all",
+                "type": "include"
+              }
+            }
+          ],
+          "type": "barchart"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "fillOpacity": 80,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineWidth": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "ACSC"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-blue",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "REVD"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-orange",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "RJCT"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "red",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "MSTL"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-yellow",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "MREV"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-purple",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 35
+          },
+          "id": 9,
+          "options": {
+            "barRadius": 0,
+            "barWidth": 0.6,
+            "fullHighlight": true,
+            "groupWidth": 0.7,
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "orientation": "auto",
+            "showValue": "never",
+            "stacking": "normal",
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "multi",
+              "sort": "desc"
+            },
+            "xField": "Participant",
+            "xTickLabelRotation": 0,
+            "xTickLabelSpacing": 0
+          },
+          "pluginVersion": "11.5.0-81311",
+          "targets": [
+            {
+              "datasource": {
+                "type": "marcusolsson-static-datasource",
+                "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+              },
+              "frame": {
+                "fields": [
+                  {
+                    "config": {},
+                    "name": "CSP",
+                    "type": "string",
+                    "values": [
+                      "CSP 1",
+                      "CSP 2",
+                      "CSP 3",
+                      "CSP 4"
+                    ]
+                  },
+                  {
+                    "config": {},
+                    "name": "ACSC",
+                    "type": "number",
+                    "values": [
+                      5,
+                      2,
+                      3,
+                      4
+                    ]
+                  },
+                  {
+                    "config": {},
+                    "name": "RJCT",
+                    "type": "number",
+                    "values": [
+                      1,
+                      2,
+                      3,
+                      5
+                    ]
+                  }
+                ],
+                "meta": {}
+              },
+              "refId": "A"
+            }
+          ],
+          "title": "Transaction Volume by Sending CSP",
+          "transformations": [
+            {
+              "id": "filterByValue",
+              "options": {
+                "filters": [
+                  {
+                    "config": {
+                      "id": "regex",
+                      "options": {
+                        "value": "${entity:regex}"
+                      }
+                    },
+                    "fieldName": "CSP"
+                  }
+                ],
+                "match": "all",
+                "type": "include"
+              }
+            }
+          ],
+          "type": "barchart"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "type": "auto"
+                },
+                "filterable": true,
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Amount"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 120
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Sending Participant"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 200
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Receiving Participant"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 200
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "UETR"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 200
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 35
+          },
+          "id": 2,
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true,
+            "sortBy": []
+          },
+          "pluginVersion": "11.5.0-81311",
+          "targets": [
+            {
+              "datasource": {
+                "type": "marcusolsson-static-datasource",
+                "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+              },
+              "frame": {
+                "fields": [
+                  {
+                    "config": {},
+                    "name": "Sending Participant",
+                    "type": "string",
+                    "values": [
+                      "Participant 1",
+                      "Participant 3",
+                      "Participant 4",
+                      "Participant 2"
+                    ]
+                  },
+                  {
+                    "config": {},
+                    "name": "Receiving Participant",
+                    "type": "string",
+                    "values": [
+                      "Participant 2",
+                      "Participant 4",
+                      "Participant 3",
+                      "Participant 1"
+                    ]
+                  },
+                  {
+                    "config": {},
+                    "name": "Rejection Reason ",
+                    "type": "string",
+                    "values": [
+                      "DT02",
+                      "BE05",
+                      "MS03",
+                      "UIRP"
+                    ]
+                  },
+                  {
+                    "config": {},
+                    "name": "UETR",
+                    "type": "string",
+                    "values": [
+                      "1",
+                      "2",
+                      "3",
+                      "4"
+                    ]
+                  }
+                ],
+                "meta": {}
+              },
+              "refId": "A"
+            }
+          ],
+          "title": "BAM1-W2- Rejected Transactions Reasons",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Rejection Reason ": true
+                },
+                "includeByName": {},
+                "indexByName": {
+                  "Receiving Participant": 1,
+                  "Rejection Reason ": 2,
+                  "Sending Participant": 0,
+                  "UETR": 3
+                },
+                "renameByName": {}
+              }
+            },
+            {
+              "id": "filterByValue",
+              "options": {
+                "filters": [
+                  {
+                    "config": {
+                      "id": "regex",
+                      "options": {
+                        "value": "${sendingParticipant:regex}"
+                      }
+                    },
+                    "fieldName": "Sending Participant"
+                  },
+                  {
+                    "config": {
+                      "id": "regex",
+                      "options": {
+                        "value": "${receivingParticipant:regex}"
+                      }
+                    },
+                    "fieldName": "Receiving Participant"
+                  }
+                ],
+                "match": "all",
+                "type": "include"
+              }
+            }
+          ],
+          "type": "table"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "fillOpacity": 80,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineWidth": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "ACSC"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-blue",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "REVD"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-orange",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "RJCT"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "red",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "MSTL"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-yellow",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "MREV"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-purple",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 43
+          },
+          "id": 12,
+          "options": {
+            "barRadius": 0,
+            "barWidth": 1,
+            "fullHighlight": true,
+            "groupWidth": 0.6,
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "orientation": "auto",
+            "showValue": "never",
+            "stacking": "none",
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "multi",
+              "sort": "desc"
+            },
+            "xField": "Participant",
+            "xTickLabelRotation": 0,
+            "xTickLabelSpacing": 0
+          },
+          "pluginVersion": "11.5.0-81311",
+          "targets": [
+            {
+              "datasource": {
+                "type": "marcusolsson-static-datasource",
+                "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+              },
+              "frame": {
+                "fields": [
+                  {
+                    "config": {},
+                    "name": "Participant",
+                    "type": "string",
+                    "values": [
+                      "Participant 1",
+                      "Participant 2",
+                      "Participant 3",
+                      "Participant 4"
+                    ]
+                  },
+                  {
+                    "config": {},
+                    "name": "ACSC",
+                    "type": "number",
+                    "values": [
+                      5,
+                      2,
+                      3,
+                      4
+                    ]
+                  },
+                  {
+                    "config": {},
+                    "name": "RJCT",
+                    "type": "number",
+                    "values": [
+                      1,
+                      2,
+                      3,
+                      5
+                    ]
+                  }
+                ],
+                "meta": {}
+              },
+              "refId": "A"
+            }
+          ],
+          "title": "Transaction Volume by Instructing Agent",
+          "transformations": [
+            {
+              "id": "filterByValue",
+              "options": {
+                "filters": [
+                  {
+                    "config": {
+                      "id": "regex",
+                      "options": {
+                        "value": "${sendingParticipant:regex}"
+                      }
+                    },
+                    "fieldName": "Participant"
+                  }
+                ],
+                "match": "all",
+                "type": "include"
+              }
+            }
+          ],
+          "type": "barchart"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "type": "auto"
+                },
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "ACSC"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-blue",
+                      "mode": "thresholds"
+                    }
+                  },
+                  {
+                    "id": "thresholds",
+                    "value": {
+                      "mode": "absolute",
+                      "steps": [
+                        {
+                          "color": "super-light-blue"
+                        },
+                        {
+                          "color": "light-blue",
+                          "value": 1
+                        },
+                        {
+                          "color": "blue",
+                          "value": 2
+                        },
+                        {
+                          "color": "semi-dark-blue",
+                          "value": 3
+                        },
+                        {
+                          "color": "dark-blue",
+                          "value": 4
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "REVD"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-orange",
+                      "mode": "thresholds"
+                    }
+                  },
+                  {
+                    "id": "thresholds",
+                    "value": {
+                      "mode": "absolute",
+                      "steps": [
+                        {
+                          "color": "super-light-orange"
+                        },
+                        {
+                          "color": "light-orange",
+                          "value": 1
+                        },
+                        {
+                          "color": "orange",
+                          "value": 2
+                        },
+                        {
+                          "color": "semi-dark-orange",
+                          "value": 3
+                        },
+                        {
+                          "color": "dark-orange",
+                          "value": 4
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "RJCT"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "red",
+                      "mode": "thresholds"
+                    }
+                  },
+                  {
+                    "id": "thresholds",
+                    "value": {
+                      "mode": "absolute",
+                      "steps": [
+                        {
+                          "color": "super-light-red"
+                        },
+                        {
+                          "color": "light-red",
+                          "value": 1
+                        },
+                        {
+                          "color": "red",
+                          "value": 2
+                        },
+                        {
+                          "color": "semi-dark-red",
+                          "value": 3
+                        },
+                        {
+                          "color": "dark-red",
+                          "value": 4
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "MSTL"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-yellow",
+                      "mode": "thresholds"
+                    }
+                  },
+                  {
+                    "id": "thresholds",
+                    "value": {
+                      "mode": "absolute",
+                      "steps": [
+                        {
+                          "color": "super-light-yellow"
+                        },
+                        {
+                          "color": "light-yellow",
+                          "value": 1
+                        },
+                        {
+                          "color": "yellow",
+                          "value": 2
+                        },
+                        {
+                          "color": "semi-dark-yellow",
+                          "value": 3
+                        },
+                        {
+                          "color": "dark-yellow",
+                          "value": 4
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "MREV"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-purple",
+                      "mode": "thresholds"
+                    }
+                  },
+                  {
+                    "id": "thresholds",
+                    "value": {
+                      "mode": "absolute",
+                      "steps": [
+                        {
+                          "color": "super-light-purple"
+                        },
+                        {
+                          "color": "light-purple",
+                          "value": 1
+                        },
+                        {
+                          "color": "purple",
+                          "value": 2
+                        },
+                        {
+                          "color": "semi-dark-purple",
+                          "value": 3
+                        },
+                        {
+                          "color": "dark-purple",
+                          "value": 4
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byType",
+                  "options": "number"
+                },
+                "properties": [
+                  {
+                    "id": "custom.cellOptions",
+                    "value": {
+                      "mode": "basic",
+                      "type": "color-background"
+                    }
+                  },
+                  {
+                    "id": "custom.align",
+                    "value": "center"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 43
+          },
+          "id": 13,
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true
+          },
+          "pluginVersion": "11.5.0-81311",
+          "targets": [
+            {
+              "datasource": {
+                "type": "marcusolsson-static-datasource",
+                "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+              },
+              "frame": {
+                "fields": [
+                  {
+                    "config": {},
+                    "name": "Participant",
+                    "type": "string",
+                    "values": [
+                      "Participant 1",
+                      "Participant 2",
+                      "Participant 3",
+                      "Participant 4"
+                    ]
+                  },
+                  {
+                    "config": {},
+                    "name": "ACSC",
+                    "type": "number",
+                    "values": [
+                      5,
+                      2,
+                      3,
+                      4
+                    ]
+                  },
+                  {
+                    "config": {},
+                    "name": "RJCT",
+                    "type": "number",
+                    "values": [
+                      1,
+                      2,
+                      3,
+                      5
+                    ]
+                  }
+                ],
+                "meta": {}
+              },
+              "refId": "A"
+            }
+          ],
+          "title": "Instructing Agents",
+          "transformations": [
+            {
+              "id": "filterByValue",
+              "options": {
+                "filters": [
+                  {
+                    "config": {
+                      "id": "regex",
+                      "options": {
+                        "value": "${sendingParticipant:regex}"
+                      }
+                    },
+                    "fieldName": "Participant"
+                  }
+                ],
+                "match": "all",
+                "type": "include"
+              }
+            }
+          ],
+          "type": "table"
+        }
+      ],
+      "title": "Alternative Widgets",
+      "type": "row"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "All",
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-splunk-datasource",
+          "uid": "ce39l7ne2jym8a"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "CSP",
+        "multi": true,
+        "name": "entity",
+        "options": [],
+        "query": {
+          "namespace": "",
+          "search": "index=\"index_sit1_exch_k8s\" \"kubernetes.container_name\"=\"rtr-mock-api-sit1\" | where like(message, \"%pacs.008%\")\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"clearing_system_member_identification\\\"\\s*:\\s*\\{\\s*\\\"member_identification\\\"\\s*:\\s*\\\"(?<csp>[^\\\"]+)\\\"\"\n| dedup csp\n| table csp"
+        },
+        "refresh": 2,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-splunk-datasource",
+          "uid": "ce39l7ne2jym8a"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "Sending Participant",
+        "multi": true,
+        "name": "sendingParticipant",
+        "options": [],
+        "query": {
+          "namespace": "",
+          "search": "index=\"index_sit1_exch_k8s\" \"kubernetes.container_name\"=\"rtr-mock-api-sit1\" | where like(message, \"%pacs.008%\")\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"\\\"instructing_agent\\\"\\s*:\\s*\\{\\s*\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"clearing_system_member_identification\\\"\\s*:\\s*\\{\\s*\\\"member_identification\\\"\\s*:\\s*\\\"(?<sendingParticipant>[^\\\"]+)\\\"\"\n| dedup sendingParticipant\n| table sendingParticipant"
+        },
+        "refresh": 2,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "grafana-splunk-datasource",
+          "uid": "ce39l7ne2jym8a"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "Receiving Participant",
+        "multi": true,
+        "name": "receivingParticipant",
+        "options": [],
+        "query": {
+          "namespace": "",
+          "search": "index=\"index_sit1_exch_k8s\" \"kubernetes.container_name\"=\"rtr-mock-api-sit1\" | where like(message, \"%pacs.008%\")\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"\\\"instructed_agent\\\"\\s*:\\s*\\{\\s*\\\"financial_institution_identification\\\"\\s*:\\s*\\{\\s*\\\"clearing_system_member_identification\\\"\\s*:\\s*\\{\\s*\\\"member_identification\\\"\\s*:\\s*\\\"(?<receivingParticipant>[^\\\"]+)\\\"\"\n| dedup receivingParticipant\n| table receivingParticipant"
+        },
+        "refresh": 2,
+        "regex": "",
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-2d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Test Data Panels - BAM 1 OLD",
+  "uid": "aebe0l62opmv4e",
+  "version": 7
+}

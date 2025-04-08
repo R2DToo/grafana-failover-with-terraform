@@ -1,0 +1,1081 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 502,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": false,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red"
+              },
+              {
+                "color": "#EAB839",
+                "value": 0.5
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Reachability"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "basic",
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "red"
+                    },
+                    {
+                      "color": "yellow",
+                      "value": 0.9
+                    },
+                    {
+                      "color": "green",
+                      "value": 0.99
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Latency"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "gradient",
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "yellow",
+                      "value": 500
+                    },
+                    {
+                      "color": "red",
+                      "value": 1000
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "unit",
+                "value": "ms"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "thresholds"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Check Type"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "k6": {
+                        "index": 0,
+                        "text": "scripted"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "State"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "text": "down"
+                      },
+                      "1": {
+                        "text": "up"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "gradient",
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "red"
+                    },
+                    {
+                      "color": "green",
+                      "value": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "color"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "uptime"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percentunit"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "gradient",
+                  "type": "color-background"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Instance"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Show details...",
+                    "url": "/d/cdpyddroi1tz4dprod/synthetic-health-drilldown?var-job=${__data.fields.Job}﻿﻿&var-from=﻿﻿${__from}﻿&var-to=${__to}"
+                  }
+                ]
+              },
+              {
+                "id": "custom.width",
+                "value": 536
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Job"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Show details...",
+                    "url": "/d/cdpyddroi1tz4dprod/synthetic-health-drilldown?var-job=${__data.fields.Job}﻿﻿&var-from=﻿﻿${__from}﻿&var-to=${__to}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "id"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 10,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 16,
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "Instance"
+          }
+        ]
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (instance, job, check_name)\n          (\n            rate(probe_all_success_sum{probe=~\".*\"}[$__rate_interval])\n            *\n            on (instance, job, probe, config_version)\n            group_left(check_name)\n            max by (instance, job, probe, config_version, check_name) (sm_check_info{check_name=~\".*\", region=~\".*\", label_deployment_environment=\"$env\"  })\n          )",
+          "format": "table",
+          "hide": true,
+          "instant": true,
+          "interval": "1m",
+          "intervalFactor": 1,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "reach numer"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "(\r\n  sum by (instance, job, check_name)\r\n          (\r\n            rate(probe_all_success_sum{probe=~\".*\"}[$__rate_interval])\r\n            *\r\n            on (instance, job, probe, config_version)\r\n            group_left(check_name)\r\n            max by (instance, job, probe, config_version, check_name) (sm_check_info{check_name=~\".*\", region=~\".*\", label_deployment_environment=\"$env\" })\r\n          )\r\n  /\r\n  sum by (instance, check_name, job)\r\n          (\r\n            rate(probe_all_success_count{probe=~\".*\"}[$__rate_interval])\r\n            *\r\n            on (instance, job, probe, config_version) group_left(check_name) max by (instance, job, probe, config_version, check_name) (sm_check_info{check_name=~\".*\", region=~\".*\",  label_deployment_environment=\"$env\"})\r\n          )\r\n) * 100 or vector(0)",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "reach numer/denom"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (instance, check_name, job)\r\n        (\r\n          rate(probe_all_success_count{probe=~\".*\"}[$__rate_interval])\r\n          *\r\n          on (instance, job, probe, config_version) group_left(check_name) max by (instance, job, probe, config_version, check_name) (sm_check_info{check_name=~\".*\", region=~\".*\",  label_deployment_environment=\"$env\"})\r\n        )",
+          "format": "table",
+          "hide": true,
+          "instant": true,
+          "interval": "1m",
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "reach denom"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "sum by (instance, job, check_name)\r\n          (\r\n            rate(probe_all_duration_seconds_sum{probe=~\".*\"}[$__rate_interval])\r\n            *\r\n            on (instance, job, probe, config_version) group_left(check_name) max by (instance, job, probe, config_version, check_name) (sm_check_info{check_name=~\".*\", region=~\".*\",  label_deployment_environment=\"$env\"})\r\n          )",
+          "format": "table",
+          "hide": true,
+          "instant": true,
+          "interval": "1m",
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "latency numer"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "(\r\n  sum by (instance, job, check_name)\r\n          (\r\n            rate(probe_all_duration_seconds_sum{probe=~\".*\"}[$__rate_interval])\r\n            *\r\n            on (instance, job, probe, config_version) group_left(check_name) max by (instance, job, probe, config_version, check_name) (sm_check_info{check_name=~\".*\", region=~\".*\",  label_deployment_environment=\"$env\"})\r\n          )\r\n  /\r\n   sum by (instance, job, check_name)\r\n          (\r\n            rate(probe_all_duration_seconds_count{probe=~\".*\"}[$__rate_interval])\r\n            *\r\n            on (instance, job, probe, config_version) group_left(check_name) max by (instance, job, probe, config_version, check_name) (sm_check_info{check_name=~\".*\", region=~\".*\",  label_deployment_environment=\"$env\"})\r\n          )\r\n) * 1000",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "latency numer/denom"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": " sum by (instance, job, check_name)\r\n          (\r\n            rate(probe_all_duration_seconds_count{probe=~\".*\"}[$__rate_interval])\r\n            *\r\n            on (instance, job, probe, config_version) group_left(check_name) max by (instance, job, probe, config_version, check_name) (sm_check_info{check_name=~\".*\", region=~\".*\",  label_deployment_environment=\"$env\"})\r\n          )",
+          "format": "table",
+          "hide": true,
+          "instant": true,
+          "interval": "1m",
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "latency denom"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "ceil(\r\n        sum by (instance, job, check_name)\r\n                (\r\n                  rate(probe_all_success_sum{probe=~\".*\"}[5m])\r\n                  *\r\n                  on (instance, job, probe, config_version) group_left(check_name) max by (instance, job, probe, config_version, check_name) (sm_check_info{check_name=~\".*\", region=~\".*\",  label_deployment_environment=\"$env\"})\r\n                )\r\n        /\r\n        sum by (instance, check_name, job)\r\n                (\r\n                  rate(probe_all_success_count{probe=~\".*\"}[5m])\r\n                  *\r\n                  on (instance, job, probe, config_version) group_left(check_name) max by (instance, job, probe, config_version, check_name) (sm_check_info{check_name=~\".*\", region=~\".*\",  label_deployment_environment=\"$env\"})\r\n                )\r\n)",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "state"
+        }
+      ],
+      "title": "All Checks",
+      "transformations": [
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Time": 0,
+              "Value": 5,
+              "Value #latency denom": 6,
+              "Value #latency numer": 7,
+              "Value #state": 4,
+              "check_name": 3,
+              "instance": 1,
+              "job": 2
+            },
+            "renameByName": {
+              "Time": "",
+              "Value": "Reachability",
+              "Value #latency numer/denom": "Latency",
+              "Value #reach numer/denom": "Reachability",
+              "Value #state": "State",
+              "check_name": "Check Type",
+              "instance": "Instance",
+              "job": "Job"
+            }
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "regex",
+                  "options": {
+                    "value": "^$"
+                  }
+                },
+                "fieldName": "Job"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "${__field.labels.job} - Synthetic Health Drilldown",
+              "url": "/d/cdpyddroi1tz4dprod/synthetic-health-drilldown?var-job=${__field.labels.job}﻿﻿&var-from=﻿﻿${__from}﻿&var-to=${__to}"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 11
+      },
+      "id": 5,
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "never",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "\n    1 - (\n       sum by (job)\n          (\n            rate(probe_all_success_sum{probe=~\".*\"}[$__rate_interval])\n            *\n            on (instance, job, probe, config_version) group_left(check_name) max by (instance, job, probe, config_version, check_name) (sm_check_info{check_name=~\".*\", region=~\".*\", label_deployment_environment=\"$env\" })\n          )\n      /\n      sum by (job)\n          (\n            rate(probe_all_success_count{probe=~\".*\"}[$__rate_interval])\n            *\n            on (instance, job, probe, config_version) group_left(check_name) max by (instance, job, probe, config_version, check_name) (sm_check_info{check_name=~\".*\", region=~\".*\", label_deployment_environment=\"$env\" })\n          )\n    )\n",
+          "hide": false,
+          "interval": "$__rate_interval",
+          "intervalFactor": 1,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "errorRate"
+        }
+      ],
+      "title": "Health Status History",
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "decimals": 2,
+          "mappings": [],
+          "max": 0.1,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Error Rate"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "decimals",
+                "value": 2
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "percentage",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "yellow",
+                      "value": 1
+                    },
+                    {
+                      "color": "red",
+                      "value": 1.5
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 0,
+        "y": 21
+      },
+      "id": 9,
+      "options": {
+        "basemap": {
+          "config": {},
+          "name": "Layer 0",
+          "type": "default"
+        },
+        "controls": {
+          "mouseWheelZoom": false,
+          "showAttribution": true,
+          "showDebug": false,
+          "showMeasure": false,
+          "showScale": false,
+          "showZoom": true
+        },
+        "layers": [
+          {
+            "config": {
+              "showLegend": true,
+              "style": {
+                "color": {
+                  "field": "Error Rate",
+                  "fixed": "dark-green"
+                },
+                "opacity": 0.4,
+                "rotation": {
+                  "fixed": 0,
+                  "max": 360,
+                  "min": -360,
+                  "mode": "mod"
+                },
+                "size": {
+                  "field": "Error Rate",
+                  "fixed": 5,
+                  "max": 10,
+                  "min": 4
+                },
+                "symbol": {
+                  "fixed": "img/icons/marker/circle.svg",
+                  "mode": "fixed"
+                },
+                "symbolAlign": {
+                  "horizontal": "center",
+                  "vertical": "center"
+                },
+                "text": {
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "textConfig": {
+                  "fontSize": 12,
+                  "offsetX": 0,
+                  "offsetY": 0,
+                  "textAlign": "center",
+                  "textBaseline": "middle"
+                }
+              }
+            },
+            "location": {
+              "mode": "auto"
+            },
+            "name": "Error Rate",
+            "tooltip": true,
+            "type": "markers"
+          }
+        ],
+        "tooltip": {
+          "mode": "details"
+        },
+        "view": {
+          "allLayers": true,
+          "id": "zero",
+          "lat": 0,
+          "lon": 0,
+          "zoom": 1.8
+        }
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by (probe, geohash)\r\n      (\r\n        rate(probe_all_success_sum{probe=~\".*\"}[$__rate_interval])\r\n        *\r\n        on (instance, job, probe, config_version)\r\n        group_left(geohash)\r\n        max by (instance, job, probe, config_version, geohash)\r\n        (\r\n          (sm_check_info{check_name=~\".*\", region=~\".*\", label_deployment_environment=\"$env\"})  \r\n        )\r\n      )",
+          "format": "table",
+          "instant": false,
+          "interval": "1m",
+          "legendFormat": "numerator",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "expr": "sum by (probe, geohash)\r\n      (\r\n        rate(probe_all_success_count{probe=~\".*\"}[$__rate_interval])\r\n          *\r\n        on (instance, job, probe, config_version)\r\n        group_left(geohash)\r\n        max by (instance, job, probe, config_version, geohash)\r\n        (sm_check_info{check_name=~\".*\", region=~\".*\", label_deployment_environment=\"$env\"})\r\n      )",
+          "format": "table",
+          "hide": false,
+          "instant": false,
+          "interval": "1m",
+          "legendFormat": "denominator",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "All Error Rate By Location",
+      "transformations": [
+        {
+          "id": "merge",
+          "options": {}
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Success Rate pt1",
+            "binary": {
+              "left": "Value #A",
+              "operator": "/",
+              "right": "Value #B"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Success Rate pt2",
+            "binary": {
+              "left": "Success Rate pt1",
+              "operator": "*",
+              "right": "100"
+            },
+            "mode": "binary"
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Error Rate",
+            "binary": {
+              "left": "100",
+              "operator": "-",
+              "right": "Success Rate pt2"
+            },
+            "mode": "binary"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Success Rate pt1": true,
+              "Success Rate pt2": true,
+              "Time": true,
+              "Value #A": true,
+              "Value #B": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Error Rate": 7,
+              "Success Rate pt1": 5,
+              "Success Rate pt2": 6,
+              "Time": 0,
+              "Value #A": 3,
+              "Value #B": 4,
+              "geohash": 2,
+              "probe": 1
+            },
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "limit",
+          "options": {
+            "limitField": "1"
+          }
+        }
+      ],
+      "type": "geomap"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 10,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "${__field.labels.job} - Synthetic Health Drilldown",
+              "url": "https://pblks.grafana.net/d/cdpyddroi1tz4d/synthetic-health-drilldown?var-job=${__field.labels.job}﻿﻿&var-from=﻿﻿${__from}﻿&var-to=${__to}"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 12,
+        "y": 21
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "1 - sum(\r\n      rate(probe_all_success_sum{probe=~\".*\"}[$__rate_interval])\r\n      * \r\n      on (\r\n        instance, job, probe, config_version\r\n      ) \r\n      group_left\r\n      max(\r\n        sm_check_info{check_name=~\".*\", region=~\".*\", label_deployment_environment=\"$env\" }\r\n      ) \r\n      by (instance, job, probe, config_version)\r\n    ) \r\n    by (job, instance) \r\n    / \r\n    sum(\r\n      rate(\r\n        probe_all_success_count{probe=~\".*\"}[$__rate_interval])\r\n        * \r\n        on (\r\n          instance, job, probe, config_version\r\n        ) \r\n        group_left \r\n        max(\r\n          sm_check_info{check_name=~\".*\", region=~\".*\", label_deployment_environment=\"$env\" }\r\n        ) \r\n        by (\r\n          instance, job, probe, config_version\r\n        )\r\n      ) \r\n    by (job, instance)",
+          "hide": false,
+          "instant": false,
+          "interval": "1m",
+          "legendFormat": "{{job}}/{{instance}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "All Check Error Percentage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "left",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "${__field.labels.job} - Synthetic Health Drilldown",
+              "url": "https://pblks.grafana.net/d/cdpyddroi1tz4d/synthetic-health-drilldown?var-job=${__field.labels.job}﻿﻿&var-from=﻿﻿${__from}﻿&var-to=${__to}"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 32
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "\r\n(\r\n  sum(\r\n    rate(probe_all_duration_seconds_sum{probe=~\".*\"}[$__rate_interval])\r\n    * on (instance, job, probe, config_version) group_left max(sm_check_info{check_name=~\".*\", region=~\".*\", label_deployment_environment=\"$env\"})\r\n    by (instance, job, probe, config_version)\r\n  )\r\n  by (job, instance)\r\n)\r\n/\r\n(\r\n  sum(\r\n    rate(probe_all_duration_seconds_count{probe=~\".*\"}[$__rate_interval])\r\n    * on (instance, job, probe, config_version) group_left max(sm_check_info{check_name=~\".*\", region=~\".*\", label_deployment_environment=\"$env\"})\r\n    by (instance, job, probe, config_version)\r\n  )\r\n  by (job, instance)\r\n)\r\n        ",
+          "instant": false,
+          "interval": "1m",
+          "legendFormat": "{{job}}/{{instance}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "All Latency",
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "refresh": "",
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "kansas-prod",
+          "value": "kansas-prod"
+        },
+        "hide": 2,
+        "label": "Environment",
+        "name": "env",
+        "query": "kansas-prod",
+        "skipUrlSync": true,
+        "type": "constant"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "utc",
+  "title": "Synthetic Health Overview",
+  "uid": "ddonyq88oy0owdprod",
+  "version": 8
+}

@@ -29,14 +29,14 @@
       "keepTime": true,
       "title": "Clear Selection",
       "type": "link",
-      "url": "/d/AEbrOO2Mz"
+      "url": "/d/AEbrOO2Mz/usage-insights-2-data-sources"
     },
     {
       "icon": "dashboard",
       "keepTime": true,
       "title": "Usage Insights Overview",
       "type": "link",
-      "url": "/d/XU8HAD5Gk"
+      "url": "/d/XU8HAD5Gk/usage-insights-1-overview"
     }
   ],
   "liveNow": false,
@@ -57,7 +57,7 @@
           "links": [
             {
               "title": "Data source details",
-              "url": "/d/AEbrOO2Mz?var-datasource_id=${__data.fields.ID}&${__url_time_range}"
+              "url": "/d/AEbrOO2Mz/usage-insights-2-data-sources?var-datasource_id=${__data.fields.ID}&${__url_time_range}"
             }
           ]
         },
@@ -163,7 +163,7 @@
           "links": [
             {
               "title": "Data source details",
-              "url": "/d/AEbrOO2Mz?var-datasource_id=${__data.fields.ID}&${__url_time_range}"
+              "url": "/d/AEbrOO2Mz/usage-insights-2-data-sources?var-datasource_id=${__data.fields.ID}&${__url_time_range}"
             }
           ],
           "unit": "none"
@@ -1403,6 +1403,6 @@
   "timezone": "",
   "title": "Usage Insights - 2 - Data sources",
   "uid": "AEbrOO2Mz",
-  "version": 2,
+  "version": 3,
   "weekStart": ""
 }

@@ -1,0 +1,419 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 490,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-alert-state-history"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": true
+          },
+          "mappings": [
+            {
+              "options": {
+                "Alerting": {
+                  "color": "red",
+                  "index": 2
+                },
+                "Error": {
+                  "color": "orange",
+                  "index": 4
+                },
+                "NoData": {
+                  "color": "blue",
+                  "index": 3
+                },
+                "Normal": {
+                  "color": "green",
+                  "index": 1
+                },
+                "Normal (MissingSeries)": {
+                  "color": "#808080",
+                  "index": 5
+                },
+                "Normal (Updated)": {
+                  "color": "#808080",
+                  "index": 6,
+                  "text": "Updated"
+                },
+                "Pending": {
+                  "color": "yellow",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "never",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-alert-state-history"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "{instance_id=\"793527\", folderUID=\"ddokt1hspkhs0d\"} | json | labels_alertname = `$alertname` | fingerprint =~ `$fingerprint`",
+          "legendFormat": "{{labels_alertname}}-{{current}}",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Alert State Timeline by Fingerprint",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "keepTime": true,
+            "replace": true,
+            "source": "labels"
+          }
+        },
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Time",
+                "current",
+                "fingerprint",
+                "labels_alertname",
+                "labels_deployment_environment"
+              ],
+              "pattern": "(Time|current|fingerprint|labels_alertname)"
+            }
+          }
+        },
+        {
+          "id": "groupingToMatrix",
+          "options": {
+            "columnField": "fingerprint",
+            "emptyValue": "null",
+            "rowField": "Time",
+            "valueField": "current"
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "Time\\fingerprint"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-alert-state-history"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "Alerting": {
+                  "color": "red",
+                  "index": 2
+                },
+                "Error": {
+                  "color": "orange",
+                  "index": 4
+                },
+                "NoData": {
+                  "color": "blue",
+                  "index": 3
+                },
+                "Normal": {
+                  "color": "green",
+                  "index": 1
+                },
+                "Normal (MissingSeries)": {
+                  "color": "#808080",
+                  "index": 5
+                },
+                "Normal (Updated)": {
+                  "color": "#808080",
+                  "index": 6,
+                  "text": "Updated"
+                },
+                "Pending": {
+                  "color": "yellow",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "current"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 2,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Time"
+          }
+        ]
+      },
+      "pluginVersion": "11.6.0-84846",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-alert-state-history"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "{instance_id=\"793527\", folderUID=\"ddokt1hspkhs0d\"} | json | labels_alertname = `$alertname` | fingerprint =~ `$fingerprint`",
+          "legendFormat": "{{labels_alertname}}-{{current}}",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Alert State Changes",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "keepTime": true,
+            "replace": true,
+            "source": "labels"
+          }
+        },
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "pattern": "(Time|current|fingerprint|labels_.*)"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "labels_alertname": true,
+              "labels_grafana_folder": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Time": 0,
+              "current": 2,
+              "fingerprint": 1,
+              "labels_alertname": 3,
+              "labels_grafana_folder": 4,
+              "labels_service": 5
+            },
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "notEqual",
+                  "options": {
+                    "value": "${env}"
+                  }
+                },
+                "fieldName": "labels_deployment_environment"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "preload": false,
+  "refresh": "",
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "KubeHpaMaxedOut",
+          "value": "KubeHpaMaxedOut"
+        },
+        "name": "alertname",
+        "options": [
+          {
+            "selected": true,
+            "text": "KubeHpaMaxedOut",
+            "value": "KubeHpaMaxedOut"
+          }
+        ],
+        "query": "ServiceNow Example Alert",
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "text": ".*",
+          "value": ".*"
+        },
+        "name": "fingerprint",
+        "options": [
+          {
+            "selected": true,
+            "text": ".*",
+            "value": ".*"
+          }
+        ],
+        "query": ".*",
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "text": "kansas-prod",
+          "value": "kansas-prod"
+        },
+        "hide": 2,
+        "name": "env",
+        "query": "kansas-prod",
+        "skipUrlSync": true,
+        "type": "constant"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "utc",
+  "title": "Grafana Alert Drilldown",
+  "uid": "ddrd0odw73wu8aprod",
+  "version": 3
+}

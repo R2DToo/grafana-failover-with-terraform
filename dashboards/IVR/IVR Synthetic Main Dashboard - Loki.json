@@ -1,0 +1,3408 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 430,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "ee748sznwmxogc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "red",
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "noValue": "0%",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red"
+              },
+              {
+                "color": "orange",
+                "value": 0.7
+              },
+              {
+                "color": "#EAB839",
+                "value": 0.8
+              },
+              {
+                "color": "green",
+                "value": 0.9
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 4,
+        "x": 0,
+        "y": 0
+      },
+      "id": 91,
+      "interval": "5m",
+      "maxDataPoints": 10000,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "first"
+          ],
+          "fields": "/^SUCCESS / status$/",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "11.6.0-82840",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "start_time",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "ee748sznwmxogc"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "type": "logs"
+            }
+          ],
+          "query": "",
+          "refId": "A",
+          "timeField": "start_time"
+        }
+      ],
+      "title": "Tests Availability",
+      "transformations": [
+        {
+          "id": "reduce",
+          "options": {
+            "includeTimeField": false,
+            "mode": "reduceFields",
+            "reducers": [
+              "count"
+            ]
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "SUCCESS",
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "status"
+                }
+              },
+              "operator": "-",
+              "right": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "failure_desc"
+                }
+              }
+            },
+            "cumulative": {
+              "field": "FAILURE",
+              "reducer": "sum"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "SUCCESS"
+                }
+              },
+              "operator": "/",
+              "right": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "status"
+                }
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "blue",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 4,
+        "y": 0
+      },
+      "id": 92,
+      "interval": "5m",
+      "maxDataPoints": 10000,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ],
+          "fields": "/^call_id$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-82840",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "{job=\"ivr-testing\"}",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Total Tests",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "keepTime": false,
+            "replace": true,
+            "source": "Line"
+          }
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "keepTime": false,
+            "replace": true,
+            "source": "attributes"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "0"
+                  }
+                },
+                "fieldName": "step"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "0 min",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 18,
+        "y": 0
+      },
+      "id": 103,
+      "interval": "5m",
+      "maxDataPoints": 10000,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "/^duration$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-82840",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "{job=\"ivr-testing\"}",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Average Call Duration",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "replace": true,
+            "source": "Line"
+          }
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "replace": true,
+            "source": "attributes"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "0"
+                  }
+                },
+                "fieldName": "step"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "0 min",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 21,
+        "y": 0
+      },
+      "id": 93,
+      "interval": "5m",
+      "maxDataPoints": 10000,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "/^cost$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-82840",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "{job=\"ivr-testing\"}",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Average Call Cost",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "replace": true,
+            "source": "Line"
+          }
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "replace": true,
+            "source": "attributes"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "0"
+                  }
+                },
+                "fieldName": "step"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "0 min",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 18,
+        "y": 3
+      },
+      "id": 102,
+      "interval": "5m",
+      "maxDataPoints": 10000,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "/^duration$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-82840",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "{job=\"ivr-testing\"}",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Total Call Duration",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "replace": true,
+            "source": "Line"
+          }
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "replace": true,
+            "source": "attributes"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "0"
+                  }
+                },
+                "fieldName": "step"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "0 min",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 21,
+        "y": 3
+      },
+      "id": 104,
+      "interval": "5m",
+      "maxDataPoints": 10000,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "/^cost$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-82840",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "{job=\"ivr-testing\"}",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Total Call Cost",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "replace": true,
+            "source": "Line"
+          }
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "replace": true,
+            "source": "attributes"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "0"
+                  }
+                },
+                "fieldName": "step"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 4,
+        "y": 4
+      },
+      "id": 100,
+      "interval": "5m",
+      "maxDataPoints": 10000,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ],
+          "fields": "/^call_id$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-82840",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "{job=\"ivr-testing\"}",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Passed",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "keepTime": false,
+            "replace": true,
+            "source": "Line"
+          }
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "replace": true,
+            "source": "attributes"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "0"
+                  }
+                },
+                "fieldName": "step"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "1"
+                  }
+                },
+                "fieldName": "result"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "red",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 6,
+        "y": 4
+      },
+      "id": 90,
+      "interval": "5m",
+      "maxDataPoints": 10000,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ],
+          "fields": "/^call_id$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-82840",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "{job=\"ivr-testing\"} |= ``",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Failed",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "replace": true,
+            "source": "Line"
+          }
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "replace": true,
+            "source": "attributes"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "0"
+                  }
+                },
+                "fieldName": "step"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "0"
+                  }
+                },
+                "fieldName": "result"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "orange",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 8,
+        "y": 4
+      },
+      "id": 101,
+      "interval": "5m",
+      "maxDataPoints": 10000,
+      "options": {
+        "colorMode": "background_solid",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ],
+          "fields": "/^call_id$/",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.6.0-82840",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "{job=\"ivr-testing\"} |= ``",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Errors",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "replace": true,
+            "source": "Line"
+          }
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "replace": true,
+            "source": "attributes"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "0"
+                  }
+                },
+                "fieldName": "step"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "-1"
+                  }
+                },
+                "fieldName": "result"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "red",
+                  "index": 1,
+                  "text": "Failure"
+                },
+                "1": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "Success"
+                },
+                "-1": {
+                  "color": "orange",
+                  "index": 2,
+                  "text": "Error"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "id": 98,
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": false,
+        "rowHeight": 0.9,
+        "showValue": "never",
+        "tooltip": {
+          "hideZeros": false,
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-82840",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "{job=\"ivr-testing\"}",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Tests Health",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "replace": true,
+            "source": "Line"
+          }
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "replace": true,
+            "source": "attributes"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "0"
+                  }
+                },
+                "fieldName": "step"
+              }
+            ],
+            "match": "any",
+            "type": "include"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_id": true,
+              "_index": true,
+              "_source": true,
+              "_type": true,
+              "actual": true,
+              "call_id": true,
+              "cost": true,
+              "duration": true,
+              "expected": true,
+              "failure_desc": true,
+              "highlight": true,
+              "id": true,
+              "input": true,
+              "interrupt": true,
+              "pause": true,
+              "phone_number": true,
+              "rec_id": true,
+              "recording_id": true,
+              "recording_url": true,
+              "sort": true,
+              "status": false,
+              "step": true,
+              "tags": true,
+              "test_id": true,
+              "transcription": true,
+              "transcription_confidence": true,
+              "transcription_ratio": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "actual": 2,
+              "call_id": 0,
+              "cost": 3,
+              "duration": 4,
+              "end": 6,
+              "expected": 8,
+              "input": 9,
+              "interrupt": 10,
+              "pause": 11,
+              "phone_number": 1,
+              "recording_id": 12,
+              "recording_url": 13,
+              "result": 14,
+              "start": 5,
+              "step": 15,
+              "tags": 16,
+              "test_name": 7,
+              "transcription_confidence": 17,
+              "transcription_ratio": 18
+            },
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "start"
+              },
+              {
+                "destinationType": "time",
+                "targetField": "end"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "partitionByValues",
+          "options": {
+            "fields": [
+              "test_name"
+            ],
+            "keepFields": false,
+            "naming": {
+              "asLabels": true
+            }
+          }
+        }
+      ],
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "ee748sznwmxogc"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Status"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 132
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "FAILURE": {
+                        "color": "red",
+                        "index": 1
+                      },
+                      "SUCCESS": {
+                        "color": "green",
+                        "index": 0
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Availability"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "barAlignment": 0,
+                  "drawStyle": "bars",
+                  "fillOpacity": 27,
+                  "gradientMode": "hue",
+                  "lineInterpolation": "stepBefore",
+                  "lineWidth": 2,
+                  "showPoints": "always",
+                  "type": "sparkline"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Cost"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "currencyUSD"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Duration"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "m"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Name"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Test Breakdown Link",
+                    "url": "https://optimiz.grafana.net/d/adlwtnsl7sqgwa/ivr-synthetic-test-breakdown?var-Tags=$__all&var-Statuses=${__value.text}&${__url_time_range}&refresh=5s"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "id": 97,
+      "interval": "5m",
+      "maxDataPoints": 10000,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": true,
+          "fields": [],
+          "reducer": [
+            "count"
+          ],
+          "show": true
+        },
+        "frameIndex": 0,
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.6.0-82840",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "start_time",
+              "id": "2",
+              "settings": {
+                "interval": "auto"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "ee748sznwmxogc"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "type": "logs"
+            }
+          ],
+          "query": "",
+          "refId": "C",
+          "timeField": "start_time"
+        }
+      ],
+      "title": "Contact Center Test Availability",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "end_time"
+              },
+              {
+                "destinationType": "number",
+                "targetField": "end_time"
+              },
+              {
+                "destinationType": "number",
+                "targetField": "start_time"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "duration (s)",
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "end_time"
+                }
+              },
+              "operator": "-",
+              "right": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "start_time"
+                }
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Duration",
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "duration (s)"
+                }
+              },
+              "operator": "/",
+              "right": {
+                "fixed": "60000"
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Cost",
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Duration"
+                }
+              },
+              "operator": "*",
+              "right": {
+                "fixed": "0.019"
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_id": true,
+              "_index": true,
+              "_source": true,
+              "_type": true,
+              "call_id": true,
+              "duration (s)": true,
+              "end_time": true,
+              "failure_desc": true,
+              "group (lastNotNull) 1": true,
+              "group (lastNotNull) 3": true,
+              "highlight": true,
+              "id": true,
+              "name 2": true,
+              "number (lastNotNull) 1": true,
+              "number (lastNotNull) 3": true,
+              "phone_number": false,
+              "rec_id": true,
+              "sort": true,
+              "start_time": true,
+              "transcription": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "Cost": 18,
+              "Duration": 17,
+              "_id": 7,
+              "_index": 8,
+              "_source": 9,
+              "_type": 10,
+              "call_id": 2,
+              "duration (s)": 16,
+              "end_time": 5,
+              "failure_desc": 11,
+              "highlight": 12,
+              "id": 13,
+              "phone_number": 1,
+              "rec_id": 14,
+              "sort": 15,
+              "start_time": 4,
+              "status": 3,
+              "test_name": 0,
+              "transcription": 6
+            },
+            "renameByName": {
+              "Value #A (allValues)": "Availability",
+              "Value #A (mean)": "Availability(%)",
+              "Value #B (lastNotNull)": "Call Cost",
+              "Value #C (lastNotNull)": "Call Duration",
+              "Value (allValues)": "Availability",
+              "Value (mean)": "Availability(%)",
+              "call_cost (lastNotNull)": "Call Cost",
+              "call_cost (sum)": "Call Cost ",
+              "call_duration (lastNotNull)": "Call Duration",
+              "call_duration (max)": "Call Duration (max)",
+              "group (lastNotNull)": "Group Name",
+              "group (lastNotNull) 2": "Group Name",
+              "name": "Name",
+              "number (lastNotNull)": "Phone Number",
+              "number (lastNotNull) 2": "Phone Number",
+              "phone_number": "Phone Number",
+              "status": "Status",
+              "test_name": "Name"
+            }
+          }
+        },
+        {
+          "disabled": true,
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Availability(%)": {
+                "aggregations": [
+                  "mean"
+                ],
+                "operation": "aggregate"
+              },
+              "Cost": {
+                "aggregations": [
+                  "mean"
+                ],
+                "operation": "aggregate"
+              },
+              "Duration": {
+                "aggregations": [
+                  "mean"
+                ],
+                "operation": "aggregate"
+              },
+              "Name": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Value": {
+                "aggregations": [
+                  "allValues",
+                  "mean"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #A": {
+                "aggregations": [
+                  "allValues",
+                  "mean"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #B": {
+                "aggregations": [
+                  "lastNotNull"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #C": {
+                "aggregations": [
+                  "lastNotNull"
+                ],
+                "operation": "aggregate"
+              },
+              "Value (allValues)": {
+                "aggregations": [
+                  "mean"
+                ],
+                "operation": "aggregate"
+              },
+              "__name__": {
+                "aggregations": []
+              },
+              "call_cost": {
+                "aggregations": [
+                  "lastNotNull"
+                ],
+                "operation": "aggregate"
+              },
+              "call_cost (mean)": {
+                "aggregations": [
+                  "lastNotNull"
+                ],
+                "operation": "aggregate"
+              },
+              "call_duration": {
+                "aggregations": [
+                  "lastNotNull"
+                ],
+                "operation": "aggregate"
+              },
+              "call_duration (allValues)": {
+                "aggregations": [
+                  "lastNotNull"
+                ],
+                "operation": "aggregate"
+              },
+              "group": {
+                "aggregations": [
+                  "lastNotNull"
+                ],
+                "operation": "aggregate"
+              },
+              "group (allValues)": {
+                "aggregations": []
+              },
+              "job": {
+                "aggregations": [],
+                "operation": "aggregate"
+              },
+              "name": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "name (allValues)": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "number": {
+                "aggregations": [
+                  "lastNotNull"
+                ],
+                "operation": "aggregate"
+              },
+              "status": {
+                "aggregations": [
+                  "lastNotNull"
+                ],
+                "operation": "aggregate"
+              },
+              "test_name": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "type": {
+                "aggregations": []
+              }
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto",
+              "wrapText": false
+            },
+            "filterable": false,
+            "inspect": false
+          },
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "orange",
+                "value": -1
+              },
+              {
+                "color": "red",
+                "value": 0
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "test_id"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Test"
+            },
+            "properties": [
+              {
+                "id": "color"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 25
+      },
+      "id": 99,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 0,
+        "showHeader": true
+      },
+      "pluginVersion": "11.6.0-82840",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "{job=\"ivr-testing\"}",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Test Breakdown",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "keepTime": false,
+            "replace": true,
+            "source": "Line"
+          }
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "source": "attributes"
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "start"
+              },
+              {
+                "destinationType": "time",
+                "targetField": "end"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "formatTime",
+          "options": {
+            "outputFormat": "HH:mm",
+            "timeField": "start",
+            "useTimezone": true
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Nested frames": false,
+              "_id": true,
+              "_index": true,
+              "_source": true,
+              "_type": true,
+              "attributes": true,
+              "body": true,
+              "call_id": true,
+              "end": true,
+              "end_time": true,
+              "failure_desc": true,
+              "flags": true,
+              "highlight": true,
+              "id": true,
+              "input": true,
+              "instrumentation_scope": true,
+              "interrupt": true,
+              "pause": true,
+              "phone_number": true,
+              "rec_id": true,
+              "recording_id": true,
+              "resources": true,
+              "severity": true,
+              "sort": true,
+              "spanid": true,
+              "start": true,
+              "start_time": false,
+              "status": false,
+              "tags": true,
+              "test_name": false,
+              "traceid": true,
+              "transcription": false
+            },
+            "includeByName": {},
+            "indexByName": {
+              "actual": 17,
+              "attributes": 11,
+              "body": 6,
+              "call_id": 1,
+              "cost": 19,
+              "duration": 18,
+              "end": 15,
+              "expected": 16,
+              "flags": 10,
+              "input": 20,
+              "instrumentation_scope": 13,
+              "interrupt": 22,
+              "pause": 21,
+              "phone_number": 5,
+              "recording_id": 25,
+              "recording_url": 26,
+              "resources": 12,
+              "result": 4,
+              "severity": 9,
+              "spanid": 8,
+              "start": 14,
+              "step": 3,
+              "tags": 27,
+              "test_id": 0,
+              "test_name": 2,
+              "traceid": 7,
+              "transcription_confidence": 23,
+              "transcription_ratio": 24
+            },
+            "renameByName": {
+              "Nested frames": "",
+              "test_name": "Test"
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "step"
+              }
+            ]
+          }
+        },
+        {
+          "id": "groupToNestedTable",
+          "options": {
+            "fields": {
+              "Test": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "call_id": {
+                "aggregations": []
+              },
+              "result": {
+                "aggregations": [
+                  "first"
+                ],
+                "operation": "aggregate"
+              },
+              "step": {
+                "aggregations": []
+              },
+              "test_id": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "test_name": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            },
+            "showSubframeHeaders": true
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "test_id"
+            },
+            "properties": []
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Nested frames"
+            },
+            "properties": []
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 35
+      },
+      "id": 105,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.6.0-82840",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "{job=\"ivr-testing\"}",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Test Breakdown - audio testing",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "keepTime": false,
+            "replace": true,
+            "source": "Line"
+          }
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "delimiter": ",",
+            "format": "json",
+            "jsonPaths": [],
+            "source": "attributes"
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "start"
+              },
+              {
+                "destinationType": "time",
+                "targetField": "end"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "formatTime",
+          "options": {
+            "outputFormat": "HH:mm",
+            "timeField": "start",
+            "useTimezone": true
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Nested frames": false,
+              "_id": true,
+              "_index": true,
+              "_source": true,
+              "_type": true,
+              "attributes": true,
+              "body": true,
+              "call_id": true,
+              "end": true,
+              "end_time": true,
+              "failure_desc": true,
+              "flags": true,
+              "highlight": true,
+              "id": true,
+              "input": true,
+              "instrumentation_scope": true,
+              "interrupt": true,
+              "pause": true,
+              "phone_number": true,
+              "rec_id": true,
+              "recording_id": true,
+              "resources": true,
+              "severity": true,
+              "sort": true,
+              "spanid": true,
+              "start": true,
+              "start_time": false,
+              "status": false,
+              "tags": true,
+              "test_id": false,
+              "test_name": false,
+              "traceid": true,
+              "transcription": false
+            },
+            "includeByName": {},
+            "indexByName": {
+              "actual": 17,
+              "attributes": 11,
+              "body": 6,
+              "call_id": 1,
+              "cost": 19,
+              "duration": 18,
+              "end": 15,
+              "expected": 16,
+              "flags": 10,
+              "input": 20,
+              "instrumentation_scope": 13,
+              "interrupt": 22,
+              "pause": 21,
+              "phone_number": 5,
+              "recording_id": 25,
+              "recording_url": 26,
+              "resources": 12,
+              "result": 4,
+              "severity": 9,
+              "spanid": 8,
+              "start": 14,
+              "step": 3,
+              "tags": 27,
+              "test_id": 0,
+              "test_name": 2,
+              "traceid": 7,
+              "transcription_confidence": 23,
+              "transcription_ratio": 24
+            },
+            "renameByName": {
+              "Nested frames": "",
+              "recording_url": "",
+              "test_name": "Test"
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "step"
+              }
+            ]
+          }
+        },
+        {
+          "id": "groupToNestedTable",
+          "options": {
+            "fields": {
+              "Test": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "call_id": {
+                "aggregations": []
+              },
+              "recording_url": {
+                "aggregations": []
+              },
+              "result": {
+                "aggregations": [
+                  "first"
+                ],
+                "operation": "aggregate"
+              },
+              "step": {
+                "aggregations": []
+              },
+              "test_id": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "test_name": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            },
+            "showSubframeHeaders": true
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "$custome_test_audio_url"
+                }
+              },
+              "right": {
+                "matcher": {
+                  "id": "byName",
+                  "options": "test_id"
+                }
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "ce1yc0vwmt79ca"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "links": [
+            {
+              "title": "play audio",
+              "url": "/d/deazmc2w1u3uoa/ivr-synthetic-main-dashboard-loki?orgId=1&var-audio_url=${__data.fields.url}\r\n"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 45
+      },
+      "id": 106,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.6.0-82840",
+      "targets": [
+        {
+          "csvContent": "id, url\r\n1, https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3\r\n2, https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "ce1yc0vwmt79ca"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content"
+        }
+      ],
+      "title": "testing_breakdown mock tbl",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "links": [
+            {
+              "title": "",
+              "url": "/d/deazmc2w1u3uoa/ivr-synthetic-main-dashboard-loki?var-audio_url=${audio_url}\r"
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 12,
+        "y": 45
+      },
+      "id": 107,
+      "options": {
+        "autoPlay": false,
+        "autoPlayInfinity": false,
+        "buttons": [],
+        "controls": true,
+        "description": "Field url",
+        "height": 0,
+        "heightMode": "auto",
+        "infinityPlay": false,
+        "mediaSources": [
+          {
+            "field": "Field url",
+            "id": "cd6b49f3-85b5-4ad0-977d-503a15a02ade",
+            "refId": "A",
+            "type": "audio"
+          }
+        ],
+        "noResultsMessage": "Nothing to display...",
+        "pdfToolbar": true,
+        "scale": "auto",
+        "toolbar": true,
+        "width": 0,
+        "widthMode": "auto",
+        "zoomType": "default"
+      },
+      "pluginVersion": "6.2.0",
+      "repeat": "audio_url",
+      "repeatDirection": "v",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Field url",
+                "type": "string",
+                "values": [
+                  "$audio_url"
+                ]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "recording_url",
+      "type": "volkovlabs-image-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 55
+      },
+      "id": 108,
+      "options": {
+        "autoPlay": true,
+        "autoPlayInfinity": false,
+        "buttons": [],
+        "controls": true,
+        "height": 0,
+        "heightMode": "auto",
+        "infinityPlay": false,
+        "mediaSources": [
+          {
+            "field": "Media",
+            "id": "84374d87-825b-4f64-a740-d86c533eea91",
+            "refId": "A",
+            "type": "audio"
+          }
+        ],
+        "noResultsMessage": "Nothing to display...",
+        "pdfToolbar": true,
+        "scale": "auto",
+        "toolbar": true,
+        "width": 0,
+        "widthMode": "auto",
+        "zoomType": "default"
+      },
+      "pluginVersion": "6.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "df22fcfe-9680-4acc-9659-5566be932142"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Media",
+                "type": "string",
+                "values": [
+                  "https://ivr-testing-bucket.s3.ca-central-1.amazonaws.com/REd7971f8a65c0729205b2c00c18b8114a.mp3"
+                ]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "S3 Test",
+      "type": "volkovlabs-image-panel"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "cecv1yv1syi2oe"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 55
+      },
+      "id": 110,
+      "options": {
+        "autoPlay": false,
+        "autoPlayInfinity": false,
+        "buttons": [
+          "download"
+        ],
+        "controls": true,
+        "description": "id",
+        "height": 0,
+        "heightMode": "auto",
+        "infinityPlay": false,
+        "mediaSources": [
+          {
+            "field": "audio",
+            "id": "a84d6316-7b02-47cd-a54e-91666d8e2ea4",
+            "refId": "A",
+            "type": "audio"
+          }
+        ],
+        "noResultsMessage": "Nothing to display...",
+        "pdfToolbar": true,
+        "scale": "auto",
+        "toolbar": true,
+        "width": 0,
+        "widthMode": "auto",
+        "zoomType": "default"
+      },
+      "pluginVersion": "6.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "cecv1yv1syi2oe"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT encode(recording, 'base64') as audio FROM monitoring.ivr_testing WHERE recording_id = 'REe9cdf5aa6161c4781688429357178328'",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [
+                  {
+                    "name": "recording",
+                    "type": "functionParameter"
+                  }
+                ],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50,
+            "whereJsonTree": {
+              "children1": [
+                {
+                  "id": "bba9bbb9-cdef-4012-b456-7194fb45065b",
+                  "properties": {
+                    "field": "id",
+                    "fieldSrc": "field",
+                    "operator": "equal",
+                    "value": [
+                      "REb3e906b4969a4212a6f08b47a6c1dbbc.mp3"
+                    ],
+                    "valueError": [
+                      null
+                    ],
+                    "valueSrc": [
+                      "value"
+                    ],
+                    "valueType": [
+                      "text"
+                    ]
+                  },
+                  "type": "rule"
+                }
+              ],
+              "id": "ba9bb9aa-0123-4456-b89a-b194fb442833",
+              "type": "group"
+            },
+            "whereString": "id = 'REb3e906b4969a4212a6f08b47a6c1dbbc.mp3'"
+          },
+          "table": "monitoring.ivr_testing_recordings"
+        }
+      ],
+      "title": "Postgres Test",
+      "type": "volkovlabs-image-panel"
+    },
+    {
+      "datasource": {
+        "type": "elasticsearch",
+        "uid": "ded067s6wdts0c"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 55
+      },
+      "id": 109,
+      "options": {
+        "autoPlay": false,
+        "autoPlayInfinity": false,
+        "buttons": [
+          "download"
+        ],
+        "controls": true,
+        "description": "id",
+        "height": 0,
+        "heightMode": "auto",
+        "infinityPlay": false,
+        "mediaSources": [
+          {
+            "field": "appMessage.recording",
+            "id": "a84d6316-7b02-47cd-a54e-91666d8e2ea4",
+            "refId": "A",
+            "type": "audio"
+          }
+        ],
+        "noResultsMessage": "Nothing to display...",
+        "pdfToolbar": true,
+        "scale": "auto",
+        "toolbar": true,
+        "width": 0,
+        "widthMode": "auto",
+        "zoomType": "default"
+      },
+      "pluginVersion": "6.2.0",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "ded067s6wdts0c"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "settings": {
+                "limit": "500"
+              },
+              "type": "logs"
+            }
+          ],
+          "query": "appMessage.recording_id:REe9cdf5aa6161c4781688429357178328",
+          "refId": "A",
+          "timeField": "timestamp"
+        }
+      ],
+      "title": "Elastic Test",
+      "type": "volkovlabs-image-panel"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 59
+      },
+      "id": 85,
+      "panels": [],
+      "title": "Call Traces & Logs",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "grafanacloud-logs"
+      },
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 60
+      },
+      "id": 87,
+      "options": {
+        "dedupStrategy": "none",
+        "enableInfiniteScrolling": false,
+        "enableLogDetails": true,
+        "prettifyLogMessage": false,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": false,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "pluginVersion": "11.6.0-82840",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "direction": "backward",
+          "editorMode": "builder",
+          "expr": "{job=\"ivr-testing\"} | json | attributes_step = `0`",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Logs",
+      "type": "logs"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 69
+      },
+      "id": 86,
+      "panels": [
+        {
+          "datasource": {
+            "type": "grafana-servicenow-datasource",
+            "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "type": "auto"
+                },
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 24,
+            "x": 0,
+            "y": 46
+          },
+          "id": 83,
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true
+          },
+          "pluginVersion": "11.5.0-81311",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-servicenow-datasource",
+                "uid": "c37ffce2-9175-45d2-ad08-a851c7dfd914"
+              },
+              "displayValue": "all",
+              "fields": [
+                {
+                  "aggregates": [],
+                  "name": "number"
+                },
+                {
+                  "aggregates": [],
+                  "name": "cmdb_ci.name"
+                },
+                {
+                  "aggregates": [],
+                  "name": "priority"
+                },
+                {
+                  "aggregates": [],
+                  "name": "description"
+                }
+              ],
+              "filters": [
+                {
+                  "conjunction": "and",
+                  "field": "description",
+                  "fieldDesc": {
+                    "choice": "0",
+                    "choice_field": "",
+                    "choice_table": "",
+                    "description": "Task",
+                    "element": "description",
+                    "internal_type": {
+                      "link": "https://optimizincdemo1.service-now.com/api/now/v2/table/sys_glide_object?name=string",
+                      "value": "string"
+                    },
+                    "label": "Description",
+                    "name": "task",
+                    "reference": {
+                      "display_value": "",
+                      "link": "",
+                      "value": ""
+                    },
+                    "sys_name": "Description",
+                    "table": "task",
+                    "value": "description"
+                  },
+                  "op": "LIKE",
+                  "type": "string",
+                  "value": "job_status"
+                },
+                {}
+              ],
+              "groupBy": [],
+              "limit": 25,
+              "queryType": "TableAPI",
+              "refId": "A",
+              "sort": [
+                {}
+              ],
+              "stats": [],
+              "table": "incident",
+              "timeField": "sys_created_on"
+            }
+          ],
+          "title": "ServiceNow Incidents",
+          "type": "table"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "grafanacloud-logs"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "type": "auto"
+                },
+                "filterable": false,
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byFrameRefID",
+                  "options": ""
+                },
+                "properties": []
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 18,
+            "w": 24,
+            "x": 0,
+            "y": 51
+          },
+          "id": 84,
+          "options": {
+            "cellHeight": "md",
+            "footer": {
+              "countRows": false,
+              "fields": "",
+              "reducer": [
+                "allValues"
+              ],
+              "show": false
+            },
+            "showHeader": true
+          },
+          "pluginVersion": "11.5.0-81311",
+          "targets": [
+            {
+              "datasource": {
+                "type": "loki",
+                "uid": "grafanacloud-logs"
+              },
+              "editorMode": "code",
+              "expr": "{job=\"test-case-server\"} | json test=\"attributes.JOB_NAME\" | test =~ `$Statuses`",
+              "queryType": "range",
+              "refId": "A"
+            }
+          ],
+          "title": "Call Logs",
+          "transformations": [
+            {
+              "id": "extractFields",
+              "options": {
+                "delimiter": ",",
+                "keepTime": true,
+                "replace": true,
+                "source": "Line"
+              }
+            },
+            {
+              "id": "extractFields",
+              "options": {
+                "delimiter": ",",
+                "keepTime": true,
+                "replace": true,
+                "source": "attributes"
+              }
+            },
+            {
+              "id": "sortBy",
+              "options": {
+                "fields": {},
+                "sort": [
+                  {
+                    "field": "STEP"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "sortBy",
+              "options": {
+                "fields": {},
+                "sort": [
+                  {
+                    "field": "CALL_ID"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "CALL_ID": false,
+                  "END_DATE": true,
+                  "JOB_NAME": false,
+                  "Line": true,
+                  "PAUSE": true,
+                  "PHONE_NUMBER": true,
+                  "REC_ID": true,
+                  "START_DATE": true,
+                  "STEP": false,
+                  "TAGS": true,
+                  "Time": false,
+                  "attributes": true,
+                  "body": true,
+                  "flags": true,
+                  "id": true,
+                  "instrumentation_scope": true,
+                  "labelTypes": true,
+                  "labels": true,
+                  "resources": true,
+                  "severity": true,
+                  "spanid": true,
+                  "traceID": true,
+                  "traceid": true,
+                  "tsNs": true
+                },
+                "includeByName": {},
+                "indexByName": {
+                  "ACTUAL": 21,
+                  "CALL_ID": 17,
+                  "END_DATE": 22,
+                  "EXPECTED": 20,
+                  "INPUT": 19,
+                  "JOB_NAME": 16,
+                  "Line": 2,
+                  "PAUSE": 23,
+                  "PHONE_NUMBER": 24,
+                  "REC_ID": 25,
+                  "RESULT": 15,
+                  "START_DATE": 26,
+                  "STEP": 18,
+                  "TAGS": 27,
+                  "Time": 1,
+                  "attributes": 12,
+                  "body": 7,
+                  "flags": 11,
+                  "id": 5,
+                  "instrumentation_scope": 14,
+                  "labelTypes": 4,
+                  "labels": 0,
+                  "resources": 13,
+                  "severity": 10,
+                  "spanid": 9,
+                  "traceID": 6,
+                  "traceid": 8,
+                  "tsNs": 3
+                },
+                "renameByName": {}
+              }
+            },
+            {
+              "id": "groupToNestedTable",
+              "options": {
+                "fields": {
+                  "CALL_ID": {
+                    "aggregations": [],
+                    "operation": "groupby"
+                  },
+                  "RESULT": {
+                    "aggregations": [],
+                    "operation": "aggregate"
+                  },
+                  "Time": {
+                    "aggregations": [
+                      "last"
+                    ],
+                    "operation": "aggregate"
+                  }
+                },
+                "showSubframeHeaders": true
+              }
+            }
+          ],
+          "type": "table"
+        },
+        {
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "ee748sznwmxogc"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "type": "auto"
+                },
+                "inspect": false
+              },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "Lookup Call",
+                  "url": "https://optimiz.grafana.net/d/ae74xcnbfiq68c/rbc-ivr-synthetic-main-dashboard-elastic?Filters=${__data.fields.call_id}&${__all_variables_except_Filters}"
+                }
+              ],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 24,
+            "x": 0,
+            "y": 69
+          },
+          "id": 88,
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "frameIndex": 0,
+            "showHeader": true
+          },
+          "pluginVersion": "11.5.0-81311",
+          "targets": [
+            {
+              "alias": "",
+              "bucketAggs": [],
+              "datasource": {
+                "type": "elasticsearch",
+                "uid": "ee748sznwmxogc"
+              },
+              "metrics": [
+                {
+                  "id": "1",
+                  "settings": {
+                    "limit": "500"
+                  },
+                  "type": "logs"
+                }
+              ],
+              "query": "",
+              "refId": "A",
+              "timeField": "start_time"
+            }
+          ],
+          "title": "Panel Title",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Nested frames": false,
+                  "_id": true,
+                  "_index": true,
+                  "_source": true,
+                  "_type": true,
+                  "call_id": false,
+                  "end_time": false,
+                  "failure_desc": false,
+                  "highlight": true,
+                  "id": true,
+                  "phone_number": false,
+                  "rec_id": true,
+                  "sort": true,
+                  "start_time": false,
+                  "status": false,
+                  "test_name": false,
+                  "transcription": true
+                },
+                "includeByName": {},
+                "indexByName": {
+                  "1": 10,
+                  "2": 11,
+                  "3": 12,
+                  "4": 13,
+                  "5": 14,
+                  "6": 15,
+                  "7": 16,
+                  "8": 17,
+                  "_id": 1,
+                  "_index": 2,
+                  "_source": 18,
+                  "_type": 19,
+                  "call_id": 5,
+                  "end_time": 9,
+                  "failure_desc": 7,
+                  "highlight": 20,
+                  "id": 0,
+                  "phone_number": 4,
+                  "rec_id": 21,
+                  "sort": 22,
+                  "start_time": 8,
+                  "status": 6,
+                  "test_name": 3,
+                  "transcription": 23
+                },
+                "renameByName": {
+                  "Nested frames": ""
+                }
+              }
+            },
+            {
+              "disabled": true,
+              "id": "extractFields",
+              "options": {
+                "delimiter": ",",
+                "format": "json",
+                "keepTime": false,
+                "replace": false,
+                "source": "transcription"
+              }
+            },
+            {
+              "disabled": true,
+              "id": "groupToNestedTable",
+              "options": {
+                "fields": {
+                  "call_id": {
+                    "aggregations": [],
+                    "operation": "groupby"
+                  },
+                  "test_name": {
+                    "aggregations": [
+                      "lastNotNull"
+                    ],
+                    "operation": "aggregate"
+                  },
+                  "transcription": {
+                    "aggregations": []
+                  }
+                },
+                "showSubframeHeaders": true
+              }
+            }
+          ],
+          "type": "table"
+        }
+      ],
+      "title": "Call Breakdown",
+      "type": "row"
+    }
+  ],
+  "preload": false,
+  "refresh": "",
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "ee748sznwmxogc"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "Tag",
+        "multi": true,
+        "name": "Tags",
+        "options": [],
+        "query": "",
+        "refresh": 2,
+        "regex": "^\\[\"(.*?)\"(?:,\"(.*?)\")*\\]$",
+        "type": "query"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "ee748sznwmxogc"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "Test Name",
+        "multi": true,
+        "name": "Test_Name",
+        "options": [],
+        "query": "",
+        "refresh": 2,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "baseFilters": [],
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "ee748sznwmxogc"
+        },
+        "filters": [],
+        "name": "Filters",
+        "type": "adhoc"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": [
+            "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+            "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+          ],
+          "value": [
+            "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+            "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+          ]
+        },
+        "multi": true,
+        "name": "audio_url",
+        "options": [
+          {
+            "selected": true,
+            "text": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+            "value": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+          },
+          {
+            "selected": true,
+            "text": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+            "value": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+          }
+        ],
+        "query": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3, https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-3h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "IVR Synthetic Main Dashboard - Loki",
+  "uid": "deazmc2w1u3uoa",
+  "version": 76,
+  "weekStart": ""
+}

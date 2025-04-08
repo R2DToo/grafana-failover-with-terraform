@@ -621,6 +621,7 @@
         "alertInstanceLabelFilter": "{grafana_slo_uuid=\"v5da6fs9y5h94hq236d04\"}",
         "alertName": "",
         "dashboardAlerts": false,
+        "datasource": "grafanacloud-optimiz-prom",
         "folder": "",
         "groupBy": [
           "grafana_slo_severity"
@@ -1024,11 +1025,6 @@
             "name": "grafana_slo_uuid",
             "type": 0,
             "value": "v5da6fs9y5h94hq236d04"
-          },
-          {
-            "name": "service",
-            "type": 0,
-            "value": "$service"
           }
         ],
         "onlyInteresting": true
@@ -1307,5 +1303,5 @@
   "timezone": "browser",
   "title": "Service Latency SLO v5da6fs9y5h94hq236d04",
   "uid": "edlayp6cdx79cd",
-  "version": 1358
+  "version": 1366
 }

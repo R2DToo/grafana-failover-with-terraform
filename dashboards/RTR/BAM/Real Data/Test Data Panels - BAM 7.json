@@ -1,0 +1,521 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 419,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "ce39l7ne2jym8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "interval": "1m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84214",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_${env}_cs_k8s\" \n\"kubernetes.container_name\"=\"rtr-cs-service-settlement-engine-tr-wo-res-${env}\" \nmessage=\"*loggerName=ca.payments.rtr.cs.lib.settlement.engine.common.services.SyncWithAsyncWriterService*\" \nmessage=\"*POST/settlement-engine/transfer-wo-reserve*\" \nmessage=\"*\\\"isoMessageId\\\":\\\"camt.050.001.05\\\"*\"\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"eventDateTime=(?<eventDateTime>\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{9})\"\n| rex field=log_without_backslashes \"\\\"end_to_end_identification\\\":\\\"(?<eteID>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"uetr\\\":\\\"(?<uetr>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"isoMessageId\\\":\\\"(?<isoMessageId>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"debtor\\\":\\\"(?<debtor>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"creditor\\\":\\\"(?<creditor>[^\\\"]+)\\\"\"\n| where eteID=\"$endToEndID2\"\n| timechart span=1m count by debtor\n| addtotals",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "BAM7-W1 -Payments Per Second by Sending Participant",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byType",
+                  "options": "number"
+                }
+              },
+              "operator": "/",
+              "right": {
+                "fixed": "60"
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*) / 60",
+            "renamePattern": "$1"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true,
+              "_span / 60": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-splunk-datasource",
+        "uid": "ce39l7ne2jym8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 2,
+      "interval": "1m",
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-84214",
+      "targets": [
+        {
+          "binOptions": {},
+          "datasource": {
+            "type": "grafana-splunk-datasource",
+            "uid": "ce39l7ne2jym8a"
+          },
+          "displayMode": "detect",
+          "index": "select index",
+          "metricAggs": [
+            {
+              "alias": "",
+              "field": "select field",
+              "func": "avg"
+            }
+          ],
+          "options": {
+            "cont": true,
+            "partial": true
+          },
+          "query": "index=\"index_${env}_cs_k8s\" \"kubernetes.container_name\"=\"rtr-cs-service-settlement-engine-tr-wo-res-${env}\" message=\"*loggerName=ca.payments.rtr.cs.lib.settlement.engine.common.services.SyncWithAsyncWriterService*\" message=\"*POST/settlement-engine/transfer-wo-reserve*\" message=\"*\\\"isoMessageId\\\":\\\"camt.006.001.08\\\"*\"\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"eventDateTime=(?<eventDateTime>\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{9})\"\n| rex field=log_without_backslashes \"\\\"rtgs\\\":\\\"(?<rtgs>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"end_to_end_identification\\\":\\\"(?<eteID>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"eventDetails\\\":\\\"{\\\"return_transaction\\\":{.*?\\\"to\\\":{\\\"organisation_identification\\\":{\\\"identification\\\":{\\\"organisation_identification\\\":{\\\"other\\\":{\\\"identification\\\":\\\"(?<to_identification>[A-Z0-9]{4})\\\"\"\n| rex field=log_without_backslashes \"eventDetails\\\":\\\"{\\\"return_transaction\\\":{.*?\\\"from\\\":{\\\"organisation_identification\\\":{\\\"identification\\\":{\\\"organisation_identification\\\":{\\\"other\\\":{\\\"identification\\\":\\\"(?<from_identification>[A-Z0-9]{6})\\\"\"\n| where eteID=\"$endToEndID2\"\n| timechart span=1m count by to_identification\n| addtotals",
+          "rawQuery": true,
+          "refId": "A",
+          "sourcetype": "select sourcetype",
+          "splitByFields": [],
+          "tcOptions": {
+            "nullstr": "",
+            "otherstr": "",
+            "span": "auto",
+            "usenull": false,
+            "useother": true
+          },
+          "whereClause": {
+            "value": ""
+          }
+        }
+      ],
+      "title": "BAM7-W2-Payments Per Second by Sending Exchange",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": {
+                "matcher": {
+                  "id": "byType",
+                  "options": "number"
+                }
+              },
+              "operator": "/",
+              "right": {
+                "fixed": "60"
+              }
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": true
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*) / 60",
+            "renamePattern": "$1"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "_span": true,
+              "_span / 60": true
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "dev2",
+          "value": "dev2"
+        },
+        "label": "Environment",
+        "name": "env",
+        "options": [
+          {
+            "selected": false,
+            "text": "Early Performance Testing",
+            "value": "ept"
+          },
+          {
+            "selected": false,
+            "text": "SIT 1",
+            "value": "sit1"
+          },
+          {
+            "selected": false,
+            "text": "SIT 2",
+            "value": "sit2"
+          },
+          {
+            "selected": false,
+            "text": "Development 1",
+            "value": "dev1"
+          },
+          {
+            "selected": true,
+            "text": "Development 2",
+            "value": "dev2"
+          }
+        ],
+        "query": "Early Performance Testing : ept, SIT 1 : sit1, SIT 2 : sit2, Development 1 : dev1, Development 2 : dev2",
+        "type": "custom"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-splunk-datasource",
+          "uid": "ce39l7ne2jym8a"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "Sending Participant",
+        "multi": true,
+        "name": "sendingParticipant",
+        "options": [],
+        "query": {
+          "namespace": "",
+          "search": "index=\"index_${env}_cs_k8s\" \n\"kubernetes.container_name\"=\"rtr-cs-service-settlement-engine-tr-wo-res-${env}\" \nmessage=\"*loggerName=ca.payments.rtr.cs.lib.settlement.engine.common.services.SyncWithAsyncWriterService*\" \nmessage=\"*POST/settlement-engine/transfer-wo-reserve*\" \nmessage=\"*\\\"isoMessageId\\\":\\\"camt.050.001.05\\\"*\"\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"\\\"debtor\\\":\\\"(?<debtor>[^\\\"]+)\\\"\"\n| dedup debtor\n| table debtor"
+        },
+        "refresh": 2,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-splunk-datasource",
+          "uid": "ce39l7ne2jym8a"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "Receiving Participant",
+        "multi": true,
+        "name": "receivingParticipant",
+        "options": [],
+        "query": {
+          "namespace": "",
+          "search": "index=\"index_${env}_cs_k8s\" \n\"kubernetes.container_name\"=\"rtr-cs-service-settlement-engine-tr-wo-res-${env}\" \nmessage=\"*loggerName=ca.payments.rtr.cs.lib.settlement.engine.common.services.SyncWithAsyncWriterService*\" \nmessage=\"*POST/settlement-engine/transfer-wo-reserve*\" \nmessage=\"*\\\"isoMessageId\\\":\\\"camt.050.001.05\\\"*\"\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"\\\"debtor\\\":\\\"(?<debtor>[^\\\"]+)\\\"\"\n| dedup creditor\n| table creditor"
+        },
+        "refresh": 2,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-splunk-datasource",
+          "uid": "ce39l7ne2jym8a"
+        },
+        "definition": "",
+        "includeAll": true,
+        "label": "Sending Exchange",
+        "multi": true,
+        "name": "sendingEntity",
+        "options": [],
+        "query": {
+          "namespace": "",
+          "search": "index=\"index_${env}_cs_k8s\" \"kubernetes.container_name\"=\"rtr-cs-service-settlement-engine-tr-wo-res-${env}\" message=\"*loggerName=ca.payments.rtr.cs.lib.settlement.engine.common.services.SyncWithAsyncWriterService*\" message=\"*POST/settlement-engine/transfer-wo-reserve*\" message=\"*\\\"isoMessageId\\\":\\\"camt.006.001.08\\\"*\"\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"eventDetails\\\":\\\"{\\\"return_transaction\\\":{.*?\\\"to\\\":{\\\"organisation_identification\\\":{\\\"identification\\\":{\\\"organisation_identification\\\":{\\\"other\\\":{\\\"identification\\\":\\\"(?<to_identification>[A-Z0-9]{4})\\\"\"\n| rex field=log_without_backslashes \"eventDetails\\\":\\\"{\\\"return_transaction\\\":{.*?\\\"from\\\":{\\\"organisation_identification\\\":{\\\"identification\\\":{\\\"organisation_identification\\\":{\\\"other\\\":{\\\"identification\\\":\\\"(?<from_identification>[A-Z0-9]{6})\\\"\"\n| dedup to_identification\n| table to_identification"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-splunk-datasource",
+          "uid": "ce39l7ne2jym8a"
+        },
+        "definition": "",
+        "hide": 2,
+        "includeAll": true,
+        "multi": true,
+        "name": "endToEndID1",
+        "options": [],
+        "query": {
+          "namespace": "",
+          "search": "index=\"index_${env}_cs_k8s\" \n\"kubernetes.container_name\"=\"rtr-cs-service-settlement-engine-tr-wo-res-${env}\" \nmessage=\"*loggerName=ca.payments.rtr.cs.lib.settlement.engine.common.services.SyncWithAsyncWriterService*\" \nmessage=\"*POST/settlement-engine/transfer-wo-reserve*\" \nmessage=\"*\\\"isoMessageId\\\":\\\"camt.050.001.05\\\"*\"\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"\\\"end_to_end_identification\\\":\\\"(?<eteID>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"debtor\\\":\\\"(?<debtor>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"\\\"creditor\\\":\\\"(?<creditor>[^\\\"]+)\\\"\"\n| where debtor=\"$sendingParticipant\"\n| dedup eteID\n| table eteID"
+        },
+        "refresh": 2,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "grafana-splunk-datasource",
+          "uid": "ce39l7ne2jym8a"
+        },
+        "definition": "",
+        "hide": 2,
+        "includeAll": true,
+        "multi": true,
+        "name": "endToEndID2",
+        "options": [],
+        "query": {
+          "namespace": "",
+          "search": "index=\"index_${env}_cs_k8s\" \"kubernetes.container_name\"=\"rtr-cs-service-settlement-engine-tr-wo-res-${env}\" message=\"*loggerName=ca.payments.rtr.cs.lib.settlement.engine.common.services.SyncWithAsyncWriterService*\" message=\"*POST/settlement-engine/transfer-wo-reserve*\" message=\"*\\\"isoMessageId\\\":\\\"camt.006.001.08\\\"*\"\n| eval log_without_backslashes = replace(_raw, \"\\\\\\\\\", \"\")\n| rex field=log_without_backslashes \"\\\"end_to_end_identification\\\":\\\"(?<eteID>[^\\\"]+)\\\"\"\n| rex field=log_without_backslashes \"eventDetails\\\":\\\"{\\\"return_transaction\\\":{.*?\\\"to\\\":{\\\"organisation_identification\\\":{\\\"identification\\\":{\\\"organisation_identification\\\":{\\\"other\\\":{\\\"identification\\\":\\\"(?<to_identification>[A-Z0-9]{4})\\\"\"\n| rex field=log_without_backslashes \"eventDetails\\\":\\\"{\\\"return_transaction\\\":{.*?\\\"from\\\":{\\\"organisation_identification\\\":{\\\"identification\\\":{\\\"organisation_identification\\\":{\\\"other\\\":{\\\"identification\\\":\\\"(?<from_identification>[A-Z0-9]{6})\\\"\"\n| where eteID=\"$endToEndID1\"\n| where to_identification=\"$sendingEntity\"\n| dedup eteID\n| table eteID"
+        },
+        "refresh": 2,
+        "regex": "",
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "2025-01-10T08:00:00.000Z",
+    "to": "2025-01-10T09:00:00.000Z"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Test Data Panels - BAM 7",
+  "uid": "fea9ul2e4kttsf",
+  "version": 8
+}

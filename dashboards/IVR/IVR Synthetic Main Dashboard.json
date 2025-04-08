@@ -67,8 +67,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -105,7 +104,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0-74868",
+      "pluginVersion": "11.6.0-82840",
       "targets": [
         {
           "datasource": {
@@ -177,8 +176,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -215,7 +213,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0-74868",
+      "pluginVersion": "11.6.0-82840",
       "targets": [
         {
           "datasource": {
@@ -256,8 +254,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "red",
-                "value": null
+                "color": "red"
               },
               {
                 "color": "orange",
@@ -299,7 +296,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0-74868",
+      "pluginVersion": "11.6.0-82840",
       "targets": [
         {
           "datasource": {
@@ -340,8 +337,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -378,7 +374,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0-74868",
+      "pluginVersion": "11.6.0-82840",
       "targets": [
         {
           "datasource": {
@@ -414,8 +410,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -423,7 +418,7 @@
               }
             ]
           },
-          "unit": "m"
+          "unit": "s"
         },
         "overrides": []
       },
@@ -453,7 +448,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0-74868",
+      "pluginVersion": "11.6.0-82840",
       "targets": [
         {
           "datasource": {
@@ -489,8 +484,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -528,7 +522,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0-74868",
+      "pluginVersion": "11.6.0-82840",
       "targets": [
         {
           "datasource": {
@@ -564,8 +558,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -573,7 +566,7 @@
               }
             ]
           },
-          "unit": "m"
+          "unit": "s"
         },
         "overrides": []
       },
@@ -603,7 +596,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0-74868",
+      "pluginVersion": "11.6.0-82840",
       "targets": [
         {
           "datasource": {
@@ -639,8 +632,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -678,7 +670,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.0-74868",
+      "pluginVersion": "11.6.0-82840",
       "targets": [
         {
           "datasource": {
@@ -722,8 +714,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -745,8 +736,7 @@
                   "mode": "absolute",
                   "steps": [
                     {
-                      "color": "red",
-                      "value": null
+                      "color": "red"
                     },
                     {
                       "color": "red",
@@ -862,7 +852,7 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "11.3.0-74868",
+      "pluginVersion": "11.6.0-82840",
       "targets": [
         {
           "datasource": {
@@ -1070,6 +1060,7 @@
             "mode": "thresholds"
           },
           "custom": {
+            "axisPlacement": "auto",
             "fillOpacity": 70,
             "hideFrom": {
               "legend": false,
@@ -1106,8 +1097,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -1132,12 +1122,13 @@
         "rowHeight": 0.9,
         "showValue": "never",
         "tooltip": {
+          "hideZeros": false,
           "maxHeight": 600,
           "mode": "single",
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.0-74868",
+      "pluginVersion": "11.6.0-82840",
       "targets": [
         {
           "datasource": {
@@ -1301,7 +1292,7 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "11.3.0-74868",
+      "pluginVersion": "11.6.0-82840",
       "targets": [
         {
           "datasource": {
@@ -1382,6 +1373,7 @@
       "id": 28,
       "options": {
         "dedupStrategy": "none",
+        "enableInfiniteScrolling": false,
         "enableLogDetails": true,
         "prettifyLogMessage": false,
         "showCommonLabels": true,
@@ -1390,15 +1382,16 @@
         "sortOrder": "Descending",
         "wrapLogMessage": true
       },
-      "pluginVersion": "11.2.0-74515",
+      "pluginVersion": "11.6.0-82840",
       "targets": [
         {
           "datasource": {
             "type": "loki",
             "uid": "grafanacloud-logs"
           },
+          "direction": "backward",
           "editorMode": "builder",
-          "expr": "{job=\"test-case-server\"} | json test=\"attributes.JOB_NAME\" | test =~ `$Statuses`",
+          "expr": "{job=\"test-case-server\"}",
           "legendFormat": "",
           "queryType": "range",
           "refId": "A"
@@ -1410,15 +1403,13 @@
   ],
   "preload": false,
   "refresh": "5s",
-  "schemaVersion": 39,
+  "schemaVersion": 41,
   "tags": [],
   "templating": {
     "list": [
       {
         "current": {
-          "text": [
-            "All"
-          ],
+          "text": "All",
           "value": [
             "$__all"
           ]
@@ -1444,9 +1435,7 @@
       },
       {
         "current": {
-          "text": [
-            "All"
-          ],
+          "text": "All",
           "value": [
             "$__all"
           ]
@@ -1490,6 +1479,6 @@
   "timezone": "",
   "title": "IVR Synthetic Main Dashboard",
   "uid": "cdhtxw92rvri8g",
-  "version": 2,
+  "version": 3,
   "weekStart": ""
 }

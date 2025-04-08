@@ -11,7 +11,6 @@
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
         "name": "Annotations and Alerts",
-        "showIn": 0,
         "target": {
           "limit": 100,
           "matchAny": false,
@@ -32,987 +31,6 @@
         "type": "prometheus",
         "uid": "grafanacloud-prom"
       },
-      "description": "SLO name with hyperlink to the SLO's dashboard",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": null
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 0,
-        "y": 3
-      },
-      "id": 1,
-      "options": {
-        "code": {
-          "language": "plaintext",
-          "showLineNumbers": false,
-          "showMiniMap": false
-        },
-        "content": "#### [Data API Successful Requests](/d/cdlavnka6i6m8e)\n\nWatches the target=/api/data label and evaluates the percentage of successful requests. The target of this SLO is to have 80% of requests to /api/data be successful with 200 status code\n",
-        "mode": "markdown"
-      },
-      "repeatDirection": "",
-      "title": "",
-      "transformations": null,
-      "transparent": false,
-      "type": "text"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "grafanacloud-prom"
-      },
-      "description": "Service level indicator's value over the last 28d",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 1,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red"
-              },
-              {
-                "color": "green",
-                "value": 0.8
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": null
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 4,
-        "y": 3
-      },
-      "id": 2,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "repeatDirection": "",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "grafanacloud-prom"
-          },
-          "editorMode": "builder",
-          "expr": "sum(sum_over_time(grafana_slo_success_rate_5m{grafana_slo_uuid=\"qdofmxzsvh9xh9adq2baf\"}[28d]))\n/ sum(sum_over_time(grafana_slo_total_rate_5m{grafana_slo_uuid=\"qdofmxzsvh9xh9adq2baf\"}[28d]))",
-          "hide": false,
-          "interval": "",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "recorded_data"
-        }
-      ],
-      "title": "SLI (last 28d)",
-      "transformations": null,
-      "transparent": false,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "grafanacloud-prom"
-      },
-      "description": "The unspent error budget over the last {0.8 28d} Window",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red"
-              },
-              {
-                "color": "yellow",
-                "value": 0
-              },
-              {
-                "color": "green",
-                "value": 0.2
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": null
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 8,
-        "y": 3
-      },
-      "id": 3,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "repeatDirection": "",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "grafanacloud-prom"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "(\n\t\tsum(sum_over_time(grafana_slo_success_rate_5m{grafana_slo_uuid=\"qdofmxzsvh9xh9adq2baf\"}[28d]))\n\t\t/ sum(sum_over_time(grafana_slo_total_rate_5m{grafana_slo_uuid=\"qdofmxzsvh9xh9adq2baf\"}[28d]))\n\t\t- on() grafana_slo_objective{grafana_slo_uuid=\"qdofmxzsvh9xh9adq2baf\"}\n\t)\n\t/ on () (1 - grafana_slo_objective{grafana_slo_uuid=\"qdofmxzsvh9xh9adq2baf\"})",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "Error Budget Remaining",
-      "transformations": null,
-      "transparent": false,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "grafanacloud-prom"
-      },
-      "description": "Service level indicator",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisPlacement": "auto",
-            "axisSoftMax": 0.05,
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "scheme",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 2,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red"
-              },
-              {
-                "color": "green",
-                "value": 0.8
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": null
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 12,
-        "x": 12,
-        "y": 3
-      },
-      "id": 4,
-      "options": {
-        "legend": {
-          "displayMode": "table",
-          "placement": "bottom",
-          "showLegend": false
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "repeatDirection": "",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "grafanacloud-prom"
-          },
-          "editorMode": "builder",
-          "expr": "avg_over_time(grafana_slo_sli_5m{grafana_slo_uuid=\"qdofmxzsvh9xh9adq2baf\"}[$__rate_interval])",
-          "interval": "",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "SLI",
-      "transformations": null,
-      "transparent": false,
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "grafanacloud-prom"
-      },
-      "description": "SLO name with hyperlink to the SLO's dashboard",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": null
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 0,
-        "y": 6
-      },
-      "id": 5,
-      "options": {
-        "code": {
-          "language": "plaintext",
-          "showLineNumbers": false,
-          "showMiniMap": false
-        },
-        "content": "#### [Service Availability](/d/cdlazm3mte70ge)\n\nSLI measures the number of successful requests to each service. The target is to have 99% of requests successful\n",
-        "mode": "markdown"
-      },
-      "repeatDirection": "",
-      "title": "",
-      "transformations": null,
-      "transparent": false,
-      "type": "text"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "grafanacloud-prom"
-      },
-      "description": "Service level indicator's value over the last 28d",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 1,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red"
-              },
-              {
-                "color": "green",
-                "value": 0.8
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": null
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 4,
-        "y": 6
-      },
-      "id": 6,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "repeatDirection": "",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "grafanacloud-prom"
-          },
-          "editorMode": "builder",
-          "expr": "sum(sum_over_time(grafana_slo_success_rate_5m{grafana_slo_uuid=\"ozjcibubx7l7bqedfthmg\"}[28d]))\n/ sum(sum_over_time(grafana_slo_total_rate_5m{grafana_slo_uuid=\"ozjcibubx7l7bqedfthmg\"}[28d]))",
-          "hide": false,
-          "interval": "",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "recorded_data"
-        }
-      ],
-      "title": "SLI (last 28d)",
-      "transformations": null,
-      "transparent": false,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "grafanacloud-prom"
-      },
-      "description": "The unspent error budget over the last {0.8 28d} Window",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red"
-              },
-              {
-                "color": "yellow",
-                "value": 0
-              },
-              {
-                "color": "green",
-                "value": 0.2
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": null
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 8,
-        "y": 6
-      },
-      "id": 7,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "repeatDirection": "",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "grafanacloud-prom"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "(\n\t\tsum(sum_over_time(grafana_slo_success_rate_5m{grafana_slo_uuid=\"ozjcibubx7l7bqedfthmg\"}[28d]))\n\t\t/ sum(sum_over_time(grafana_slo_total_rate_5m{grafana_slo_uuid=\"ozjcibubx7l7bqedfthmg\"}[28d]))\n\t\t- on() grafana_slo_objective{grafana_slo_uuid=\"ozjcibubx7l7bqedfthmg\"}\n\t)\n\t/ on () (1 - grafana_slo_objective{grafana_slo_uuid=\"ozjcibubx7l7bqedfthmg\"})",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "Error Budget Remaining",
-      "transformations": null,
-      "transparent": false,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "grafanacloud-prom"
-      },
-      "description": "Service level indicator",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisPlacement": "auto",
-            "axisSoftMax": 0.05,
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "scheme",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 2,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red"
-              },
-              {
-                "color": "green",
-                "value": 0.8
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": null
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 12,
-        "x": 12,
-        "y": 6
-      },
-      "id": 8,
-      "options": {
-        "legend": {
-          "displayMode": "table",
-          "placement": "bottom",
-          "showLegend": false
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "repeatDirection": "",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "grafanacloud-prom"
-          },
-          "editorMode": "builder",
-          "expr": "sum(avg_over_time(grafana_slo_success_rate_5m{grafana_slo_uuid=\"ozjcibubx7l7bqedfthmg\"}[$__rate_interval]))\n/ sum(avg_over_time(grafana_slo_total_rate_5m{grafana_slo_uuid=\"ozjcibubx7l7bqedfthmg\"}[$__rate_interval]))",
-          "interval": "",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "SLI",
-      "transformations": null,
-      "transparent": false,
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "grafanacloud-prom"
-      },
-      "description": "SLO name with hyperlink to the SLO's dashboard",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": null
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 0,
-        "y": 9
-      },
-      "id": 9,
-      "options": {
-        "code": {
-          "language": "plaintext",
-          "showLineNumbers": false,
-          "showMiniMap": false
-        },
-        "content": "#### [Service Latency SLO](/d/edlayp6cdx79cd)\n\nLatency SLO grouped by service. The SLI is a percentage of requests with latency under 1 second. If 100% SLI then all requests are under 1 second. Target is to maintain 95% requests under 1 second across all services\n",
-        "mode": "markdown"
-      },
-      "repeatDirection": "",
-      "title": "",
-      "transformations": null,
-      "transparent": false,
-      "type": "text"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "grafanacloud-prom"
-      },
-      "description": "Service level indicator's value over the last 28d",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 1,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red"
-              },
-              {
-                "color": "green",
-                "value": 0.95
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": null
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 4,
-        "y": 9
-      },
-      "id": 10,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "repeatDirection": "",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "grafanacloud-prom"
-          },
-          "editorMode": "builder",
-          "expr": "sum(sum_over_time(grafana_slo_success_rate_5m{grafana_slo_uuid=\"v5da6fs9y5h94hq236d04\"}[28d]))\n/ sum(sum_over_time(grafana_slo_total_rate_5m{grafana_slo_uuid=\"v5da6fs9y5h94hq236d04\"}[28d]))",
-          "hide": false,
-          "interval": "",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "recorded_data"
-        }
-      ],
-      "title": "SLI (last 28d)",
-      "transformations": null,
-      "transparent": false,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "grafanacloud-prom"
-      },
-      "description": "The unspent error budget over the last {0.95 28d} Window",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red"
-              },
-              {
-                "color": "yellow",
-                "value": 0
-              },
-              {
-                "color": "green",
-                "value": 0.2
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": null
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 8,
-        "y": 9
-      },
-      "id": 11,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "repeatDirection": "",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "grafanacloud-prom"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "(\n\t\tsum(sum_over_time(grafana_slo_success_rate_5m{grafana_slo_uuid=\"v5da6fs9y5h94hq236d04\"}[28d]))\n\t\t/ sum(sum_over_time(grafana_slo_total_rate_5m{grafana_slo_uuid=\"v5da6fs9y5h94hq236d04\"}[28d]))\n\t\t- on() grafana_slo_objective{grafana_slo_uuid=\"v5da6fs9y5h94hq236d04\"}\n\t)\n\t/ on () (1 - grafana_slo_objective{grafana_slo_uuid=\"v5da6fs9y5h94hq236d04\"})",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "__auto",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "Error Budget Remaining",
-      "transformations": null,
-      "transparent": false,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "grafanacloud-prom"
-      },
-      "description": "Service level indicator",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisPlacement": "auto",
-            "axisSoftMax": 0.05,
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "scheme",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 2,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red"
-              },
-              {
-                "color": "green",
-                "value": 0.95
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": null
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 12,
-        "x": 12,
-        "y": 9
-      },
-      "id": 12,
-      "options": {
-        "legend": {
-          "displayMode": "table",
-          "placement": "bottom",
-          "showLegend": false
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "repeatDirection": "",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "grafanacloud-prom"
-          },
-          "editorMode": "builder",
-          "expr": "sum(avg_over_time(grafana_slo_success_rate_5m{grafana_slo_uuid=\"v5da6fs9y5h94hq236d04\"}[$__rate_interval]))\n/ sum(avg_over_time(grafana_slo_total_rate_5m{grafana_slo_uuid=\"v5da6fs9y5h94hq236d04\"}[$__rate_interval]))",
-          "interval": "",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "SLI",
-      "transformations": null,
-      "transparent": false,
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "grafanacloud-prom"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "unit": "none"
-        },
-        "overrides": null
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 2,
-        "x": 12,
-        "y": 0
-      },
-      "id": 13,
-      "options": {
-        "colorMode": "none",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "repeatDirection": "",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "grafanacloud-prom"
-          },
-          "editorMode": "builder",
-          "expr": "vector(3)",
-          "hide": false,
-          "interval": "",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "recorded_data"
-        }
-      ],
-      "title": "SLOs Defined",
-      "transformations": null,
-      "transparent": false,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "grafanacloud-prom"
-      },
-      "description": "The number of SLOs that are recording values",
-      "fieldConfig": {
-        "defaults": {
-          "unit": "none"
-        },
-        "overrides": null
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 14,
-        "y": 0
-      },
-      "id": 14,
-      "options": {
-        "colorMode": "none",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "repeatDirection": "",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "grafanacloud-prom"
-          },
-          "editorMode": "builder",
-          "expr": "count(count by (grafana_slo_uuid)(grafana_slo_sli_5m)) OR on() vector(0)",
-          "hide": false,
-          "interval": "",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "recorded_data"
-        }
-      ],
-      "title": "SLOs Recording",
-      "transformations": null,
-      "transparent": false,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "grafanacloud-prom"
-      },
-      "description": "The total number of series created by SLO recording rules.",
-      "fieldConfig": {
-        "defaults": {
-          "unit": "none"
-        },
-        "overrides": null
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 5,
-        "x": 18,
-        "y": 0
-      },
-      "id": 15,
-      "options": {
-        "colorMode": "none",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "repeatDirection": "",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "grafanacloud-prom"
-          },
-          "editorMode": "builder",
-          "expr": "count({__name__=~\"grafana_slo_.*\", grafana_slo_uuid!=\"\"}) OR on() vector(0)",
-          "hide": false,
-          "interval": "",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "recorded_data"
-        }
-      ],
-      "title": "Recorded SLI Series",
-      "transformations": null,
-      "transparent": false,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "grafanacloud-prom"
-      },
       "description": "The number of SLIs that are meeting their SLO objective in the last 1d",
       "fieldConfig": {
         "defaults": {
@@ -1026,7 +44,7 @@
         "x": 0,
         "y": 0
       },
-      "id": 16,
+      "id": 1,
       "options": {
         "colorMode": "none",
         "graphMode": "none",
@@ -1039,9 +57,10 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "repeatDirection": "",
       "targets": [
         {
           "datasource": {
@@ -1049,8 +68,9 @@
             "uid": "grafanacloud-prom"
           },
           "editorMode": "builder",
-          "expr": "count(\n\t\t(\n\t\t  sum by (grafana_slo_uuid) (sum_over_time(grafana_slo_success_rate_5m[1d]))\n\t\t  / sum by (grafana_slo_uuid) (sum_over_time(grafana_slo_total_rate_5m[1d]))\n\t\t  # combine with series that aren't producing grafana_slo_success_rate_5m and grafana_slo_total_rate_5m\n\t\t  or avg by (grafana_slo_uuid) (grafana_slo_sli_1d)\n\t\t)\n\t\t> on(grafana_slo_uuid) grafana_slo_objective\n\t  ) OR on() vector(0)\n\t  ",
+          "expr": "count(\n\t\t(\n\t\t  sum by (grafana_slo_uuid) (sum_over_time((grafana_slo_success_rate_5m < 1e308)[1d:5m]))\n\t\t  / sum by (grafana_slo_uuid) (sum_over_time((grafana_slo_total_rate_5m < 1e308)[1d:5m]))\n\t\t  # combine with series that aren't producing grafana_slo_success_rate_5m and grafana_slo_total_rate_5m\n\t\t  or avg by (grafana_slo_uuid) (grafana_slo_sli_1d)\n\t\t)\n\t\t> on(grafana_slo_uuid) grafana_slo_objective\n\t  ) OR on() vector(0)\n\t  ",
           "hide": false,
+          "instant": false,
           "interval": "",
           "legendFormat": "__auto",
           "range": true,
@@ -1058,7 +78,6 @@
         }
       ],
       "title": "Above Target (1 day)",
-      "transformations": null,
       "transparent": false,
       "type": "stat"
     },
@@ -1080,7 +99,7 @@
         "x": 3,
         "y": 0
       },
-      "id": 17,
+      "id": 2,
       "options": {
         "colorMode": "none",
         "graphMode": "none",
@@ -1093,9 +112,10 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "repeatDirection": "",
       "targets": [
         {
           "datasource": {
@@ -1103,8 +123,9 @@
             "uid": "grafanacloud-prom"
           },
           "editorMode": "builder",
-          "expr": "count(\n\t\t(\n\t\t  sum by (grafana_slo_uuid) (sum_over_time(grafana_slo_success_rate_5m[6h]))\n\t\t  / sum by (grafana_slo_uuid) (sum_over_time(grafana_slo_total_rate_5m[6h]))\n\t\t  # combine with series that aren't producing grafana_slo_success_rate_5m and grafana_slo_total_rate_5m\n\t\t  or avg by (grafana_slo_uuid) (grafana_slo_sli_6h)\n\t\t)\n\t\t> on(grafana_slo_uuid) grafana_slo_objective\n\t  ) OR on() vector(0)\n\t  ",
+          "expr": "count(\n\t\t(\n\t\t  sum by (grafana_slo_uuid) (sum_over_time((grafana_slo_success_rate_5m < 1e308)[6h:5m]))\n\t\t  / sum by (grafana_slo_uuid) (sum_over_time((grafana_slo_total_rate_5m < 1e308)[6h:5m]))\n\t\t  # combine with series that aren't producing grafana_slo_success_rate_5m and grafana_slo_total_rate_5m\n\t\t  or avg by (grafana_slo_uuid) (grafana_slo_sli_6h)\n\t\t)\n\t\t> on(grafana_slo_uuid) grafana_slo_objective\n\t  ) OR on() vector(0)\n\t  ",
           "hide": false,
+          "instant": false,
           "interval": "",
           "legendFormat": "__auto",
           "range": true,
@@ -1112,7 +133,6 @@
         }
       ],
       "title": "Above Target (6 hour)",
-      "transformations": null,
       "transparent": false,
       "type": "stat"
     },
@@ -1134,7 +154,7 @@
         "x": 6,
         "y": 0
       },
-      "id": 18,
+      "id": 3,
       "options": {
         "colorMode": "none",
         "graphMode": "none",
@@ -1147,9 +167,10 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "repeatDirection": "",
       "targets": [
         {
           "datasource": {
@@ -1157,8 +178,9 @@
             "uid": "grafanacloud-prom"
           },
           "editorMode": "builder",
-          "expr": "count(\n\t\t(\n\t\t  sum by (grafana_slo_uuid) (sum_over_time(grafana_slo_success_rate_5m[1h]))\n\t\t  / sum by (grafana_slo_uuid) (sum_over_time(grafana_slo_total_rate_5m[1h]))\n\t\t  # combine with series that aren't producing grafana_slo_success_rate_5m and grafana_slo_total_rate_5m\n\t\t  or avg by (grafana_slo_uuid) (grafana_slo_sli_1h)\n\t\t)\n\t\t> on(grafana_slo_uuid) grafana_slo_objective\n\t  ) OR on() vector(0)\n\t  ",
+          "expr": "count(\n\t\t(\n\t\t  sum by (grafana_slo_uuid) (sum_over_time((grafana_slo_success_rate_5m < 1e308)[1h:5m]))\n\t\t  / sum by (grafana_slo_uuid) (sum_over_time((grafana_slo_total_rate_5m < 1e308)[1h:5m]))\n\t\t  # combine with series that aren't producing grafana_slo_success_rate_5m and grafana_slo_total_rate_5m\n\t\t  or avg by (grafana_slo_uuid) (grafana_slo_sli_1h)\n\t\t)\n\t\t> on(grafana_slo_uuid) grafana_slo_objective\n\t  ) OR on() vector(0)\n\t  ",
           "hide": false,
+          "instant": false,
           "interval": "",
           "legendFormat": "__auto",
           "range": true,
@@ -1166,18 +188,980 @@
         }
       ],
       "title": "Above Target (1 hour)",
-      "transformations": null,
       "transparent": false,
       "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none"
+        },
+        "overrides": null
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 12,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "builder",
+          "expr": "vector(3)",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "recorded_data"
+        }
+      ],
+      "title": "SLOs Defined",
+      "transparent": false,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "description": "The number of SLOs that are recording values",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none"
+        },
+        "overrides": null
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 14,
+        "y": 0
+      },
+      "id": 5,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "builder",
+          "expr": "count(count by (grafana_slo_uuid)(grafana_slo_sli_5m)) OR on() vector(0)",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "recorded_data"
+        }
+      ],
+      "title": "SLOs Recording",
+      "transparent": false,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "description": "The total number of series created by SLO recording rules.",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none"
+        },
+        "overrides": null
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 5,
+        "x": 18,
+        "y": 0
+      },
+      "id": 6,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "builder",
+          "expr": "count({__name__=~\"grafana_slo_.*\", grafana_slo_uuid!=\"\"}) OR on() vector(0)",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "recorded_data"
+        }
+      ],
+      "title": "Recorded SLI Series",
+      "transparent": false,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "description": "SLO name with hyperlink to the SLO's dashboard",
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 3
+      },
+      "id": 7,
+      "options": {
+        "content": "#### [Data API Successful Requests](/d/cdlavnka6i6m8e)\n\nWatches the target=/api/data label and evaluates the percentage of successful requests. The target of this SLO is to have 80% of requests to /api/data be successful with 200 status code\n",
+        "mode": "markdown"
+      },
+      "transparent": false,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "description": "Service level indicator's value over the last 28d",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 0.8
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": null
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 4,
+        "y": 3
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "builder",
+          "expr": "# omit NaN by comparing to Infinity\nsum(sum_over_time((grafana_slo_success_rate_5m{grafana_slo_uuid=\"qdofmxzsvh9xh9adq2baf\"} < 1e308)[28d:5m]))\n/ sum(sum_over_time((grafana_slo_total_rate_5m{grafana_slo_uuid=\"qdofmxzsvh9xh9adq2baf\"} < 1e308)[28d:5m]))",
+          "hide": false,
+          "instant": false,
+          "interval": "1m",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "recorded_data"
+        }
+      ],
+      "title": "SLI (last 28d)",
+      "transparent": false,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "description": "The unspent error budget over the last {0.8 28d} Window",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 0
+              },
+              {
+                "color": "green",
+                "value": 0.2
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": null
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 8,
+        "y": 3
+      },
+      "id": 9,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "builder",
+          "exemplar": false,
+          "expr": "(\n\t\t# omit NaN by comparing to Infinity\n\t\tsum(sum_over_time((grafana_slo_success_rate_5m{grafana_slo_uuid=\"qdofmxzsvh9xh9adq2baf\"} < 1e308)[28d:5m]))\n\t\t/ sum(sum_over_time((grafana_slo_total_rate_5m{grafana_slo_uuid=\"qdofmxzsvh9xh9adq2baf\"} < 1e308)[28d:5m]))\n\t\t- on() grafana_slo_objective{grafana_slo_uuid=\"qdofmxzsvh9xh9adq2baf\"}\n\t)\n\t/ on () (1 - grafana_slo_objective{grafana_slo_uuid=\"qdofmxzsvh9xh9adq2baf\"})",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Error Budget Remaining",
+      "transparent": false,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "description": "Service level indicator",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisPlacement": "auto",
+            "axisSoftMax": 0.05,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 0.8
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": null
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 12,
+        "x": 12,
+        "y": 3
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "builder",
+          "expr": "avg_over_time(grafana_slo_sli_5m{grafana_slo_uuid=\"qdofmxzsvh9xh9adq2baf\"}[$__interval:])",
+          "hide": false,
+          "instant": false,
+          "interval": "1m",
+          "legendFormat": "__auto",
+          "queryType": "linear",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "SLI",
+      "transparent": false,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "description": "SLO name with hyperlink to the SLO's dashboard",
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 6
+      },
+      "id": 11,
+      "options": {
+        "content": "#### [Service Availability](/d/cdlazm3mte70ge)\n\nSLI measures the number of successful requests to each service. The target is to have 99% of requests successful\n",
+        "mode": "markdown"
+      },
+      "transparent": false,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "description": "Service level indicator's value over the last 28d",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 0.8
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": null
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 4,
+        "y": 6
+      },
+      "id": 12,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "builder",
+          "expr": "# omit NaN by comparing to Infinity\nsum(sum_over_time((grafana_slo_success_rate_5m{grafana_slo_uuid=\"ozjcibubx7l7bqedfthmg\"} < 1e308)[28d:5m]))\n/ sum(sum_over_time((grafana_slo_total_rate_5m{grafana_slo_uuid=\"ozjcibubx7l7bqedfthmg\"} < 1e308)[28d:5m]))",
+          "hide": false,
+          "instant": false,
+          "interval": "1m",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "recorded_data"
+        }
+      ],
+      "title": "SLI (last 28d)",
+      "transparent": false,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "description": "The unspent error budget over the last {0.8 28d} Window",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 0
+              },
+              {
+                "color": "green",
+                "value": 0.2
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": null
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 8,
+        "y": 6
+      },
+      "id": 13,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "builder",
+          "exemplar": false,
+          "expr": "(\n\t\t# omit NaN by comparing to Infinity\n\t\tsum(sum_over_time((grafana_slo_success_rate_5m{grafana_slo_uuid=\"ozjcibubx7l7bqedfthmg\"} < 1e308)[28d:5m]))\n\t\t/ sum(sum_over_time((grafana_slo_total_rate_5m{grafana_slo_uuid=\"ozjcibubx7l7bqedfthmg\"} < 1e308)[28d:5m]))\n\t\t- on() grafana_slo_objective{grafana_slo_uuid=\"ozjcibubx7l7bqedfthmg\"}\n\t)\n\t/ on () (1 - grafana_slo_objective{grafana_slo_uuid=\"ozjcibubx7l7bqedfthmg\"})",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Error Budget Remaining",
+      "transparent": false,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "description": "Service level indicator",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisPlacement": "auto",
+            "axisSoftMax": 0.05,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 0.8
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": null
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 12,
+        "x": 12,
+        "y": 6
+      },
+      "id": 14,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "builder",
+          "expr": "sum(avg_over_time((grafana_slo_success_rate_5m{grafana_slo_uuid=\"ozjcibubx7l7bqedfthmg\"} < 1e308)[$__interval:]))\n/ sum(avg_over_time((grafana_slo_total_rate_5m{grafana_slo_uuid=\"ozjcibubx7l7bqedfthmg\"} < 1e308)[$__interval:]))",
+          "hide": false,
+          "instant": false,
+          "interval": "1m",
+          "legendFormat": "__auto",
+          "queryType": "linear",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "SLI",
+      "transparent": false,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "description": "SLO name with hyperlink to the SLO's dashboard",
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 9
+      },
+      "id": 15,
+      "options": {
+        "content": "#### [Service Latency SLO](/d/edlayp6cdx79cd)\n\nLatency SLO grouped by service. The SLI is a percentage of requests with latency under 1 second. If 100% SLI then all requests are under 1 second. Target is to maintain 95% requests under 1 second across all services\n",
+        "mode": "markdown"
+      },
+      "transparent": false,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "description": "Service level indicator's value over the last 28d",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 0.95
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": null
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 4,
+        "y": 9
+      },
+      "id": 16,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "builder",
+          "expr": "# omit NaN by comparing to Infinity\nsum(sum_over_time((grafana_slo_success_rate_5m{grafana_slo_uuid=\"v5da6fs9y5h94hq236d04\"} < 1e308)[28d:5m]))\n/ sum(sum_over_time((grafana_slo_total_rate_5m{grafana_slo_uuid=\"v5da6fs9y5h94hq236d04\"} < 1e308)[28d:5m]))",
+          "hide": false,
+          "instant": false,
+          "interval": "1m",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "recorded_data"
+        }
+      ],
+      "title": "SLI (last 28d)",
+      "transparent": false,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "description": "The unspent error budget over the last {0.95 28d} Window",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 0
+              },
+              {
+                "color": "green",
+                "value": 0.2
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": null
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 8,
+        "y": 9
+      },
+      "id": 17,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "builder",
+          "exemplar": false,
+          "expr": "(\n\t\t# omit NaN by comparing to Infinity\n\t\tsum(sum_over_time((grafana_slo_success_rate_5m{grafana_slo_uuid=\"v5da6fs9y5h94hq236d04\"} < 1e308)[28d:5m]))\n\t\t/ sum(sum_over_time((grafana_slo_total_rate_5m{grafana_slo_uuid=\"v5da6fs9y5h94hq236d04\"} < 1e308)[28d:5m]))\n\t\t- on() grafana_slo_objective{grafana_slo_uuid=\"v5da6fs9y5h94hq236d04\"}\n\t)\n\t/ on () (1 - grafana_slo_objective{grafana_slo_uuid=\"v5da6fs9y5h94hq236d04\"})",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Error Budget Remaining",
+      "transparent": false,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "description": "Service level indicator",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisPlacement": "auto",
+            "axisSoftMax": 0.05,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 0.95
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": null
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 18,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "editorMode": "builder",
+          "expr": "sum(avg_over_time((grafana_slo_success_rate_5m{grafana_slo_uuid=\"v5da6fs9y5h94hq236d04\"} < 1e308)[$__interval:]))\n/ sum(avg_over_time((grafana_slo_total_rate_5m{grafana_slo_uuid=\"v5da6fs9y5h94hq236d04\"} < 1e308)[$__interval:]))",
+          "hide": false,
+          "instant": false,
+          "interval": "1m",
+          "legendFormat": "__auto",
+          "queryType": "linear",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "SLI",
+      "transparent": false,
+      "type": "timeseries"
     }
   ],
-  "revision": 1,
   "schemaVersion": 34,
-  "style": "dark",
   "tags": [
     "slo"
   ],
+  "templating": {},
+  "timezone": "browser",
   "title": "SLO Overview",
   "uid": "slo-dashboard-overview",
-  "version": 11
+  "version": 14
 }

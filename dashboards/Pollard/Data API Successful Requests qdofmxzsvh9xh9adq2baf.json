@@ -621,6 +621,7 @@
         "alertInstanceLabelFilter": "{grafana_slo_uuid=\"qdofmxzsvh9xh9adq2baf\"}",
         "alertName": "",
         "dashboardAlerts": false,
+        "datasource": "grafanacloud-optimiz-prom",
         "folder": "",
         "groupBy": [
           "grafana_slo_severity"
@@ -1141,5 +1142,5 @@
   "timezone": "browser",
   "title": "Data API Successful Requests qdofmxzsvh9xh9adq2baf",
   "uid": "cdlavnka6i6m8e",
-  "version": 1358
+  "version": 1365
 }

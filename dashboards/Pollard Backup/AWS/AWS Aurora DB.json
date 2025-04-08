@@ -1,0 +1,2900 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 496,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "CPU usage",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 8,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_cpuutilization_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"cgs-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:cgs-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS Read"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_cpuutilization_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"cgs-ks-ilp-staging\", dimension_Role=\"WRITER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:cgs-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_cpuutilization_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"cgs-ks-ilp-staging\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:cgs-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_cpuutilization_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"ilottery-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:ilottery-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery Read"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_cpuutilization_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"ilottery-ks-ilp-staging\", dimension_Role=\"WRITER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:ilottery-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_cpuutilization_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"ilottery-ks-ilp-staging\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:ilottery-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_cpuutilization_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"pmv-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:pmv-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV Read"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_cpuutilization_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"pmv-ks-ilp-staging\", dimension_Role=\"WRITER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:pmv-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_cpuutilization_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"pmv-ks-ilp-staging\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:pmv-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_cpuutilization_average\", account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"ks-ilp-staging-vault\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:ks-ilp-staging-vault\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "KS Vault"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_cpuutilization_average\", account_id=\"637423397841\", dimension_DatabaseClass=\"db.m6g.large\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "EC2 db.m6g.large"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_cpuutilization_average\", account_id=\"637423397841\", dimension_DatabaseClass=\"db.t3.large\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "EC2 db.t3.large"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_cpuutilization_average\", account_id=\"637423397841\", dimension_DatabaseClass=\"db.t3.medium\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "EC2 db.t3.medium"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_cpuutilization_average\", account_id=\"637423397841\", dimension_EngineName=\"aurora-postgresql\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Aurora-postgresql"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_cpuutilization_average\", account_id=\"637423397841\", dimension_EngineName=\"postgres\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Postgres"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_cpuutilization_average\", account_id=\"637423397841\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Global"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "max",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-83314",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "aws_rds_cpuutilization_average{scrape_job=\"$env\", dimension_EngineName!=\"postgres\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "CPU Utilization",
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "concatenate",
+          "options": {
+            "frameNameLabel": "frame",
+            "frameNameMode": "field"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Free GB",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"cgs-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:cgs-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"cgs-ks-ilp-staging\", dimension_Role=\"WRITER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:cgs-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS Write"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"cgs-ks-ilp-staging\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:cgs-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"ilottery-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:ilottery-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"ilottery-ks-ilp-staging\", dimension_Role=\"WRITER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:ilottery-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"ilottery-ks-ilp-staging\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:ilottery-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"pmv-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:pmv-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"pmv-ks-ilp-staging\", dimension_Role=\"WRITER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:pmv-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"pmv-ks-ilp-staging\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:pmv-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"ks-ilp-staging-vault\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:ks-ilp-staging-vault\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "KS Vault"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DatabaseClass=\"db.m6g.large\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "EC2 db.m6g.large"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DatabaseClass=\"db.t3.large\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "EC2 db.t3.large"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DatabaseClass=\"db.t3.medium\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "EC2 db.t3.medium"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_EngineName=\"aurora-postgresql\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Aurora-postgresql"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_EngineName=\"postgres\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Postgres"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Global"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 13
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-83314",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "aws_rds_freeable_memory_average{scrape_job=\"$env\", dimension_EngineName!=\"postgres\"} / 1024000",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Available Free Memory in GB",
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "concatenate",
+          "options": {
+            "frameNameLabel": "frame",
+            "frameNameMode": "field"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Free GB",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DatabaseClass=\"db.m6g.large\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "EC2 db.m6g.large"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 13
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.6.0-83314",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "aws_rds_free_storage_space_average{scrape_job=\"$env\", dimension_DatabaseClass=\"db.m6g.large\"} / 1073741824",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Free Disk Usage (GB)",
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "concatenate",
+          "options": {
+            "frameNameLabel": "frame",
+            "frameNameMode": "field"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "IOPS",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_read_iops_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"cgs-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:cgs-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_read_iops_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"cgs-ks-ilp-staging\", dimension_Role=\"WRITER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:cgs-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_read_iops_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"cgs-ks-ilp-staging\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:cgs-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_read_iops_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"ilottery-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:ilottery-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_read_iops_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"ilottery-ks-ilp-staging\", dimension_Role=\"WRITER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:ilottery-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_read_iops_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"ilottery-ks-ilp-staging\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:ilottery-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_read_iops_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"pmv-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:pmv-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_read_iops_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"pmv-ks-ilp-staging\", dimension_Role=\"WRITER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:pmv-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_read_iops_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"pmv-ks-ilp-staging\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:pmv-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_read_iops_average\", account_id=\"637423397841\", dimension_DatabaseClass=\"db.m6g.large\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "EC2 db.m6g.large"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_read_iops_average\", account_id=\"637423397841\", dimension_DatabaseClass=\"db.t3.large\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "EC2 db.t3.large"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_read_iops_average\", account_id=\"637423397841\", dimension_DatabaseClass=\"db.t3.medium\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "EC2 db.t3.medium"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_read_iops_average\", account_id=\"637423397841\", dimension_EngineName=\"aurora-postgresql\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Aurora Postgresql"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_read_iops_average\", account_id=\"637423397841\", dimension_EngineName=\"postgres\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Postgres"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_read_iops_average\", account_id=\"637423397841\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Global"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 25
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "mean",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-81938",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "aws_rds_read_iops_average{scrape_job=\"$env\", dimension_EngineName!=\"postgres\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Read IOPS",
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "concatenate",
+          "options": {
+            "frameNameLabel": "frame",
+            "frameNameMode": "field"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "IOPS",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_write_iops_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"cgs-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:cgs-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_write_iops_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"cgs-ks-ilp-staging\", dimension_Role=\"WRITER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:cgs-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_write_iops_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"cgs-ks-ilp-staging\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:cgs-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_write_iops_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"ilottery-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:ilottery-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_write_iops_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"ilottery-ks-ilp-staging\", dimension_Role=\"WRITER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:ilottery-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_write_iops_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"ilottery-ks-ilp-staging\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:ilottery-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_write_iops_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"pmv-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:pmv-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_write_iops_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"pmv-ks-ilp-staging\", dimension_Role=\"WRITER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:pmv-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_write_iops_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"pmv-ks-ilp-staging\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:pmv-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_write_iops_average\", account_id=\"637423397841\", dimension_DatabaseClass=\"db.m6g.large\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "EC2 db.m6g.large"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_write_iops_average\", account_id=\"637423397841\", dimension_DatabaseClass=\"db.t3.large\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "EC2 db.t3.large"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_write_iops_average\", account_id=\"637423397841\", dimension_DatabaseClass=\"db.t3.medium\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "EC2 db.t3.medium"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_write_iops_average\", account_id=\"637423397841\", dimension_EngineName=\"aurora-postgresql\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Aurora Postgresql"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_write_iops_average\", account_id=\"637423397841\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Global"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 25
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "mean",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-81938",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "aws_rds_write_iops_average{scrape_job=\"$env\", dimension_EngineName!=\"postgres\"}",
+          "fullMetaSearch": false,
+          "hide": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B",
+          "useBackend": false
+        }
+      ],
+      "title": "Write IOPS",
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "concatenate",
+          "options": {
+            "frameNameLabel": "frame",
+            "frameNameMode": "field"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_database_connections_sum\", account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"cgs-ks-ilp-staging-reader\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:cgs-ks-ilp-staging-reader\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_database_connections_sum\", account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"cgs-ks-ilp-staging-writer\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:cgs-ks-ilp-staging-writer\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_database_connections_sum\", account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"ilottery-ks-ilp-staging-reader\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:ilottery-ks-ilp-staging-reader\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_database_connections_sum\", account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"ilottery-ks-ilp-staging-writer\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:ilottery-ks-ilp-staging-writer\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_database_connections_sum\", account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"ks-ilp-staging-vault\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:ks-ilp-staging-vault\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Vault"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_database_connections_sum\", account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"pmv-ks-ilp-staging-reader\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:pmv-ks-ilp-staging-reader\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_database_connections_sum\", account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"pmv-ks-ilp-staging-writer\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:pmv-ks-ilp-staging-writer\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV Writer"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 33
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "mean",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-81938",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "aws_rds_database_connections_sum{scrape_job=~\"kansas_staging|$env\", region=~\"us-east-1\", dimension_DBInstanceIdentifier=~\".+\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Database connections count",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Milliseconds",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"cgs-ks-ilp-staging-reader\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:cgs-ks-ilp-staging-reader\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"cgs-ks-ilp-staging-writer\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:cgs-ks-ilp-staging-writer\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"ilottery-ks-ilp-staging-reader\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:ilottery-ks-ilp-staging-reader\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"ilottery-ks-ilp-staging-writer\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:ilottery-ks-ilp-staging-writer\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"ks-ilp-staging-vault\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:ks-ilp-staging-vault\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Vault"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"pmv-ks-ilp-staging-reader\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:pmv-ks-ilp-staging-reader\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"pmv-ks-ilp-staging-writer\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:pmv-ks-ilp-staging-writer\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV Writer"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 8,
+        "y": 33
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "mean",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-81938",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "aws_rds_read_latency_average{scrape_job=~\"$env\", region=~\"us-east-1\", dimension_DBInstanceIdentifier=~\".+\"} * 1000",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Read Latency Average (ms)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Milliseconds",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"cgs-ks-ilp-staging-reader\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:cgs-ks-ilp-staging-reader\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"cgs-ks-ilp-staging-writer\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:cgs-ks-ilp-staging-writer\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"ilottery-ks-ilp-staging-reader\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:ilottery-ks-ilp-staging-reader\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"ilottery-ks-ilp-staging-writer\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:ilottery-ks-ilp-staging-writer\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"ks-ilp-staging-vault\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:ks-ilp-staging-vault\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Vault"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"pmv-ks-ilp-staging-reader\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:pmv-ks-ilp-staging-reader\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBInstanceIdentifier=\"pmv-ks-ilp-staging-writer\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:db:pmv-ks-ilp-staging-writer\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV Writer"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 33
+      },
+      "id": 13,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "mean",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-81938",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "aws_rds_write_latency_average{scrape_job=~\"$env\", region=~\"us-east-1\", dimension_DBInstanceIdentifier=~\".+\"} * 1000",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Write Latency Average (ms)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_aurora_replica_lag_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"cgs-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:cgs-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_aurora_replica_lag_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"ilottery-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:ilottery-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{__name__=\"aws_rds_aurora_replica_lag_average\", account_id=\"637423397841\", dimension_DBClusterIdentifier=\"pmv-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:pmv-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 42
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "mean",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-81938",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "aws_rds_aurora_replica_lag_average{scrape_job=\"$env\", dimension_Role=\"READER\"}",
+          "fullMetaSearch": false,
+          "hide": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B",
+          "useBackend": false
+        }
+      ],
+      "title": "Replication Lag (seconds)",
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "concatenate",
+          "options": {
+            "frameNameLabel": "frame",
+            "frameNameMode": "field"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "MBytes/sec",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"cgs-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:cgs-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"cgs-ks-ilp-staging\", dimension_Role=\"WRITER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:cgs-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"cgs-ks-ilp-staging\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:cgs-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"ilottery-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:ilottery-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"ilottery-ks-ilp-staging\", dimension_Role=\"WRITER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:ilottery-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"ilottery-ks-ilp-staging\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:ilottery-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"pmv-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:pmv-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"pmv-ks-ilp-staging\", dimension_Role=\"WRITER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:pmv-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"pmv-ks-ilp-staging\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:pmv-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DatabaseClass=\"db.m6g.large\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "EC2 db.m6g.large"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DatabaseClass=\"db.t3.large\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "EC2 db.t3.large"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DatabaseClass=\"db.t3.medium\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "EC2 db.t3.medium"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_EngineName=\"aurora-postgresql\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Aurora Postgresql"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Global"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 42
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "mean",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-81938",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "aws_rds_read_throughput_average{scrape_job=\"$env\", dimension_EngineName!=\"postgres\"} / 1048576",
+          "fullMetaSearch": false,
+          "hide": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B",
+          "useBackend": false
+        }
+      ],
+      "title": "Read Throughput (MB/s)",
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "concatenate",
+          "options": {
+            "frameNameLabel": "frame",
+            "frameNameMode": "field"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "MBytes/sec",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"cgs-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:cgs-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"cgs-ks-ilp-staging\", dimension_Role=\"WRITER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:cgs-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"cgs-ks-ilp-staging\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:cgs-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "CGS"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"ilottery-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:ilottery-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"ilottery-ks-ilp-staging\", dimension_Role=\"WRITER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:ilottery-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"ilottery-ks-ilp-staging\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:ilottery-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "iLottery"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"pmv-ks-ilp-staging\", dimension_Role=\"READER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:pmv-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV Reader"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"pmv-ks-ilp-staging\", dimension_Role=\"WRITER\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:pmv-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV Writer"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DBClusterIdentifier=\"pmv-ks-ilp-staging\", job=\"1591579-rds-metrics-kansas_staging\", name=\"arn:aws:rds:us-east-1:637423397841:cluster:pmv-ks-ilp-staging\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PMV"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DatabaseClass=\"db.m6g.large\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "EC2 db.m6g.large"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DatabaseClass=\"db.t3.large\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "EC2 db.t3.large"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_DatabaseClass=\"db.t3.medium\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "EC2 db.t3.medium"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", dimension_EngineName=\"aurora-postgresql\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Aurora Postgresql"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "{account_id=\"637423397841\", job=\"1591579-rds-metrics-kansas_staging\", name=\"global\", region=\"us-east-1\", scrape_job=\"kansas_staging\"}"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Global"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 42
+      },
+      "id": 14,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "mean",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-81938",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "aws_rds_write_throughput_average{scrape_job=\"$env\", dimension_EngineName!=\"postgres\"} / 1048576",
+          "fullMetaSearch": false,
+          "hide": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B",
+          "useBackend": false
+        }
+      ],
+      "title": "Write Throughput (MB/s)",
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "concatenate",
+          "options": {
+            "frameNameLabel": "frame",
+            "frameNameMode": "field"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 50
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-81938",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "aws_rds_deadlocks_average{scrape_job=\"$env\"}",
+          "fullMetaSearch": false,
+          "hide": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B",
+          "useBackend": false
+        }
+      ],
+      "title": "Deadlocks",
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "concatenate",
+          "options": {
+            "frameNameLabel": "frame",
+            "frameNameMode": "field"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "grafanacloud-prom"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 8,
+        "y": 50
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.0-81938",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "grafanacloud-prom"
+          },
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "aws_rds_buffer_cache_hit_ratio_average{scrape_job=\"$env\"}",
+          "fullMetaSearch": false,
+          "hide": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B",
+          "useBackend": false
+        }
+      ],
+      "title": "Buffer Cache Hit Ratio",
+      "transformations": [
+        {
+          "disabled": true,
+          "id": "concatenate",
+          "options": {
+            "frameNameLabel": "frame",
+            "frameNameMode": "field"
+          }
+        }
+      ],
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "kansas-prod",
+          "value": "kansas-prod"
+        },
+        "hide": 2,
+        "name": "env",
+        "query": "kansas-prod",
+        "skipUrlSync": true,
+        "type": "constant"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "utc",
+  "title": "AWS Aurora DB",
+  "uid": "becrg248ac8hsaprod",
+  "version": 1,
+  "weekStart": ""
+}
